@@ -1,0 +1,22 @@
+{
+  "name": "RADAttribution",
+  "version": "0.0.1",
+  "summary": "A short description of RADAttribution.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Andrii Durbalo": "ts-andrii.durbalo@rakuten.com"
+  },
+  "source": {
+    "git": "https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "RADAttribution/Source/**/*"
+}

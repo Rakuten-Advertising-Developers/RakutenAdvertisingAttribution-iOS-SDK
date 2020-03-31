@@ -1,0 +1,13 @@
+platform :ios, '10.0'
+
+use_frameworks!
+
+target 'RADAttribution_Example' do
+  
+  pod 'RADAttribution', :path => '../'
+
+  target 'RADAttribution_Tests' do
+    inherit! :search_paths
+  end
+  
+end

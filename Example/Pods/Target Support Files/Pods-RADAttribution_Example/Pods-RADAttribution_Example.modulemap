@@ -1,0 +1,6 @@
+framework module Pods_RADAttribution_Example {
+  umbrella header "Pods-RADAttribution_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
