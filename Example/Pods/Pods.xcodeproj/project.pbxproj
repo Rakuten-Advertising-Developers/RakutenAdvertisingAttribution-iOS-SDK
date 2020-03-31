@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		14D2BF4BE32B61A763306B975D971AEC /* Pods-RADAttribution_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 870DC233F6D0A64D33ECBED8839AB8A5 /* Pods-RADAttribution_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1918BDEAC53AAAC9C41FC6DEE5FDBFE2 /* TestableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A16CE18C447B579E0FC18B2658A32D /* TestableClass.swift */; };
 		30F388EAFBE53B2290C1972AAC581A77 /* Pods-RADAttribution_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E18456EE945862B37D950835D6881F03 /* Pods-RADAttribution_Tests-dummy.m */; };
-		5294AAB869F95BDF43D96028F0A5CBE8 /* RADAttribution-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B951BCDA693809A138E97682FAF88D /* RADAttribution-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7166336AC40A9329A54B63ED97CBE98A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		568E5BD5B690A0BB4487E55D9DE07EA5 /* RADAttribution-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B23717E5BF4B2AA88D518721D83103C /* RADAttribution-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A416622D42940AA2759F7B5EA9645552 /* Pods-RADAttribution_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2DFC8A3D99E4ADD24B44D0AAD60E4A6 /* Pods-RADAttribution_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A67AB99880D3C1B36202F8289ECBBE90 /* RADAttribution-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CC4A32C3110C4ADE581748A9415B6A /* RADAttribution-dummy.m */; };
 		B0B1C8FAFC00DF053F55B2AC5096748D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		BDDC977376F5865EDD88EC307D024FA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		E0CAAD0AD4538EBCE5F58DBD1BDADCDA /* RADAttribution-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F72FA19FF9F1F0F239D1C74A7FF0EF /* RADAttribution-dummy.m */; };
+		D5CF9243E6142730B8E842C544536070 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		D87C5617254109ED5F1BBB442A525664 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1CDA04B33A104BDCF11091B793A16 /* Protocols.swift */; };
+		FB51FF052303AC12B34D5DB44AD90FE4 /* RADAttribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB15E8E174239ABD2B72BAB049C4837 /* RADAttribution.swift */; };
 		FBA9D4135F69CC0B796B923186F2FB92 /* Pods-RADAttribution_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 161417D8C7E31740966447ECD4DF2153 /* Pods-RADAttribution_Example-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -37,55 +38,56 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03A7B8B21527A101F00FE91EB87A801F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		097C2C9537B11978261421217692B55F /* RADAttribution.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RADAttribution.modulemap; sourceTree = "<group>"; };
+		09D1CDA04B33A104BDCF11091B793A16 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = RADAttribution/Source/Protocols.swift; sourceTree = "<group>"; };
 		11386202E4552078DC5831173B1A2C19 /* Pods-RADAttribution_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RADAttribution_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		161417D8C7E31740966447ECD4DF2153 /* Pods-RADAttribution_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RADAttribution_Example-dummy.m"; sourceTree = "<group>"; };
-		16325AAEF093C1681A4C0B1E9918EA68 /* RADAttribution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RADAttribution.release.xcconfig; sourceTree = "<group>"; };
 		1BB412B23EC74A748B4BBDA026D1448E /* Pods-RADAttribution_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RADAttribution_Tests-Info.plist"; sourceTree = "<group>"; };
+		1D9AA9DACAB256BF5FC99FDE5B1AACBC /* RADAttribution.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RADAttribution.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2137820876D14EE3E0195CC6162CA450 /* RADAttribution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RADAttribution.framework; path = RADAttribution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B61F751E97E0D6F6B64430E99B07BA6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		22F9A6A10508B0AFB11F8A035B05DD4F /* RADAttribution-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RADAttribution-prefix.pch"; sourceTree = "<group>"; };
+		2BB15E8E174239ABD2B72BAB049C4837 /* RADAttribution.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RADAttribution.swift; path = RADAttribution/Source/RADAttribution.swift; sourceTree = "<group>"; };
 		31EB4199C007397C5FA2368559342CA8 /* Pods-RADAttribution_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RADAttribution_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		44A16CE18C447B579E0FC18B2658A32D /* TestableClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TestableClass.swift; path = RADAttribution/Source/TestableClass.swift; sourceTree = "<group>"; };
 		6CFB2BF3F9305CF084A7D0521AEA8502 /* Pods-RADAttribution_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RADAttribution_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		6DACB3AA6086E4991A7B1B2D2F76CB07 /* RADAttribution-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RADAttribution-Info.plist"; sourceTree = "<group>"; };
-		703B822F18DF3012BD982A5980A2EB00 /* RADAttribution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RADAttribution.debug.xcconfig; sourceTree = "<group>"; };
 		71AB112F00889D69D4150DCC554375DF /* Pods-RADAttribution_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RADAttribution_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		75328AB2DA91110E733150811B51E356 /* Pods-RADAttribution_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RADAttribution_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		79F72FA19FF9F1F0F239D1C74A7FF0EF /* RADAttribution-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RADAttribution-dummy.m"; sourceTree = "<group>"; };
-		7B792AE95A50F277C6569FAC4A93BF23 /* RADAttribution.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RADAttribution.modulemap; sourceTree = "<group>"; };
+		762718EBBB02A024834A86B5270D877F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		870DC233F6D0A64D33ECBED8839AB8A5 /* Pods-RADAttribution_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RADAttribution_Tests-umbrella.h"; sourceTree = "<group>"; };
-		87450EB3D4D6210A05CBCC6213784FB7 /* RADAttribution.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RADAttribution.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		91D9E9DE0B33797743A02A1083CB1EC3 /* RADAttribution-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RADAttribution-prefix.pch"; sourceTree = "<group>"; };
+		9A77E3BB82C55A529BADBFCF0006983F /* RADAttribution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RADAttribution.release.xcconfig; sourceTree = "<group>"; };
+		9B23717E5BF4B2AA88D518721D83103C /* RADAttribution-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RADAttribution-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E318A20DA2490A331E470DC3F497DAA /* Pods_RADAttribution_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RADAttribution_Example.framework; path = "Pods-RADAttribution_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B951BCDA693809A138E97682FAF88D /* RADAttribution-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RADAttribution-umbrella.h"; sourceTree = "<group>"; };
 		A435450603265570CD72690BF9E08D43 /* Pods-RADAttribution_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RADAttribution_Example.modulemap"; sourceTree = "<group>"; };
 		AFCF620346915BAF1584CC3922AA1510 /* Pods-RADAttribution_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RADAttribution_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B14EDF5B586B3E7BAA9A061CEB374F8B /* Pods-RADAttribution_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RADAttribution_Example.release.xcconfig"; sourceTree = "<group>"; };
+		B2CC4A32C3110C4ADE581748A9415B6A /* RADAttribution-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RADAttribution-dummy.m"; sourceTree = "<group>"; };
 		B37BD67C8367C773BF307A0C5BC47602 /* Pods_RADAttribution_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RADAttribution_Tests.framework; path = "Pods-RADAttribution_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C455783A895892FA89EC740AAC776CAB /* Pods-RADAttribution_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RADAttribution_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C504170A61CEE497C078B74AB823FEC5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C55D72A6F46AFCD959503378CC207BB9 /* RADAttribution-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RADAttribution-Info.plist"; sourceTree = "<group>"; };
 		DFE1F12BC484721CDAA9E9A4B6FA3C5D /* Pods-RADAttribution_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RADAttribution_Tests.modulemap"; sourceTree = "<group>"; };
 		E18456EE945862B37D950835D6881F03 /* Pods-RADAttribution_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RADAttribution_Tests-dummy.m"; sourceTree = "<group>"; };
 		F08175885991B189DDDF6097C58D1A79 /* Pods-RADAttribution_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RADAttribution_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2DFC8A3D99E4ADD24B44D0AAD60E4A6 /* Pods-RADAttribution_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RADAttribution_Example-umbrella.h"; sourceTree = "<group>"; };
+		FD63A352DE28A3EC25A4460C4034C74C /* RADAttribution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RADAttribution.debug.xcconfig; sourceTree = "<group>"; };
 		FE5B9E0BD12A20CD2EAD5859A80D1020 /* Pods-RADAttribution_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RADAttribution_Example-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		40860F4A4B05F43288295F4E0147014C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7166336AC40A9329A54B63ED97CBE98A /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		54BF61AA5E714D14129E32E2103F1A5A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BDDC977376F5865EDD88EC307D024FA1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60DFC79C20DBA361A851FD9B4DBD30D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5CF9243E6142730B8E842C544536070 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,40 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		55F4BFFED850337673BC4EDD9B686685 /* RADAttribution */ = {
-			isa = PBXGroup;
-			children = (
-				44A16CE18C447B579E0FC18B2658A32D /* TestableClass.swift */,
-				ABEF57C563595B8A719598928278265E /* Pod */,
-				6387D973C07DC95BD4C0D5D996446545 /* Support Files */,
-			);
-			name = RADAttribution;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		5967DF8DE36010B8468206C3B6F76258 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				55F4BFFED850337673BC4EDD9B686685 /* RADAttribution */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		6387D973C07DC95BD4C0D5D996446545 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7B792AE95A50F277C6569FAC4A93BF23 /* RADAttribution.modulemap */,
-				79F72FA19FF9F1F0F239D1C74A7FF0EF /* RADAttribution-dummy.m */,
-				6DACB3AA6086E4991A7B1B2D2F76CB07 /* RADAttribution-Info.plist */,
-				91D9E9DE0B33797743A02A1083CB1EC3 /* RADAttribution-prefix.pch */,
-				A1B951BCDA693809A138E97682FAF88D /* RADAttribution-umbrella.h */,
-				703B822F18DF3012BD982A5980A2EB00 /* RADAttribution.debug.xcconfig */,
-				16325AAEF093C1681A4C0B1E9918EA68 /* RADAttribution.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/RADAttribution";
-			sourceTree = "<group>";
-		};
 		6CBCBF63ED03DD50CE4E4595208409AA /* Pods-RADAttribution_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +118,14 @@
 			path = "Target Support Files/Pods-RADAttribution_Tests";
 			sourceTree = "<group>";
 		};
+		8CF53A8DB66A3E507245AE4620F262CB /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1D3026F91AA2BDED963BC7A27B2DA22 /* RADAttribution */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
 		A65EC1F275048360FE29384DC23C8D8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,16 +134,6 @@
 				2137820876D14EE3E0195CC6162CA450 /* RADAttribution.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		ABEF57C563595B8A719598928278265E /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				C504170A61CEE497C078B74AB823FEC5 /* LICENSE */,
-				87450EB3D4D6210A05CBCC6213784FB7 /* RADAttribution.podspec */,
-				2B61F751E97E0D6F6B64430E99B07BA6 /* README.md */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -199,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				5967DF8DE36010B8468206C3B6F76258 /* Development Pods */,
+				8CF53A8DB66A3E507245AE4620F262CB /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				A65EC1F275048360FE29384DC23C8D8D /* Products */,
 				D8B65899FED44735288B497F26C4C3D1 /* Targets Support Files */,
@@ -223,9 +189,54 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		E010AF1DD717E7599DE519FC8BF50CB0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				097C2C9537B11978261421217692B55F /* RADAttribution.modulemap */,
+				B2CC4A32C3110C4ADE581748A9415B6A /* RADAttribution-dummy.m */,
+				C55D72A6F46AFCD959503378CC207BB9 /* RADAttribution-Info.plist */,
+				22F9A6A10508B0AFB11F8A035B05DD4F /* RADAttribution-prefix.pch */,
+				9B23717E5BF4B2AA88D518721D83103C /* RADAttribution-umbrella.h */,
+				FD63A352DE28A3EC25A4460C4034C74C /* RADAttribution.debug.xcconfig */,
+				9A77E3BB82C55A529BADBFCF0006983F /* RADAttribution.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/RADAttribution";
+			sourceTree = "<group>";
+		};
+		E1D3026F91AA2BDED963BC7A27B2DA22 /* RADAttribution */ = {
+			isa = PBXGroup;
+			children = (
+				09D1CDA04B33A104BDCF11091B793A16 /* Protocols.swift */,
+				2BB15E8E174239ABD2B72BAB049C4837 /* RADAttribution.swift */,
+				FC80D1419C5C4A901ED929EDDFACB23D /* Pod */,
+				E010AF1DD717E7599DE519FC8BF50CB0 /* Support Files */,
+			);
+			name = RADAttribution;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		FC80D1419C5C4A901ED929EDDFACB23D /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				762718EBBB02A024834A86B5270D877F /* LICENSE */,
+				1D9AA9DACAB256BF5FC99FDE5B1AACBC /* RADAttribution.podspec */,
+				03A7B8B21527A101F00FE91EB87A801F /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		32D9217E1A327DD11829E6316E798468 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				568E5BD5B690A0BB4487E55D9DE07EA5 /* RADAttribution-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4DAB50D56E9AF62BFBF4ED427D112857 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,14 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A416622D42940AA2759F7B5EA9645552 /* Pods-RADAttribution_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7031F17815B6F0637523FB714EEB05CA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5294AAB869F95BDF43D96028F0A5CBE8 /* RADAttribution-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,12 +296,12 @@
 		};
 		F1A41E9A0D383A4FF4802BA2318006B6 /* RADAttribution */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 89DE1907F094AD5529B8E75144B8D618 /* Build configuration list for PBXNativeTarget "RADAttribution" */;
+			buildConfigurationList = E6636EB384DA1FB9C81EA6038F7E5F5F /* Build configuration list for PBXNativeTarget "RADAttribution" */;
 			buildPhases = (
-				7031F17815B6F0637523FB714EEB05CA /* Headers */,
-				4B91365F68AEC0F63E3D4B737B002F45 /* Sources */,
-				40860F4A4B05F43288295F4E0147014C /* Frameworks */,
-				213B9D97492122EAC26151D829884868 /* Resources */,
+				32D9217E1A327DD11829E6316E798468 /* Headers */,
+				AB5132E7901FB01AC1C39BB28E7F79A1 /* Sources */,
+				60DFC79C20DBA361A851FD9B4DBD30D5 /* Frameworks */,
+				F2A22097DFB9CF3F57BA4C566F4D5298 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -339,13 +342,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		213B9D97492122EAC26151D829884868 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		67944488B369A82954FE7FC788E61B85 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,15 +356,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2A22097DFB9CF3F57BA4C566F4D5298 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4B91365F68AEC0F63E3D4B737B002F45 /* Sources */ = {
+		AB5132E7901FB01AC1C39BB28E7F79A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0CAAD0AD4538EBCE5F58DBD1BDADCDA /* RADAttribution-dummy.m in Sources */,
-				1918BDEAC53AAAC9C41FC6DEE5FDBFE2 /* TestableClass.swift in Sources */,
+				D87C5617254109ED5F1BBB442A525664 /* Protocols.swift in Sources */,
+				A67AB99880D3C1B36202F8289ECBBE90 /* RADAttribution-dummy.m in Sources */,
+				FB51FF052303AC12B34D5DB44AD90FE4 /* RADAttribution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +552,43 @@
 			};
 			name = Release;
 		};
+		21B0CE202BA8A6E1980D249450EB8983 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A77E3BB82C55A529BADBFCF0006983F /* RADAttribution.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RADAttribution/RADAttribution-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RADAttribution/RADAttribution-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RADAttribution/RADAttribution.modulemap";
+				PRODUCT_MODULE_NAME = RADAttribution;
+				PRODUCT_NAME = RADAttribution;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		AA024DF6982FB79A29D41DF094D61D26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C455783A895892FA89EC740AAC776CAB /* Pods-RADAttribution_Example.debug.xcconfig */;
@@ -684,9 +725,9 @@
 			};
 			name = Debug;
 		};
-		D3E3F6208AD6AF8A1862D64F43634A86 /* Debug */ = {
+		BFD0E8CE881713AC519942ACBC485AE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 703B822F18DF3012BD982A5980A2EB00 /* RADAttribution.debug.xcconfig */;
+			baseConfigurationReference = FD63A352DE28A3EC25A4460C4034C74C /* RADAttribution.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -720,43 +761,6 @@
 			};
 			name = Debug;
 		};
-		F1829E1E4C082BD3B9FE2098ECAFF9FD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16325AAEF093C1681A4C0B1E9918EA68 /* RADAttribution.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/RADAttribution/RADAttribution-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RADAttribution/RADAttribution-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/RADAttribution/RADAttribution.modulemap";
-				PRODUCT_MODULE_NAME = RADAttribution;
-				PRODUCT_NAME = RADAttribution;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -787,11 +791,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		89DE1907F094AD5529B8E75144B8D618 /* Build configuration list for PBXNativeTarget "RADAttribution" */ = {
+		E6636EB384DA1FB9C81EA6038F7E5F5F /* Build configuration list for PBXNativeTarget "RADAttribution" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3E3F6208AD6AF8A1862D64F43634A86 /* Debug */,
-				F1829E1E4C082BD3B9FE2098ECAFF9FD /* Release */,
+				BFD0E8CE881713AC519942ACBC485AE2 /* Debug */,
+				21B0CE202BA8A6E1980D249450EB8983 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
