@@ -9,7 +9,7 @@ import Foundation
 
 enum ResolveLinkEndpoint {
     
-    case resolveLink
+    case resolveLink(request: ResolveLinkRequest)
 }
 
 extension ResolveLinkEndpoint: Endpointable {
@@ -17,7 +17,7 @@ extension ResolveLinkEndpoint: Endpointable {
     var path: String {
         
         switch self {
-        case .resolveLink:
+        case .resolveLink(_):
             return "resolve-link"
         }
     }
@@ -25,8 +25,16 @@ extension ResolveLinkEndpoint: Endpointable {
     var pathParameters: Parameters? {
         
         switch self {
-        case .resolveLink:
-            return nil
+        case .resolveLink(let request):
+            return request.asDictionary
+        }
+    }
+    
+    var body: Data? {
+        
+        switch self {
+        case .resolveLink(let request):
+            return request.asData
         }
     }
     

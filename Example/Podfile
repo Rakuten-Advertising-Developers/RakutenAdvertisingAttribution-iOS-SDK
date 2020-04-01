@@ -5,6 +5,7 @@ use_frameworks!
 target 'RADAttribution_Example' do
   
   pod 'RADAttribution', :path => '../'
+  pod 'Sourcery'
 
   target 'RADAttribution_Tests' do
     inherit! :search_paths

@@ -19,7 +19,8 @@ extension LinkResolver: LinkResolvable {
         
         print("Link: \(link) has been resolved")
         
-        let endpoint = ResolveLinkEndpoint.resolveLink
+        let request = DataBuilder.buildResolveLinkRequest(with: link, firstSession: false)
+        let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
         let dataProvider = RemoteDataProvider(with: endpoint)
         
         dataProvider.receiveRemoteObject { (result: DataTransformerResult<ResolveLinkResponse> ) in

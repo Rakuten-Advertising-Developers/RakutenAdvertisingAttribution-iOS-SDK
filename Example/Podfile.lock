@@ -1,8 +1,14 @@
 PODS:
   - RADAttribution (0.0.1)
+  - Sourcery (0.17.0)
 
 DEPENDENCIES:
   - RADAttribution (from `../`)
+  - Sourcery
+
+SPEC REPOS:
+  trunk:
+    - Sourcery
 
 EXTERNAL SOURCES:
   RADAttribution:
@@ -10,7 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   RADAttribution: 42b0e00d326ed0ecc5745c768ccdde9990afc7be
+  Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
 
-PODFILE CHECKSUM: 9b6386c7cf5e0571dd3cc3b4b610489a126efc4c
+PODFILE CHECKSUM: da6c3b8c917ae35cf41db72bbea3f7e0c2774ec7
 
 COCOAPODS: 1.9.1

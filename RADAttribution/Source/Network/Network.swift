@@ -12,6 +12,7 @@ protocol Endpointable {
     var baseURL: URL { get }
     var path: String { get }
     var pathParameters: Parameters? { get }
+    var body: Data? { get }
     var httpMethod: HTTPMethod { get }
     var urlRequest: URLRequest { get }
 }
@@ -36,6 +37,10 @@ extension Endpointable {
             }
             components.queryItems = queryItems
             request.url = components.url
+        }
+        
+        if let body = body {
+            request.httpBody = body
         }
         
         request.httpMethod = httpMethod.rawValue
