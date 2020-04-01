@@ -11,3 +11,8 @@ public protocol EventTrackable {
     
     func sendEvent(name: String)
 }
+
+public protocol LinkResolvable {
+    
+    func resolve(link: String)
+}

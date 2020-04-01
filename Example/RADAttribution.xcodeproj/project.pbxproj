@@ -334,7 +334,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "eval \"$(rbenv init -)\"\npod update --verbose\n";
+			shellScript = "eval \"$(rbenv init -)\"\npod install --verbose\n";
 		};
 		5D2EB9DB2EAED0D22E47A610 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
