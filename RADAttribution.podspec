@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Rakuten Advertising' }
+  s.author           = 'Rakuten Advertising'
   s.source           = { :git => 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 

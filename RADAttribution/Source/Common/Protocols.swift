@@ -7,7 +7,14 @@
 
 import Foundation
 
+public protocol EventTrackableDelegate {
+    
+    
+}
+
 public protocol EventTrackable {
+    
+    
     
     func sendEvent(name: String)
 }

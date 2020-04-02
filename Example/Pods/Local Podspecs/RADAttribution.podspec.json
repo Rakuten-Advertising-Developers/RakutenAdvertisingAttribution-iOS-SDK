@@ -8,9 +8,7 @@
     "type": "MIT",
     "file": "LICENSE"
   },
-  "authors": {
-    "Andrii Durbalo": "ts-andrii.durbalo@rakuten.com"
-  },
+  "authors": "Rakuten Advertising",
   "source": {
     "git": "https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK.git",
     "tag": "0.0.1"
