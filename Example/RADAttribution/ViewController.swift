@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     @IBAction func resolveLinkUniversalButtonPressed(_ sender: Any) {
         
         let appToAppUniversalLink = "https://rakutenready.app.link/ui3knDTZH0?%243p=a_rakuten_marketing%24s2s=true"
-        
         RADAttribution.shared.linkResolver.resolve(link: appToAppUniversalLink)
     }
     

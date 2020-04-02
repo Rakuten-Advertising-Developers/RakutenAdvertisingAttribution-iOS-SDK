@@ -1,6 +1,6 @@
 //
 //  SendEventReponse.swift
-//  Pods
+//  RADAttribution
 //
 //  Created by Durbalo, Andrii on 02.04.2020.
 //

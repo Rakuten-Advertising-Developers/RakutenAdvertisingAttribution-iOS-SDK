@@ -9,15 +9,12 @@ import Foundation
 
 class EventTracker {
     
-    private var dataProvider: RemoteDataProvider?
 }
 
 extension EventTracker: EventTrackable {
     
-    
     public func sendEvent(name: String) {
         
-        print("Event: \(name) has been sent")
         /*
         let sessionId = self.sessionId
         let userData = getUserData()
@@ -38,12 +35,10 @@ extension EventTracker: EventTrackable {
  */
          
         // let request = DataBuilder.buildResolveLinkRequest(with: link, firstSession: false)
+        
         let endpoint = SendEventEndpoint.sendEvent
+        RemoteDataProvider(with: endpoint).receiveRemoteObject { (result: DataTransformerResult<SendEventResponse> ) in
         
-        dataProvider = RemoteDataProvider(with: endpoint)
-        
-        dataProvider?.receiveRemoteObject { (result: DataTransformerResult<SendEventResponse> ) in
-            
             switch result {
             case .success(let response):
                 print("Success")

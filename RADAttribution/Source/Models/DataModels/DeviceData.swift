@@ -1,6 +1,6 @@
 //
 //  DeviceData.swift
-//  Pods
+//  RADAttribution
 //
 //  Created by Durbalo, Andrii on 01.04.2020.
 //

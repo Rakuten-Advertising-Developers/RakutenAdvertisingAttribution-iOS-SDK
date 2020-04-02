@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "echo $PWD&#10;&#10;exit 1&#10;&#10;cd ${SRCROOT}/PrebuildScripts/&#10;./PreBuldConfigure.sh &quot;${SRCROOT}&quot;&#10;">
+               scriptText = "rm -rf ${BUILT_PRODUCTS_DIR}&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

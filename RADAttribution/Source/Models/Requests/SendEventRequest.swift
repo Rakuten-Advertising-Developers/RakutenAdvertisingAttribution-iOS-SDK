@@ -1,6 +1,6 @@
 //
 //  SendEventRequest.swift
-//  Pods
+//  RADAttribution
 //
 //  Created by Durbalo, Andrii on 02.04.2020.
 //
@@ -26,5 +26,4 @@ struct SendEventRequest: Codable {
         case customData = "custom_data"
         case eventData = "event_data"
     }
-    
 }

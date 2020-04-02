@@ -14,14 +14,11 @@ class LinkResolver {
 extension LinkResolver: LinkResolvable {
     
     func resolve(link: String) {
-        
-        print("Link: \(link) has been resolved")
-        
+       
         let request = DataBuilder.buildResolveLinkRequest(with: link, firstSession: false)
         let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
-        let dataProvider = RemoteDataProvider(with: endpoint)
-       
-        dataProvider.receiveRemoteObject { (result: DataTransformerResult<ResolveLinkResponse> ) in
+        
+        RemoteDataProvider(with: endpoint).receiveRemoteObject { (result: DataTransformerResult<ResolveLinkResponse> ) in
             
             switch result {
             case .success(let response):
