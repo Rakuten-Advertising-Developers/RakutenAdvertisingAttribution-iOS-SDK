@@ -9,8 +9,6 @@ import Foundation
 
 class LinkResolver {
     
-    
-    
 }
 
 extension LinkResolver: LinkResolvable {
@@ -22,7 +20,7 @@ extension LinkResolver: LinkResolvable {
         let request = DataBuilder.buildResolveLinkRequest(with: link, firstSession: false)
         let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
         let dataProvider = RemoteDataProvider(with: endpoint)
-        
+       
         dataProvider.receiveRemoteObject { (result: DataTransformerResult<ResolveLinkResponse> ) in
             
             switch result {

@@ -23,6 +23,10 @@ class RemoteDataProvider {
         self.endpoint = endpoint
     }
     
+    deinit {
+        print("RemoteDataProvider deinit called")
+    }
+    
     //MARK: Private
     
     @discardableResult

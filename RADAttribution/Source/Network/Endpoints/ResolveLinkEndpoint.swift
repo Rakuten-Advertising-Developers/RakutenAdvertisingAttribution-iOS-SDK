@@ -25,8 +25,8 @@ extension ResolveLinkEndpoint: Endpointable {
     var pathParameters: Parameters? {
         
         switch self {
-        case .resolveLink(let request):
-            return request.asDictionary
+        case .resolveLink(_):
+            return nil
         }
     }
     

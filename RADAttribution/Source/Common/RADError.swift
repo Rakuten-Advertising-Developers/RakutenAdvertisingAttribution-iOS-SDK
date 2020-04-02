@@ -10,4 +10,5 @@ import Foundation
 enum RADError: Error {
     
     case unableFetchData
+    case backend(description: String)
 }

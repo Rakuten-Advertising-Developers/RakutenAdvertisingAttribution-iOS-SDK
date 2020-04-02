@@ -42,7 +42,7 @@ extension Endpointable {
         if let body = body {
             request.httpBody = body
         }
-        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = httpMethod.rawValue
         return request
     }
