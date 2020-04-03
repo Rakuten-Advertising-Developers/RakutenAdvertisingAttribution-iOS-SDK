@@ -22,7 +22,7 @@ extension SendEventEndpoint: Endpointable {
         }
     }
     
-    var pathParameters: Parameters? {
+    var queryParameters: Parameters? {
         
         switch self {
         case .sendEvent(_):

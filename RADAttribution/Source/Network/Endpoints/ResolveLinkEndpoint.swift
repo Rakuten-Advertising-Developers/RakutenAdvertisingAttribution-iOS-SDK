@@ -22,7 +22,7 @@ extension ResolveLinkEndpoint: Endpointable {
         }
     }
     
-    var pathParameters: Parameters? {
+    var queryParameters: Parameters? {
         
         switch self {
         case .resolveLink(_):

@@ -7,11 +7,13 @@
 
 import Foundation
 
+typealias Parameters = [String: Any]
+
 protocol Endpointable {
     
     var baseURL: URL { get }
     var path: String { get }
-    var pathParameters: Parameters? { get }
+    var queryParameters: Parameters? { get }
     var body: Data? { get }
     var httpMethod: HTTPMethod { get }
     var urlRequest: URLRequest { get }
@@ -30,7 +32,7 @@ extension Endpointable {
         let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         
-        if let parameters = pathParameters, var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+        if let parameters = queryParameters, var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             
             let queryItems = parameters.compactMap {
                 return URLQueryItem(name: $0, value: "\($1)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
@@ -52,8 +54,6 @@ protocol Cancellable {
     
     func cancel()
 }
-
-typealias Parameters = [String: Any]
 
 enum HTTPMethod: String {
     
