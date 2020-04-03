@@ -10,19 +10,6 @@ import UIKit
 import RADAttribution
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
-        RADAttribution.shared.linkResolver.delegate = self
-        RADAttribution.shared.eventSender.delegate = self
-  }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func showAlert(title: String?, message: String?) {
         

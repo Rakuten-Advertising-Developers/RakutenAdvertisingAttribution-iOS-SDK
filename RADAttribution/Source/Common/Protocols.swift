@@ -31,6 +31,9 @@ public protocol LinkResolvable: class {
     
     var delegate: LinkResolvableDelegate? { set get }
     func resolve(link: String)
+    
+    @discardableResult
+    func resolve(userActivity: NSUserActivity) -> Bool
 }
 
 public enum Event {
@@ -43,6 +46,7 @@ public enum Event {
 protocol LinkResolverDataHandler: class {
     
     func didResolveLink(sessionId: String)
+    var isFirstAppLaunch: Bool { get }
 }
 
 protocol SenderDataProvider: class {

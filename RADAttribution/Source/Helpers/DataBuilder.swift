@@ -29,12 +29,4 @@ class DataBuilder {
         let deviceData = DeviceData(os: os, osVersion: osVersion, model: model, screenWidth: screenWidth, screenHeight: screenHeight, deviceId: deviceId, isSimulator: isSimulator)
         return deviceData
     }
-    
-    static func buildResolveLinkRequest(with link: String, firstSession: Bool) -> ResolveLinkRequest {
-
-        let userData = defaultUserData()
-        let deviceData = defaultDeviceData()
-        let resolveLinkRequest = ResolveLinkRequest(firstSession: firstSession, universalLinkUrl: link, userData: userData, deviceData: deviceData)
-        return resolveLinkRequest
-    }
 }

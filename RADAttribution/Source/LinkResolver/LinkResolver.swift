@@ -16,8 +16,13 @@ class LinkResolver {
 extension LinkResolver: LinkResolvable {
     
     func resolve(link: String) {
-       
-        let request = DataBuilder.buildResolveLinkRequest(with: link, firstSession: false)
+        
+        let firstLaunch = dataHandler?.isFirstAppLaunch ?? false
+        let request = ResolveLinkRequest(firstSession: firstLaunch,
+                                         universalLinkUrl: link,
+                                         userData: DataBuilder.defaultUserData(),
+                                         deviceData: DataBuilder.defaultDeviceData())
+        
         let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
         
         RemoteDataProvider(with: endpoint).receiveRemoteObject { [weak self] (result: DataTransformerResult<ResolveLinkResponse> ) in
@@ -30,5 +35,23 @@ extension LinkResolver: LinkResolvable {
                 self?.delegate?.didFailedResolve(link: link, with: error)
             }
         }
+    }
+    
+    @discardableResult
+    func resolve(userActivity: NSUserActivity) -> Bool {
+        
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let incomingURL = userActivity.webpageURL,
+            let components = URLComponents(url: incomingURL, resolvingAgainstBaseURL: true) else {
+                return false
+        }
+        let path = components.path
+        let params = components.queryItems ?? []
+        
+        print("path = \(path)")
+        print("params = \(params)")
+        
+        resolve(link: incomingURL.absoluteString)
+        return true
     }
 }
