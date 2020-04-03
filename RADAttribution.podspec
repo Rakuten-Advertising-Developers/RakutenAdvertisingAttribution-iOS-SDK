@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'RADAttribution'
   s.version          = '0.0.1'
-  s.summary          = 'A short description of RADAttribution.'
+  s.summary          = 'Rakuten Advertising Attribution iOS SDK'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,19 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Rakuten Advertising Attribution iOS SDK
                        DESC
 
   s.homepage         = 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'Rakuten Advertising'
-  s.source           = { :git => 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  #s.source           = { :git => 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK.git', :branch => 'develop' }
+  
+  s.platform = :ios, "10.0"
   s.ios.deployment_target = '10.0'
+  s.swift_version = '5.0'
 
   s.source_files = 'RADAttribution/Source/**/*'
-  
-  # s.resource_bundles = {
-  #   'RADAttribution' => ['RADAttribution/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
