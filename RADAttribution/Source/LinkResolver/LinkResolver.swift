@@ -9,6 +9,8 @@ import Foundation
 
 class LinkResolver {
     
+    weak var delegate: LinkResolvableDelegate?
+    weak var dataHandler: LinkResolverDataHandler?
 }
 
 extension LinkResolver: LinkResolvable {
@@ -18,13 +20,14 @@ extension LinkResolver: LinkResolvable {
         let request = DataBuilder.buildResolveLinkRequest(with: link, firstSession: false)
         let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
         
-        RemoteDataProvider(with: endpoint).receiveRemoteObject { (result: DataTransformerResult<ResolveLinkResponse> ) in
+        RemoteDataProvider(with: endpoint).receiveRemoteObject { [weak self] (result: DataTransformerResult<ResolveLinkResponse> ) in
             
             switch result {
             case .success(let response):
-                print("Success")
+                self?.dataHandler?.didResolveLink(sessionId: response.sessionId)
+                self?.delegate?.didResolve(link: link, resultMessage: "sessionId: \(response.sessionId)\ndeviceFingerprintId: \(response.deviceFingerprintId)")
             case .failure(let error):
-                print("error: \(error)")
+                self?.delegate?.didFailedResolve(link: link, with: error)
             }
         }
     }

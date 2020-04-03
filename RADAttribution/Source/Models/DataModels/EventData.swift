@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EventData: Codable {
+public struct EventData: Codable {
     
     let transactionId: String?
     let currency: String?
@@ -32,7 +32,7 @@ struct EventData: Codable {
     }
 
 // sourcery:inline:auto:EventData.AutoInit
-    internal init(transactionId: String?, currency: String?, revenue: Double?, shipping: Double?, tax: Double?, coupon: String?, affiliation: String?, description: String?, searchQuery: String?) { // swiftlint:disable:this line_length
+    public init(transactionId: String?, currency: String?, revenue: Double?, shipping: Double?, tax: Double?, coupon: String?, affiliation: String?, description: String?, searchQuery: String?) { // swiftlint:disable:this line_length
         self.transactionId = transactionId
         self.currency = currency
         self.revenue = revenue

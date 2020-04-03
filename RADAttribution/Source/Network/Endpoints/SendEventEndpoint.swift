@@ -9,7 +9,7 @@ import Foundation
 
 enum SendEventEndpoint {
     
-    case sendEvent
+    case sendEvent(request: SendEventRequest)
 }
 
 extension SendEventEndpoint: Endpointable {
@@ -17,7 +17,7 @@ extension SendEventEndpoint: Endpointable {
     var path: String {
         
         switch self {
-        case .sendEvent:
+        case .sendEvent(_):
             return "send-event"
         }
     }
@@ -25,7 +25,7 @@ extension SendEventEndpoint: Endpointable {
     var pathParameters: Parameters? {
         
         switch self {
-        case .sendEvent:
+        case .sendEvent(_):
             return nil
         }
     }
@@ -33,8 +33,8 @@ extension SendEventEndpoint: Endpointable {
     var body: Data? {
         
         switch self {
-        case .sendEvent:
-            return nil
+        case .sendEvent(let request):
+            return request.asData
         }
     }
     

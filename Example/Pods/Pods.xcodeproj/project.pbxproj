@@ -19,40 +19,40 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		02C96B2C6F2821F08D236536D4F7C957 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29596826BE09AD03F161839FB13E7D4 /* Network.swift */; };
-		0E7F016D03A6020EB419D4752A4573E1 /* ResolveLinkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A26AF1CCA42C23F3AE3DE3E85B15D /* ResolveLinkRequest.swift */; };
+		0705D37B026C885AA4093DBB01407CC3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00038D14729CDB38FB3A5D2EB041EA /* Environment.swift */; };
 		14D2BF4BE32B61A763306B975D971AEC /* Pods-RADAttribution_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 870DC233F6D0A64D33ECBED8839AB8A5 /* Pods-RADAttribution_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18FDA5734CD2AF708806194423CF2B94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		1B2CEE69DB43081F4669AE87C75B9E53 /* SendEventEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A74437D061704F34D21F4D1ACBDD0 /* SendEventEndpoint.swift */; };
-		1DC7245A087FE40BCB5387E3BF295141 /* RADAttribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D05788EA140D414EDB1F3091E4AC3 /* RADAttribution.swift */; };
-		3099EF9E18E6C5911B64E4E0B9FC4AB7 /* SourceryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD4F14A4C4BB7FCBB6368350C96D934 /* SourceryProtocols.swift */; };
+		261A50102DB1ADC7F5B3666DD691FEC0 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB757BE92A8AB37F09F871E67DD261 /* Protocols.swift */; };
+		2CED9AA32F6171C5F9764F0C6119D1BE /* RADAttribution-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C3C3B3BAF95F438843780D5923B65 /* RADAttribution-dummy.m */; };
+		3090BDABEF832A61521F56E331F1C7D1 /* RADError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFA519787674B156E2678E7F87E14F /* RADError.swift */; };
 		30F388EAFBE53B2290C1972AAC581A77 /* Pods-RADAttribution_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E18456EE945862B37D950835D6881F03 /* Pods-RADAttribution_Tests-dummy.m */; };
+		3316438A7D9CAAAB9B9874C18E385913 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756562C6C0DA32F9C23406E9CF300078 /* URL+Extensions.swift */; };
+		360334F15E628E2BEE905E40FAF34268 /* SendEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB87A29E732EB4A7B6CE7739331BF54 /* SendEventRequest.swift */; };
 		38C2FE0035F90ADBB0B82D41E4084CA6 /* Pods-RADAttribution_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2DFC8A3D99E4ADD24B44D0AAD60E4A6 /* Pods-RADAttribution_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3DC293D30A131E81FE371CB44571EDD3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53373D86CCA7CE3CE5F94846AF2499D3 /* Environment.swift */; };
-		43E923F0B367F4F37D6CE0B176F7ED64 /* DeviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCA4B0E738FEF889E811AF02569D74 /* DeviceData.swift */; };
-		49A80D30286C51B8D062AFB64ADE8B28 /* LinkResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30CED1DC1DF08F9B380429B978096AE /* LinkResolver.swift */; };
-		4C807CDB911720D73C353F0A709EE7D6 /* EventTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6500F35D11B8939D0F5E5005E1718CA9 /* EventTracker.swift */; };
+		3C422B098FB2410374978D5921BA94B1 /* EventSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62441C6E7B0F4AD5321DACF466647641 /* EventSender.swift */; };
+		45F39F3B9C683E656A43BC786C49E05F /* ResolveLinkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B95129C7D712AC7EFB4C006763AC3B /* ResolveLinkEndpoint.swift */; };
+		4FAE5FAAA98799C3038D0D4563065F9D /* ResolveLinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE043D301A39EB8A5430D89892E3CBE9 /* ResolveLinkResponse.swift */; };
+		50106BEEF0586DC0DC0E20CC16FB336E /* LinkResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF86C79952618BF953786467DB8CCA19 /* LinkResolver.swift */; };
 		549F32BFFF8E5F93CBEE5C82CCF3DB89 /* Pods-RADAttribution_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 161417D8C7E31740966447ECD4DF2153 /* Pods-RADAttribution_Example-dummy.m */; };
-		566ED874FB521AC3F776E8307EADC0A8 /* JSONDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9A6EFEB8BA0FFC279A03F0B076DEB /* JSONDataTransformer.swift */; };
-		5714FAD9BFEBB874B4CD4E41321156E7 /* RADError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AD80330D0A66D8F609B923137FFCB /* RADError.swift */; };
-		59838472E5DD813744DF22302BD63C5E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D075C929BBBEE296574A5A0DB2A9B37 /* UserData.swift */; };
-		5CC29F8D900ADC46C16AE7A1A07BE1DA /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896B6CFEA4A598391B5B46FFCEC99DC /* URL+Extensions.swift */; };
-		61EA5906F3D5380E8020084CFF9D4F3B /* RADAttribution-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9532DF1DC05BD08CC6C93B469581B7EE /* RADAttribution-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		68D288A6EB36D526D308A63EBA08D929 /* RADAttribution-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD2BC139137D56C7476580D9F003 /* RADAttribution-dummy.m */; };
-		820025B2E18B70691135833ABCE22BB2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7704B1F542B86044D25527C4DC0D05 /* Protocols.swift */; };
+		606E6F3CA84F15EBDEBCDB433B75B504 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2E8282018E43B4EDDDB725B74F148 /* Encodable+Extensions.swift */; };
+		61EA5906F3D5380E8020084CFF9D4F3B /* RADAttribution-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D651CAEFE3DAFCC2108EE529D066926 /* RADAttribution-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E0EAF612C1EDA4AD4A583D73B3655C1 /* AutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962CEF530D4BB4E7E62426F121BB2F2 /* AutoEquatable.generated.swift */; };
+		73AA6145A6DEBAD6D2A23C7CF9EC45AE /* ResolveLinkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6849118C769C2B752BFE4E9DF9882813 /* ResolveLinkRequest.swift */; };
 		8D9FD238C6AD5513C23BB56BF69383C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		9A7F3C78EF6ADA705AE38B458F962726 /* SendEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C5804D275889E6C00AC51D14B359DE /* SendEventRequest.swift */; };
-		B08BEB59FF5C65534A399292802AEB85 /* DataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877DD5E86B922F896DAB3F19972EC28A /* DataBuilder.swift */; };
+		95E963A8DDBB8C5DCD9EE4015701AC9C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5BAD865F26ADC4BED634E22AC51934 /* Network.swift */; };
+		9E15F6E383AE908D1F32A020FA195630 /* SendEventReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64659D65D66DB4C257DA7D64455C233 /* SendEventReponse.swift */; };
+		AC8370F187292C429EFB9A9C81A7E35A /* DataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E4D91209B8D8B445C5E1CD42CEB7 /* DataBuilder.swift */; };
 		B0B1C8FAFC00DF053F55B2AC5096748D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		BF94A7198573B3EF82287EE37016F0B4 /* SendEventReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19D100EDBDCFA3EC43F5A7F00CA0FC3 /* SendEventReponse.swift */; };
-		C27F200A7DDC350629DBF56EA3F04228 /* AutoHashable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0077924384BC8AC4B1DF6246E62C664 /* AutoHashable.generated.swift */; };
-		C581968C48A5FE14D92A4F6668069DA2 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D1F79A8101B49CBC83744E0F0365C /* EventData.swift */; };
-		C9FA683D9B52F945DC75BD18CE72987E /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276F9CA874360CE0F37CBE7DC58FEF7 /* Encodable+Extensions.swift */; };
-		D034291775F1DCB0D3F3D9E1BA4679AA /* RemoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1C38A26D555ED0E09778D40A31D3B /* RemoteDataProvider.swift */; };
-		D967A149D1E285DBBC23BCB3BBC7DA98 /* AutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA9EB896CC0A314D52B2881DB92153 /* AutoEquatable.generated.swift */; };
-		E315559D0AFE2265B463E16C2DE21E63 /* ResolveLinkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332061F36830F14058A34ED9A2003CB /* ResolveLinkEndpoint.swift */; };
-		E88CE28486B3CA0FE73DC9765F27306C /* AutoLenses.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C0418411DF90A58122F3A3E25DE54 /* AutoLenses.generated.swift */; };
-		FDB40353C3386FDB415C5E5D7A3F79D1 /* ResolveLinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB811D4651ACD95E4B2F0AA65662D0 /* ResolveLinkResponse.swift */; };
+		B315FE58549D89530B92D1E53246FBBB /* AutoHashable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3553327D04AA1B8419A1C16E2060A8 /* AutoHashable.generated.swift */; };
+		B87F1AABACE8D6BF77E5B304F39D425F /* RemoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6345B5C838245AD321FB2731851131 /* RemoteDataProvider.swift */; };
+		C736C6479AEA3CD25114B0453786C51E /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8902818D8173093B48DE9AE163DD32 /* EventData.swift */; };
+		C897DC996EA8012C2101E76D0F972F94 /* AutoLenses.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8E6810C1368E2B550C0A552BF17027 /* AutoLenses.generated.swift */; };
+		D4A7E7A661AFB6F7FBC5DC0F0D321C7D /* SourceryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD1432D4AD316BB25FE8D8ABE30A760 /* SourceryProtocols.swift */; };
+		D675266CEC02D1CEE9EA6F7682D51EC6 /* DeviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78289AB3AA2E8648AF58F27713A0B58E /* DeviceData.swift */; };
+		D7C43082479557574D28B2890888688E /* SendEventEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79060293473195BA8D95AC46797637 /* SendEventEndpoint.swift */; };
+		E48AEAE2DE8177EA149975BBC9A9FAB9 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFB4874BBAC30F33C167E0DB607E033 /* UserData.swift */; };
+		EC22D0E2A9063AFD296D73B78BE80BA2 /* RADAttribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1279E9E39099A339F2A4D1054CBB2 /* RADAttribution.swift */; };
+		F35010952F439E32374B8E4877967ED2 /* JSONDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62DF2583F203C329E60CD49F367163 /* JSONDataTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,65 +80,65 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		004D05788EA140D414EDB1F3091E4AC3 /* RADAttribution.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RADAttribution.swift; sourceTree = "<group>"; };
 		024F2B91CF961B6AA95EB608CAD778D2 /* Sourcery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sourcery.debug.xcconfig; sourceTree = "<group>"; };
-		0C13A80C12BC49642B8BD748AA4327D0 /* RADAttribution.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RADAttribution.modulemap; sourceTree = "<group>"; };
+		0BDB757BE92A8AB37F09F871E67DD261 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		0D8E6810C1368E2B550C0A552BF17027 /* AutoLenses.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoLenses.generated.swift; sourceTree = "<group>"; };
 		11386202E4552078DC5831173B1A2C19 /* Pods-RADAttribution_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RADAttribution_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		118BEB621497DADC2B9F8FACBDAD6F30 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		13B95129C7D712AC7EFB4C006763AC3B /* ResolveLinkEndpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResolveLinkEndpoint.swift; sourceTree = "<group>"; };
 		161417D8C7E31740966447ECD4DF2153 /* Pods-RADAttribution_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RADAttribution_Example-dummy.m"; sourceTree = "<group>"; };
 		178C1DFE51F447B6BB4795C81998BAD6 /* Sourcery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sourcery.release.xcconfig; sourceTree = "<group>"; };
-		1896B6CFEA4A598391B5B46FFCEC99DC /* URL+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		19DFA519787674B156E2678E7F87E14F /* RADError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RADError.swift; sourceTree = "<group>"; };
 		1BB412B23EC74A748B4BBDA026D1448E /* Pods-RADAttribution_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RADAttribution_Tests-Info.plist"; sourceTree = "<group>"; };
-		1FFCA4B0E738FEF889E811AF02569D74 /* DeviceData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceData.swift; sourceTree = "<group>"; };
 		2137820876D14EE3E0195CC6162CA450 /* RADAttribution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RADAttribution.framework; path = RADAttribution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		311D1F79A8101B49CBC83744E0F0365C /* EventData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
+		2A9C3C3B3BAF95F438843780D5923B65 /* RADAttribution-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RADAttribution-dummy.m"; sourceTree = "<group>"; };
+		2AFB4874BBAC30F33C167E0DB607E033 /* UserData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		2F8902818D8173093B48DE9AE163DD32 /* EventData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
 		31EB4199C007397C5FA2368559342CA8 /* Pods-RADAttribution_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RADAttribution_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3B23C24F2905A32147F5BB64DF10FE42 /* RADAttribution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RADAttribution.debug.xcconfig; sourceTree = "<group>"; };
-		3CD4F14A4C4BB7FCBB6368350C96D934 /* SourceryProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SourceryProtocols.swift; sourceTree = "<group>"; };
-		4276F9CA874360CE0F37CBE7DC58FEF7 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
-		4AF8BD553AF4676DA99564E17FB9922B /* RADAttribution.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RADAttribution.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		53373D86CCA7CE3CE5F94846AF2499D3 /* Environment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		56E1C38A26D555ED0E09778D40A31D3B /* RemoteDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemoteDataProvider.swift; sourceTree = "<group>"; };
-		6332061F36830F14058A34ED9A2003CB /* ResolveLinkEndpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResolveLinkEndpoint.swift; sourceTree = "<group>"; };
-		6500F35D11B8939D0F5E5005E1718CA9 /* EventTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventTracker.swift; sourceTree = "<group>"; };
-		680DCD2BC139137D56C7476580D9F003 /* RADAttribution-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RADAttribution-dummy.m"; sourceTree = "<group>"; };
-		6B6AD80330D0A66D8F609B923137FFCB /* RADError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RADError.swift; sourceTree = "<group>"; };
+		35F1279E9E39099A339F2A4D1054CBB2 /* RADAttribution.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RADAttribution.swift; sourceTree = "<group>"; };
+		48DCD3A8C9601D6CF2532550195657BC /* RADAttribution-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RADAttribution-prefix.pch"; sourceTree = "<group>"; };
+		4942E4D91209B8D8B445C5E1CD42CEB7 /* DataBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataBuilder.swift; sourceTree = "<group>"; };
+		4C00038D14729CDB38FB3A5D2EB041EA /* Environment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		4F5C186EFD02F1EA8739B566A1DC9F23 /* RADAttribution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RADAttribution.debug.xcconfig; sourceTree = "<group>"; };
+		567693067355E0066A525C138B143089 /* RADAttribution.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RADAttribution.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		62441C6E7B0F4AD5321DACF466647641 /* EventSender.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventSender.swift; sourceTree = "<group>"; };
+		6849118C769C2B752BFE4E9DF9882813 /* ResolveLinkRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResolveLinkRequest.swift; sourceTree = "<group>"; };
 		6CFB2BF3F9305CF084A7D0521AEA8502 /* Pods-RADAttribution_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RADAttribution_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		6E6345B5C838245AD321FB2731851131 /* RemoteDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemoteDataProvider.swift; sourceTree = "<group>"; };
 		71AB112F00889D69D4150DCC554375DF /* Pods-RADAttribution_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RADAttribution_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		75328AB2DA91110E733150811B51E356 /* Pods-RADAttribution_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RADAttribution_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		76C5804D275889E6C00AC51D14B359DE /* SendEventRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendEventRequest.swift; sourceTree = "<group>"; };
+		756562C6C0DA32F9C23406E9CF300078 /* URL+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		78289AB3AA2E8648AF58F27713A0B58E /* DeviceData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceData.swift; sourceTree = "<group>"; };
+		7BB87A29E732EB4A7B6CE7739331BF54 /* SendEventRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendEventRequest.swift; sourceTree = "<group>"; };
+		7BD1432D4AD316BB25FE8D8ABE30A760 /* SourceryProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SourceryProtocols.swift; sourceTree = "<group>"; };
+		866364F4988BB7AC8E97D2BC71F4898B /* RADAttribution-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RADAttribution-Info.plist"; sourceTree = "<group>"; };
 		870DC233F6D0A64D33ECBED8839AB8A5 /* Pods-RADAttribution_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RADAttribution_Tests-umbrella.h"; sourceTree = "<group>"; };
-		877DD5E86B922F896DAB3F19972EC28A /* DataBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataBuilder.swift; sourceTree = "<group>"; };
-		8CB9A6EFEB8BA0FFC279A03F0B076DEB /* JSONDataTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONDataTransformer.swift; sourceTree = "<group>"; };
-		8F7704B1F542B86044D25527C4DC0D05 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		9532DF1DC05BD08CC6C93B469581B7EE /* RADAttribution-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RADAttribution-umbrella.h"; sourceTree = "<group>"; };
-		96EB811D4651ACD95E4B2F0AA65662D0 /* ResolveLinkResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResolveLinkResponse.swift; sourceTree = "<group>"; };
-		9A3807C7511B0C79DB12621A92BCC0AE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		9D075C929BBBEE296574A5A0DB2A9B37 /* UserData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		8A62DF2583F203C329E60CD49F367163 /* JSONDataTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONDataTransformer.swift; sourceTree = "<group>"; };
+		8EAB83EB052B501CE5A07D0E48CF9EBE /* RADAttribution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RADAttribution.release.xcconfig; sourceTree = "<group>"; };
+		94873B63F0FF4F0CF3E3DC2514CC9C0E /* RADAttribution.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RADAttribution.modulemap; sourceTree = "<group>"; };
+		94F2E8282018E43B4EDDDB725B74F148 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
+		9B3553327D04AA1B8419A1C16E2060A8 /* AutoHashable.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoHashable.generated.swift; sourceTree = "<group>"; };
+		9C5BAD865F26ADC4BED634E22AC51934 /* Network.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		9D651CAEFE3DAFCC2108EE529D066926 /* RADAttribution-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RADAttribution-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E318A20DA2490A331E470DC3F497DAA /* Pods_RADAttribution_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RADAttribution_Example.framework; path = "Pods-RADAttribution_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A435450603265570CD72690BF9E08D43 /* Pods-RADAttribution_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RADAttribution_Example.modulemap"; sourceTree = "<group>"; };
-		ACBA16CF42B74247C25CC6EC73A121A4 /* RADAttribution-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RADAttribution-prefix.pch"; sourceTree = "<group>"; };
+		AF86C79952618BF953786467DB8CCA19 /* LinkResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LinkResolver.swift; sourceTree = "<group>"; };
 		AFCF620346915BAF1584CC3922AA1510 /* Pods-RADAttribution_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RADAttribution_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B14EDF5B586B3E7BAA9A061CEB374F8B /* Pods-RADAttribution_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RADAttribution_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B30CED1DC1DF08F9B380429B978096AE /* LinkResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LinkResolver.swift; sourceTree = "<group>"; };
 		B37BD67C8367C773BF307A0C5BC47602 /* Pods_RADAttribution_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RADAttribution_Tests.framework; path = "Pods-RADAttribution_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1CE5C1903A6065B71345B3C235C0BDA /* RADAttribution-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RADAttribution-Info.plist"; sourceTree = "<group>"; };
 		C455783A895892FA89EC740AAC776CAB /* Pods-RADAttribution_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RADAttribution_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C63C0418411DF90A58122F3A3E25DE54 /* AutoLenses.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoLenses.generated.swift; sourceTree = "<group>"; };
-		D19D100EDBDCFA3EC43F5A7F00CA0FC3 /* SendEventReponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendEventReponse.swift; sourceTree = "<group>"; };
-		D9CA9EB896CC0A314D52B2881DB92153 /* AutoEquatable.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoEquatable.generated.swift; sourceTree = "<group>"; };
+		C962CEF530D4BB4E7E62426F121BB2F2 /* AutoEquatable.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoEquatable.generated.swift; sourceTree = "<group>"; };
+		CE79060293473195BA8D95AC46797637 /* SendEventEndpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendEventEndpoint.swift; sourceTree = "<group>"; };
 		DFE1F12BC484721CDAA9E9A4B6FA3C5D /* Pods-RADAttribution_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RADAttribution_Tests.modulemap"; sourceTree = "<group>"; };
-		E0077924384BC8AC4B1DF6246E62C664 /* AutoHashable.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoHashable.generated.swift; sourceTree = "<group>"; };
 		E18456EE945862B37D950835D6881F03 /* Pods-RADAttribution_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RADAttribution_Tests-dummy.m"; sourceTree = "<group>"; };
-		E29596826BE09AD03F161839FB13E7D4 /* Network.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		E520A1D5F05243C317EC7F4747681A49 /* RADAttribution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RADAttribution.release.xcconfig; sourceTree = "<group>"; };
 		F08175885991B189DDDF6097C58D1A79 /* Pods-RADAttribution_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RADAttribution_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2DFC8A3D99E4ADD24B44D0AAD60E4A6 /* Pods-RADAttribution_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RADAttribution_Example-umbrella.h"; sourceTree = "<group>"; };
-		F72A26AF1CCA42C23F3AE3DE3E85B15D /* ResolveLinkRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResolveLinkRequest.swift; sourceTree = "<group>"; };
-		F86A74437D061704F34D21F4D1ACBDD0 /* SendEventEndpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendEventEndpoint.swift; sourceTree = "<group>"; };
+		F378D06395EC4E49BCB8DFE9BACAA9ED /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		F64659D65D66DB4C257DA7D64455C233 /* SendEventReponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SendEventReponse.swift; sourceTree = "<group>"; };
+		FE043D301A39EB8A5430D89892E3CBE9 /* ResolveLinkResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResolveLinkResponse.swift; sourceTree = "<group>"; };
 		FE5B9E0BD12A20CD2EAD5859A80D1020 /* Pods-RADAttribution_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RADAttribution_Example-Info.plist"; sourceTree = "<group>"; };
-		FFF653BDF02733A2C1342E4649032472 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,26 +169,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1325F049E1235EBF7C29D5C0C3D471A7 /* Models */ = {
+		0CF2136F8B3F35D85950166DF954A554 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				3CD4F14A4C4BB7FCBB6368350C96D934 /* SourceryProtocols.swift */,
-				7AC7CFE84D72212F82BE9E252D54182E /* DataModels */,
-				706501A6C296702C53D9DCC87EF363DC /* Requests */,
-				9325ECBAEA50721813EA91E52D8C8FA1 /* Responses */,
-				964757846621108CA02112D3FAEB56A1 /* SourceryGenerated */,
+				8A62DF2583F203C329E60CD49F367163 /* JSONDataTransformer.swift */,
+				9C5BAD865F26ADC4BED634E22AC51934 /* Network.swift */,
+				6E6345B5C838245AD321FB2731851131 /* RemoteDataProvider.swift */,
+				3C9325D7E2087134875B45B62346F46B /* Endpoints */,
 			);
-			name = Models;
-			path = RADAttribution/Source/Models;
+			name = Network;
+			path = RADAttribution/Source/Network;
 			sourceTree = "<group>";
 		};
-		1776FACFE32C820E9E81D1D5282DF6D5 /* LinkResolver */ = {
+		139C3B2CC87369BE20EFE21A6948CA97 /* EventSender */ = {
 			isa = PBXGroup;
 			children = (
-				B30CED1DC1DF08F9B380429B978096AE /* LinkResolver.swift */,
+				62441C6E7B0F4AD5321DACF466647641 /* EventSender.swift */,
 			);
-			name = LinkResolver;
-			path = RADAttribution/Source/LinkResolver;
+			name = EventSender;
+			path = RADAttribution/Source/EventSender;
+			sourceTree = "<group>";
+		};
+		2006F7922461F01EF49FFE7D97E4114A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				94F2E8282018E43B4EDDDB725B74F148 /* Encodable+Extensions.swift */,
+				756562C6C0DA32F9C23406E9CF300078 /* URL+Extensions.swift */,
+			);
+			name = Extensions;
+			path = RADAttribution/Source/Extensions;
 			sourceTree = "<group>";
 		};
 		261D0ACDFEB54814406933F83886144B /* Sourcery */ = {
@@ -200,36 +209,23 @@
 			path = Sourcery;
 			sourceTree = "<group>";
 		};
-		3A527A81A07678FB2FC4A11507A67872 /* Pod */ = {
+		302DF13FB2707E89D97D10EC58757E66 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				FFF653BDF02733A2C1342E4649032472 /* LICENSE */,
-				4AF8BD553AF4676DA99564E17FB9922B /* RADAttribution.podspec */,
-				9A3807C7511B0C79DB12621A92BCC0AE /* README.md */,
+				4C00038D14729CDB38FB3A5D2EB041EA /* Environment.swift */,
+				0BDB757BE92A8AB37F09F871E67DD261 /* Protocols.swift */,
+				35F1279E9E39099A339F2A4D1054CBB2 /* RADAttribution.swift */,
+				19DFA519787674B156E2678E7F87E14F /* RADError.swift */,
 			);
-			name = Pod;
+			name = Common;
+			path = RADAttribution/Source/Common;
 			sourceTree = "<group>";
 		};
-		41ABC11D832513B72C7E46539EEB2F84 /* Support Files */ = {
+		3C9325D7E2087134875B45B62346F46B /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
-				0C13A80C12BC49642B8BD748AA4327D0 /* RADAttribution.modulemap */,
-				680DCD2BC139137D56C7476580D9F003 /* RADAttribution-dummy.m */,
-				C1CE5C1903A6065B71345B3C235C0BDA /* RADAttribution-Info.plist */,
-				ACBA16CF42B74247C25CC6EC73A121A4 /* RADAttribution-prefix.pch */,
-				9532DF1DC05BD08CC6C93B469581B7EE /* RADAttribution-umbrella.h */,
-				3B23C24F2905A32147F5BB64DF10FE42 /* RADAttribution.debug.xcconfig */,
-				E520A1D5F05243C317EC7F4747681A49 /* RADAttribution.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/RADAttribution";
-			sourceTree = "<group>";
-		};
-		4C5A6467DF377F1F7CA5F0A044F0BF52 /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				6332061F36830F14058A34ED9A2003CB /* ResolveLinkEndpoint.swift */,
-				F86A74437D061704F34D21F4D1ACBDD0 /* SendEventEndpoint.swift */,
+				13B95129C7D712AC7EFB4C006763AC3B /* ResolveLinkEndpoint.swift */,
+				CE79060293473195BA8D95AC46797637 /* SendEventEndpoint.swift */,
 			);
 			name = Endpoints;
 			path = Endpoints;
@@ -243,16 +239,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		5E2DAAC582E2535B1CE4017021E46188 /* Network */ = {
+		626E50910556FD08069E436968C8CABA /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				8CB9A6EFEB8BA0FFC279A03F0B076DEB /* JSONDataTransformer.swift */,
-				E29596826BE09AD03F161839FB13E7D4 /* Network.swift */,
-				56E1C38A26D555ED0E09778D40A31D3B /* RemoteDataProvider.swift */,
-				4C5A6467DF377F1F7CA5F0A044F0BF52 /* Endpoints */,
+				F378D06395EC4E49BCB8DFE9BACAA9ED /* LICENSE */,
+				567693067355E0066A525C138B143089 /* RADAttribution.podspec */,
+				118BEB621497DADC2B9F8FACBDAD6F30 /* README.md */,
 			);
-			name = Network;
-			path = RADAttribution/Source/Network;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		6CBCBF63ED03DD50CE4E4595208409AA /* Pods-RADAttribution_Tests */ = {
@@ -271,67 +265,38 @@
 			path = "Target Support Files/Pods-RADAttribution_Tests";
 			sourceTree = "<group>";
 		};
-		706501A6C296702C53D9DCC87EF363DC /* Requests */ = {
+		84BC688697B1E252496F15126BF12502 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F72A26AF1CCA42C23F3AE3DE3E85B15D /* ResolveLinkRequest.swift */,
-				76C5804D275889E6C00AC51D14B359DE /* SendEventRequest.swift */,
+				7BD1432D4AD316BB25FE8D8ABE30A760 /* SourceryProtocols.swift */,
+				869A39C698E9FB7D578D04B9852F0C60 /* DataModels */,
+				8DAC39C4046D43509E5229E5CB9C6963 /* Requests */,
+				BB6A6006F48D537D190BAC9A62C49377 /* Responses */,
+				D18CDCC9A317F740F3354F8D824CAD5B /* SourceryGenerated */,
 			);
-			name = Requests;
-			path = Requests;
+			name = Models;
+			path = RADAttribution/Source/Models;
 			sourceTree = "<group>";
 		};
-		73A35A49C21B94AC6749C001709FDB11 /* Common */ = {
+		869A39C698E9FB7D578D04B9852F0C60 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				53373D86CCA7CE3CE5F94846AF2499D3 /* Environment.swift */,
-				8F7704B1F542B86044D25527C4DC0D05 /* Protocols.swift */,
-				004D05788EA140D414EDB1F3091E4AC3 /* RADAttribution.swift */,
-				6B6AD80330D0A66D8F609B923137FFCB /* RADError.swift */,
-			);
-			name = Common;
-			path = RADAttribution/Source/Common;
-			sourceTree = "<group>";
-		};
-		77885E5F55923D45A0874DBFA1BD22A7 /* EventTracker */ = {
-			isa = PBXGroup;
-			children = (
-				6500F35D11B8939D0F5E5005E1718CA9 /* EventTracker.swift */,
-			);
-			name = EventTracker;
-			path = RADAttribution/Source/EventTracker;
-			sourceTree = "<group>";
-		};
-		7AC7CFE84D72212F82BE9E252D54182E /* DataModels */ = {
-			isa = PBXGroup;
-			children = (
-				1FFCA4B0E738FEF889E811AF02569D74 /* DeviceData.swift */,
-				311D1F79A8101B49CBC83744E0F0365C /* EventData.swift */,
-				9D075C929BBBEE296574A5A0DB2A9B37 /* UserData.swift */,
+				78289AB3AA2E8648AF58F27713A0B58E /* DeviceData.swift */,
+				2F8902818D8173093B48DE9AE163DD32 /* EventData.swift */,
+				2AFB4874BBAC30F33C167E0DB607E033 /* UserData.swift */,
 			);
 			name = DataModels;
 			path = DataModels;
 			sourceTree = "<group>";
 		};
-		9325ECBAEA50721813EA91E52D8C8FA1 /* Responses */ = {
+		8DAC39C4046D43509E5229E5CB9C6963 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				96EB811D4651ACD95E4B2F0AA65662D0 /* ResolveLinkResponse.swift */,
-				D19D100EDBDCFA3EC43F5A7F00CA0FC3 /* SendEventReponse.swift */,
+				6849118C769C2B752BFE4E9DF9882813 /* ResolveLinkRequest.swift */,
+				7BB87A29E732EB4A7B6CE7739331BF54 /* SendEventRequest.swift */,
 			);
-			name = Responses;
-			path = Responses;
-			sourceTree = "<group>";
-		};
-		964757846621108CA02112D3FAEB56A1 /* SourceryGenerated */ = {
-			isa = PBXGroup;
-			children = (
-				D9CA9EB896CC0A314D52B2881DB92153 /* AutoEquatable.generated.swift */,
-				E0077924384BC8AC4B1DF6246E62C664 /* AutoHashable.generated.swift */,
-				C63C0418411DF90A58122F3A3E25DE54 /* AutoLenses.generated.swift */,
-			);
-			name = SourceryGenerated;
-			path = SourceryGenerated;
+			name = Requests;
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		A65EC1F275048360FE29384DC23C8D8D /* Products */ = {
@@ -344,23 +309,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B7C7486BDE2032F3BA1417C67EC856D1 /* Helpers */ = {
+		B041617479630EC2479CF040387A49B9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				877DD5E86B922F896DAB3F19972EC28A /* DataBuilder.swift */,
+				4942E4D91209B8D8B445C5E1CD42CEB7 /* DataBuilder.swift */,
 			);
 			name = Helpers;
 			path = RADAttribution/Source/Helpers;
 			sourceTree = "<group>";
 		};
-		BAFA65EA92310643BF9565902776B6A4 /* Extensions */ = {
+		BB6A6006F48D537D190BAC9A62C49377 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				4276F9CA874360CE0F37CBE7DC58FEF7 /* Encodable+Extensions.swift */,
-				1896B6CFEA4A598391B5B46FFCEC99DC /* URL+Extensions.swift */,
+				FE043D301A39EB8A5430D89892E3CBE9 /* ResolveLinkResponse.swift */,
+				F64659D65D66DB4C257DA7D64455C233 /* SendEventReponse.swift */,
 			);
-			name = Extensions;
-			path = RADAttribution/Source/Extensions;
+			name = Responses;
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -369,6 +334,23 @@
 				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		C1674B6BEDCB74ED3BF1FEB0CCB0AACB /* RADAttribution */ = {
+			isa = PBXGroup;
+			children = (
+				302DF13FB2707E89D97D10EC58757E66 /* Common */,
+				139C3B2CC87369BE20EFE21A6948CA97 /* EventSender */,
+				2006F7922461F01EF49FFE7D97E4114A /* Extensions */,
+				B041617479630EC2479CF040387A49B9 /* Helpers */,
+				FFAD16B316FE43E8B0C28BDBD5CB0FE2 /* LinkResolver */,
+				84BC688697B1E252496F15126BF12502 /* Models */,
+				0CF2136F8B3F35D85950166DF954A554 /* Network */,
+				626E50910556FD08069E436968C8CABA /* Pod */,
+				F22AE4C36876C97D4D1ED149DAE2F1F1 /* Support Files */,
+			);
+			name = RADAttribution;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		CA147CD7B746AE72BE5B6D618B3670DC /* Pods-RADAttribution_Example */ = {
@@ -388,23 +370,6 @@
 			path = "Target Support Files/Pods-RADAttribution_Example";
 			sourceTree = "<group>";
 		};
-		CB830FB5EFF62C5A638E68C7DBBBFFED /* RADAttribution */ = {
-			isa = PBXGroup;
-			children = (
-				73A35A49C21B94AC6749C001709FDB11 /* Common */,
-				77885E5F55923D45A0874DBFA1BD22A7 /* EventTracker */,
-				BAFA65EA92310643BF9565902776B6A4 /* Extensions */,
-				B7C7486BDE2032F3BA1417C67EC856D1 /* Helpers */,
-				1776FACFE32C820E9E81D1D5282DF6D5 /* LinkResolver */,
-				1325F049E1235EBF7C29D5C0C3D471A7 /* Models */,
-				5E2DAAC582E2535B1CE4017021E46188 /* Network */,
-				3A527A81A07678FB2FC4A11507A67872 /* Pod */,
-				41ABC11D832513B72C7E46539EEB2F84 /* Support Files */,
-			);
-			name = RADAttribution;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +380,17 @@
 				A65EC1F275048360FE29384DC23C8D8D /* Products */,
 				D8B65899FED44735288B497F26C4C3D1 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		D18CDCC9A317F740F3354F8D824CAD5B /* SourceryGenerated */ = {
+			isa = PBXGroup;
+			children = (
+				C962CEF530D4BB4E7E62426F121BB2F2 /* AutoEquatable.generated.swift */,
+				9B3553327D04AA1B8419A1C16E2060A8 /* AutoHashable.generated.swift */,
+				0D8E6810C1368E2B550C0A552BF17027 /* AutoLenses.generated.swift */,
+			);
+			name = SourceryGenerated;
+			path = SourceryGenerated;
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -444,12 +420,36 @@
 			path = "../Target Support Files/Sourcery";
 			sourceTree = "<group>";
 		};
+		F22AE4C36876C97D4D1ED149DAE2F1F1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				94873B63F0FF4F0CF3E3DC2514CC9C0E /* RADAttribution.modulemap */,
+				2A9C3C3B3BAF95F438843780D5923B65 /* RADAttribution-dummy.m */,
+				866364F4988BB7AC8E97D2BC71F4898B /* RADAttribution-Info.plist */,
+				48DCD3A8C9601D6CF2532550195657BC /* RADAttribution-prefix.pch */,
+				9D651CAEFE3DAFCC2108EE529D066926 /* RADAttribution-umbrella.h */,
+				4F5C186EFD02F1EA8739B566A1DC9F23 /* RADAttribution.debug.xcconfig */,
+				8EAB83EB052B501CE5A07D0E48CF9EBE /* RADAttribution.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/RADAttribution";
+			sourceTree = "<group>";
+		};
 		F9B172FAF2E840204833932300C77186 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CB830FB5EFF62C5A638E68C7DBBBFFED /* RADAttribution */,
+				C1674B6BEDCB74ED3BF1FEB0CCB0AACB /* RADAttribution */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		FFAD16B316FE43E8B0C28BDBD5CB0FE2 /* LinkResolver */ = {
+			isa = PBXGroup;
+			children = (
+				AF86C79952618BF953786467DB8CCA19 /* LinkResolver.swift */,
+			);
+			name = LinkResolver;
+			path = RADAttribution/Source/LinkResolver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,7 +526,7 @@
 			buildConfigurationList = 962D702D24736173AB8B747C30E723B7 /* Build configuration list for PBXNativeTarget "RADAttribution" */;
 			buildPhases = (
 				58F6877A7146492730D1DF1E271120F8 /* Headers */,
-				2B02303AE3F7B3F89166404CBF7AFFE7 /* Sources */,
+				F95C1D74418232CA83DCCD11551745DE /* Sources */,
 				B24D830F23986B48AFD2FFD573530D37 /* Frameworks */,
 				B1AA0EDD96A1EFA5861F25DFB13377D7 /* Resources */,
 			);
@@ -594,39 +594,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2B02303AE3F7B3F89166404CBF7AFFE7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D967A149D1E285DBBC23BCB3BBC7DA98 /* AutoEquatable.generated.swift in Sources */,
-				C27F200A7DDC350629DBF56EA3F04228 /* AutoHashable.generated.swift in Sources */,
-				E88CE28486B3CA0FE73DC9765F27306C /* AutoLenses.generated.swift in Sources */,
-				B08BEB59FF5C65534A399292802AEB85 /* DataBuilder.swift in Sources */,
-				43E923F0B367F4F37D6CE0B176F7ED64 /* DeviceData.swift in Sources */,
-				C9FA683D9B52F945DC75BD18CE72987E /* Encodable+Extensions.swift in Sources */,
-				3DC293D30A131E81FE371CB44571EDD3 /* Environment.swift in Sources */,
-				C581968C48A5FE14D92A4F6668069DA2 /* EventData.swift in Sources */,
-				4C807CDB911720D73C353F0A709EE7D6 /* EventTracker.swift in Sources */,
-				566ED874FB521AC3F776E8307EADC0A8 /* JSONDataTransformer.swift in Sources */,
-				49A80D30286C51B8D062AFB64ADE8B28 /* LinkResolver.swift in Sources */,
-				02C96B2C6F2821F08D236536D4F7C957 /* Network.swift in Sources */,
-				820025B2E18B70691135833ABCE22BB2 /* Protocols.swift in Sources */,
-				68D288A6EB36D526D308A63EBA08D929 /* RADAttribution-dummy.m in Sources */,
-				1DC7245A087FE40BCB5387E3BF295141 /* RADAttribution.swift in Sources */,
-				5714FAD9BFEBB874B4CD4E41321156E7 /* RADError.swift in Sources */,
-				D034291775F1DCB0D3F3D9E1BA4679AA /* RemoteDataProvider.swift in Sources */,
-				E315559D0AFE2265B463E16C2DE21E63 /* ResolveLinkEndpoint.swift in Sources */,
-				0E7F016D03A6020EB419D4752A4573E1 /* ResolveLinkRequest.swift in Sources */,
-				FDB40353C3386FDB415C5E5D7A3F79D1 /* ResolveLinkResponse.swift in Sources */,
-				1B2CEE69DB43081F4669AE87C75B9E53 /* SendEventEndpoint.swift in Sources */,
-				BF94A7198573B3EF82287EE37016F0B4 /* SendEventReponse.swift in Sources */,
-				9A7F3C78EF6ADA705AE38B458F962726 /* SendEventRequest.swift in Sources */,
-				3099EF9E18E6C5911B64E4E0B9FC4AB7 /* SourceryProtocols.swift in Sources */,
-				5CC29F8D900ADC46C16AE7A1A07BE1DA /* URL+Extensions.swift in Sources */,
-				59838472E5DD813744DF22302BD63C5E /* UserData.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AB70B30955DDF7D4074582B9BDBDC57B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -640,6 +607,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				549F32BFFF8E5F93CBEE5C82CCF3DB89 /* Pods-RADAttribution_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F95C1D74418232CA83DCCD11551745DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E0EAF612C1EDA4AD4A583D73B3655C1 /* AutoEquatable.generated.swift in Sources */,
+				B315FE58549D89530B92D1E53246FBBB /* AutoHashable.generated.swift in Sources */,
+				C897DC996EA8012C2101E76D0F972F94 /* AutoLenses.generated.swift in Sources */,
+				AC8370F187292C429EFB9A9C81A7E35A /* DataBuilder.swift in Sources */,
+				D675266CEC02D1CEE9EA6F7682D51EC6 /* DeviceData.swift in Sources */,
+				606E6F3CA84F15EBDEBCDB433B75B504 /* Encodable+Extensions.swift in Sources */,
+				0705D37B026C885AA4093DBB01407CC3 /* Environment.swift in Sources */,
+				C736C6479AEA3CD25114B0453786C51E /* EventData.swift in Sources */,
+				3C422B098FB2410374978D5921BA94B1 /* EventSender.swift in Sources */,
+				F35010952F439E32374B8E4877967ED2 /* JSONDataTransformer.swift in Sources */,
+				50106BEEF0586DC0DC0E20CC16FB336E /* LinkResolver.swift in Sources */,
+				95E963A8DDBB8C5DCD9EE4015701AC9C /* Network.swift in Sources */,
+				261A50102DB1ADC7F5B3666DD691FEC0 /* Protocols.swift in Sources */,
+				2CED9AA32F6171C5F9764F0C6119D1BE /* RADAttribution-dummy.m in Sources */,
+				EC22D0E2A9063AFD296D73B78BE80BA2 /* RADAttribution.swift in Sources */,
+				3090BDABEF832A61521F56E331F1C7D1 /* RADError.swift in Sources */,
+				B87F1AABACE8D6BF77E5B304F39D425F /* RemoteDataProvider.swift in Sources */,
+				45F39F3B9C683E656A43BC786C49E05F /* ResolveLinkEndpoint.swift in Sources */,
+				73AA6145A6DEBAD6D2A23C7CF9EC45AE /* ResolveLinkRequest.swift in Sources */,
+				4FAE5FAAA98799C3038D0D4563065F9D /* ResolveLinkResponse.swift in Sources */,
+				D7C43082479557574D28B2890888688E /* SendEventEndpoint.swift in Sources */,
+				9E15F6E383AE908D1F32A020FA195630 /* SendEventReponse.swift in Sources */,
+				360334F15E628E2BEE905E40FAF34268 /* SendEventRequest.swift in Sources */,
+				D4A7E7A661AFB6F7FBC5DC0F0D321C7D /* SourceryProtocols.swift in Sources */,
+				3316438A7D9CAAAB9B9874C18E385913 /* URL+Extensions.swift in Sources */,
+				E48AEAE2DE8177EA149975BBC9A9FAB9 /* UserData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,7 +669,7 @@
 /* Begin XCBuildConfiguration section */
 		178C6606CC4439C2A919559E2B70FE8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E520A1D5F05243C317EC7F4747681A49 /* RADAttribution.release.xcconfig */;
+			baseConfigurationReference = 8EAB83EB052B501CE5A07D0E48CF9EBE /* RADAttribution.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -864,7 +864,7 @@
 		};
 		7D13DB2231A4EA0EEF30F9D18197DC96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B23C24F2905A32147F5BB64DF10FE42 /* RADAttribution.debug.xcconfig */;
+			baseConfigurationReference = 4F5C186EFD02F1EA8739B566A1DC9F23 /* RADAttribution.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";

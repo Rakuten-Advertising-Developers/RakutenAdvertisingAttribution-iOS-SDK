@@ -17,26 +17,28 @@ class RemoteDataProvider {
     let endpoint: Endpointable
     var session = URLSession.shared
     
+    private var counter: Int = 0
+    
     //MARK: Init
     
     init(with endpoint: Endpointable) {
         self.endpoint = endpoint
     }
     
-    deinit {
-        print("RemoteDataProvider deinit called")
-    }
-    
     //MARK: Private
     
     @discardableResult
-    private func receiveRemoteData(targetQueue: DispatchQueue = DispatchQueue.main, completion: @escaping RemoteDataCompletion) -> Cancellable {
+    private func receiveRemoteData(targetQueue: DispatchQueue = DispatchQueue.global(), completion: @escaping RemoteDataCompletion) -> Cancellable {
         
         let request = endpoint.urlRequest
         
         logInfo(request: request)
         
+        counter += 1
+        
         let task = session.dataTask(with: request) { (data, response, error) in
+            
+            self.counter -= 1
             
             self.logInfo(request: request, data: data, response: response, error: error) //Also retain self
             
@@ -106,11 +108,9 @@ class RemoteDataProvider {
     //MARK: Public
     
     @discardableResult
-    func receiveRemoteObject<T: Decodable>(targetQueue: DispatchQueue = DispatchQueue.main, transformer: JSONDataTransformer<T> = JSONDataTransformer<T>(), completion: @escaping DataTransformerCompletion<T>) -> Cancellable {
-        
-        let queue = DispatchQueue.global()
-        
-        return receiveRemoteData(targetQueue: queue) { result in
+    func receiveRemoteObject<T: Decodable>(targetQueue: DispatchQueue = DispatchQueue.global(), transformer: JSONDataTransformer<T> = JSONDataTransformer<T>(), completion: @escaping DataTransformerCompletion<T>) -> Cancellable {
+  
+        return receiveRemoteData(targetQueue: targetQueue) { result in
             
             let internalCompletion: DataTransformerCompletion<T> = { result in
                 targetQueue.async {
@@ -118,14 +118,21 @@ class RemoteDataProvider {
                 }
             }
             
-            DispatchQueue.global().async {
-                
+            let resultHandler = {
                 switch result {
                 case .success(let data):
                     transformer.transform(data: data, completion: internalCompletion)
                 case .failure(let error):
                     internalCompletion(.failure(error))
                 }
+            }
+            
+            if Thread.isMainThread {
+                DispatchQueue.global().async {
+                    resultHandler()
+                }
+            } else {
+                resultHandler()
             }
         }
     }

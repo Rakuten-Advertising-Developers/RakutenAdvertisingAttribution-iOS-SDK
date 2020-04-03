@@ -7,24 +7,45 @@
 
 import Foundation
 
-public protocol EventTrackableDelegate {
+//MARK: Public
+
+public protocol EventSenderableDelegate: class {
     
-    
+    func didSend(eventName: String, resultMessage: String)
+    func didFailedSend(eventName: String, with error: Error)
 }
 
-public protocol EventTrackable {
+public protocol EventSenderable: class {
     
-    
-    
-    func sendEvent(name: String)
+    var delegate: EventSenderableDelegate? { set get }
+    func sendEvent(name: String, eventData: EventData?)
 }
 
-public protocol LinkResolvable {
+public protocol LinkResolvableDelegate: class {
     
+    func didResolve(link: String, resultMessage: String)
+    func didFailedResolve(link: String, with error: Error)
+}
+
+public protocol LinkResolvable: class {
+    
+    var delegate: LinkResolvableDelegate? { set get }
     func resolve(link: String)
 }
 
 public enum Event {
     
     case custom(name: String)
+}
+
+//MARK: Internal
+
+protocol LinkResolverDataHandler: class {
+    
+    func didResolveLink(sessionId: String)
+}
+
+protocol SenderDataProvider: class {
+    
+    var senderSessionID: String? { get }
 }

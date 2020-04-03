@@ -14,11 +14,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        RADAttribution.shared.linkResolver.delegate = self
+        RADAttribution.shared.eventSender.delegate = self
   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func showAlert(title: String?, message: String?) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Ok", style: .cancel))
+        present(alert, animated: true)
     }
 
     @IBAction func resolveLinkUniversalButtonPressed(_ sender: Any) {
@@ -35,7 +45,48 @@ class ViewController: UIViewController {
     
     @IBAction func sendEventButtonPressed(_ sender: Any) {
         
-        RADAttribution.shared.eventTracker.sendEvent(name: "TEST_EVENT")
+        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT", eventData: nil)
     }
 }
 
+extension ViewController: LinkResolvableDelegate {
+    
+    func didResolve(link: String, resultMessage: String) {
+        
+        DispatchQueue.main.async { [weak self] in
+            let title = "Resolve link"
+            let message = "Link: \(link)\nMessage: \(resultMessage)"
+            self?.showAlert(title: title, message: message)
+        }
+    }
+    
+    func didFailedResolve(link: String, with error: Error) {
+        
+        DispatchQueue.main.async { [weak self] in
+            let title = "Resolve link"
+            let message = "Link: \(link)\nError: \(error.localizedDescription)"
+            self?.showAlert(title: title, message: message)
+        }
+    }
+}
+
+extension ViewController: EventSenderableDelegate {
+    
+    func didSend(eventName: String, resultMessage: String) {
+        
+        DispatchQueue.main.async { [weak self] in
+            let title = "Event Sender"
+            let message = "Event: \(eventName)\nMessage: \(resultMessage)"
+            self?.showAlert(title: title, message: message)
+        }
+    }
+    
+    func didFailedSend(eventName: String, with error: Error) {
+        
+        DispatchQueue.main.async { [weak self] in
+            let title = "Event Sender"
+            let message = "Event: \(eventName)\nError: \(error.localizedDescription)"
+            self?.showAlert(title: title, message: message)
+        }
+    }
+}
