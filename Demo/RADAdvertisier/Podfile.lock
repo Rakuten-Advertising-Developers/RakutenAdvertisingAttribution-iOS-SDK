@@ -1,0 +1,16 @@
+PODS:
+  - RADAttribution (0.0.1)
+
+DEPENDENCIES:
+  - RADAttribution
+
+SPEC REPOS:
+  https://github.rakops.com/MobileTracking/Specs:
+    - RADAttribution
+
+SPEC CHECKSUMS:
+  RADAttribution: cc9b1288c521d6d78ae65a4f1162456cbaff20c5
+
+PODFILE CHECKSUM: d5a8ee7aa4fa6a9bc5f976a23d5898e3d2b1de6d
+
+COCOAPODS: 1.9.1
