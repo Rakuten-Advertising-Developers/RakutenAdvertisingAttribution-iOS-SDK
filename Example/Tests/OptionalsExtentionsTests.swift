@@ -16,25 +16,23 @@ class OptionalsExtentionsTests: XCTestCase {
         
         //given
         let sut: String? = "Test"
-        var doCalled = false
+
         //when
-        sut.do { _ in
-            doCalled = true
+        sut.do {
+            //then
+            XCTAssertEqual($0, "Test")
         }
-        //then
-        XCTAssertTrue(doCalled)
     }
     
     func testDoFuncNone() {
         
         //given
         let sut: String? = nil
-        var doCalled = false
+    
         //when
         sut.do { _ in
-            doCalled = true
+            //then
+            XCTFail("do closure shouldn't be called for nil value")
         }
-        //then
-        XCTAssertFalse(doCalled)
     }
 }
