@@ -16,6 +16,7 @@ class RemoteDataProvider {
     
     let endpoint: Endpointable
     var session = URLSession.shared
+    var logger: NetworkLogger = RADLogger.shared
     
     private var counter: Int = 0
     
@@ -32,15 +33,15 @@ class RemoteDataProvider {
         
         let request = endpoint.urlRequest
         
-        logInfo(request: request)
+        logger.logInfo(request: request)
         
         counter += 1
         
         let task = session.dataTask(with: request) { (data, response, error) in
             
-            self.counter -= 1
+            self.counter -= 1 //Also retain self
             
-            self.logInfo(request: request, data: data, response: response, error: error) //Also retain self
+            self.logger.logInfo(request: request, data: data, response: response, error: error)
             
             let internalCompletion: RemoteDataCompletion = { result in
                 targetQueue.async {
@@ -62,48 +63,6 @@ class RemoteDataProvider {
         return task
     }
     
-    private func logInfo(request: URLRequest) {
-     
-        let newLine = "\n"
-        let space = " "
-        var descriptionString = newLine + "=====>>>>>" + newLine + newLine
-        
-        descriptionString += (request.httpMethod ?? "get") + space
-        if let urlString = request.url?.absoluteString {
-            descriptionString += urlString + newLine
-        }
-        if let headers = request.allHTTPHeaderFields {
-            descriptionString += "HEADERS: \n\(headers)" + newLine
-        }
-        if let body = request.httpBody, let bodyString = String(data: body, encoding: .utf8) {
-            descriptionString += "BODY: \n\(bodyString)"
-        }
-        print(descriptionString)
-    }
-    
-    private func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?) {
-        
-        let newLine = "\n"
-        let space = " "
-        var descriptionString = newLine + "<<<<<=====" + newLine + newLine
-        
-        descriptionString += (request.httpMethod ?? "get") + space
-        if let urlString = request.url?.absoluteString {
-            descriptionString += urlString + newLine
-        }
-        
-        if let httpResponse = response as? HTTPURLResponse {
-            descriptionString += "CODE: \(httpResponse.statusCode)" + newLine
-        }
-        
-        if let data = data, let responseString = String(data: data, encoding: .utf8) {
-            descriptionString += "RESPONSE: \n\(responseString)" + newLine
-        }
-        if let error = error {
-            descriptionString += "ERROR: \n\(error)"
-        }
-        print(descriptionString)
-    }
     
     //MARK: Public
     

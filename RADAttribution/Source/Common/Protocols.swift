@@ -36,12 +36,18 @@ public protocol LinkResolvable: class {
     func resolve(userActivity: NSUserActivity) -> Bool
 }
 
-public enum Event {
+public protocol Loggable: class {
     
-    case custom(name: String)
+    var enabled: Bool { get set }
 }
 
 //MARK: Internal
+
+protocol NetworkLogger: Loggable {
+    
+    func logInfo(request: URLRequest)
+    func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?)
+}
 
 protocol LinkResolverDataHandler: class {
     

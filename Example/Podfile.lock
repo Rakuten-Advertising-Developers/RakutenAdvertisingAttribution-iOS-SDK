@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RADAttribution: 782a71db4b6a945f2136e638c2347add7bb000e9
+  RADAttribution: 4144f04baff7523beb346e9abd13fcf2306d5029
   Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
 
 PODFILE CHECKSUM: da6c3b8c917ae35cf41db72bbea3f7e0c2774ec7

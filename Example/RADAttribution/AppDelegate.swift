@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else { return true }
         
+        RADAttribution.shared.logger.enabled = true
         RADAttribution.shared.linkResolver.delegate = viewController
         RADAttribution.shared.eventSender.delegate = viewController
         
