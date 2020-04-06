@@ -12,8 +12,8 @@ gem install cocoapods
 ```
 
 ## Demo projects
-* [RAD Publisher Demo](./Demo/RADAdvertiser/)
-* [RAD Advertiser Demo](./Demo/RADPublisher/)
+* [RAD Advertiser Demo](./Demo/RADAdvertiser/)
+* [RAD Publisher Demo](./Demo/RADPublisher/)
 
 ## Example
 

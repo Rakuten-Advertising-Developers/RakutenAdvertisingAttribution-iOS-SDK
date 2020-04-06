@@ -1,11 +1,12 @@
-# iOS-RAD-Advertiser-Demo-Swift
+# iOS-RAD-Advertiser-Demo
 
 ## Requirements
 
 - iOS 10.0+
 - Xcode 11+
 - Swift 5+
+- [CocoaPods](https://cocoapods.org) 1.9.0+
 
-## Example
+## Demo
 
-To run the example project, clone the repo, and run `pod install` from the project root directory first.
+To run the demo project, clone the repo, and run `pod install` from the project root directory first. That open RADAdvertiserDemo.xcworkspace via Xcode
