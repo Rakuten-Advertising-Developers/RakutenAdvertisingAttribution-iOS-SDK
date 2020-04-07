@@ -41,15 +41,7 @@ extension LinkResolver: LinkResolvable {
     func resolve(userActivity: NSUserActivity) -> Bool {
         
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-            let incomingURL = userActivity.webpageURL,
-            let components = URLComponents(url: incomingURL, resolvingAgainstBaseURL: true) else {
-                return false
-        }
-        let path = components.path
-        let params = components.queryItems ?? []
-        
-        print("path = \(path)")
-        print("params = \(params)")
+            let incomingURL = userActivity.webpageURL else { return false }
         
         resolve(link: incomingURL.absoluteString)
         return true

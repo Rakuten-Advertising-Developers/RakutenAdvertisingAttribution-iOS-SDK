@@ -42,4 +42,4 @@ Rakuten Advertising
 
 ## License
 
-GAPMobile is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
+RADAttribution iOS SDK is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
