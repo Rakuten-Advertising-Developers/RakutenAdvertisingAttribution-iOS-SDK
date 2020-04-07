@@ -32,6 +32,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		574C11A8243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11A7243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift */; };
+		574C11AA243C9BF500DC0E24 /* TestableDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11A9243C9BF500DC0E24 /* TestableDataProvider.swift */; };
 		57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABA243B76390048E34F /* DataBuilderTests.swift */; };
 		57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */; };
 		57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */; };
@@ -67,6 +69,8 @@
 		09FA0D503A69CB6BCAF8674C /* Pods-RADAttribution_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RADAttribution_Tests.release.xcconfig"; path = "Target Support Files/Pods-RADAttribution_Tests/Pods-RADAttribution_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		25FD706BCCB125EC245304E6 /* RADAttribution.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RADAttribution.podspec; path = ../RADAttribution.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		57436CD324374EE50010B7E9 /* RADAttribution_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RADAttribution_Example.entitlements; sourceTree = "<group>"; };
+		574C11A7243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveLinkEndpointTests.swift; sourceTree = "<group>"; };
+		574C11A9243C9BF500DC0E24 /* TestableDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataProvider.swift; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
 		57FC5ABA243B76390048E34F /* DataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBuilderTests.swift; sourceTree = "<group>"; };
 		57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetectorTests.swift; sourceTree = "<group>"; };
@@ -176,9 +180,11 @@
 			children = (
 				57FC5ABA243B76390048E34F /* DataBuilderTests.swift */,
 				57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */,
+				57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */,
-				57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */,
+				574C11A7243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift */,
+				574C11A9243C9BF500DC0E24 /* TestableDataProvider.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -436,8 +442,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */,
+				574C11A8243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift in Sources */,
 				57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */,
 				57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */,
+				574C11AA243C9BF500DC0E24 /* TestableDataProvider.swift in Sources */,
 				57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
