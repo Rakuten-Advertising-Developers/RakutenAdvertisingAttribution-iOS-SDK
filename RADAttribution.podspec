@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Rakuten Advertising Attribution iOS SDK
+Rakuten Advertising Attribution iOS SDK, tracking events and deeplinking
                        DESC
 
   s.homepage         = 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK'
