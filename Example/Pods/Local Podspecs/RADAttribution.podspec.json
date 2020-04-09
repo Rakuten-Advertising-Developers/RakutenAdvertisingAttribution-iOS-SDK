@@ -2,7 +2,7 @@
   "name": "RADAttribution",
   "version": "0.0.1",
   "summary": "Rakuten Advertising Attribution iOS SDK",
-  "description": "Rakuten Advertising Attribution iOS SDK",
+  "description": "Rakuten Advertising Attribution iOS SDK, tracking events and deeplinking",
   "homepage": "https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK",
   "license": {
     "type": "MIT",

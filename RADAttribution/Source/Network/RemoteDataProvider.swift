@@ -15,21 +15,22 @@ class RemoteDataProvider {
     //MARK: Properties
     
     let endpoint: Endpointable
-    var session = URLSession.shared
+    let session: URLSessionProtocol
     var logger: NetworkLogger = RADLogger.shared
     
-    private var counter: Int = 0
+    private(set) var counter: Int = 0
     
     //MARK: Init
     
-    init(with endpoint: Endpointable) {
+    init(with endpoint: Endpointable, session: URLSessionProtocol = URLSession.shared) {
         self.endpoint = endpoint
+        self.session = session
     }
     
     //MARK: Private
     
     @discardableResult
-    private func receiveRemoteData(targetQueue: DispatchQueue = DispatchQueue.global(), completion: @escaping RemoteDataCompletion) -> Cancellable {
+    private func receiveRemoteData(targetQueue: DispatchQueue = DispatchQueue.global(), completion: @escaping RemoteDataCompletion) -> URLSessionDataTaskProtocol {
         
         let request = endpoint.urlRequest
         
@@ -37,7 +38,7 @@ class RemoteDataProvider {
         
         counter += 1
         
-        let task = session.dataTask(with: request) { (data, response, error) in
+        let task = session.sessionDataTask(with: request) { (data, response, error) in
             
             self.counter -= 1 //Also retain self
             
@@ -67,7 +68,7 @@ class RemoteDataProvider {
     //MARK: Public
     
     @discardableResult
-    func receiveRemoteObject<T: Decodable>(targetQueue: DispatchQueue = DispatchQueue.global(), transformer: JSONDataTransformer<T> = JSONDataTransformer<T>(), completion: @escaping DataTransformerCompletion<T>) -> Cancellable {
+    func receiveRemoteObject<T: Decodable>(targetQueue: DispatchQueue = DispatchQueue.global(), transformer: JSONDataTransformer<T> = JSONDataTransformer<T>(), completion: @escaping DataTransformerCompletion<T>) -> URLSessionDataTaskProtocol {
   
         return receiveRemoteData(targetQueue: targetQueue) { result in
             
@@ -96,5 +97,3 @@ class RemoteDataProvider {
         }
     }
 }
-
-extension URLSessionTask: Cancellable {}

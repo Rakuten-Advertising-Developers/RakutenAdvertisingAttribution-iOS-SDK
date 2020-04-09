@@ -32,8 +32,13 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		574C11A8243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11A7243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift */; };
 		574C11AA243C9BF500DC0E24 /* TestableDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11A9243C9BF500DC0E24 /* TestableDataProvider.swift */; };
+		574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11AC243F294400DC0E24 /* MockURLSession.swift */; };
+		574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */; };
+		574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */; };
+		574C11B5243F2E3B00DC0E24 /* MockEndpointable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */; };
+		574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B9243F313B00DC0E24 /* EndpointableTests.swift */; };
+		574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11BD243F3D6C00DC0E24 /* MockCodable.swift */; };
 		57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABA243B76390048E34F /* DataBuilderTests.swift */; };
 		57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */; };
 		57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */; };
@@ -69,8 +74,13 @@
 		09FA0D503A69CB6BCAF8674C /* Pods-RADAttribution_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RADAttribution_Tests.release.xcconfig"; path = "Target Support Files/Pods-RADAttribution_Tests/Pods-RADAttribution_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		25FD706BCCB125EC245304E6 /* RADAttribution.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RADAttribution.podspec; path = ../RADAttribution.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		57436CD324374EE50010B7E9 /* RADAttribution_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RADAttribution_Example.entitlements; sourceTree = "<group>"; };
-		574C11A7243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveLinkEndpointTests.swift; sourceTree = "<group>"; };
 		574C11A9243C9BF500DC0E24 /* TestableDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataProvider.swift; sourceTree = "<group>"; };
+		574C11AC243F294400DC0E24 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataProviderTests.swift; sourceTree = "<group>"; };
+		574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEndpointable.swift; sourceTree = "<group>"; };
+		574C11B9243F313B00DC0E24 /* EndpointableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointableTests.swift; sourceTree = "<group>"; };
+		574C11BD243F3D6C00DC0E24 /* MockCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodable.swift; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
 		57FC5ABA243B76390048E34F /* DataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBuilderTests.swift; sourceTree = "<group>"; };
 		57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetectorTests.swift; sourceTree = "<group>"; };
@@ -120,6 +130,17 @@
 				B8557F597D80F7E54E6AEF48 /* Pods_RADAttribution_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		574C11BB243F3BD100DC0E24 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				574C11AC243F294400DC0E24 /* MockURLSession.swift */,
+				574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */,
+				574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */,
+				574C11BD243F3D6C00DC0E24 /* MockCodable.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		57A1B21924349F750045D1D1 /* PreBuildScripts */ = {
@@ -178,13 +199,15 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				574C11BB243F3BD100DC0E24 /* Mocks */,
 				57FC5ABA243B76390048E34F /* DataBuilderTests.swift */,
+				574C11B9243F313B00DC0E24 /* EndpointableTests.swift */,
 				57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */,
 				57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-				57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */,
-				574C11A7243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift */,
+				574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */,
 				574C11A9243C9BF500DC0E24 /* TestableDataProvider.swift */,
+				57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */,
+				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -289,10 +312,9 @@
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "RADAttribution" */;
 			compatibilityVersion = "Xcode 11.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -441,11 +463,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				574C11B5243F2E3B00DC0E24 /* MockEndpointable.swift in Sources */,
+				574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */,
 				57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */,
-				574C11A8243C9ACE00DC0E24 /* ResolveLinkEndpointTests.swift in Sources */,
 				57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */,
 				57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */,
+				574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */,
+				574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */,
+				574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */,
 				574C11AA243C9BF500DC0E24 /* TestableDataProvider.swift in Sources */,
+				574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */,
 				57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

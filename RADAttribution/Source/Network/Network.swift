@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias Parameters = [String: Any]
+typealias Parameters = [String: AnyHashable]
 
 protocol Endpointable {
     
@@ -50,13 +50,31 @@ extension Endpointable {
     }
 }
 
-protocol Cancellable {
-    
-    func cancel()
-}
-
 enum HTTPMethod: String {
     
     case get = "GET"
     case post = "POST"
 }
+
+
+protocol URLSessionProtocol {
+    
+    typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
+    
+    func sessionDataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
+}
+
+protocol URLSessionDataTaskProtocol {
+    
+    func resume()
+    func cancel()
+}
+
+extension URLSession: URLSessionProtocol {
+    
+    func sessionDataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
+        return dataTask(with: request, completionHandler: completionHandler)
+    }
+}
+
+extension URLSessionDataTask: URLSessionDataTaskProtocol {}
