@@ -17,7 +17,7 @@
 
 /* Begin PBXFileReference section */
 		414E18424A4F274474E0E880 /* Pods_RADAdvertiserDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RADAdvertiserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57436CE0243785820010B7E9 /* RADAdvertiserDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RADAdvertiserDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57436CE0243785820010B7E9 /* RAD Advertiser Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RAD Advertiser Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57436CE3243785820010B7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57436CE7243785820010B7E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		57436CEA243785820010B7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		57436CE1243785820010B7E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				57436CE0243785820010B7E9 /* RADAdvertiserDemoSwift.app */,
+				57436CE0243785820010B7E9 /* RAD Advertiser Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,7 +109,7 @@
 			);
 			name = RADAdvertiserDemo;
 			productName = RADAdvertiserDemo;
-			productReference = 57436CE0243785820010B7E9 /* RADAdvertiserDemoSwift.app */;
+			productReference = 57436CE0243785820010B7E9 /* RAD Advertiser Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -282,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -336,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -353,16 +353,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RADAdvertiserDemo/RADAdvertiserDemoSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = Y7X3534ZWR;
 				INFOPLIST_FILE = RADAdvertiserDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rakuten.advertising.RADAdvertiserDemo;
-				PRODUCT_NAME = RADAdvertiserDemoSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rakutenadvertising.RADAdvertiserDemo;
+				PRODUCT_NAME = "RAD Advertiser Demo";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -373,16 +375,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RADAdvertiserDemo/RADAdvertiserDemoSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = Y7X3534ZWR;
 				INFOPLIST_FILE = RADAdvertiserDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rakuten.advertising.RADAdvertiserDemo;
-				PRODUCT_NAME = RADAdvertiserDemoSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rakutenadvertising.RADAdvertiserDemo;
+				PRODUCT_NAME = "RAD Advertiser Demo";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

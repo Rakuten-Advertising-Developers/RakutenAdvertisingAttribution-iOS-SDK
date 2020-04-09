@@ -67,3 +67,10 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+.DS_Store
+Demo/.DS_Store
+Demo/RADAdvertiser/RADAdvertiserDemo/.DS_Store
+Demo/RADPublisher/.DS_Store
+Example/.DS_Store
+Demo/RADAdvertiser/RADAdvertiserDemo/Assets.xcassets/.DS_Store
+Demo/RADAdvertiser/RADAdvertiserDemo/Assets.xcassets/.DS_Store
