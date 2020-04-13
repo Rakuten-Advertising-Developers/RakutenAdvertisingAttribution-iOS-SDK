@@ -10,4 +10,8 @@ target 'RADAdvertiserDemo' do
   use_frameworks!
   pod 'RADAttribution'
   
+  pod 'Firebase/Firestore'
+  # Optionally, include the Swift extensions if you're using Swift.
+  pod 'FirebaseFirestoreSwift'
+  
 end

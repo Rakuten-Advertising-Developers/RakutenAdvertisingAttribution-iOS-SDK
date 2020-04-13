@@ -8,6 +8,7 @@
 
 import UIKit
 import RADAttribution
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,14 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else { return true }
+        setupFirebase()
         
-        RADAttribution.shared.linkResolver.delegate = viewController
-        RADAttribution.shared.eventSender.delegate = viewController
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let tabBarController = storyboard.instantiateInitialViewController() as? TabBarViewController else { return true }
+        
+        RADAttribution.shared.linkResolver.delegate = tabBarController
+        RADAttribution.shared.eventSender.delegate = tabBarController
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = viewController
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         return true
@@ -38,6 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("userActivity unavailable to resolve")
         }
         return true
+    }
+    
+    func setupFirebase() {
+        
+      FirebaseConfiguration.shared.setLoggerLevel(.min)
+      FirebaseApp.configure()
     }
 }
 

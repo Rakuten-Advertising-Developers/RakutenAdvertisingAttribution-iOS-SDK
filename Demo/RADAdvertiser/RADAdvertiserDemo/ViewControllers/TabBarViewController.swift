@@ -1,15 +1,15 @@
 //
-//  ViewController.swift
+//  TabBarViewController.swift
 //  RADAdvertiserDemo
 //
-//  Created by Durbalo, Andrii on 03.04.2020.
+//  Created by Durbalo, Andrii on 13.04.2020.
 //  Copyright © 2020 Rakuten Advertising. All rights reserved.
 //
 
 import UIKit
 import RADAttribution
 
-class ViewController: UIViewController {
+class TabBarViewController: UITabBarController {
     
     func showAlert(title: String?, message: String?) {
         
@@ -17,14 +17,9 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction.init(title: "Ok", style: .cancel))
         present(alert, animated: true)
     }
-    
-    @IBAction func sendEventButtonPressed(_ sender: Any) {
-        
-        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT", eventData: nil)
-    }
 }
 
-extension ViewController: LinkResolvableDelegate {
+extension TabBarViewController: LinkResolvableDelegate {
     
     func didResolve(link: String, resultMessage: String) {
         
@@ -45,7 +40,7 @@ extension ViewController: LinkResolvableDelegate {
     }
 }
 
-extension ViewController: EventSenderableDelegate {
+extension TabBarViewController: EventSenderableDelegate {
     
     func didSend(eventName: String, resultMessage: String) {
         

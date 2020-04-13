@@ -7,8 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571DA35E24446D6A00B44EE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571DA35D24446D6A00B44EE8 /* GoogleService-Info.plist */; };
+		571DA360244472BE00B44EE8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA35F244472BE00B44EE8 /* Product.swift */; };
+		571DA3622444739800B44EE8 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA3612444739800B44EE8 /* Collection+Extensions.swift */; };
+		571DA364244477B600B44EE8 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA363244477B600B44EE8 /* DataProvider.swift */; };
+		571DA36B244482C700B44EE8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA36A244482C700B44EE8 /* TabBarViewController.swift */; };
+		571DA36D2444839400B44EE8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA36C2444839400B44EE8 /* HomeViewController.swift */; };
+		571DA36F244485BF00B44EE8 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA36E244485BF00B44EE8 /* CartViewController.swift */; };
+		571DA3712444862500B44EE8 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA3702444862500B44EE8 /* OrderManager.swift */; };
+		571DA37324448AA600B44EE8 /* ProductCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA37224448AA600B44EE8 /* ProductCollectionViewLayout.swift */; };
+		571DA37724448C6400B44EE8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA37624448C6400B44EE8 /* ProductCell.swift */; };
+		571DA3792444935A00B44EE8 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA3782444935A00B44EE8 /* ProductDetailsViewController.swift */; };
+		571DA37B244497A100B44EE8 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA37A244497A100B44EE8 /* UIImageView+Extensions.swift */; };
+		571DA37D2444985D00B44EE8 /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA37C2444985D00B44EE8 /* NumberFormatter+Extensions.swift */; };
+		571DA3802444A4B100B44EE8 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DA37F2444A4B100B44EE8 /* Button.swift */; };
 		57436CE4243785820010B7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57436CE3243785820010B7E9 /* AppDelegate.swift */; };
-		57436CE8243785820010B7E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57436CE7243785820010B7E9 /* ViewController.swift */; };
 		57436CEB243785820010B7E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57436CE9243785820010B7E9 /* Main.storyboard */; };
 		57436CED243785840010B7E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57436CEC243785840010B7E9 /* Assets.xcassets */; };
 		57436CF0243785840010B7E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57436CEE243785840010B7E9 /* LaunchScreen.storyboard */; };
@@ -17,9 +30,22 @@
 
 /* Begin PBXFileReference section */
 		414E18424A4F274474E0E880 /* Pods_RADAdvertiserDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RADAdvertiserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		571DA35D24446D6A00B44EE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		571DA35F244472BE00B44EE8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		571DA3612444739800B44EE8 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		571DA363244477B600B44EE8 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		571DA36A244482C700B44EE8 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		571DA36C2444839400B44EE8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		571DA36E244485BF00B44EE8 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		571DA3702444862500B44EE8 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
+		571DA37224448AA600B44EE8 /* ProductCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewLayout.swift; sourceTree = "<group>"; };
+		571DA37624448C6400B44EE8 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		571DA3782444935A00B44EE8 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		571DA37A244497A100B44EE8 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		571DA37C2444985D00B44EE8 /* NumberFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		571DA37F2444A4B100B44EE8 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		57436CE0243785820010B7E9 /* RAD Advertiser Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RAD Advertiser Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57436CE3243785820010B7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57436CE7243785820010B7E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		57436CEA243785820010B7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57436CEC243785840010B7E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57436CEF243785840010B7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +84,67 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		571DA36524447CCF00B44EE8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				571DA36A244482C700B44EE8 /* TabBarViewController.swift */,
+				571DA36C2444839400B44EE8 /* HomeViewController.swift */,
+				571DA3782444935A00B44EE8 /* ProductDetailsViewController.swift */,
+				571DA36E244485BF00B44EE8 /* CartViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		571DA36624447CF600B44EE8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				571DA3612444739800B44EE8 /* Collection+Extensions.swift */,
+				571DA37A244497A100B44EE8 /* UIImageView+Extensions.swift */,
+				571DA37C2444985D00B44EE8 /* NumberFormatter+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		571DA36724447D0300B44EE8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				571DA363244477B600B44EE8 /* DataProvider.swift */,
+				571DA3702444862500B44EE8 /* OrderManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		571DA36824447D0F00B44EE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				571DA35F244472BE00B44EE8 /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		571DA36924447D2500B44EE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				57436CF724378D5F0010B7E9 /* RADAdvertiserDemoSwift.entitlements */,
+				57436CE9243785820010B7E9 /* Main.storyboard */,
+				57436CEC243785840010B7E9 /* Assets.xcassets */,
+				57436CEE243785840010B7E9 /* LaunchScreen.storyboard */,
+				57436CF1243785840010B7E9 /* Info.plist */,
+				571DA35D24446D6A00B44EE8 /* GoogleService-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		571DA37E2444A49E00B44EE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				571DA37224448AA600B44EE8 /* ProductCollectionViewLayout.swift */,
+				571DA37624448C6400B44EE8 /* ProductCell.swift */,
+				571DA37F2444A4B100B44EE8 /* Button.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		57436CD7243785820010B7E9 = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +166,13 @@
 		57436CE2243785820010B7E9 /* RADAdvertiserDemo */ = {
 			isa = PBXGroup;
 			children = (
-				57436CF724378D5F0010B7E9 /* RADAdvertiserDemoSwift.entitlements */,
+				571DA37E2444A49E00B44EE8 /* Views */,
+				571DA36824447D0F00B44EE8 /* Models */,
+				571DA36724447D0300B44EE8 /* Helpers */,
+				571DA36624447CF600B44EE8 /* Extensions */,
+				571DA36524447CCF00B44EE8 /* ViewControllers */,
 				57436CE3243785820010B7E9 /* AppDelegate.swift */,
-				57436CE7243785820010B7E9 /* ViewController.swift */,
-				57436CE9243785820010B7E9 /* Main.storyboard */,
-				57436CEC243785840010B7E9 /* Assets.xcassets */,
-				57436CEE243785840010B7E9 /* LaunchScreen.storyboard */,
-				57436CF1243785840010B7E9 /* Info.plist */,
+				571DA36924447D2500B44EE8 /* Resources */,
 			);
 			path = RADAdvertiserDemo;
 			sourceTree = "<group>";
@@ -151,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57436CF0243785840010B7E9 /* LaunchScreen.storyboard in Resources */,
+				571DA35E24446D6A00B44EE8 /* GoogleService-Info.plist in Resources */,
 				57436CED243785840010B7E9 /* Assets.xcassets in Resources */,
 				57436CEB243785820010B7E9 /* Main.storyboard in Resources */,
 			);
@@ -205,8 +293,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57436CE8243785820010B7E9 /* ViewController.swift in Sources */,
+				571DA37324448AA600B44EE8 /* ProductCollectionViewLayout.swift in Sources */,
+				571DA37724448C6400B44EE8 /* ProductCell.swift in Sources */,
+				571DA3792444935A00B44EE8 /* ProductDetailsViewController.swift in Sources */,
+				571DA3622444739800B44EE8 /* Collection+Extensions.swift in Sources */,
+				571DA364244477B600B44EE8 /* DataProvider.swift in Sources */,
 				57436CE4243785820010B7E9 /* AppDelegate.swift in Sources */,
+				571DA37B244497A100B44EE8 /* UIImageView+Extensions.swift in Sources */,
+				571DA3802444A4B100B44EE8 /* Button.swift in Sources */,
+				571DA36F244485BF00B44EE8 /* CartViewController.swift in Sources */,
+				571DA36B244482C700B44EE8 /* TabBarViewController.swift in Sources */,
+				571DA37D2444985D00B44EE8 /* NumberFormatter+Extensions.swift in Sources */,
+				571DA3712444862500B44EE8 /* OrderManager.swift in Sources */,
+				571DA36D2444839400B44EE8 /* HomeViewController.swift in Sources */,
+				571DA360244472BE00B44EE8 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,11 +451,11 @@
 			baseConfigurationReference = 61832CDB3255AB49206C3EC5 /* Pods-RADAdvertiserDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = RADAdvertiserDemo/RADAdvertiserDemoSwift.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RADAdvertiserDemo/Resources/RADAdvertiserDemoSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Y7X3534ZWR;
-				INFOPLIST_FILE = RADAdvertiserDemo/Info.plist;
+				INFOPLIST_FILE = RADAdvertiserDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,11 +473,11 @@
 			baseConfigurationReference = B47D4B37D4F9039852491F69 /* Pods-RADAdvertiserDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = RADAdvertiserDemo/RADAdvertiserDemoSwift.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RADAdvertiserDemo/Resources/RADAdvertiserDemoSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Y7X3534ZWR;
-				INFOPLIST_FILE = RADAdvertiserDemo/Info.plist;
+				INFOPLIST_FILE = RADAdvertiserDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
