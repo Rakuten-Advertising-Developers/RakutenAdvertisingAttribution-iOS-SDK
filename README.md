@@ -12,8 +12,8 @@ gem install cocoapods
 ```
 
 ## Demo projects
-* [RAD Advertiser Demo](./Demo/RADAdvertiser/)
-* [RAD Publisher Demo](./Demo/RADPublisher/)
+* [RAd Advertiser Demo](https://github.com/Rakuten-Advertising-Developers/radadvertiser-demo-ios/)
+* [RAd Publisher Demo](https://github.com/Rakuten-Advertising-Developers/radpublisher-demo-ios)
 
 ## Example
 
@@ -26,7 +26,7 @@ it, add the following line to your Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.rakops.com/MobileTracking/Specs.git'
+source 'https://github.com/Rakuten-Advertising-Developers/Specs'
 
 target 'YOUR_TARGET_NAME' do
   

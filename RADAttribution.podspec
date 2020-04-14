@@ -21,11 +21,10 @@ Pod::Spec.new do |s|
 Rakuten Advertising Attribution iOS SDK, tracking events and deeplinking
                        DESC
 
-  s.homepage         = 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK'
+  s.homepage         = 'https://github.com/Rakuten-Advertising-Developers/attribution-sdk-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'Rakuten Advertising'
-  #s.source           = { :git => 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK.git', :tag => s.version.to_s }
-  s.source           = { :git => 'https://github.rakops.com/MobileTracking/RADAttribution-iOS-SDK.git', :branch => 'develop' }
+  s.source           = { :git => 'https://github.com/Rakuten-Advertising-Developers/attribution-sdk-ios.git', :branch => 'master' } #:tag => s.version.to_s }
   
   s.platform = :ios, "10.0"
   s.ios.deployment_target = '10.0'
