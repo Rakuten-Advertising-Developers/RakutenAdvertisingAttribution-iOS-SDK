@@ -26,7 +26,7 @@ it, add the following line to your Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/Rakuten-Advertising-Developers/Specs'
+source 'https://github.com/Rakuten-Advertising-Developers/Specs.git'
 
 target 'YOUR_TARGET_NAME' do
   
