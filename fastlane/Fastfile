@@ -22,4 +22,21 @@ platform :ios do
 
     puts "Test lane works! 😀🥰"
   end
+
+  lane :run_Unit_Tests do
+    run_cocoapods
+
+    run_tests(
+      workspace: "Example/RADAttribution.xcworkspace",
+      scheme: "UnitTests",
+      clean: false,
+    )
+  end
+
+  #Private lanes
+  private_lane :run_cocoapods do
+    cocoapods(
+      podfile: "Example/Podfile",
+    )
+  end
 end
