@@ -1,6 +1,0 @@
-framework module RADAttribution {
-  umbrella header "RADAttribution-umbrella.h"
-
-  export *
-  module * { export * }
-}
