@@ -1,0 +1,23 @@
+name: PR Unit Tests
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with: 
+        ref: ${{ github.event.pull_request.head.sha }}
+
+    - name: Run Unit Tests
+      run: |
+        cd Example
+        pod install --verbose
+        cd ..
+        fastlane run_Unit_Tests --verbose
