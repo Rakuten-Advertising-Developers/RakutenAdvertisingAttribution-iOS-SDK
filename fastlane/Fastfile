@@ -24,7 +24,7 @@ platform :ios do
   end
 
   lane :run_Unit_Tests do
-    run_cocoapods
+    #run_cocoapods
 
     run_tests(
       workspace: "Example/RADAttribution.xcworkspace",
