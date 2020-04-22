@@ -1,0 +1,166 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 12,
+      "symbol": "EventSenderableDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 14,
+      "symbol": "EventSenderableDelegate.didSend(eventName:resultMessage:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 15,
+      "symbol": "EventSenderableDelegate.didFailedSend(eventName:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 18,
+      "symbol": "EventSenderable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 20,
+      "symbol": "EventSenderable.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 21,
+      "symbol": "EventSenderable.sendEvent(name:eventData:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 24,
+      "symbol": "LinkResolvableDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 26,
+      "symbol": "LinkResolvableDelegate.didResolve(link:resultMessage:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 27,
+      "symbol": "LinkResolvableDelegate.didFailedResolve(link:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 30,
+      "symbol": "LinkResolvable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 32,
+      "symbol": "LinkResolvable.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 33,
+      "symbol": "LinkResolvable.resolve(link:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 36,
+      "symbol": "LinkResolvable.resolve(userActivity:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 39,
+      "symbol": "Loggable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Protocols.swift",
+      "line": 41,
+      "symbol": "Loggable.enabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/RADAttribution.swift",
+      "line": 10,
+      "symbol": "RADAttribution",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/RADAttribution.swift",
+      "line": 14,
+      "symbol": "RADAttribution.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/RADAttribution.swift",
+      "line": 15,
+      "symbol": "RADAttribution.logger",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/RADAttribution.swift",
+      "line": 16,
+      "symbol": "RADAttribution.eventSender",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/RADAttribution.swift",
+      "line": 17,
+      "symbol": "RADAttribution.linkResolver",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/EventSender/EventSender.swift",
+      "line": 18,
+      "symbol": "EventSender.sendEvent(name:eventData:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Models/DataModels/EventData.swift",
+      "line": 10,
+      "symbol": "EventData",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Models/DataModels/EventData.swift",
+      "line": 35,
+      "symbol": "EventData.init(transactionId:currency:revenue:shipping:tax:coupon:affiliation:description:searchQuery:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios"
+}

@@ -1,5 +1,6 @@
 # RADAttribution iOS SDK
 ![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/attribution-sdk-ios/workflows/PR%20Unit%20Tests/badge.svg)
+![RADAttribution](docs/badge.svg)
 ## Requirements
 
 - iOS 10.0+
