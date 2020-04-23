@@ -14,7 +14,7 @@
     <a title="LinkResolvable Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">RADAttribution Docs</a> (56% documented)</p>
+        <p><a href="../index.html">RADAttribution Docs</a> (92% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -83,7 +83,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>A type that can resolve links via SDK</p>
 
           </section>
           <section class="section task-group-section">
@@ -102,7 +102,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The object that acts as the link resolver results delegate</p>
 
                       </div>
                       <div class="declaration">
@@ -129,7 +129,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Resolve specific link</p>
 
                       </div>
                       <div class="declaration">
@@ -139,6 +139,25 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resolve</span><span class="p">(</span><span class="nv">link</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>link</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>string representation of URL.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -156,7 +175,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Checks if <code>userActivity</code> parameter contain all needed data for link resolving and in success case tried to resolve link</p>
 
                       </div>
                       <div class="declaration">
@@ -167,6 +186,29 @@
 <span class="kd">func</span> <span class="nf">resolve</span><span class="p">(</span><span class="nv">userActivity</span><span class="p">:</span> <span class="kt">NSUserActivity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userActivity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance of NSUserActivity class with specific user state</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Bool value <code>true</code> in case userActivity parameter contains needed data for link resolving, otherwise <code>false</code>.</p>
                       </div>
                     </section>
                   </div>
