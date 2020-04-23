@@ -1,6 +1,6 @@
 # RADAttribution iOS SDK
 ![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/attribution-sdk-ios/workflows/PR%20Unit%20Tests/badge.svg)
-![RADAttribution](docs/badge.svg)
+[![RADAttribution](docs/badge.svg)](https://rakuten-advertising-developers.github.io/attribution-sdk-ios/)
 ## Requirements
 
 - iOS 10.0+
@@ -11,6 +11,8 @@
 ```sh 
 gem install cocoapods 
 ```
+## Documentation
+* [API References](https://rakuten-advertising-developers.github.io/attribution-sdk-ios/)
 
 ## Demo projects
 * [RAd Advertiser Demo](https://github.com/Rakuten-Advertising-Developers/radadvertiser-demo-ios/)
