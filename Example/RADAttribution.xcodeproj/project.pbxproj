@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		574EFD9E244A04780065617E /* Generate Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 574EFDA1244A04790065617E /* Build configuration list for PBXAggregateTarget "Generate Documentation" */;
+			buildPhases = (
+				574EFDA2244A04800065617E /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Generate Documentation";
+			productName = "Generate Documentation";
+		};
 		57A1B1D1243397190045D1D1 /* CocoaPods Update */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 57A1B1D4243397190045D1D1 /* Build configuration list for PBXAggregateTarget "CocoaPods Update" */;
@@ -293,6 +304,9 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Rakuten Advertising";
 				TargetAttributes = {
+					574EFD9E244A04780065617E = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 					57A1B1D1243397190045D1D1 = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -327,6 +341,7 @@
 				607FACE41AFB9204008FA782 /* RADAttribution_Tests */,
 				57A1B1D1243397190045D1D1 /* CocoaPods Update */,
 				57A1B21C2434A2310045D1D1 /* PreBuildScriptsRunner */,
+				574EFD9E244A04780065617E /* Generate Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -390,6 +405,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RADAttribution_Example/Pods-RADAttribution_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		574EFDA2244A04800065617E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# NOTE! Jazzy should be installed on your machine https://github.com/realm/jazzy\neval \"$(rbenv init -)\"\ncd ..\njazzy --podspec ./RADAttribution.podspec --clean\n";
 		};
 		57A1B1D5243397230045D1D1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -512,6 +544,22 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		574EFD9F244A04790065617E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		574EFDA0244A04790065617E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		57A1B1D2243397190045D1D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -743,6 +791,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		574EFDA1244A04790065617E /* Build configuration list for PBXAggregateTarget "Generate Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				574EFD9F244A04790065617E /* Debug */,
+				574EFDA0244A04790065617E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		57A1B1D4243397190045D1D1 /* Build configuration list for PBXAggregateTarget "CocoaPods Update" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

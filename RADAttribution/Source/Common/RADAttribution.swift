@@ -7,17 +7,23 @@
 
 import Foundation
 
+/**
+The class that encapsulates various feature of RADAttribution SDK  like sending events and links resolving
+*/
 public class RADAttribution {
     
     //MARK: Properties
     
+    /// global instance of RADAttribution configured for links resolving and sending events
     public static let shared = RADAttribution()
+    /// instance of Loggable type with the ability to interact with logging behavior
     public let logger: Loggable = RADLogger.shared
+    /// instance of EventSenderable type with the ability to send events
     public var eventSender: EventSenderable
+    /// instance of linkResolver type with the ability to resolve links
     public var linkResolver: LinkResolvable
     
     private let firstLaunchDetector: FirstLaunchDetector
-    
     private var sessionId: String?
     
     //MARK: Init
@@ -35,7 +41,7 @@ public class RADAttribution {
         linkResolver.dataHandler = self
         eventSender.dataProvider = self
     }
-   
+    
     init(eventSender: EventSenderable,
          linkResolver: LinkResolver,
          firstLaunchDetector: FirstLaunchDetector) {
@@ -56,13 +62,13 @@ extension RADAttribution: LinkResolverDataHandler {
     }
     
     var isFirstAppLaunch: Bool {
-           
+        
         return firstLaunchDetector.isFirstLaunch
     }
 }
 
 extension RADAttribution: SenderDataProvider {
-   
+    
     var senderSessionID: String? {
         
         return sessionId
