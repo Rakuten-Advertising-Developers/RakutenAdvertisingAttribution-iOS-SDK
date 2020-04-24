@@ -26,9 +26,35 @@ public class RADAttribution {
     private let firstLaunchDetector: FirstLaunchDetector
     private var sessionId: String?
     
+    private static var configured = false
+    private static var sendAppLaunchRequest = false
+    
+    //MARK: Configure
+    
+    public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
+    
+    public static func configure(with launchOptions: LaunchOptions?) {
+        
+        sendAppLaunchRequest = !isUserActivityContainsWebURL(launchOptions: launchOptions)
+        configured = true
+    }
+    
+    static func isUserActivityContainsWebURL(launchOptions: LaunchOptions?) -> Bool {
+        
+        guard let launchOptions = launchOptions,
+            let userActivityDictionary = launchOptions[UIApplication.LaunchOptionsKey.userActivityDictionary] as? LaunchOptions,
+            let userActivity = userActivityDictionary.values.first(where: { $0 is NSUserActivity }) as? NSUserActivity,
+            userActivity.webpageURL != nil  else {
+                return false
+        }
+        return true
+    }
+    
     //MARK: Init
     
     init() {
+        
+        assert(RADAttribution.configured, "RADAttribution.configure(with:) should be called before using")
         
         let eventSender = EventSender()
         let linkResolver = LinkResolver()
@@ -40,18 +66,33 @@ public class RADAttribution {
         
         linkResolver.dataHandler = self
         eventSender.dataProvider = self
+        
+        sendAppLaunchedEventIfNeeded()
     }
     
     init(eventSender: EventSenderable,
          linkResolver: LinkResolver,
          firstLaunchDetector: FirstLaunchDetector) {
         
+        assert(RADAttribution.configured, "RADAttribution.configure(with:) should be called before using")
+        
         self.eventSender = eventSender
         self.linkResolver = linkResolver
         self.firstLaunchDetector = firstLaunchDetector
+        
+        sendAppLaunchedEventIfNeeded()
     }
     
     //MARK: Private
+    
+    private func sendAppLaunchedEventIfNeeded() {
+        
+        guard RADAttribution.sendAppLaunchRequest else { return }
+
+        DispatchQueue.global().async {
+            self.linkResolver.resolve(link: "")
+        }
+    }
 }
 
 extension RADAttribution: LinkResolverDataHandler {
