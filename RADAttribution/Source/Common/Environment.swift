@@ -23,4 +23,6 @@ struct Environment {
         
         return ""
     }
+    
+    static var token: String?
 }

@@ -26,10 +26,11 @@ Rakuten Advertising Attribution iOS SDK, tracking events and deeplinking
   s.author           = 'Rakuten Advertising'
   s.source           = { :git => 'https://github.com/Rakuten-Advertising-Developers/attribution-sdk-ios.git', :branch => 'master' } #:tag => s.version.to_s }
   
-  s.platform = :ios, "10.0"
-  s.ios.deployment_target = '10.0'
+  s.platform = :ios, "11.0"
+  s.ios.deployment_target = '11.0'
   s.swift_version = '5.0'
 
   s.source_files = 'RADAttribution/Source/**/*'
+  s.dependency 'SwiftJWT'
 
 end

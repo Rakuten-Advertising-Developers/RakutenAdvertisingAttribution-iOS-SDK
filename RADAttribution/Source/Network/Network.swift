@@ -17,6 +17,7 @@ protocol Endpointable {
     var body: Data? { get }
     var httpMethod: HTTPMethod { get }
     var urlRequest: URLRequest { get }
+    var token: String? { get }
 }
 
 extension Endpointable {
@@ -25,6 +26,11 @@ extension Endpointable {
         
         let apiPath = Environment.serverAPIPath
         return Environment.serverBaseURL.appendingPathComponent(apiPath)
+    }
+    
+    var token: String? {
+        
+        return Environment.token
     }
     
     var urlRequest: URLRequest {
