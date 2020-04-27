@@ -17,7 +17,7 @@ protocol Endpointable {
     var body: Data? { get }
     var httpMethod: HTTPMethod { get }
     var urlRequest: URLRequest { get }
-    var token: String? { get }
+    var tokenProvider: AccessTokenProvider { get }
 }
 
 extension Endpointable {
@@ -28,9 +28,9 @@ extension Endpointable {
         return Environment.serverBaseURL.appendingPathComponent(apiPath)
     }
     
-    var token: String? {
+    var tokenProvider: AccessTokenProvider {
         
-        return Environment.token
+        return TokensStorage.shared
     }
     
     var urlRequest: URLRequest {
@@ -52,6 +52,12 @@ extension Endpointable {
         }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = httpMethod.rawValue
+        
+        if let token = tokenProvider.token {
+            let tokenString = "Bearer " + token
+            request.setValue(tokenString, forHTTPHeaderField: "Authorization")
+        }
+        
         return request
     }
 }

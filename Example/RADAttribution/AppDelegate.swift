@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else { return true }
         
-        RADAttribution.configure(with: launchOptions)
+        let keyURL = Bundle.main.url(forResource: "pk", withExtension: "key")!
+        let keyData = try! Data(contentsOf: keyURL)
+        
+        RADAttribution.configure(with: .data(value: keyData), launchOptions: launchOptions)
         RADAttribution.shared.logger.enabled = true
         RADAttribution.shared.linkResolver.delegate = viewController
         RADAttribution.shared.eventSender.delegate = viewController

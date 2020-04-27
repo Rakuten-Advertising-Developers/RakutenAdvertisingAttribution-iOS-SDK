@@ -105,18 +105,22 @@ protocol NetworkLogger: Loggable {
     func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?)
 }
 
-protocol LinkResolverDataHandler: class {
+protocol SessionModifier {
     
-    func didResolveLink(sessionId: String)
-    var isFirstAppLaunch: Bool { get }
+    func modify(sessionId: String?)
 }
 
-protocol SenderDataProvider: class {
+protocol SessionProvider: class {
     
-    var senderSessionID: String? { get }
+    var sessionID: String? { get }
 }
 
-protocol TokenProvider {
+protocol AccessTokenProvider {
     
-    static var token: String? { get set }
+    var token: String? { get }
+}
+
+protocol AccessTokenModifier {
+    
+    func modify(token: String?)
 }

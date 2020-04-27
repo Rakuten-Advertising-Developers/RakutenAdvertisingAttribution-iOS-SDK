@@ -3,7 +3,7 @@
 [![RADAttribution](docs/badge.svg)](https://rakuten-advertising-developers.github.io/attribution-sdk-ios/)
 ## Requirements
 
-- iOS 10.0+
+- iOS 11.0+
 - Xcode 11+
 - Swift 5+
 - Ruby ([Installation Guide](./RubyInstallationGuide.md))

@@ -50,6 +50,7 @@
 		574C11B5243F2E3B00DC0E24 /* MockEndpointable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */; };
 		574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B9243F313B00DC0E24 /* EndpointableTests.swift */; };
 		574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11BD243F3D6C00DC0E24 /* MockCodable.swift */; };
+		57997385245732F5007DA45E /* pk.key in Resources */ = {isa = PBXBuildFile; fileRef = 57997384245732F5007DA45E /* pk.key */; };
 		57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABA243B76390048E34F /* DataBuilderTests.swift */; };
 		57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */; };
 		57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */; };
@@ -92,6 +93,7 @@
 		574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEndpointable.swift; sourceTree = "<group>"; };
 		574C11B9243F313B00DC0E24 /* EndpointableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointableTests.swift; sourceTree = "<group>"; };
 		574C11BD243F3D6C00DC0E24 /* MockCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodable.swift; sourceTree = "<group>"; };
+		57997384245732F5007DA45E /* pk.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pk.key; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
 		57FC5ABA243B76390048E34F /* DataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBuilderTests.swift; sourceTree = "<group>"; };
 		57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetectorTests.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				57997384245732F5007DA45E /* pk.key */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -351,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57997385245732F5007DA45E /* pk.key in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
