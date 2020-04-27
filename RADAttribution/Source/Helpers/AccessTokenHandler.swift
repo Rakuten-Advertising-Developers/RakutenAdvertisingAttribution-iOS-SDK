@@ -45,7 +45,7 @@ final class AccessTokenHandler {
     
     init(key: PrivateKey, tokenModifier: AccessTokenModifier = TokensStorage.shared) {
 
-        var myJWT = JWT(claims: RADClaims.standard)
+        var jwt = JWT(claims: RADClaims.standard)
         
         let privateKeyData: Data
         switch key {
@@ -62,7 +62,7 @@ final class AccessTokenHandler {
         let jwtSigner = JWTSigner.rs256(privateKey: privateKeyData)
         
         do {
-            let signedJWT = try myJWT.sign(using: jwtSigner)
+            let signedJWT = try jwt.sign(using: jwtSigner)
             configured = true
             tokenModifier.modify(token: signedJWT)
         } catch {
