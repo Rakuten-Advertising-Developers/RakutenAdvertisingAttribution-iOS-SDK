@@ -15,27 +15,37 @@ public enum PrivateKey {
 
 final class AccessTokenHandler {
     
+    //MARK: Inner types
+    
     struct RADClaims: Claims {
+        
         let iss: String
         let sub: String
         let aud: String
         let kid: String
         let iat: Date
         let exp: Date
+        
+        static var standard: RADClaims {
+            
+            return RADClaims(iss: "attribution-sdk",
+                             sub: "attribution-sdk",
+                             aud: "1",
+                             kid: Bundle.main.bundleIdentifier ?? "",
+                             iat: Date(),
+                             exp: Date(timeIntervalSinceNow: 60*60*24))
+        }
     }
+    
+    //MARK: Properties
     
     private(set) var configured: Bool = false
     
-    init(key: PrivateKey, tokenModifier: AccessTokenModifier = TokensStorage.shared) {
+    //MARK: Init
     
-        let myClaims = RADClaims(iss: "attribution-sdk",
-                                 sub: "attribution-sdk",
-                                 aud: "1",
-                                 kid: Bundle.main.bundleIdentifier ?? "",
-                                 iat: Date(),
-                                 exp: Date(timeIntervalSinceNow: 60*60*24))
-        
-        var myJWT = JWT(claims: myClaims)
+    init(key: PrivateKey, tokenModifier: AccessTokenModifier = TokensStorage.shared) {
+
+        var myJWT = JWT(claims: RADClaims.standard)
         
         let privateKeyData: Data
         switch key {

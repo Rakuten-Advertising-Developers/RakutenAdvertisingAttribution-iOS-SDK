@@ -9,9 +9,12 @@ import Foundation
 
 class EventSender {
     
-    weak var delegate: EventSenderableDelegate?
+    //MARK: Properties
     
+    weak var delegate: EventSenderableDelegate?
     let sessionProvider: SessionProvider
+    
+    //MARK: Init
     
     init(sessionProvider: SessionProvider = TokensStorage.shared) {
         self.sessionProvider = sessionProvider

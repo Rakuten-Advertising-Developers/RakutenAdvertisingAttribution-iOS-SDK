@@ -9,10 +9,14 @@ import Foundation
 
 class LinkResolver {
     
+    //MARK: Properties
+    
     weak var delegate: LinkResolvableDelegate?
 
     let firstLaunchDetector: FirstLaunchDetector
     let sessionModifier: SessionModifier
+    
+    //MARK: Init
     
     init(sessionModifier: SessionModifier = TokensStorage.shared, firstLaunchDetector: FirstLaunchDetector = FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)) {
         self.sessionModifier = sessionModifier
