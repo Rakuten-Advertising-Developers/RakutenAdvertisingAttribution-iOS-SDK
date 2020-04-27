@@ -115,3 +115,8 @@ protocol SenderDataProvider: class {
     
     var senderSessionID: String? { get }
 }
+
+protocol TokenProvider {
+    
+    static var token: String? { get set }
+}

@@ -23,6 +23,9 @@ struct Environment {
         
         return ""
     }
+}
+
+extension Environment: TokenProvider {
     
-    static var token: String?
+    static var token: String? = nil
 }
