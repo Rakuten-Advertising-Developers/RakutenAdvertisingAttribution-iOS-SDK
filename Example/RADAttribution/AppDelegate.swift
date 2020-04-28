@@ -19,7 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else { return true }
         
-        RADAttribution.configure(with: .string(value: "YOUR_PRIVATE_KEY"), launchOptions: launchOptions)
+        let configuration: AttributionConfiguration
+        
+        if ProcessInfo.processInfo.isUnitTesting {
+            configuration = MockAttributionConfiguration()
+        } else {
+            configuration = Configuration(key: .string(value: "YOUR_PRIVATE_KEY"),
+                                          launchOptions: launchOptions)
+        }
+        
+        RADAttribution.setup(with: configuration)
         RADAttribution.shared.logger.enabled = true
         RADAttribution.shared.linkResolver.delegate = viewController
         RADAttribution.shared.eventSender.delegate = viewController

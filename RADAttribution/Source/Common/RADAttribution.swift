@@ -12,7 +12,6 @@ import SwiftJWT
 The class that encapsulates various feature of RADAttribution SDK  like sending events and links resolving
 */
 
-
 public class RADAttribution {
     
     //MARK: Properties
@@ -26,37 +25,26 @@ public class RADAttribution {
     /// instance of linkResolver type with the ability to resolve links
     public var linkResolver: LinkResolvable
     
-    private static var configurationPassed = false
-    private static var sendAppLaunchRequest = false
+    private static var configuration: AttributionConfiguration = EmptyConfiguration.default
     
-    //MARK: Configure
+    //MARK: Static
     
-    public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
-    
-    public static func configure(with key: PrivateKey, launchOptions: LaunchOptions?) {
+    public static func setup(with configuration: AttributionConfiguration) {
         
-        sendAppLaunchRequest = !isUserActivityContainsWebURL(launchOptions: launchOptions)
-        
-        let tokenHandler = AccessTokenHandler(key: key)
-        configurationPassed = tokenHandler.configured
+        self.configuration = configuration
     }
     
-    static func isUserActivityContainsWebURL(launchOptions: LaunchOptions?) -> Bool {
+    static private func checkConfiguration() {
         
-        guard let launchOptions = launchOptions,
-            let userActivityDictionary = launchOptions[UIApplication.LaunchOptionsKey.userActivityDictionary] as? LaunchOptions,
-            let userActivity = userActivityDictionary.values.first(where: { $0 is NSUserActivity }) as? NSUserActivity,
-            userActivity.webpageURL != nil  else {
-                return false
-        }
-        return true
+        let isValid = configuration.validate()
+        assert(isValid, "Provide valid AttributionConfiguration by calling RADAttribution.setup(with configuration:) at first")
     }
     
     //MARK: Init
     
     init() {
         
-        assert(RADAttribution.configurationPassed, "RADAttribution.configure(with privateKey:launchOptions:) should be called before using")
+        Self.checkConfiguration()
         
         let eventSender = EventSender()
         let linkResolver = LinkResolver()
@@ -70,7 +58,7 @@ public class RADAttribution {
     init(eventSender: EventSenderable,
          linkResolver: LinkResolver) {
         
-        assert(RADAttribution.configurationPassed, "RADAttribution.configure(with privateKey:launchOptions:) should be called before using")
+        Self.checkConfiguration()
         
         self.eventSender = eventSender
         self.linkResolver = linkResolver
@@ -82,7 +70,7 @@ public class RADAttribution {
     
     private func sendAppLaunchedEventIfNeeded() {
         
-        guard RADAttribution.sendAppLaunchRequest else { return }
+        guard Self.configuration.isManualAppLaunch else { return }
 
         DispatchQueue.global().async {
             self.linkResolver.resolve(link: "")

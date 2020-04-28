@@ -97,6 +97,23 @@ public protocol Loggable: class {
     var enabled: Bool { get set }
 }
 
+public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
+
+public enum PrivateKey {
+    
+    case string(value: String)
+    case data(value: Data)
+}
+
+public protocol AttributionConfiguration {
+    
+    var launchOptions: LaunchOptions? { get }
+    var key: PrivateKey { get }
+    
+    var isManualAppLaunch: Bool { get }
+    func validate() -> Bool
+}
+
 //MARK: Internal
 
 protocol NetworkLogger: Loggable {
@@ -123,4 +140,9 @@ protocol AccessTokenProvider {
 protocol AccessTokenModifier {
     
     func modify(token: String?)
+}
+
+protocol AccessKeyProcessor {
+    
+    func process(key: PrivateKey, with tokenModifier: AccessTokenModifier) throws 
 }

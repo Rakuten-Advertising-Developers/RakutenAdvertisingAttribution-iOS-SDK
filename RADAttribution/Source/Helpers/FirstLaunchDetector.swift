@@ -9,6 +9,8 @@ import Foundation
 
 final class FirstLaunchDetector {
     
+    //MARK: Inner types
+    
     enum UserDefaultsKeys: String {
         
         case firstLaunch = "com.rakuten.advertising.RADAttribution.UserDefaults.key.firstLaunch"

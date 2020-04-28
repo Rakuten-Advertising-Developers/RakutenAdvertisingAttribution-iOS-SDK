@@ -8,12 +8,25 @@
 import Foundation
 import SwiftJWT
 
-public enum PrivateKey {
-    case string(value: String)
-    case data(value: Data)
+enum AccessTokenHandlerError: Error {
+    
+    case stringConversion
+    case incorrectKey(error: Error)
 }
 
-final class AccessTokenHandler {
+extension AccessTokenHandlerError: LocalizedError {
+    
+    var errorDescription: String? {
+        switch self {
+        case .stringConversion:
+            return "Unable convert private key string to data"
+        case .incorrectKey(let error):
+            return error.localizedDescription
+        }
+    }
+}
+
+struct AccessTokenHandler {
     
     //MARK: Inner types
     
@@ -36,23 +49,19 @@ final class AccessTokenHandler {
                              exp: Date(timeIntervalSinceNow: 60*60*24))
         }
     }
-    
-    //MARK: Properties
-    
-    private(set) var configured: Bool = false
-    
-    //MARK: Init
-    
-    init(key: PrivateKey, tokenModifier: AccessTokenModifier = TokensStorage.shared) {
+}
 
+extension AccessTokenHandler: AccessKeyProcessor {
+    
+    func process(key: PrivateKey, with tokenModifier: AccessTokenModifier) throws {
+        
         var jwt = JWT(claims: RADClaims.standard)
         
         let privateKeyData: Data
         switch key {
         case .string(let value):
             guard let privateKey = value.data(using: .utf8) else {
-                assertionFailure("Unable convert private key string to data")
-                return
+                throw AccessTokenHandlerError.stringConversion
             }
             privateKeyData = privateKey
         case .data(let value):
@@ -63,10 +72,9 @@ final class AccessTokenHandler {
         
         do {
             let signedJWT = try jwt.sign(using: jwtSigner)
-            configured = true
             tokenModifier.modify(token: signedJWT)
         } catch {
-            assertionFailure(error.localizedDescription)
+            throw AccessTokenHandlerError.incorrectKey(error: error)
         }
     }
 }
