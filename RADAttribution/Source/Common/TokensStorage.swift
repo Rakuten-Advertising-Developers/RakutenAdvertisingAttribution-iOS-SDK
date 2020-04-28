@@ -9,10 +9,14 @@ import Foundation
 
 final class TokensStorage {
     
+    //MARK: Properties
+    
     public static let shared = TokensStorage()
     
     private var internalToken: String?
     private var internalSessionID: String?
+    
+    //MARK: Private
     
     private init() {}
 }

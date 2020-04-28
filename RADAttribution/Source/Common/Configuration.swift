@@ -14,7 +14,7 @@ public struct Configuration: AttributionConfiguration {
     public let launchOptions: LaunchOptions?
     public let key: PrivateKey
     
-    var accessKeyProcessor: AccessKeyProcessor = AccessTokenHandler()
+    var accessKeyProcessor: AccessKeyProcessor = JWTHandler()
     var accessTokenModifier: AccessTokenModifier = TokensStorage.shared
     
     public var isManualAppLaunch: Bool {
@@ -22,6 +22,8 @@ public struct Configuration: AttributionConfiguration {
         let handler = ApplicationLaunchOptionsHandler(launchOptions: launchOptions)
         return !handler.isUserActivityContainsWebURL
     }
+    
+    //MARK: Public
     
     public func validate() -> Bool {
        
@@ -44,13 +46,19 @@ public struct Configuration: AttributionConfiguration {
 
 struct EmptyConfiguration: AttributionConfiguration {
     
+    //MARK: Properties
+    
     let launchOptions: LaunchOptions?
     let key: PrivateKey
     let isManualAppLaunch: Bool
     
+    //MARK: Static
+    
     static var `default`: EmptyConfiguration {
         return self.init()
     }
+    
+    //MARK: Init
     
     private init() {
         launchOptions = nil
