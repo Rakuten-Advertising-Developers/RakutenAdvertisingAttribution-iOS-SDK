@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftJWT
 
 /**
 The class that encapsulates various feature of RADAttribution SDK  like sending events and links resolving
