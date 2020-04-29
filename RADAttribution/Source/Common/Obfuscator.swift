@@ -32,7 +32,7 @@ public struct Obfuscator {
     
     //MARK: Private
     
-    private func showDebugInfo(original: String, bytes: [UInt8]) {
+    private func showDebugInfo(for bytes: [UInt8]) {
         
         let newLine = "\n"
         let tab = "\t"
@@ -66,12 +66,7 @@ public struct Obfuscator {
         let encrypted = text.enumerated().map { $0.element ^ cipher[$0.offset % length] }
         
         #if DEBUG
-        showDebugInfo(original: string, bytes: encrypted)
-//        print("Salt used: \(self.salt)\n")
-//        print("Swift Code:\n************")
-//        print("// Original \"\(string)\"")
-//        print("let key: [UInt8] = \(encrypted)\n")
-        
+            showDebugInfo(for: encrypted)
         #endif
         
         return encrypted

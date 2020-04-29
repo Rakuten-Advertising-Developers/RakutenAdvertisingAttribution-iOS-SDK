@@ -1,5 +1,6 @@
 ## Key Preparation Guide
-We strongly not recommend keep your key as a file or as static sting in the project because of security reasons. You feel free to use your own approach. As part of `RADAttribution` SDK provided `Obfuscator` struct, which gives ability obfuscate key.
+We strongly not recommend keep your key as a file or as static sting in the project because of security reasons. Feel free to use your own secure approach if you want. Anyway as part of `RADAttribution` SDK provided `Obfuscator` struct, which gives ability obfuscate key. Follow to instructions bellow
+
 1. Initialize `Obfuscator` struct instance passing some `salt` parameter (you can choose any string, actually)
 ```swift
 let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
