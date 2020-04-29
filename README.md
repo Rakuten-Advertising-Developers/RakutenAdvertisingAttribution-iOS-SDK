@@ -44,7 +44,7 @@ end
 
 #### Setup
 Before using RADAttribution you have to properly setup it.
-1. Receive and ([prepare private key](./guides/KeyPreparationGuide.md))
+1. Receive and [prepare private key](./guides/KeyPreparationGuide.md)
 2. Initialize `Configuration` struct instance passing your generated private key and launch options
 ```swift
 let configuration = Configuration(key: .data(value: privateKey), launchOptions: launchOptions)
