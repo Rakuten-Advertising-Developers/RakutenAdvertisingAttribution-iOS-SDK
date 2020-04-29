@@ -51,6 +51,8 @@
 		574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B9243F313B00DC0E24 /* EndpointableTests.swift */; };
 		574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11BD243F3D6C00DC0E24 /* MockCodable.swift */; };
 		57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */; };
+		57752F792459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */; };
+		57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */; };
 		5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
 		5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
 		5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
@@ -98,6 +100,8 @@
 		574C11B9243F313B00DC0E24 /* EndpointableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointableTests.swift; sourceTree = "<group>"; };
 		574C11BD243F3D6C00DC0E24 /* MockCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodable.swift; sourceTree = "<group>"; };
 		57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBackendURLProvider.swift; sourceTree = "<group>"; };
+		57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLaunchOptionsHandlerTests.swift; sourceTree = "<group>"; };
+		57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObfuscatorTests.swift; sourceTree = "<group>"; };
 		5799738624582386007DA45E /* MockAttributionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttributionConfiguration.swift; sourceTree = "<group>"; };
 		5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 			children = (
 				574C11BB243F3BD100DC0E24 /* Mocks */,
 				57FC5ABA243B76390048E34F /* DataBuilderTests.swift */,
+				57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */,
+				57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */,
 				574C11B9243F313B00DC0E24 /* EndpointableTests.swift */,
 				57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */,
 				57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */,
@@ -543,9 +549,11 @@
 				574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */,
 				57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */,
 				5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
+				57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */,
 				574C11AA243C9BF500DC0E24 /* TestableDataProvider.swift in Sources */,
 				574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */,
 				57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */,
+				57752F792459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
