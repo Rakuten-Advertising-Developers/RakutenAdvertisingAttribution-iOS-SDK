@@ -10,6 +10,7 @@ import Foundation
 /**
 The class that encapsulates various feature of RADAttribution SDK  like sending events and links resolving
 */
+
 public class RADAttribution {
     
     //MARK: Properties
@@ -23,38 +24,26 @@ public class RADAttribution {
     /// instance of linkResolver type with the ability to resolve links
     public var linkResolver: LinkResolvable
     
-    private let firstLaunchDetector: FirstLaunchDetector
-    private var sessionId: String?
+    private static var configuration: AttributionConfiguration = EmptyConfiguration.default
     
-    private static var configured = false
-    private static var sendAppLaunchRequest = false
+    //MARK: Static
     
-    //MARK: Configure
-    
-    public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
-    
-    public static func configure(with launchOptions: LaunchOptions?) {
+    public static func setup(with configuration: AttributionConfiguration) {
         
-        sendAppLaunchRequest = !isUserActivityContainsWebURL(launchOptions: launchOptions)
-        configured = true
+        self.configuration = configuration
     }
     
-    static func isUserActivityContainsWebURL(launchOptions: LaunchOptions?) -> Bool {
+    static private func checkConfiguration() {
         
-        guard let launchOptions = launchOptions,
-            let userActivityDictionary = launchOptions[UIApplication.LaunchOptionsKey.userActivityDictionary] as? LaunchOptions,
-            let userActivity = userActivityDictionary.values.first(where: { $0 is NSUserActivity }) as? NSUserActivity,
-            userActivity.webpageURL != nil  else {
-                return false
-        }
-        return true
+        let isValid = configuration.validate()
+        assert(isValid, "Provide valid AttributionConfiguration by calling RADAttribution.setup(with configuration:) at first")
     }
     
     //MARK: Init
     
     init() {
         
-        assert(RADAttribution.configured, "RADAttribution.configure(with:) should be called before using")
+        Self.checkConfiguration()
         
         let eventSender = EventSender()
         let linkResolver = LinkResolver()
@@ -62,23 +51,16 @@ public class RADAttribution {
         self.eventSender = eventSender
         self.linkResolver = linkResolver
         
-        self.firstLaunchDetector = FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)
-        
-        linkResolver.dataHandler = self
-        eventSender.dataProvider = self
-        
         sendAppLaunchedEventIfNeeded()
     }
     
     init(eventSender: EventSenderable,
-         linkResolver: LinkResolver,
-         firstLaunchDetector: FirstLaunchDetector) {
+         linkResolver: LinkResolver) {
         
-        assert(RADAttribution.configured, "RADAttribution.configure(with:) should be called before using")
+        Self.checkConfiguration()
         
         self.eventSender = eventSender
         self.linkResolver = linkResolver
-        self.firstLaunchDetector = firstLaunchDetector
         
         sendAppLaunchedEventIfNeeded()
     }
@@ -87,31 +69,10 @@ public class RADAttribution {
     
     private func sendAppLaunchedEventIfNeeded() {
         
-        guard RADAttribution.sendAppLaunchRequest else { return }
+        guard Self.configuration.isManualAppLaunch else { return }
 
         DispatchQueue.global().async {
             self.linkResolver.resolve(link: "")
         }
-    }
-}
-
-extension RADAttribution: LinkResolverDataHandler {
-    
-    func didResolveLink(sessionId: String) {
-        
-        self.sessionId = sessionId
-    }
-    
-    var isFirstAppLaunch: Bool {
-        
-        return firstLaunchDetector.isFirstLaunch
-    }
-}
-
-extension RADAttribution: SenderDataProvider {
-    
-    var senderSessionID: String? {
-        
-        return sessionId
     }
 }

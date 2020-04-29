@@ -9,16 +9,26 @@ import Foundation
 
 class LinkResolver {
     
+    //MARK: Properties
+    
     weak var delegate: LinkResolvableDelegate?
-    weak var dataHandler: LinkResolverDataHandler?
+
+    let firstLaunchDetector: FirstLaunchDetector
+    let sessionModifier: SessionModifier
+    
+    //MARK: Init
+    
+    init(sessionModifier: SessionModifier = TokensStorage.shared, firstLaunchDetector: FirstLaunchDetector = FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)) {
+        self.sessionModifier = sessionModifier
+        self.firstLaunchDetector = firstLaunchDetector
+    }
 }
 
 extension LinkResolver: LinkResolvable {
     
     func resolve(link: String) {
         
-        let firstLaunch = dataHandler?.isFirstAppLaunch ?? false
-        let request = ResolveLinkRequest(firstSession: firstLaunch,
+        let request = ResolveLinkRequest(firstSession: firstLaunchDetector.isFirstLaunch,
                                          universalLinkUrl: link,
                                          userData: DataBuilder.defaultUserData(),
                                          deviceData: DataBuilder.defaultDeviceData())
@@ -29,7 +39,7 @@ extension LinkResolver: LinkResolvable {
             
             switch result {
             case .success(let response):
-                self?.dataHandler?.didResolveLink(sessionId: response.sessionId)
+                self?.sessionModifier.modify(sessionId: response.sessionId)
                 self?.delegate?.didResolve(link: link, resultMessage: "sessionId: \(response.sessionId)\ndeviceFingerprintId: \(response.deviceFingerprintId)")
             case .failure(let error):
                 self?.delegate?.didFailedResolve(link: link, with: error)

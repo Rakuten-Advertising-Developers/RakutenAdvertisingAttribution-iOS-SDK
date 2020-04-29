@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>claims</key>
+	<dict>
+		<key>aud</key>
+		<string>1</string>
+		<key>sub</key>
+		<string>attribution-sdk</string>
+		<key>iss</key>
+		<string>attribution-sdk</string>
+	</dict>
+	<key>network</key>
+	<dict>
+		<key>baseURL</key>
+		<string>https://us-central1-attribution-sdk.cloudfunctions.net/</string>
+		<key>apiVersion</key>
+		<string></string>
+		<key>apiPath</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>

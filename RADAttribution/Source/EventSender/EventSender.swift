@@ -9,8 +9,16 @@ import Foundation
 
 class EventSender {
     
+    //MARK: Properties
+    
     weak var delegate: EventSenderableDelegate?
-    weak var dataProvider: SenderDataProvider?
+    let sessionProvider: SessionProvider
+    
+    //MARK: Init
+    
+    init(sessionProvider: SessionProvider = TokensStorage.shared) {
+        self.sessionProvider = sessionProvider
+    }
 }
 
 extension EventSender: EventSenderable {
@@ -18,7 +26,7 @@ extension EventSender: EventSenderable {
     public func sendEvent(name: String, eventData: EventData? = nil) {
         
         let request = SendEventRequest(name: name,
-                                       sessionId: dataProvider?.senderSessionID,
+                                       sessionId: sessionProvider.sessionID,
                                        userData: DataBuilder.defaultUserData(),
                                        deviceData: DataBuilder.defaultDeviceData(),
                                        customData: nil,

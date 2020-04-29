@@ -1,6 +1,6 @@
 //
 //  FirstLaunchDetector.swift
-//  Pods
+//  RADAttribution
 //
 //  Created by Durbalo, Andrii on 03.04.2020.
 //
@@ -8,6 +8,8 @@
 import Foundation
 
 final class FirstLaunchDetector {
+    
+    //MARK: Inner types
     
     enum UserDefaultsKeys: String {
         

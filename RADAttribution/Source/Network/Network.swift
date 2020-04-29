@@ -11,25 +11,30 @@ typealias Parameters = [String: AnyHashable]
 
 protocol Endpointable {
     
-    var baseURL: URL { get }
+    var backendURLProvider: BackendURLProvider { get }
     var path: String { get }
     var queryParameters: Parameters? { get }
     var body: Data? { get }
     var httpMethod: HTTPMethod { get }
     var urlRequest: URLRequest { get }
+    var tokenProvider: AccessTokenProvider { get }
 }
 
 extension Endpointable {
     
-    var baseURL: URL {
+    var backendURLProvider: BackendURLProvider {
+
+        return EnvironmentManager.shared.currentEnvironment.network
+    }
+    
+    var tokenProvider: AccessTokenProvider {
         
-        let apiPath = Environment.serverAPIPath
-        return Environment.serverBaseURL.appendingPathComponent(apiPath)
+        return TokensStorage.shared
     }
     
     var urlRequest: URLRequest {
         
-        let url = baseURL.appendingPathComponent(path)
+        let url = backendURLProvider.backendURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         
         if let parameters = queryParameters, var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
@@ -46,6 +51,12 @@ extension Endpointable {
         }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = httpMethod.rawValue
+        
+        if let token = tokenProvider.token {
+            let tokenString = "Bearer " + token
+            request.setValue(tokenString, forHTTPHeaderField: "Authorization")
+        }
+        
         return request
     }
 }
@@ -78,3 +89,8 @@ extension URLSession: URLSessionProtocol {
 }
 
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}
+
+protocol BackendURLProvider {
+    
+    var backendURL: URL { get }
+}

@@ -1,6 +1,6 @@
 //
 //  Collection+Extensions.swift
-//  Pods
+//  RADAttribution
 //
 //  Created by Durbalo, Andrii on 09.04.2020.
 //

@@ -50,6 +50,11 @@
 		574C11B5243F2E3B00DC0E24 /* MockEndpointable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */; };
 		574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B9243F313B00DC0E24 /* EndpointableTests.swift */; };
 		574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11BD243F3D6C00DC0E24 /* MockCodable.swift */; };
+		57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */; };
+		5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
+		5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
+		5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
+		5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
 		57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABA243B76390048E34F /* DataBuilderTests.swift */; };
 		57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */; };
 		57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */; };
@@ -92,6 +97,9 @@
 		574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEndpointable.swift; sourceTree = "<group>"; };
 		574C11B9243F313B00DC0E24 /* EndpointableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointableTests.swift; sourceTree = "<group>"; };
 		574C11BD243F3D6C00DC0E24 /* MockCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodable.swift; sourceTree = "<group>"; };
+		57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBackendURLProvider.swift; sourceTree = "<group>"; };
+		5799738624582386007DA45E /* MockAttributionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttributionConfiguration.swift; sourceTree = "<group>"; };
+		5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
 		57FC5ABA243B76390048E34F /* DataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBuilderTests.swift; sourceTree = "<group>"; };
 		57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetectorTests.swift; sourceTree = "<group>"; };
@@ -150,8 +158,36 @@
 				574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */,
 				574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */,
 				574C11BD243F3D6C00DC0E24 /* MockCodable.swift */,
+				5799738624582386007DA45E /* MockAttributionConfiguration.swift */,
+				57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		5799738E245839C1007DA45E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5799738F245839DE007DA45E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		57997390245839F5007DA45E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		57A1B21924349F750045D1D1 /* PreBuildScripts */ = {
@@ -188,11 +224,10 @@
 		607FACD21AFB9204008FA782 /* Example for RADAttribution */ = {
 			isa = PBXGroup;
 			children = (
+				5799738F245839DE007DA45E /* ViewControllers */,
+				5799738E245839C1007DA45E /* Extensions */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				57997390245839F5007DA45E /* Resources */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for RADAttribution";
@@ -487,7 +522,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,8 +538,11 @@
 				57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */,
 				57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */,
 				574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */,
+				5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */,
 				574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */,
+				57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */,
+				5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
 				574C11AA243C9BF500DC0E24 /* TestableDataProvider.swift in Sources */,
 				574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */,
 				57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */,
@@ -640,7 +680,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -689,7 +729,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -705,7 +745,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RADAttribution_Example.entitlements;
 				INFOPLIST_FILE = RADAttribution/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -726,7 +766,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RADAttribution_Example.entitlements;
 				INFOPLIST_FILE = RADAttribution/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

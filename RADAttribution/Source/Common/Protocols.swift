@@ -97,6 +97,23 @@ public protocol Loggable: class {
     var enabled: Bool { get set }
 }
 
+public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
+
+public enum PrivateKey {
+    
+    case string(value: String)
+    case data(value: Data)
+}
+
+public protocol AttributionConfiguration {
+    
+    var launchOptions: LaunchOptions? { get }
+    var key: PrivateKey { get }
+    
+    var isManualAppLaunch: Bool { get }
+    func validate() -> Bool
+}
+
 //MARK: Internal
 
 protocol NetworkLogger: Loggable {
@@ -105,13 +122,27 @@ protocol NetworkLogger: Loggable {
     func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?)
 }
 
-protocol LinkResolverDataHandler: class {
+protocol SessionModifier {
     
-    func didResolveLink(sessionId: String)
-    var isFirstAppLaunch: Bool { get }
+    func modify(sessionId: String?)
 }
 
-protocol SenderDataProvider: class {
+protocol SessionProvider: class {
     
-    var senderSessionID: String? { get }
+    var sessionID: String? { get }
+}
+
+protocol AccessTokenProvider {
+    
+    var token: String? { get }
+}
+
+protocol AccessTokenModifier {
+    
+    func modify(token: String?)
+}
+
+protocol AccessKeyProcessor {
+    
+    func process(key: PrivateKey, with tokenModifier: AccessTokenModifier) throws 
 }
