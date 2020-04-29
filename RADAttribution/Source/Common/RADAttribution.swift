@@ -10,7 +10,6 @@ import Foundation
 /**
 The class that encapsulates various feature of RADAttribution SDK  like sending events and links resolving
 */
-
 public class RADAttribution {
     
     //MARK: Properties
