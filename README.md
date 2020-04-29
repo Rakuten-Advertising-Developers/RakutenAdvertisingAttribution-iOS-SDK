@@ -43,7 +43,7 @@ end
 
 
 #### Setup
-Before using RADAttribution you have to properly setup it.
+Before using RADAttribution SDK you have to properly setup it in `application:didFinishLaunchingWithOptions:`
 1. Receive and [prepare private key](./guides/KeyPreparationGuide.md)
 2. Initialize `Configuration` struct instance passing your generated private key and launch options
 ```swift
