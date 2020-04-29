@@ -9,9 +9,13 @@ import Foundation
 
 class EnvironmentManager {
     
+    //MARK: Properties
+    
     static let shared = EnvironmentManager()
     
     let currentEnvironment: Environment
+    
+    //MARK: Private
 
     private init() {
         
