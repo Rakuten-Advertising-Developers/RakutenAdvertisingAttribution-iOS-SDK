@@ -9,7 +9,7 @@ PODS:
   - Logging (1.2.0)
   - RADAttribution (0.0.1):
     - SwiftJWT
-  - Sourcery (0.17.0)
+  - Sourcery (0.18.0)
   - SwiftJWT (3.5.3):
     - BlueCryptor (~> 1.0)
     - BlueECC (~> 1.1)
@@ -43,8 +43,8 @@ SPEC CHECKSUMS:
   KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
   LoggerAPI: fb78461eedac5316b290f2404d88b9d614d96c57
   Logging: 7838d379d234d7e5ae1265fa02804a9084caf04c
-  RADAttribution: fbc92ab10c1ef51ff3f384b8e7cf62c77f4ffdfb
-  Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
+  RADAttribution: 8a64b1df7a95e8257ef07c8dd9c1efa443b35430
+  Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
   SwiftJWT: 9a47a71090cae25767078756b5810e3b630aa9a7
 
 PODFILE CHECKSUM: 44222cd21a87d5bbf23ee3f49f7e1b9becdc73d2

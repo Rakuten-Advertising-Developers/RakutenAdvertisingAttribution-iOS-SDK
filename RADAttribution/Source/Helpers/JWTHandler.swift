@@ -39,12 +39,13 @@ struct JWTHandler {
         let iat: Date
         let exp: Date
         
-        static var standard: RADClaims {
+        static func standartClaims(envClaims: EnvironmentClaims = EnvironmentManager.shared.currentEnvironment.claims,
+                                   bundleID: String = Bundle.main.bundleIdentifier ?? "") -> RADClaims {
             
-            return RADClaims(iss: "attribution-sdk",
-                             sub: "attribution-sdk",
-                             aud: "1",
-                             kid: Bundle.main.bundleIdentifier ?? "",
+            return RADClaims(iss: envClaims.iss,
+                             sub: envClaims.sub,
+                             aud: envClaims.aud,
+                             kid: bundleID,
                              iat: Date(),
                              exp: Date(timeIntervalSinceNow: 60*60*24))
         }
@@ -55,7 +56,7 @@ extension JWTHandler: AccessKeyProcessor {
     
     func process(key: PrivateKey, with tokenModifier: AccessTokenModifier) throws {
         
-        var jwt = JWT(claims: RADClaims.standard)
+        var jwt = JWT(claims: RADClaims.standartClaims())
         
         let privateKeyData: Data
         switch key {

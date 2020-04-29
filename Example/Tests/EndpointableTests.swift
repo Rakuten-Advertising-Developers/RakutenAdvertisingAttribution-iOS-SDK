@@ -23,8 +23,11 @@ class EndpointableTests: XCTestCase {
     
     func testBaseURL() {
         
-        let expectedURL: URL = "https://us-central1-attribution-sdk.cloudfunctions.net/"
-        XCTAssertEqual(sut.baseURL, expectedURL)
+        let expectedURL: URL = "https:/example.com"
+        
+        let sut = MockBackendURLProvider(backendURL: expectedURL)
+        
+        XCTAssertEqual(sut.backendURL, expectedURL)
     }
     
     func testPath() {

@@ -1,6 +1,6 @@
 //
 //  RADLogger.swift
-//  Pods
+//  RADAttribution
 //
 //  Created by Durbalo, Andrii on 06.04.2020.
 //

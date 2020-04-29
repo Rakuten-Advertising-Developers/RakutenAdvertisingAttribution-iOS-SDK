@@ -14,9 +14,11 @@ enum ResolveLinkEndpoint {
 
 extension ResolveLinkEndpoint: Endpointable {
     
-    var baseURL: URL {
-        
-        return "https://attribution-sdk-endpoint-ff5ckcoswq-uc.a.run.app"
+    var backendURLProvider: BackendURLProvider {
+
+        return NetworkInfo(baseURL: "https://attribution-sdk-endpoint-ff5ckcoswq-uc.a.run.app",
+                           apiVersion: "",
+                           apiPath: "")
     }
     
     var path: String {

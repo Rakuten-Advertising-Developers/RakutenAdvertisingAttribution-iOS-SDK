@@ -11,7 +11,7 @@ typealias Parameters = [String: AnyHashable]
 
 protocol Endpointable {
     
-    var baseURL: URL { get }
+    var backendURLProvider: BackendURLProvider { get }
     var path: String { get }
     var queryParameters: Parameters? { get }
     var body: Data? { get }
@@ -22,10 +22,9 @@ protocol Endpointable {
 
 extension Endpointable {
     
-    var baseURL: URL {
-        
-        let apiPath = Environment.serverAPIPath
-        return Environment.serverBaseURL.appendingPathComponent(apiPath)
+    var backendURLProvider: BackendURLProvider {
+
+        return EnvironmentManager.shared.currentEnvironment.network
     }
     
     var tokenProvider: AccessTokenProvider {
@@ -35,7 +34,7 @@ extension Endpointable {
     
     var urlRequest: URLRequest {
         
-        let url = baseURL.appendingPathComponent(path)
+        let url = backendURLProvider.backendURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         
         if let parameters = queryParameters, var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
@@ -90,3 +89,8 @@ extension URLSession: URLSessionProtocol {
 }
 
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}
+
+protocol BackendURLProvider {
+    
+    var backendURL: URL { get }
+}
