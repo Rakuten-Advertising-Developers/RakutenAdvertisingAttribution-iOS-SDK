@@ -23,7 +23,7 @@ class EndpointableTests: XCTestCase {
     
     func testBaseURL() {
         
-        let expectedURL: URL = "https:/example.com"
+        let expectedURL: URL = "http://www.example.com"
         
         let sut = MockBackendURLProvider(backendURL: expectedURL)
         
