@@ -12,5 +12,5 @@ import Foundation
 
 struct MockBackendURLProvider: BackendURLProvider {
     
-    let backendURL: URL
+    let backendURL: URL = "http://example.com/mockapipath/v2"
 }

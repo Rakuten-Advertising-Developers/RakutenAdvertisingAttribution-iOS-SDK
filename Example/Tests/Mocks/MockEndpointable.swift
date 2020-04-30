@@ -17,6 +17,11 @@ enum MockEndpointable {
 
 extension MockEndpointable: Endpointable {
     
+    var backendURLProvider: BackendURLProvider {
+        
+        return MockBackendURLProvider()
+    }
+    
     var path: String {
         
         switch self {
