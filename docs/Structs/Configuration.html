@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RADAttribution Class Reference</title>
+    <title>Configuration Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/RADAttribution" class="dashAnchor"></a>
-    <a title="RADAttribution Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/Configuration" class="dashAnchor"></a>
+    <a title="Configuration Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RADAttribution Docs</a> (95% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RADAttribution Reference</a>
         <img id="carat" src="../img/carat.png" />
-        RADAttribution Class Reference
+        Configuration Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -101,14 +101,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>RADAttribution</h1>
+            <h1>Configuration</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RADAttribution</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Configuration</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AttributionConfiguration.html">AttributionConfiguration</a></span></code></pre>
 
                 </div>
               </div>
-            <p>The class that encapsulates various feature of RADAttribution SDK  like sending events and links resolving</p>
+            <p>A struct that confirms <code><a href="../Protocols/AttributionConfiguration.html">AttributionConfiguration</a></code> protocol, convenience for SDK setup</p>
 
           </section>
           <section class="section task-group-section">
@@ -126,9 +126,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttributionAAC6sharedABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttributionAAC6sharedABvpZ">shared</a>
+                    <a name="/s:14RADAttribution13ConfigurationV13launchOptionsSDySo019UIApplicationLaunchD3KeyaypGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/launchOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution13ConfigurationV13launchOptionsSDySo019UIApplicationLaunchD3KeyaypGSgvp">launchOptions</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -136,14 +136,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>global instance of RADAttribution configured for links resolving and sending events</p>
+                        <p>application launch options</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">RADAttribution</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:14RADAttribution13LaunchOptionsa">LaunchOptions</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -153,9 +153,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttributionAAC6loggerAA8Loggable_pvp"></a>
-                    <a name="//apple_ref/swift/Property/logger" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttributionAAC6loggerAA8Loggable_pvp">logger</a>
+                    <a name="/s:14RADAttribution13ConfigurationV3keyAA10PrivateKeyOvp"></a>
+                    <a name="//apple_ref/swift/Property/key" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution13ConfigurationV3keyAA10PrivateKeyOvp">key</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -163,14 +163,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>instance of Loggable type with the ability to interact with logging behavior</p>
+                        <p>private key</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Loggable.html">Loggable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Enums/PrivateKey.html">PrivateKey</a></span></code></pre>
 
                         </div>
                       </div>
@@ -180,9 +180,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttributionAAC11eventSenderAA15EventSenderable_pvp"></a>
-                    <a name="//apple_ref/swift/Property/eventSender" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttributionAAC11eventSenderAA15EventSenderable_pvp">eventSender</a>
+                    <a name="/s:14RADAttribution13ConfigurationV17isManualAppLaunchSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isManualAppLaunch" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution13ConfigurationV17isManualAppLaunchSbvp">isManualAppLaunch</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -190,41 +190,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>instance of EventSenderable type with the ability to send events</p>
+                        <p>If application opened from link with the associated domain - <code>false</code>, otherwise <code>true</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">eventSender</span><span class="p">:</span> <span class="kt"><a href="../Protocols/EventSenderable.html">EventSenderable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14RADAttributionAAC12linkResolverAA14LinkResolvable_pvp"></a>
-                    <a name="//apple_ref/swift/Property/linkResolver" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttributionAAC12linkResolverAA14LinkResolvable_pvp">linkResolver</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>instance of linkResolver type with the ability to resolve links</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">linkResolver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LinkResolvable.html">LinkResolvable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isManualAppLaunch</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -235,11 +208,11 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Static"></a>
-                <a name="//apple_ref/swift/Section/Static" class="dashAnchor"></a>
+                <a name="/Init"></a>
+                <a name="//apple_ref/swift/Section/Init" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Static"></a>
-                  <h3 class="section-name"><p>Static</p>
+                  <a class="section-name-link" href="#/Init"></a>
+                  <h3 class="section-name"><p>Init</p>
 </h3>
                 </div>
               </div>
@@ -247,9 +220,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttributionAAC5setup4withyAA24AttributionConfiguration_p_tFZ"></a>
-                    <a name="//apple_ref/swift/Method/setup(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttributionAAC5setup4withyAA24AttributionConfiguration_p_tFZ">setup(with:<wbr>)</a>
+                    <a name="/s:14RADAttribution13ConfigurationV3key13launchOptionsAcA10PrivateKeyO_SDySo019UIApplicationLauncheG0aypGSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(key:launchOptions:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution13ConfigurationV3key13launchOptionsAcA10PrivateKeyO_SDySo019UIApplicationLauncheG0aypGSgtcfc">init(key:<wbr>launchOptions:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -257,14 +230,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Setup RADAttribution SDK with given configuration parameter. Should be called before SDK usage</p>
+                        <p>Initialize new instanse of <code>Configuration</code> struct with given parameters</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">(</span><span class="n">with</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AttributionConfiguration.html">AttributionConfiguration</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Enums/PrivateKey.html">PrivateKey</a></span><span class="p">,</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:14RADAttribution13LaunchOptionsa">LaunchOptions</a></span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -275,17 +248,77 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>configuration</em>
+                                <em>key</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>An instance that confirms AttributionConfiguration protocol, filled by required info</p>
+                                  <p>private key for SDK setup</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>launchOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>application launch options</p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>new instanse of <code>Configuration</code> struct</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public"></a>
+                <a name="//apple_ref/swift/Section/Public" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public"></a>
+                  <h3 class="section-name"><p>Public</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14RADAttribution13ConfigurationV8validateSbyF"></a>
+                    <a name="//apple_ref/swift/Method/validate()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution13ConfigurationV8validateSbyF">validate()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Validate of current configuration instance on ability properly setup SDK</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">validate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Bool value <code>true</code> in case current configuration valid, otherwise <code>false</code>.</p>
                       </div>
                     </section>
                   </div>

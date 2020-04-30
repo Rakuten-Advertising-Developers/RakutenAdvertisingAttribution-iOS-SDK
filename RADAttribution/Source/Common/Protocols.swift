@@ -97,20 +97,37 @@ public protocol Loggable: class {
     var enabled: Bool { get set }
 }
 
+/**
+ A type alias for application launch options added for convenience reasons
+ */
 public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
 
+/**
+ An enum type that represents private key
+ */
 public enum PrivateKey {
     
+    /// string value representation of key
     case string(value: String)
+    /// data value representation of key
     case data(value: Data)
 }
 
+/**
+ A type that provides the ability to configure SDK
+ */
 public protocol AttributionConfiguration {
     
+    /// application launch options
     var launchOptions: LaunchOptions? { get }
+    /// private key for SDK configuration
     var key: PrivateKey { get }
-    
+    /// If application opened from link with the associated domain - `false`, otherwise `true`
     var isManualAppLaunch: Bool { get }
+    /**
+     Validate of current configuration instance on ability properly setup SDK
+     - Returns: Bool value `true` in case current configuration valid, otherwise `false`.
+     */
     func validate() -> Bool
 }
 
