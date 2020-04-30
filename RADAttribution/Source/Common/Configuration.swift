@@ -23,6 +23,13 @@ public struct Configuration: AttributionConfiguration {
         return !handler.isUserActivityContainsWebURL
     }
     
+    //MARK: Init
+    
+    public init(key: PrivateKey, launchOptions: LaunchOptions?) {
+        self.key = key
+        self.launchOptions = launchOptions
+    }
+    
     //MARK: Public
     
     public func validate() -> Bool {
@@ -34,13 +41,6 @@ public struct Configuration: AttributionConfiguration {
             assertionFailure(error.localizedDescription)
             return false
         }
-    }
-    
-    //MARK: Init
-    
-    public init(key: PrivateKey, launchOptions: LaunchOptions?) {
-        self.key = key
-        self.launchOptions = launchOptions
     }
 }
 

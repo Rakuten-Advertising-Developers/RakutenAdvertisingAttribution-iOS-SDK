@@ -1,13 +1,14 @@
 # RADAttribution iOS SDK
 ![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/workflows/PR%20Unit%20Tests/badge.svg)
-[![RADAttribution](docs/badge.svg)](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
+[![RADAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/master/docs/badge.svg?sanitize=true)](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
 ## Requirements
 
 - iOS 11.0+
 - Xcode 11+
 - Swift 5+
-- Ruby ([Installation Guide](./RubyInstallationGuide.md))
+- Ruby ([Installation Guide](./guides/RubyInstallationGuide.md))
 - [CocoaPods](https://cocoapods.org) 1.9.0+
+
 ```sh 
 gem install cocoapods 
 ```
@@ -39,6 +40,19 @@ end
 ```
 ## Usage
 > All examples require `import RADAttribution` somewhere in the source file.
+
+
+#### Setup
+Before using RADAttribution SDK you have to properly setup it in `application:didFinishLaunchingWithOptions:`
+1. Receive and [prepare private key](./guides/KeyPreparationGuide.md)
+2. Initialize `Configuration` struct instance passing your generated private key and launch options
+```swift
+let configuration = Configuration(key: .data(value: privateKey), launchOptions: launchOptions)
+```
+3. Pass configuration to `RADAttribution` SDK
+```swift
+RADAttribution.setup(with: configuration)
+```
 
 #### Resolving links
 RADAttribution provides ability to resolve links from Publisher applications, `RADAttribution.shared.linkResolver` property is responsible for this process. In your AppDelegate use:
