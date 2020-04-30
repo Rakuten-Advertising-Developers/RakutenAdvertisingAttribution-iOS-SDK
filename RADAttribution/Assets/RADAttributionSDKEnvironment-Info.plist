@@ -14,9 +14,9 @@
 	<key>network</key>
 	<dict>
 		<key>baseURL</key>
-		<string>https://us-central1-attribution-sdk.cloudfunctions.net/</string>
+		<string>https://attribution-sdk-endpoint-ff5ckcoswq-uc.a.run.app/</string>
 		<key>apiVersion</key>
-		<string></string>
+		<string>v2</string>
 		<key>apiPath</key>
 		<string></string>
 	</dict>

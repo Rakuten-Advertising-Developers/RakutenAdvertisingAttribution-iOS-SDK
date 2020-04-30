@@ -17,8 +17,18 @@ struct NetworkInfo: Codable {
 extension NetworkInfo: BackendURLProvider {
     
     var backendURL: URL {
+        
         let url = URL(string: baseURL)!
-        let path = apiPath + apiVersion
+        var path = "".appendingPathComponent(apiPath)
+        path = path.appendingPathComponent(apiVersion)
         return url.appendingPathComponent(path)
+    }
+}
+
+extension String {
+    
+    func appendingPathComponent(_ path: String) -> String {
+       
+        return (self as NSString).appendingPathComponent(path)
     }
 }
