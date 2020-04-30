@@ -8,8 +8,8 @@
 import Foundation
 
 /**
-The class that encapsulates various feature of RADAttribution SDK  like sending events and links resolving
-*/
+ The class that encapsulates various feature of RADAttribution SDK  like sending events and links resolving
+ */
 public class RADAttribution {
     
     //MARK: Properties
@@ -27,6 +27,10 @@ public class RADAttribution {
     
     //MARK: Static
     
+    /**
+     Setup RADAttribution SDK with given configuration parameter. Should be called before SDK usage
+     - Parameter configuration: An instance that confirms AttributionConfiguration protocol, filled by required info
+     */
     public static func setup(with configuration: AttributionConfiguration) {
         
         self.configuration = configuration
@@ -69,7 +73,7 @@ public class RADAttribution {
     private func sendAppLaunchedEventIfNeeded() {
         
         guard Self.configuration.isManualAppLaunch else { return }
-
+        
         DispatchQueue.global().async {
             self.linkResolver.resolve(link: "")
         }
