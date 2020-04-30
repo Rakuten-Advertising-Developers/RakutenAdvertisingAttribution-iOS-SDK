@@ -23,11 +23,8 @@ class EndpointableTests: XCTestCase {
     
     func testBaseURL() {
         
-        let expectedURL: URL = "http://www.example.com"
-        
-        let sut = MockBackendURLProvider(backendURL: expectedURL)
-        
-        XCTAssertEqual(sut.backendURL, expectedURL)
+        let sut = MockBackendURLProvider()
+        XCTAssertEqual(sut.backendURL.absoluteString, "http://example.com/mockapipath/v2")
     }
     
     func testPath() {
@@ -58,9 +55,9 @@ class EndpointableTests: XCTestCase {
         
         let components = URLComponents(string: request.url!.absoluteString)!
         
-        XCTAssertEqual(components.scheme, "https")
-        XCTAssertEqual(components.host, "us-central1-attribution-sdk.cloudfunctions.net")
-        XCTAssertEqual(components.path, "/mock")
+        XCTAssertEqual(components.scheme, "http")
+        XCTAssertEqual(components.host, "example.com")
+        XCTAssertEqual(components.path, "/mockapipath/v2/mock")
         
         let params: Parameters = components.queryItems!.reduce([:], { (value, item) -> [String: AnyHashable] in
             var params = value
