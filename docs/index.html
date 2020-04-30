@@ -13,7 +13,7 @@
     <a title="RADAttribution  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">RADAttribution Docs</a> (92% documented)</p>
+        <p><a href="index.html">RADAttribution Docs</a> (95% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -35,6 +35,14 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/PrivateKey.html">PrivateKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -45,6 +53,9 @@
           <li class="nav-group-name">
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/AttributionConfiguration.html">AttributionConfiguration</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Protocols/EventSenderable.html">EventSenderable</a>
               </li>
@@ -66,7 +77,21 @@
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Structs/Configuration.html">Configuration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/EventData.html">EventData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Obfuscator.html">Obfuscator</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:14RADAttribution13LaunchOptionsa">LaunchOptions</a>
               </li>
             </ul>
           </li>
@@ -78,21 +103,23 @@
             
             <h1 id='radattribution-ios-sdk' class='heading'>RADAttribution iOS SDK</h1>
 
-<p><img src="https://github.com/Rakuten-Advertising-Developers/attribution-sdk-ios/workflows/PR%20Unit%20Tests/badge.svg" alt="PR Unit Tests">
-<a href="https://rakuten-advertising-developers.github.io/attribution-sdk-ios/"><img src="docs/badge.svg" alt="RADAttribution"></a></p>
+<p><img src="https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/workflows/PR%20Unit%20Tests/badge.svg" alt="PR Unit Tests">
+<a href="https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/"><img src="https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/master/docs/badge.svg?sanitize=true" alt="RADAttribution"></a></p>
 <h2 id='requirements' class='heading'>Requirements</h2>
 
 <ul>
-<li>iOS 10.0+</li>
+<li>iOS 11.0+</li>
 <li>Xcode 11+</li>
 <li>Swift 5+</li>
-<li>Ruby (<a href="./RubyInstallationGuide.md">Installation Guide</a>)</li>
-<li><a href="https://cocoapods.org">CocoaPods</a> 1.9.0+
-<code>sh 
-gem install cocoapods 
-</code>
-## Documentation</li>
-<li><a href="https://rakuten-advertising-developers.github.io/attribution-sdk-ios/">API References</a></li>
+<li>Ruby (<a href="./guides/RubyInstallationGuide.md">Installation Guide</a>)</li>
+<li><a href="https://cocoapods.org">CocoaPods</a> 1.9.0+</li>
+</ul>
+<pre class="highlight shell"><code>gem install cocoapods 
+</code></pre>
+<h2 id='documentation' class='heading'>Documentation</h2>
+
+<ul>
+<li><a href="https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/">API References</a></li>
 </ul>
 <h2 id='demo-projects' class='heading'>Demo projects</h2>
 
@@ -122,6 +149,21 @@ it, add the following line to your Podfile:</p>
 <blockquote>
 <p>All examples require <code>import RADAttribution</code> somewhere in the source file.</p>
 </blockquote>
+<h4 id='setup' class='heading'>Setup</h4>
+
+<p>Before using RADAttribution SDK you have to properly setup it in <code>application:didFinishLaunchingWithOptions:</code></p>
+
+<ol>
+<li>Receive and <a href="./guides/KeyPreparationGuide.md">prepare private key</a></li>
+<li>Initialize <code><a href="Structs/Configuration.html">Configuration</a></code> struct instance passing your generated private key and launch options
+<code>swift
+let configuration = Configuration(key: .data(value: privateKey), launchOptions: launchOptions)
+</code></li>
+<li>Pass configuration to <code><a href="Classes/RADAttribution.html">RADAttribution</a></code> SDK
+<code>swift
+RADAttribution.setup(with: configuration)
+</code></li>
+</ol>
 <h4 id='resolving-links' class='heading'>Resolving links</h4>
 
 <p>RADAttribution provides ability to resolve links from Publisher applications, <code>RADAttribution.shared.linkResolver</code> property is responsible for this process. In your AppDelegate use:</p>
@@ -202,7 +244,7 @@ it, add the following line to your Podfile:</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://github.com/Rakuten-Advertising-Developers/attribution-sdk-ios" target="_blank" rel="external">Rakuten Advertising</a>. All rights reserved. (Last updated: 2020-04-23)</p>
+          <p>&copy; 2020 <a class="link" href="https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS" target="_blank" rel="external">Rakuten Advertising</a>. All rights reserved. (Last updated: 2020-04-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
