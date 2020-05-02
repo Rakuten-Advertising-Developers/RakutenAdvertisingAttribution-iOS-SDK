@@ -8,8 +8,8 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
 - iOS 11.0+
 - Xcode 11+
 - Swift 5+
-[comment]: - Ruby ([Installation Guide](./guides/RubyInstallationGuide.md))
-[comment]: - [CocoaPods](https://cocoapods.org) 1.9.0+
+[comment]: <> - Ruby ([Installation Guide](./guides/RubyInstallationGuide.md))
+[comment]: <> - [CocoaPods](https://cocoapods.org) 1.9.0+
 
 ```sh 
 gem install cocoapods 
