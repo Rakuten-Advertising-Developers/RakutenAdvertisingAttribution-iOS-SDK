@@ -16,9 +16,9 @@ gem install cocoapods
 ## Documentation
 * [API References](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
 
-## Demo projects
+## Demo app
+We provide a sample app that demonstrate the use of the Rakuten Advertising attribution SDK. You can find the open source application at this Git Repsitory
 * [RAd Advertiser Demo](https://github.com/Rakuten-Advertising-Developers/radadvertiser-demo-ios/)
-* [RAd Publisher Demo](https://github.com/Rakuten-Advertising-Developers/radpublisher-demo-ios)
 
 ## Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
