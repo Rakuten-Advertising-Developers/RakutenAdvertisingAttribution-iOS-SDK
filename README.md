@@ -11,21 +11,12 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
 <!--
 - Ruby ([Installation Guide](./guides/RubyInstallationGuide.md))
 - [CocoaPods](https://cocoapods.org) 1.9.0+
-<-->
-
 ```sh 
 gem install cocoapods 
 ```
+<-->
 
-## Documentation
-* [API References](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
 
-## Demo app
-We provide a sample app that demonstrate the use of the Rakuten Advertising attribution SDK. You can find the open source application at this Git Repsitory
-* [RAd Advertiser Demo](https://github.com/Rakuten-Advertising-Developers/radadvertiser-demo-ios/)
-
-## Example
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Import the RADAttribution SDK into your iOS workspace
 
@@ -42,11 +33,29 @@ target 'YOUR_TARGET_NAME' do
   
 end
 ```
-## Usage
-> All examples require `import RADAttribution` somewhere in the source file.
+Run the following command from your project's Podfile location
+```sh 
+pod install --repo-update 
+```
 
+#### Creating public/private key pairs
+Our SDK internally uses a private key to sign a JSON Web Token(JWT). This token is passed to our Attribution backend platform to verify the SDK's identity. 
 
-#### Setup
+Generate public/private key pairs with the following commands
+
+```sh
+openssl genpkey -algorithm RSA -out rad_rsa_private.pem -pkeyopt rsa_keygen_bits:256
+openssl rsa -in rad_rsa_private.pem -pubout -out rad_rsa_public.pem
+```
+This command will create the following two files.
+1. rad_rsa_private.pem: Store this private key securely. We dont recommended to store the private key in app bundles or source code. Follow the below steps for obfuscating the private key.
+2. rad_rsa_public.pem: This file is required by Rakuten Attribution backend platform to verify the signature of the authentication JWT. Public key handover process will be communicated separately.
+
+#### Obfuscating private key
+
+Private key obfuscation process avoids bundling the private key in executable file and make it hard for someone looking for senstive information by opening up your app's executable file.
+
+#### Setup RADAttribution SDK initalization
 Before using RADAttribution SDK you have to properly setup it in `application:didFinishLaunchingWithOptions:`
 1. Receive and [prepare private key](./guides/KeyPreparationGuide.md)
 2. Initialize `Configuration` struct instance passing your generated private key and launch options
@@ -128,6 +137,19 @@ For debugging purpose you can enable network logs. `RADAttribution.shared.logger
 ```swift
 RADAttribution.shared.logger.enabled = true
 ```
+## Demo app
+We provide a sample app that demonstrate the use of the Rakuten Advertising attribution SDK. You can find the open source application at this Git Repsitory
+* [RAd Advertiser Demo](https://github.com/Rakuten-Advertising-Developers/radadvertiser-demo-ios/)
+
+## Example
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Usage
+> All examples require `import RADAttribution` somewhere in the source file.
+
+## Documentation
+* [API References](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
+
 
 ## Author
 Rakuten Advertising
