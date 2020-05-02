@@ -8,8 +8,8 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
 - iOS 11.0+
 - Xcode 11+
 - Swift 5+
-- Ruby ([Installation Guide](./guides/RubyInstallationGuide.md))
-- [CocoaPods](https://cocoapods.org) 1.9.0+
+[comment]: - Ruby ([Installation Guide](./guides/RubyInstallationGuide.md))
+[comment]: - [CocoaPods](https://cocoapods.org) 1.9.0+
 
 ```sh 
 gem install cocoapods 
@@ -25,9 +25,9 @@ We provide a sample app that demonstrate the use of the Rakuten Advertising attr
 ## Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Installation
-RADAttribution is available through [CocoaPods](https://cocoapods.org) as private pod. To install
-it, add the following line to your Podfile:
+## Import the RADAttribution SDK into your iOS workspace
+
+Use [CocoaPods](https://cocoapods.org) to install RADAttribution private pod. If you dont have Cocoapods installed follow this guide[https://guides.cocoapods.org/using/getting-started] for intallations. If you have Cocopods already installed add the following lines in your Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
