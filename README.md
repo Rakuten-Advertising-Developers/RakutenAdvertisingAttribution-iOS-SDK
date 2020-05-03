@@ -39,7 +39,7 @@ pod install --repo-update
 ```
 
 #### Creating public/private key pairs
-Our SDK internally uses a private key to sign a JSON Web Token(JWT). This token is passed to our Attribution backend platform to verify the SDK's identity. 
+Our SDK internally uses a private key to sign a JSON Web Token(JWT). This token is passed to our Attribution backend system to verify the SDK's identity. 
 
 Generate public/private key pairs with the following commands
 
@@ -49,20 +49,58 @@ openssl rsa -in rad_rsa_private.pem -pubout -out rad_rsa_public.pem
 ```
 This command will create the following two files.
 1. rad_rsa_private.pem: Store this private key securely. We dont recommended to store the private key in app bundles or source code. Follow the below steps for obfuscating the private key.
-2. rad_rsa_public.pem: This file is required by Rakuten Attribution backend platform to verify the signature of the authentication JWT. Public key handover process will be communicated separately.
+2. rad_rsa_public.pem: This file is required by Rakuten Attribution backend platform to verify the signature of the authentication JWT. (Public key handover process will be communicated separately)
 
-#### Obfuscating private key
+#### RADAttributionKey generation by obfuscating private key
 
 Private key obfuscation process avoids bundling the private key in executable file and make it hard for someone looking for senstive information by opening up your app's executable file.
 
-#### Setup RADAttribution SDK initalization
-Before using RADAttribution SDK you have to properly setup it in `application:didFinishLaunchingWithOptions:`
-1. Receive and [prepare private key](./guides/KeyPreparationGuide.md)
-2. Initialize `Configuration` struct instance passing your generated private key and launch options
+RADAttribution SDK provides Obfuscator helper class to generage obfuscated key(RADAttributionKey). Run the below one time swift code in your project to generate RADAttributionKey. 
+
 ```swift
-let configuration = Configuration(key: .data(value: privateKey), launchOptions: launchOptions)
+
+// secure your passphase in case needed generate obfuscated key
+ 
+let obfuscator = Obfuscator(with: "<your passphase>") 
+
+//  copy the rad_rsa_private.pem content in <YOUR_RSA_PRIVATE_KEY>
+let bytes = obfuscator.obfuscatingBytes(from: "<YOUR_RSA_PRIVATE_KEY>")
+
+// verify 
+// TODO: remove the above two lines after key generation.
+
+
+```
+
+Run the above code in DEBUG mode and check for the following message (sample) in the console log.
+
+```
+--------------------
+Salt used: <YOUR_SALT_STRING>
+--------------------
+Swift code:
+
+struct SecretConstants {
+
+	let RADAttributionKey: [UInt8] = [78, 66, 64, 3, 95, 35, 46, 50, 61, 43, 78, 124, 50, 37, 86, 53, 32, 61, 63, 50, 61, 
+...
+	91, 48, 5, 27, 1, 9, 103, 11, 21, 5, 39, 5, 7, 84, 33, 30, 60, 73, 6, 47, 34, 32, 30, 92, 35, 66, 83, 49, 48, 60, 20, 36, 81, 11, 38, 32, 94, 22, 2, 10, 48, 25, 12, 69, 8, 48, 46, 47, 36, 15, 0, 83, 39, 104, 85, 76, 64, 93, 41, 43, 39, 79, 63, 125, 51, 65, 59, 39, 61, 51, 47, 122, 36, 68, 61, 32, 43, 89, 68, 94, 68, 67]
+}
+```
+
+RADAttributionKey is required during the RADAttribution SDK initalization setup. 
+
+#### Setup RADAttribution SDK initalization
+
+Initialize RADAttribution SDK with RADAttributionKey in `application:didFinishLaunchingWithOptions:`
+
+2. Initialize `Configuration` struct instance with the generated RADAttributionKey and launch options
+
+```swift
+let configuration = Configuration(key: .data(value: <Your RADAttributionKey>), launchOptions: launchOptions)
 ```
 3. Pass configuration to `RADAttribution` SDK
+
 ```swift
 RADAttribution.setup(with: configuration)
 ```
