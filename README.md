@@ -55,11 +55,11 @@ This command will create the following two files.
 
 Private key obfuscation process avoids bundling the private key in executable file and make it hard for someone looking for senstive information by opening up your app's executable file.
 
-RADAttribution SDK provides Obfuscator helper class to generage obfuscated key(RADAttributionKey). Run the below one time swift code in your project to generate RADAttributionKey. 
+RADAttribution SDK provides Obfuscator helper class to generate obfuscated key(RADAttributionKey). Run the below one time swift code in your project to generate RADAttributionKey. 
 
 ```swift
 
-// secure your passphase in case needed generate obfuscated key
+// secure your passphase in case needed to regenerate obfuscated key
  
 let obfuscator = Obfuscator(with: "<your passphase>") 
 
@@ -104,33 +104,38 @@ let configuration = Configuration(key: .data(value: <Your RADAttributionKey>), l
 RADAttribution.setup(with: configuration)
 ```
 
-#### Resolving links
-RADAttribution provides ability to resolve links from Publisher applications, `RADAttribution.shared.linkResolver` property is responsible for this process. In your AppDelegate use:
+#### Handling INSTALL and OPEN events along with deeplink data
+
+RADAttribution SDK provides a function to track app install and open events by itself. It also provides an ability to handle  deep link data if any associated with the affiliate link promoted within a publisher’s mobile app or on a mobile web page.
+
+Simply call the `RADAttribution.shared.linkResolver` function whenever iOS app is brought to foreground.
+
+In your AppDelegate use:
 ```swift
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
        
-    let resolved = RADAttribution.shared.linkResolver.resolve(userActivity: userActivity)
-    if resolved {
-        //success case handling
+    let deeplinkDataResponse = RADAttribution.shared.linkResolver.resolve(userActivity: userActivity)
+    if deeplinkDataResponse {
+        // Handle deeplink data from this response
     } else {
         //error case handling
     }
     return true
 }
 ```
-Optionally you can use `delegate` property of `linkResolver`, to track statuses of the process
+Optionally you can use `delegate` property of `linkResolver`, to handle deeplink data from the response
 ```swift
 let vc = ViewController()
 RADAttribution.shared.linkResolver.delegate = viewController
 navigationController?.pushViewController(vc, animated: true)
 ```
-In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to receive statuses
+In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response
 ```swift
 extension ViewController: LinkResolvableDelegate {
     
     func didResolve(link: String, resultMessage: String) {
         DispatchQueue.main.async { [weak self] in
-            //success case handling
+            //success handle deeplink data response
         }
     }
     
@@ -141,11 +146,18 @@ extension ViewController: LinkResolvableDelegate {
     }
 }
 ```
-#### Send Events
-Another option of RADAttribution is ability to send events. `RADAttribution.shared.eventSender` property is responsible for this purpose. To send your events, use the following code. (optionally you can pass additional information with `EventData` struct)
+#### Handing other events like SEARCH, ADD_TO_CART, PURCHASE or any app activities
+
+RADAttribution SDK provides an ability to handle events like SEARCH,PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
+
+Use `RADAttribution.shared.eventSender` to send your events. send any data associated to you event in `eventData`
+
+
+
 ```swift
 RADAttribution.shared.eventSender.sendEvent(name: "YOUR_EVENT_NAME", eventData: nil)
 ```
+
 Similarly, you can use `delegate` property of `eventSender`, to track statuses of sending events
 ```swift
 let vc = ViewController()
