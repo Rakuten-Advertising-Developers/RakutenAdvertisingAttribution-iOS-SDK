@@ -66,7 +66,6 @@ let obfuscator = Obfuscator(with: "<your passphase>")
 //  copy the rad_rsa_private.pem content in <YOUR_RSA_PRIVATE_KEY>
 let bytes = obfuscator.obfuscatingBytes(from: "<YOUR_RSA_PRIVATE_KEY>")
 
-// verify 
 // TODO: remove the above two lines after key generation.
 
 
@@ -88,7 +87,7 @@ struct SecretConstants {
 }
 ```
 
-RADAttributionKey is required during the RADAttribution SDK initalization setup. 
+The above RADAttributionKey is required during the RADAttribution SDK initalization setup. Optionally you can copy the above swift code printed in the console in a new swift file (like SecretContants.swift) so you can use SecretConstants().RADAttributionKey whereever RADAttributionKey required. 
 
 #### Setup RADAttribution SDK initalization
 
