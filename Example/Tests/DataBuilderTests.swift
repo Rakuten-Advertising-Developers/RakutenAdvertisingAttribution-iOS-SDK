@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import AdSupport
 
 @testable import RADAttribution
 
@@ -28,7 +29,11 @@ class DataBuilderTests: XCTestCase {
         
         XCTAssertEqual(sut.os, "iOS")
         XCTAssertEqual(sut.osVersion, currentDevice.systemVersion)
-        XCTAssertEqual(sut.deviceId, currentDevice.identifierForVendor!.uuidString)
+
+        XCTAssertEqual(sut.deviceId, ASIdentifierManager.shared().advertisingIdentifier.uuidString)
+        XCTAssertEqual(sut.hardwareType, DeviceData.HardwareType.idfa)
+        XCTAssertEqual(sut.vendorID, UIDevice.current.identifierForVendor?.uuidString)
+        XCTAssertNil(sut.isHardwareIdReal)
         
         let currentScreen = UIScreen.main
         
