@@ -32,7 +32,27 @@ class ViewController: UIViewController {
     
     @IBAction func sendEventButtonPressed(_ sender: Any) {
         
-        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT", eventData: nil)
+        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT")
+    }
+    
+    @IBAction func sendEventCustomDataButtonPressed(_ sender: Any) {
+        
+        let customData: [String: Encodable] = ["purchase_loc": "Palo Alto",
+                                               "store_pickup": "unavailable"]
+        
+        let customItems: [Encodable] = ["sneakers",
+                                        "shoes",
+                                        ["custom_fields": [["foo1": "bar1"], ["foo2":"bar2"]]],
+                                        120,
+                                        CGFloat.pi,
+                                        true,
+                                        URL("http://example.com")
+                                        ]
+        
+        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT_WITH_DATA",
+                                                    eventData: nil,
+                                                    customData: customData,
+                                                    customItems: customItems)
     }
 }
 
