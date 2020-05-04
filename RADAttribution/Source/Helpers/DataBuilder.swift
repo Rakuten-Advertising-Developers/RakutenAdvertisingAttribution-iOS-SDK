@@ -8,12 +8,13 @@
 import Foundation
 
 class DataBuilder {
-    
+    //TODO: Avoid usage of hiding dependencies
     static func defaultUserData() -> UserData {
         
+        let sdkVersion = EnvironmentManager.shared.currentEnvironment.sdkVersion
         let bundleIdentifier = Bundle.main.bundleIdentifier ?? "n/a"
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "n/a"
-        let userData = UserData(bundleIdentifier: bundleIdentifier, appVersion: appVersion)
+        let userData = UserData(sdkVersion: sdkVersion, bundleIdentifier: bundleIdentifier, appVersion: appVersion)
         return userData
     }
     
