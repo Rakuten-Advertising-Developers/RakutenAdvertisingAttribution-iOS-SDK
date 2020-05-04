@@ -9,16 +9,10 @@
 Pod::Spec.new do |s|
   s.name             = 'RADAttribution'
   s.version          = '0.0.1'
-  s.summary          = 'Rakuten Advertising Attribution iOS SDK'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'RADAttribution iOS SDK'
 
   s.description      = <<-DESC
-Rakuten Advertising Attribution iOS SDK, tracking events and deeplinking
+Rakuten advertising attribution SDK allows advertisers to track app installs and in-app conversion events using any affiliate link promoted within a publisher’s mobile app or on a mobile web page.
                        DESC
 
   s.homepage         = 'https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS'
@@ -32,6 +26,8 @@ Rakuten Advertising Attribution iOS SDK, tracking events and deeplinking
 
   s.source_files = 'RADAttribution/Source/**/*'
   s.resources = 'RADAttribution/Assets/**/*'
+  
+  s.ios.framework = 'AdSupport'
   
   s.dependency 'SwiftJWT'
 
