@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     
     @IBAction func sendEventButtonPressed(_ sender: Any) {
         
-        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT")
+        RADAttribution.shared.eventSender.sendEvent(name: "ADD_TO_CART")
     }
     
     @IBAction func sendEventCustomDataButtonPressed(_ sender: Any) {
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
                                         URL("http://example.com")
                                         ]
         
-        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT_WITH_DATA",
+        RADAttribution.shared.eventSender.sendEvent(name: "ADD_TO_CART",
                                                     eventData: nil,
                                                     customData: customData,
                                                     customItems: customItems)

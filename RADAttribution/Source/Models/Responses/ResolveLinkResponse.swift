@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct ResolveLinkResponse: Codable {
+public struct ResolveLinkResponse: Codable {
     
-    let sessionId: String
-    let deviceFingerprintId: String
-    //let data: ResolveLinkData
+    public let sessionId: String
+    public let deviceFingerprintId: String
+    public let data: ResolveLinkData
 
     enum CodingKeys: String, CodingKey {
         case sessionId = "session_id"
         case deviceFingerprintId = "device_fingerprint_id"
+        case data
     }
 }

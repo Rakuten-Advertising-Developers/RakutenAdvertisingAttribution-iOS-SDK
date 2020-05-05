@@ -65,10 +65,9 @@ public protocol LinkResolvableDelegate: class {
     
     /**
      Will be called in case of success link resolving
-     - Parameter link: string representation of URL.
-     - Parameter resultMessage: Message from server.
+     - Parameter response: Resolved link info
      */
-    func didResolve(link: String, resultMessage: String)
+    func didResolveLink(response: ResolveLinkResponse)
     
     /**
      Will be called in case of failing link resolving
@@ -87,10 +86,10 @@ public protocol LinkResolvable: class {
     var delegate: LinkResolvableDelegate? { set get }
     
     /**
-     Resolve specific link
-     - Parameter link: string representation of URL.
+     Resolve specific url
+     - Parameter url: URL instance to resolve
      */
-    func resolve(link: String)
+    func resolveLink(url: URL)
     
     /**
      Checks if `userActivity` parameter contain all needed data for link resolving and in success case tried to resolve link
@@ -145,6 +144,11 @@ public protocol AttributionConfiguration {
 }
 
 //MARK: Internal
+
+protocol EmptyLinkResolvable: class {
+    
+    func resolveEmptyLink()
+}
 
 protocol NetworkLogger: Loggable {
     
