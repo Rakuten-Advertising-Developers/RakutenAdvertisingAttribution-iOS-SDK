@@ -30,6 +30,11 @@ public protocol EventSenderableDelegate: class {
 }
 
 /**
+ A type alias for application launch options added for convenience reasons
+ */
+public typealias EventCustomData = [UIApplication.LaunchOptionsKey: Any]
+
+/**
  A type that can send various events via SDK
  */
 public protocol EventSenderable: class {
@@ -40,9 +45,17 @@ public protocol EventSenderable: class {
     /**
      Send specific event  to server
      - Parameter name: Name of event.
-     - Parameter eventData: Additional information related to event data
      */
-    func sendEvent(name: String, eventData: EventData?)
+    func sendEvent(name: String)
+    
+    /**
+     Send specific event  to server
+     - Parameter name: Name of event.
+     - Parameter eventData: Additional information related to event data
+     - Parameter customData: Additional information, in key-value pairs representation, where value - instance various type that confirms Encodable protocol
+     - Parameter customItems:  Additional information, in Array representation, where element - instance various type that confirms Encodable protocol
+     */
+    func sendEvent(name: String, eventData: EventData?, customData: [String: Encodable]?, customItems: [Encodable]?)
 }
 
 /**

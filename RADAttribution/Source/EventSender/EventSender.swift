@@ -23,13 +23,22 @@ class EventSender {
 
 extension EventSender: EventSenderable {
     
-    public func sendEvent(name: String, eventData: EventData? = nil) {
+    func sendEvent(name: String) {
+        
+        sendEvent(name: name, eventData: nil, customData: nil, customItems: nil)
+    }
+    
+    func sendEvent(name: String, eventData: EventData? = nil, customData: [String: Encodable]? = nil, customItems: [Encodable]? = nil) {
+        
+        let customDataConverted = customData?.mapValues(AnyEncodable.init)
+        let customItemsConverted = customItems?.map(AnyEncodable.init)
         
         let request = SendEventRequest(name: name,
                                        sessionId: sessionProvider.sessionID,
                                        userData: DataBuilder.defaultUserData(),
                                        deviceData: DataBuilder.defaultDeviceData(),
-                                       customData: nil,
+                                       customData: customDataConverted,
+                                       customItems: customItemsConverted,
                                        eventData: eventData)
         
         let endpoint = SendEventEndpoint.sendEvent(request: request)

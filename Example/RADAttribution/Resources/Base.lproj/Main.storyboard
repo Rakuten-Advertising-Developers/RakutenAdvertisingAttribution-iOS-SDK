@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-EF-1sp">
-                                <rect key="frame" x="111" y="268.5" width="153" height="130"/>
+                                <rect key="frame" x="111" y="243.5" width="153" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZs-os-jt4">
                                         <rect key="frame" x="0.0" y="0.0" width="153" height="30"/>
@@ -36,8 +36,15 @@
                                             <action selector="sendEventButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kvg-Kl-CWj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVK-HF-zYS">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-Jl-jaz">
                                         <rect key="frame" x="0.0" y="100" width="153" height="30"/>
+                                        <state key="normal" title="Sent Event With Data"/>
+                                        <connections>
+                                            <action selector="sendEventCustomDataButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vSE-t6-Hih"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVK-HF-zYS">
+                                        <rect key="frame" x="0.0" y="150" width="153" height="30"/>
                                         <state key="normal" title="Resolve Branch Link"/>
                                         <connections>
                                             <action selector="resolveLinkBranchButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lP0-wi-ggO"/>
