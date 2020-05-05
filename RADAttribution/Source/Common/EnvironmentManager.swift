@@ -17,13 +17,13 @@ class EnvironmentManager {
     
     //MARK: Private
 
-    private init() {
+    init(plistName: String = "RADAttributionSDKEnvironment-Info") {
         
         let bundle = Bundle(for: EnvironmentManager.self)
-        guard let path = bundle.path(forResource: "RADAttributionSDKEnvironment-Info", ofType: ".plist"),
+        guard let path = bundle.path(forResource: plistName, ofType: ".plist"),
             let plistData = FileManager.default.contents(atPath: path),
             let environment = try? PropertyListDecoder().decode(Environment.self, from: plistData) else {
-                fatalError("RADAttributionSDKEnvironment-Info missed or have wrong format")
+                fatalError("\(plistName) missed or have wrong format")
         }
         self.currentEnvironment = environment
     }
