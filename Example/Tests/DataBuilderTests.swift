@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import AdSupport
 
 @testable import RADAttribution
 
@@ -16,7 +17,7 @@ class DataBuilderTests: XCTestCase {
         
         let sut = DataBuilder.defaultUserData()
         
-        XCTAssertEqual(sut.bundleIdentifier, "com.rakuten.advertising.RADAttribution-Example")
+        XCTAssertEqual(sut.bundleIdentifier, "com.rakutenadvertising.RADAttribution-Example")
         XCTAssertEqual(sut.appVersion, Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
     }
     
@@ -28,7 +29,11 @@ class DataBuilderTests: XCTestCase {
         
         XCTAssertEqual(sut.os, "iOS")
         XCTAssertEqual(sut.osVersion, currentDevice.systemVersion)
-        XCTAssertEqual(sut.deviceId, currentDevice.identifierForVendor!.uuidString)
+
+        XCTAssertEqual(sut.deviceId, ASIdentifierManager.shared().advertisingIdentifier.uuidString)
+        XCTAssertEqual(sut.hardwareType, DeviceData.HardwareType.idfa)
+        XCTAssertEqual(sut.vendorID, UIDevice.current.identifierForVendor?.uuidString)
+        XCTAssertNil(sut.isHardwareIdReal)
         
         let currentScreen = UIScreen.main
         

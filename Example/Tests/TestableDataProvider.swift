@@ -20,9 +20,17 @@ extension DeviceData {
         let model = UIDevice.current.userInterfaceIdiom == .pad ? "iPad" : "iPhone"
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight = UIScreen.main.bounds.height
-        let deviceId = UIDevice.current.identifierForVendor!.uuidString
         let isSimulator = ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil
-        let deviceData = DeviceData(os: os, osVersion: osVersion, model: model, screenWidth: screenWidth, screenHeight: screenHeight, deviceId: deviceId, isSimulator: isSimulator)
+        let deviceData = DeviceData(os: os,
+                                    osVersion: osVersion,
+                                    model: model,
+                                    screenWidth: screenWidth,
+                                    screenHeight: screenHeight,
+                                    isSimulator: isSimulator,
+                                    deviceId: UIDevice.current.identifierForVendor?.uuidString,
+                                    hardwareType: .vendor,
+                                    vendorID: nil,
+                                    isHardwareIdReal: nil)
         return deviceData
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AdSupport
 
 class DataBuilder {
     
@@ -24,9 +25,60 @@ class DataBuilder {
         let model = UIDevice.current.userInterfaceIdiom == .pad ? "iPad" : "iPhone"
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight = UIScreen.main.bounds.height
-        let deviceId = UIDevice.current.identifierForVendor!.uuidString
         let isSimulator = ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil
-        let deviceData = DeviceData(os: os, osVersion: osVersion, model: model, screenWidth: screenWidth, screenHeight: screenHeight, deviceId: deviceId, isSimulator: isSimulator)
-        return deviceData
+        
+        let idfaExists = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
+        let vendorExists = UIDevice.current.identifierForVendor != nil
+        
+        let idfaValue = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        let vendorValue = UIDevice.current.identifierForVendor?.uuidString
+        
+        switch (idfaExists, vendorExists) {
+            
+        case (true, true):
+            return DeviceData(os: os,
+                              osVersion: osVersion,
+                              model: model,
+                              screenWidth: screenWidth,
+                              screenHeight: screenHeight,
+                              isSimulator: isSimulator,
+                              deviceId: idfaValue,
+                              hardwareType: .idfa,
+                              vendorID: vendorValue,
+                              isHardwareIdReal: nil)
+        case (true, false):
+            return DeviceData(os: os,
+                              osVersion: osVersion,
+                              model: model,
+                              screenWidth: screenWidth,
+                              screenHeight: screenHeight,
+                              isSimulator: isSimulator,
+                              deviceId: idfaValue,
+                              hardwareType: .idfa,
+                              vendorID: nil,
+                              isHardwareIdReal: nil)
+        case (false, true):
+            return DeviceData(os: os,
+                              osVersion: osVersion,
+                              model: model,
+                              screenWidth: screenWidth,
+                              screenHeight: screenHeight,
+                              isSimulator: isSimulator,
+                              deviceId: vendorValue,
+                              hardwareType: .vendor,
+                              vendorID: nil,
+                              isHardwareIdReal: nil)
+        case (false, false):
+            return DeviceData(os: os,
+                              osVersion: osVersion,
+                              model: model,
+                              screenWidth: screenWidth,
+                              screenHeight: screenHeight,
+                              isSimulator: isSimulator,
+                              deviceId: nil,
+                              hardwareType: nil,
+                              vendorID: nil,
+                              isHardwareIdReal: false)
+        }
     }
 }
