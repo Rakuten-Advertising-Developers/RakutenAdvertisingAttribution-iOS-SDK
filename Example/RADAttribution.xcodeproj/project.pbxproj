@@ -44,6 +44,7 @@
 
 /* Begin PBXBuildFile section */
 		5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5710C36E2460334900E52548 /* EnvironmentTests.swift */; };
+		5733B6892461C1FA006A889D /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5733B6882461C1FA006A889D /* SecretConstants.swift */; };
 		574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11AC243F294400DC0E24 /* MockURLSession.swift */; };
 		574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */; };
 		574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */; };
@@ -92,6 +93,7 @@
 		09FA0D503A69CB6BCAF8674C /* Pods-RADAttribution_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RADAttribution_Tests.release.xcconfig"; path = "Target Support Files/Pods-RADAttribution_Tests/Pods-RADAttribution_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		25FD706BCCB125EC245304E6 /* RADAttribution.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RADAttribution.podspec; path = ../RADAttribution.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5710C36E2460334900E52548 /* EnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTests.swift; sourceTree = "<group>"; };
+		5733B6882461C1FA006A889D /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecretConstants.swift; path = RADAttribution/SecretConstants.swift; sourceTree = SOURCE_ROOT; };
 		57436CD324374EE50010B7E9 /* RADAttribution_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RADAttribution_Example.entitlements; sourceTree = "<group>"; };
 		574C11AC243F294400DC0E24 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				5733B6882461C1FA006A889D /* SecretConstants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
+				5733B6892461C1FA006A889D /* SecretConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

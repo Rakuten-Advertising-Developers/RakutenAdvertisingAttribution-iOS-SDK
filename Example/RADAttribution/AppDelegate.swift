@@ -20,16 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else { return true }
         
         let configuration: AttributionConfiguration
-        
+     
         if ProcessInfo.processInfo.isUnitTesting {
             configuration = MockAttributionConfiguration()
         } else {
-            configuration = Configuration(key: .string(value: "YOUR_PRIVATE_KEY"),
+            let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
+            configuration = Configuration(key: .data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey)),
                                           launchOptions: launchOptions)
         }
         
         RADAttribution.setup(with: configuration)
-        RADAttribution.shared.logger.enabled = true
+        RADAttribution.shared.logger.enabled = !ProcessInfo.processInfo.isUnitTesting
         RADAttribution.shared.linkResolver.delegate = viewController
         RADAttribution.shared.eventSender.delegate = viewController
         
@@ -37,6 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        // radattribution://example.com?link_click_id=1234
+        RADAttribution.shared.linkResolver.resolveLink(url: url)
         return true
     }
     
