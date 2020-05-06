@@ -20,19 +20,19 @@ class ViewController: UIViewController {
 
     @IBAction func resolveLinkUniversalButtonPressed(_ sender: Any) {
         
-        let appToAppUniversalLink = "https://rakutenready.app.link/ui3knDTZH0?%243p=a_rakuten_marketing%24s2s=true"
-        RADAttribution.shared.linkResolver.resolve(link: appToAppUniversalLink)
+        let appToAppUniversalLink: URL = "https://rakutenready.app.link/ui3knDTZH0?%243p=a_rakuten_marketing%24s2s=true"
+        RADAttribution.shared.linkResolver.resolveLink(url: appToAppUniversalLink)
     }
     
     @IBAction func resolveLinkBranchButtonPressed(_ sender: Any) {
         
-        let appToAppBranchLink = "https://rakutenready.app.link/SRzsoXecN0"
-         RADAttribution.shared.linkResolver.resolve(link: appToAppBranchLink)
+        let appToAppBranchLink: URL = "https://rakutenready.app.link/SRzsoXecN0"
+         RADAttribution.shared.linkResolver.resolveLink(url: appToAppBranchLink)
     }
     
     @IBAction func sendEventButtonPressed(_ sender: Any) {
         
-        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT")
+        RADAttribution.shared.eventSender.sendEvent(name: "ADD_TO_CART")
     }
     
     @IBAction func sendEventCustomDataButtonPressed(_ sender: Any) {
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
                                         URL("http://example.com")
                                         ]
         
-        RADAttribution.shared.eventSender.sendEvent(name: "TEST_EVENT_WITH_DATA",
+        RADAttribution.shared.eventSender.sendEvent(name: "ADD_TO_CART",
                                                     eventData: nil,
                                                     customData: customData,
                                                     customItems: customItems)
@@ -58,11 +58,11 @@ class ViewController: UIViewController {
 
 extension ViewController: LinkResolvableDelegate {
     
-    func didResolve(link: String, resultMessage: String) {
+    func didResolveLink(response: ResolveLinkResponse) {
         
         DispatchQueue.main.async { [weak self] in
             let title = "Resolve link"
-            let message = "Link: \(link)\nMessage: \(resultMessage)"
+            let message = "Link: \(response.data.nonBranchLink)\nSessionID: \(response.sessionId)"
             self?.showAlert(title: title, message: message)
         }
     }

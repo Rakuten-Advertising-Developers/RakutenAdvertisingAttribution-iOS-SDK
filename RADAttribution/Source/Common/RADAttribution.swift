@@ -23,6 +23,8 @@ public class RADAttribution {
     /// instance of linkResolver type with the ability to resolve links
     public var linkResolver: LinkResolvable
     
+    let emptyLinkResolver: EmptyLinkResolvable
+    
     private static var configuration: AttributionConfiguration = EmptyConfiguration.default
     
     //MARK: Static
@@ -53,17 +55,20 @@ public class RADAttribution {
         
         self.eventSender = eventSender
         self.linkResolver = linkResolver
+        self.emptyLinkResolver = linkResolver
         
         sendAppLaunchedEventIfNeeded()
     }
     
     init(eventSender: EventSenderable,
-         linkResolver: LinkResolver) {
+         linkResolver: LinkResolver,
+         emptyLinkResolver: EmptyLinkResolvable) {
         
         Self.checkConfiguration()
         
         self.eventSender = eventSender
         self.linkResolver = linkResolver
+        self.emptyLinkResolver = linkResolver
         
         sendAppLaunchedEventIfNeeded()
     }
@@ -75,7 +80,7 @@ public class RADAttribution {
         guard Self.configuration.isManualAppLaunch else { return }
         
         DispatchQueue.global().async {
-            self.linkResolver.resolve(link: "")
+            self.emptyLinkResolver.resolveEmptyLink()
         }
     }
 }
