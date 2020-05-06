@@ -8,19 +8,10 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
 - iOS 11.0+
 - Xcode 11+
 - Swift 5+
-<!--
-- Ruby ([Installation Guide](./guides/RubyInstallationGuide.md))
-- [CocoaPods](https://cocoapods.org) 1.9.0+
-```sh 
-gem install cocoapods 
-```
-<-->
-
-
 
 ## Import the RADAttribution SDK into your iOS workspace
 
-Use [CocoaPods](https://cocoapods.org) to install RADAttribution private pod. If you dont have Cocoapods installed follow this guide[https://guides.cocoapods.org/using/getting-started] for intallations. If you have Cocopods already installed add the following lines in your Podfile:
+Use [CocoaPods](https://cocoapods.org) to install RADAttribution private pod. If you dont have Cocoapods installed follow this [guide](https://guides.cocoapods.org/using/getting-started) for intallations. If you have Cocopods already installed add the following lines in your Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -55,7 +46,7 @@ This command will create the following two files.
 
 Private key obfuscation process avoids bundling the private key in executable file and make it hard for someone looking for senstive information by opening up your app's executable file.
 
-RADAttribution SDK provides Obfuscator helper class to generate obfuscated key(RADAttributionKey). Run the below one time swift code in your project to generate RADAttributionKey. 
+RADAttribution SDK provides Obfuscator helper class to generate obfuscated key (RADAttributionKey). Run the below one time swift code in your project to generate RADAttributionKey. 
 
 ```swift
 
@@ -81,24 +72,27 @@ Swift code:
 
 struct SecretConstants {
 
-	let RADAttributionKey: [UInt8] = [78, 66, 64, 3, 95, 35, 46, 50, 61, 43, 78, 124, 50, 37, 86, 53, 32, 61, 63, 50, 61, 
+    let RADAttributionKey: [UInt8] = [78, 66, 64, 3, 95, 35, 46, 50, 61, 43, 78, 124, 50, 37, 86, 53, 32, 61, 63, 50, 61, 
 ...
-	91, 48, 5, 27, 1, 9, 103, 11, 21, 5, 39, 5, 7, 84, 33, 30, 60, 73, 6, 47, 34, 32, 30, 92, 35, 66, 83, 49, 48, 60, 20, 36, 81, 11, 38, 32, 94, 22, 2, 10, 48, 25, 12, 69, 8, 48, 46, 47, 36, 15, 0, 83, 39, 104, 85, 76, 64, 93, 41, 43, 39, 79, 63, 125, 51, 65, 59, 39, 61, 51, 47, 122, 36, 68, 61, 32, 43, 89, 68, 94, 68, 67]
+    91, 48, 5, 27, 1, 9, 103, 11, 21, 5, 39, 5, 7, 84, 33, 30, 60, 73, 6, 47, 34, 32, 30, 92, 35, 66, 83, 49, 48, 60, 20, 36, 81, 11, 38, 32, 94, 22, 2, 10, 48, 25, 12, 69, 8, 48, 46, 47, 36, 15, 0, 83, 39, 104, 85, 76, 64, 93, 41, 43, 39, 79, 63, 125, 51, 65, 59, 39, 61, 51, 47, 122, 36, 68, 61, 32, 43, 89, 68, 94, 68, 67]
 }
 ```
 
-The above RADAttributionKey is required during the RADAttribution SDK initalization setup. Optionally you can copy the above swift code printed in the console in a new swift file (like SecretContants.swift) so you can use SecretConstants().RADAttributionKey whereever RADAttributionKey required. 
+The private key is required during the RADAttribution SDK initalization setup. Optionally you can copy the above swift code printed in the console in a new swift file (like SecretContants.swift) so you can pass key by the following command
+```swift
+let key = PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey))
+```
 
 #### Setup RADAttribution SDK initalization
 
-Initialize RADAttribution SDK with RADAttributionKey in `application:didFinishLaunchingWithOptions:`
+Initialize RADAttribution SDK with private key in `application:didFinishLaunchingWithOptions:`
 
-2. Initialize `Configuration` struct instance with the generated RADAttributionKey and launch options
+1. Initialize `Configuration` struct instance with the key and launch options
 
 ```swift
-let configuration = Configuration(key: .data(value: <Your RADAttributionKey>), launchOptions: launchOptions)
+let configuration = Configuration(key: PrivateKey.data(value: <Your RADAttributionKey>), launchOptions: launchOptions)
 ```
-3. Pass configuration to `RADAttribution` SDK
+2. Pass configuration to `RADAttribution` SDK
 
 ```swift
 RADAttribution.setup(with: configuration)
@@ -112,13 +106,19 @@ Simply call the `RADAttribution.shared.linkResolver` function whenever iOS app i
 
 In your AppDelegate use:
 ```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    
+    RADAttribution.shared.linkResolver.resolveLink(url: url)
+    return true
+}
+
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
        
-    let deeplinkDataResponse = RADAttribution.shared.linkResolver.resolve(userActivity: userActivity)
-    if deeplinkDataResponse {
-        // Handle deeplink data from this response
+    let resolved = RADAttribution.shared.linkResolver.resolve(userActivity: userActivity)
+    if resolved {
+        print("link available to resolve")
     } else {
-        //error case handling
+        print("link unavailable to resolve")
     }
     return true
 }
@@ -133,7 +133,7 @@ In that case, you must confirm `LinkResolvableDelegate` in the place where you w
 ```swift
 extension ViewController: LinkResolvableDelegate {
     
-    func didResolve(link: String, resultMessage: String) {
+    func didResolveLink(response: ResolveLinkResponse) {
         DispatchQueue.main.async { [weak self] in
             //success handle deeplink data response
         }

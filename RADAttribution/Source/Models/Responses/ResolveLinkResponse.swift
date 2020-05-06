@@ -7,10 +7,16 @@
 
 import Foundation
 
+/**
+A struct that represents info of link resolving
+*/
 public struct ResolveLinkResponse: Codable {
     
+    /// Session identifier
     public let sessionId: String
+    /// Current device identifier
     public let deviceFingerprintId: String
+    /// Detailed data
     public let data: ResolveLinkData
 
     enum CodingKeys: String, CodingKey {

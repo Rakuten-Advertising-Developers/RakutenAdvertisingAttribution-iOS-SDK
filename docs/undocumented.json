@@ -2,14 +2,7 @@
   "warnings": [
     {
       "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Models/DataModels/EventData.swift",
-      "line": 10,
-      "symbol": "EventData",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Models/DataModels/EventData.swift",
-      "line": 35,
+      "line": 38,
       "symbol": "EventData.init(transactionId:currency:revenue:shipping:tax:coupon:affiliation:description:searchQuery:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
