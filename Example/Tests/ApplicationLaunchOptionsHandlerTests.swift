@@ -45,4 +45,19 @@ class ApplicationLaunchOptionsHandlerTests: XCTestCase {
         
         XCTAssertTrue(sut.isUserActivityContainsWebURL)
     }
+    
+    func testOptionsNotContainsURLSchemes() {
+     
+        XCTAssertFalse( ApplicationLaunchOptionsHandler(launchOptions: nil).isOptionsContainsURL)
+        XCTAssertFalse( ApplicationLaunchOptionsHandler(launchOptions: [:]).isOptionsContainsURL)
+        XCTAssertFalse( ApplicationLaunchOptionsHandler(launchOptions: [.remoteNotification: [:]]).isOptionsContainsURL)
+    }
+    
+    func testOptionsContainsURLSchemes() {
+     
+        let URLScheme: URL = "app://open?key=value"
+        
+        let sut = ApplicationLaunchOptionsHandler(launchOptions: [.url: URLScheme])
+        XCTAssertTrue(sut.isOptionsContainsURL)
+    }
 }

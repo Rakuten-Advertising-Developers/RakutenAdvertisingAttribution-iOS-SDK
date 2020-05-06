@@ -26,7 +26,7 @@ public struct Configuration: AttributionConfiguration {
     public var isManualAppLaunch: Bool {
         
         let handler = ApplicationLaunchOptionsHandler(launchOptions: launchOptions)
-        return !handler.isUserActivityContainsWebURL
+        return !(handler.isUserActivityContainsWebURL || handler.isOptionsContainsURL)
     }
     
     //MARK: Init
