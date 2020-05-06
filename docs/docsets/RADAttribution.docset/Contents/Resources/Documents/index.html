@@ -13,7 +13,7 @@
     <a title="RADAttribution  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">RADAttribution Docs</a> (95% documented)</p>
+        <p><a href="index.html">RADAttribution Docs</a> (98% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -85,11 +85,20 @@
               <li class="nav-group-task">
                 <a href="Structs/Obfuscator.html">Obfuscator</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Structs/ResolveLinkData.html">ResolveLinkData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ResolveLinkResponse.html">ResolveLinkResponse</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:14RADAttribution15EventCustomDataa">EventCustomData</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:14RADAttribution13LaunchOptionsa">LaunchOptions</a>
               </li>
@@ -103,6 +112,8 @@
             
             <h1 id='radattribution-ios-sdk' class='heading'>RADAttribution iOS SDK</h1>
 
+<p>Rakuten advertising attribution SDK allows advertisers to track app installs and in-app conversion events using any affiliate link promoted within a publisher’s mobile app or on a mobile web page.</p>
+
 <p><img src="https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/workflows/PR%20Unit%20Tests/badge.svg" alt="PR Unit Tests">
 <a href="https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/"><img src="https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/master/docs/badge.svg?sanitize=true" alt="RADAttribution"></a></p>
 <h2 id='requirements' class='heading'>Requirements</h2>
@@ -111,29 +122,10 @@
 <li>iOS 11.0+</li>
 <li>Xcode 11+</li>
 <li>Swift 5+</li>
-<li>Ruby (<a href="./guides/RubyInstallationGuide.md">Installation Guide</a>)</li>
-<li><a href="https://cocoapods.org">CocoaPods</a> 1.9.0+</li>
 </ul>
-<pre class="highlight shell"><code>gem install cocoapods 
-</code></pre>
-<h2 id='documentation' class='heading'>Documentation</h2>
+<h2 id='import-the-radattribution-sdk-into-your-ios-workspace' class='heading'>Import the RADAttribution SDK into your iOS workspace</h2>
 
-<ul>
-<li><a href="https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/">API References</a></li>
-</ul>
-<h2 id='demo-projects' class='heading'>Demo projects</h2>
-
-<ul>
-<li><a href="https://github.com/Rakuten-Advertising-Developers/radadvertiser-demo-ios/">RAd Advertiser Demo</a></li>
-<li><a href="https://github.com/Rakuten-Advertising-Developers/radpublisher-demo-ios">RAd Publisher Demo</a></li>
-</ul>
-<h2 id='example' class='heading'>Example</h2>
-
-<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
-<h2 id='installation' class='heading'>Installation</h2>
-
-<p>RADAttribution is available through <a href="https://cocoapods.org">CocoaPods</a> as private pod. To install
-it, add the following line to your Podfile:</p>
+<p>Use <a href="https://cocoapods.org">CocoaPods</a> to install RADAttribution private pod. If you dont have Cocoapods installed follow this <a href="https://guides.cocoapods.org/using/getting-started">guide</a> for intallations. If you have Cocopods already installed add the following lines in your Podfile:</p>
 <pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
 <span class="n">source</span> <span class="s1">'https://github.com/Rakuten-Advertising-Developers/Specs.git'</span>
 
@@ -144,53 +136,106 @@ it, add the following line to your Podfile:</p>
 
 <span class="k">end</span>
 </code></pre>
-<h2 id='usage' class='heading'>Usage</h2>
 
-<blockquote>
-<p>All examples require <code>import RADAttribution</code> somewhere in the source file.</p>
-</blockquote>
-<h4 id='setup' class='heading'>Setup</h4>
+<p>Run the following command from your project&rsquo;s Podfile location</p>
+<pre class="highlight shell"><code>pod install --repo-update 
+</code></pre>
+<h4 id='creating-public-private-key-pairs' class='heading'>Creating public/private key pairs</h4>
 
-<p>Before using RADAttribution SDK you have to properly setup it in <code>application:didFinishLaunchingWithOptions:</code></p>
+<p>Our SDK internally uses a private key to sign a JSON Web Token(JWT). This token is passed to our Attribution backend system to verify the SDK&rsquo;s identity. </p>
+
+<p>Generate public/private key pairs with the following commands</p>
+<pre class="highlight shell"><code>openssl genpkey -algorithm RSA -out rad_rsa_private.pem -pkeyopt rsa_keygen_bits:256
+openssl rsa -in rad_rsa_private.pem -pubout -out rad_rsa_public.pem
+</code></pre>
+
+<p>This command will create the following two files.</p>
 
 <ol>
-<li>Receive and <a href="./guides/KeyPreparationGuide.md">prepare private key</a></li>
-<li>Initialize <code><a href="Structs/Configuration.html">Configuration</a></code> struct instance passing your generated private key and launch options
-<code>swift
-let configuration = Configuration(key: .data(value: privateKey), launchOptions: launchOptions)
-</code></li>
-<li>Pass configuration to <code><a href="Classes/RADAttribution.html">RADAttribution</a></code> SDK
-<code>swift
-RADAttribution.setup(with: configuration)
-</code></li>
+<li>rad_rsa_private.pem: Store this private key securely. We dont recommended to store the private key in app bundles or source code. Follow the below steps for obfuscating the private key.</li>
+<li>rad_rsa_public.pem: This file is required by Rakuten Attribution backend platform to verify the signature of the authentication JWT. (Public key handover process will be communicated separately)</li>
 </ol>
-<h4 id='resolving-links' class='heading'>Resolving links</h4>
+<h4 id='radattributionkey-generation-by-obfuscating-private-key' class='heading'>RADAttributionKey generation by obfuscating private key</h4>
 
-<p>RADAttribution provides ability to resolve links from Publisher applications, <code>RADAttribution.shared.linkResolver</code> property is responsible for this process. In your AppDelegate use:</p>
+<p>Private key obfuscation process avoids bundling the private key in executable file and make it hard for someone looking for senstive information by opening up your app&rsquo;s executable file.</p>
+
+<p>RADAttribution SDK provides Obfuscator helper class to generate obfuscated key (RADAttributionKey). Run the below one time swift code in your project to generate RADAttributionKey. </p>
+<pre class="highlight swift"><code>
+<span class="c1">// secure your passphase in case needed to regenerate obfuscated key</span>
+
+<span class="k">let</span> <span class="nv">obfuscator</span> <span class="o">=</span> <span class="kt">Obfuscator</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="s">"&lt;your passphase&gt;"</span><span class="p">)</span> 
+
+<span class="c1">//  copy the rad_rsa_private.pem content in &lt;YOUR_RSA_PRIVATE_KEY&gt;</span>
+<span class="k">let</span> <span class="nv">bytes</span> <span class="o">=</span> <span class="n">obfuscator</span><span class="o">.</span><span class="nf">obfuscatingBytes</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"&lt;YOUR_RSA_PRIVATE_KEY&gt;"</span><span class="p">)</span>
+
+<span class="c1">// TODO: remove the above two lines after key generation.</span>
+
+
+</code></pre>
+
+<p>Run the above code in DEBUG mode and check for the following message (sample) in the console log.</p>
+<pre class="highlight plaintext"><code>--------------------
+Salt used: &lt;YOUR_SALT_STRING&gt;
+--------------------
+Swift code:
+
+struct SecretConstants {
+
+    let RADAttributionKey: [UInt8] = [78, 66, 64, 3, 95, 35, 46, 50, 61, 43, 78, 124, 50, 37, 86, 53, 32, 61, 63, 50, 61, 
+...
+    91, 48, 5, 27, 1, 9, 103, 11, 21, 5, 39, 5, 7, 84, 33, 30, 60, 73, 6, 47, 34, 32, 30, 92, 35, 66, 83, 49, 48, 60, 20, 36, 81, 11, 38, 32, 94, 22, 2, 10, 48, 25, 12, 69, 8, 48, 46, 47, 36, 15, 0, 83, 39, 104, 85, 76, 64, 93, 41, 43, 39, 79, 63, 125, 51, 65, 59, 39, 61, 51, 47, 122, 36, 68, 61, 32, 43, 89, 68, 94, 68, 67]
+}
+</code></pre>
+
+<p>The private key is required during the RADAttribution SDK initalization setup. Optionally you can copy the above swift code printed in the console in a new swift file (like SecretContants.swift) so you can pass key by the following command</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">key</span> <span class="o">=</span> <span class="kt">PrivateKey</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="n">obfuscator</span><span class="o">.</span><span class="nf">revealData</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">SecretConstants</span><span class="p">()</span><span class="o">.</span><span class="kt">RADAttributionKey</span><span class="p">))</span>
+</code></pre>
+<h4 id='setup-radattribution-sdk-initalization' class='heading'>Setup RADAttribution SDK initalization</h4>
+
+<p>Initialize RADAttribution SDK with private key in <code>application:didFinishLaunchingWithOptions:</code></p>
+
+<ol>
+<li>Initialize <code><a href="Structs/Configuration.html">Configuration</a></code> struct instance with the key and launch options</li>
+</ol>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">configuration</span> <span class="o">=</span> <span class="kt">Configuration</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">PrivateKey</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="o">&lt;</span><span class="kt">Your</span> <span class="kt">RADAttributionKey</span><span class="o">&gt;</span><span class="p">),</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="n">launchOptions</span><span class="p">)</span>
+</code></pre>
+
+<ol>
+<li>Pass configuration to <code><a href="Classes/RADAttribution.html">RADAttribution</a></code> SDK</li>
+</ol>
+<pre class="highlight swift"><code><span class="kt">RADAttribution</span><span class="o">.</span><span class="nf">setup</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">configuration</span><span class="p">)</span>
+</code></pre>
+<h4 id='handling-install-and-open-events-along-with-deeplink-data' class='heading'>Handling INSTALL and OPEN events along with deeplink data</h4>
+
+<p>RADAttribution SDK provides a function to track app install and open events by itself. It also provides an ability to handle  deep link data if any associated with the affiliate link promoted within a publisher’s mobile app or on a mobile web page.</p>
+
+<p>Simply call the <code>RADAttribution.shared.linkResolver</code> function whenever iOS app is brought to foreground.</p>
+
+<p>In your AppDelegate use:</p>
 <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="k">continue</span> <span class="nv">userActivity</span><span class="p">:</span> <span class="kt">NSUserActivity</span><span class="p">,</span> <span class="nv">restorationHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">UIUserActivityRestoring</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
 
     <span class="k">let</span> <span class="nv">resolved</span> <span class="o">=</span> <span class="kt">RADAttribution</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">linkResolver</span><span class="o">.</span><span class="nf">resolve</span><span class="p">(</span><span class="nv">userActivity</span><span class="p">:</span> <span class="n">userActivity</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">resolved</span> <span class="p">{</span>
-        <span class="c1">//success case handling</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"link available to resolve"</span><span class="p">)</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="c1">//error case handling</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"link unavailable to resolve"</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre>
 
-<p>Optionally you can use <code>delegate</code> property of <code>linkResolver</code>, to track statuses of the process</p>
+<p>Optionally you can use <code>delegate</code> property of <code>linkResolver</code>, to handle deeplink data from the response</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">vc</span> <span class="o">=</span> <span class="kt">ViewController</span><span class="p">()</span>
 <span class="kt">RADAttribution</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">linkResolver</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">viewController</span>
 <span class="n">navigationController</span><span class="p">?</span><span class="o">.</span><span class="nf">pushViewController</span><span class="p">(</span><span class="n">vc</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
 </code></pre>
 
-<p>In that case, you must confirm <code><a href="Protocols/LinkResolvableDelegate.html">LinkResolvableDelegate</a></code> in the place where you would like to receive statuses</p>
+<p>In that case, you must confirm <code><a href="Protocols/LinkResolvableDelegate.html">LinkResolvableDelegate</a></code> in the place where you would like to handle response</p>
 <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">LinkResolvableDelegate</span> <span class="p">{</span>
 
-    <span class="kd">func</span> <span class="nf">didResolve</span><span class="p">(</span><span class="nv">link</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">resultMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">didResolveLink</span><span class="p">(</span><span class="nv">response</span><span class="p">:</span> <span class="kt">ResolveLinkResponse</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
-            <span class="c1">//success case handling</span>
+            <span class="c1">//success handle deeplink data response</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
@@ -201,9 +246,11 @@ RADAttribution.setup(with: configuration)
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<h4 id='send-events' class='heading'>Send Events</h4>
+<h4 id='handing-other-events-like-search-add_to_cart-purchase-or-any-app-activities' class='heading'>Handing other events like SEARCH, ADD_TO_CART, PURCHASE or any app activities</h4>
 
-<p>Another option of RADAttribution is ability to send events. <code>RADAttribution.shared.eventSender</code> property is responsible for this purpose. To send your events, use the following code. (optionally you can pass additional information with <code><a href="Structs/EventData.html">EventData</a></code> struct)</p>
+<p>RADAttribution SDK provides an ability to handle events like SEARCH,PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. </p>
+
+<p>Use <code>RADAttribution.shared.eventSender</code> to send your events. Send data associated with event in <code>eventData</code></p>
 <pre class="highlight swift"><code><span class="kt">RADAttribution</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">eventSender</span><span class="o">.</span><span class="nf">sendEvent</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"YOUR_EVENT_NAME"</span><span class="p">,</span> <span class="nv">eventData</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 </code></pre>
 
@@ -234,6 +281,26 @@ RADAttribution.setup(with: configuration)
 <p>For debugging purpose you can enable network logs. <code>RADAttribution.shared.logger</code> property is responsible for this process.</p>
 <pre class="highlight swift"><code><span class="kt">RADAttribution</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">true</span>
 </code></pre>
+<h2 id='demo-app' class='heading'>Demo app</h2>
+
+<p>We provide a sample app that demonstrate the use of the Rakuten Advertising attribution SDK. You can find the open source application at this Git Repsitory</p>
+
+<ul>
+<li><a href="https://github.com/Rakuten-Advertising-Developers/radadvertiser-demo-ios/">RAd Advertiser Demo</a></li>
+</ul>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<blockquote>
+<p>All examples require <code>import RADAttribution</code> somewhere in the source file.</p>
+</blockquote>
+<h2 id='documentation' class='heading'>Documentation</h2>
+
+<ul>
+<li><a href="https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/">API References</a></li>
+</ul>
 <h2 id='author' class='heading'>Author</h2>
 
 <p>Rakuten Advertising</p>
@@ -244,7 +311,7 @@ RADAttribution.setup(with: configuration)
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS" target="_blank" rel="external">Rakuten Advertising</a>. All rights reserved. (Last updated: 2020-04-30)</p>
+          <p>&copy; 2020 <a class="link" href="https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS" target="_blank" rel="external">Rakuten Advertising</a>. All rights reserved. (Last updated: 2020-05-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

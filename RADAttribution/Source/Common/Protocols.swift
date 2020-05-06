@@ -30,7 +30,7 @@ public protocol EventSenderableDelegate: class {
 }
 
 /**
- A type alias for application launch options added for convenience reasons
+ A type alias for events custom data
  */
 public typealias EventCustomData = [UIApplication.LaunchOptionsKey: Any]
 

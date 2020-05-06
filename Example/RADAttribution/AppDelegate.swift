@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration = MockAttributionConfiguration()
         } else {
             let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
-            configuration = Configuration(key: .data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey)),
+            configuration = Configuration(key: PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey)),
                                           launchOptions: launchOptions)
         }
         
@@ -52,9 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let resolved = RADAttribution.shared.linkResolver.resolve(userActivity: userActivity)
         if resolved {
-            print("userActivity available to resolve")
+            print("link available to resolve")
         } else {
-            print("userActivity unavailable to resolve")
+            print("link unavailable to resolve")
         }
         return true
 
