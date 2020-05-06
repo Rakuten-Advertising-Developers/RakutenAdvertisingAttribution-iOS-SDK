@@ -106,6 +106,12 @@ Simply call the `RADAttribution.shared.linkResolver` function whenever iOS app i
 
 In your AppDelegate use:
 ```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    
+    RADAttribution.shared.linkResolver.resolveLink(url: url)
+    return true
+}
+
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
        
     let resolved = RADAttribution.shared.linkResolver.resolve(userActivity: userActivity)
