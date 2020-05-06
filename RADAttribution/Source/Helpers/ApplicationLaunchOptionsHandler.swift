@@ -31,4 +31,14 @@ struct ApplicationLaunchOptionsHandler {
         }
         return true
     }
+    
+    var isOptionsContainsURL: Bool {
+        
+        guard let launchOptions = launchOptions,
+            let url = launchOptions[UIApplication.LaunchOptionsKey.url] else {
+                return false
+        }
+        let urlValue = url as? URL
+        return urlValue != nil
+    }
 }
