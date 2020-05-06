@@ -51,6 +51,9 @@
 		574C11B5243F2E3B00DC0E24 /* MockEndpointable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */; };
 		574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B9243F313B00DC0E24 /* EndpointableTests.swift */; };
 		574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11BD243F3D6C00DC0E24 /* MockCodable.swift */; };
+		575CF72E2462A11100F59612 /* LinkResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575CF72D2462A11100F59612 /* LinkResolverTests.swift */; };
+		575CF7302462A2B400F59612 /* MockSessionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575CF72F2462A2B400F59612 /* MockSessionModifier.swift */; };
+		575CF7322462A36B00F59612 /* SessionModifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575CF7312462A36B00F59612 /* SessionModifierTests.swift */; };
 		57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */; };
 		57752F792459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */; };
 		57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */; };
@@ -101,6 +104,9 @@
 		574C11B4243F2E3B00DC0E24 /* MockEndpointable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEndpointable.swift; sourceTree = "<group>"; };
 		574C11B9243F313B00DC0E24 /* EndpointableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointableTests.swift; sourceTree = "<group>"; };
 		574C11BD243F3D6C00DC0E24 /* MockCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodable.swift; sourceTree = "<group>"; };
+		575CF72D2462A11100F59612 /* LinkResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkResolverTests.swift; sourceTree = "<group>"; };
+		575CF72F2462A2B400F59612 /* MockSessionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionModifier.swift; sourceTree = "<group>"; };
+		575CF7312462A36B00F59612 /* SessionModifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModifierTests.swift; sourceTree = "<group>"; };
 		57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBackendURLProvider.swift; sourceTree = "<group>"; };
 		57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLaunchOptionsHandlerTests.swift; sourceTree = "<group>"; };
 		57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObfuscatorTests.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 				574C11BD243F3D6C00DC0E24 /* MockCodable.swift */,
 				5799738624582386007DA45E /* MockAttributionConfiguration.swift */,
 				57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */,
+				575CF72F2462A2B400F59612 /* MockSessionModifier.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -262,6 +269,8 @@
 				574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */,
 				57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */,
 				5710C36E2460334900E52548 /* EnvironmentTests.swift */,
+				575CF7312462A36B00F59612 /* SessionModifierTests.swift */,
+				575CF72D2462A11100F59612 /* LinkResolverTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -546,8 +555,11 @@
 				574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */,
 				57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */,
 				5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */,
+				575CF72E2462A11100F59612 /* LinkResolverTests.swift in Sources */,
+				575CF7302462A2B400F59612 /* MockSessionModifier.swift in Sources */,
 				57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */,
 				57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */,
+				575CF7322462A36B00F59612 /* SessionModifierTests.swift in Sources */,
 				574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */,
 				5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */,

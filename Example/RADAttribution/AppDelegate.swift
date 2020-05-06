@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        // radattribution://example.com?link_click_id=1234
+        // radattribution://resolve?link_click_id=1234
         RADAttribution.shared.linkResolver.resolveLink(url: url)
         return true
     }
