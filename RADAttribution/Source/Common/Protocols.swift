@@ -7,7 +7,31 @@
 
 import Foundation
 
-//MARK: Public
+//MARK: Public types
+
+/**
+ A type alias for application launch options added for convenience reasons
+ */
+public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
+
+/**
+ An enum type that represents private key
+ */
+public enum PrivateKey {
+    
+    /// string value representation of key
+    case string(value: String)
+    /// data value representation of key
+    case data(value: Data)
+}
+
+/**
+ A type alias for events custom data
+ */
+public typealias EventCustomData = [String: Encodable]
+
+
+//MARK: Public protocols
 
 /**
  A type that can receive result of sending events
@@ -30,13 +54,9 @@ public protocol EventSenderableDelegate: class {
 }
 
 /**
- A type alias for events custom data
- */
-public typealias EventCustomData = [UIApplication.LaunchOptionsKey: Any]
-
-/**
  A type that can send various events via SDK
  */
+
 public protocol EventSenderable: class {
     
     /// The object that acts as the event results delegate
@@ -44,18 +64,9 @@ public protocol EventSenderable: class {
     
     /**
      Send specific event  to server
-     - Parameter name: Name of event.
+     - Parameter event: Event info struct.
      */
-    func sendEvent(name: String)
-    
-    /**
-     Send specific event  to server
-     - Parameter name: Name of event.
-     - Parameter eventData: Additional information related to event data
-     - Parameter customData: Additional information, in key-value pairs representation, where value - instance various type that confirms Encodable protocol
-     - Parameter customItems:  Additional information, in Array representation, where element - instance various type that confirms Encodable protocol
-     */
-    func sendEvent(name: String, eventData: EventData?, customData: [String: Encodable]?, customItems: [Encodable]?)
+    func send(event: Event)
 }
 
 /**
@@ -110,22 +121,6 @@ public protocol Loggable: class {
 }
 
 /**
- A type alias for application launch options added for convenience reasons
- */
-public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
-
-/**
- An enum type that represents private key
- */
-public enum PrivateKey {
-    
-    /// string value representation of key
-    case string(value: String)
-    /// data value representation of key
-    case data(value: Data)
-}
-
-/**
  A type that provides the ability to configure SDK
  */
 public protocol AttributionConfiguration {
@@ -141,42 +136,4 @@ public protocol AttributionConfiguration {
      - Returns: Bool value `true` in case current configuration valid, otherwise `false`.
      */
     func validate() -> Bool
-}
-
-//MARK: Internal
-
-protocol EmptyLinkResolvable: class {
-    
-    func resolveEmptyLink()
-}
-
-protocol NetworkLogger: Loggable {
-    
-    func logInfo(request: URLRequest)
-    func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?)
-}
-
-protocol SessionModifier {
-    
-    func modify(sessionId: String?)
-}
-
-protocol SessionProvider: class {
-    
-    var sessionID: String? { get }
-}
-
-protocol AccessTokenProvider {
-    
-    var token: String? { get }
-}
-
-protocol AccessTokenModifier {
-    
-    func modify(token: String?)
-}
-
-protocol AccessKeyProcessor {
-    
-    func process(key: PrivateKey, with tokenModifier: AccessTokenModifier) throws 
 }

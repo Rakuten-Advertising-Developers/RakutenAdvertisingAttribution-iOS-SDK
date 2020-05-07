@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Configuration Structure Reference</title>
+    <title>Event Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/Configuration" class="dashAnchor"></a>
-    <a title="Configuration Structure Reference"></a>
+    <a name="//apple_ref/swift/Struct/Event" class="dashAnchor"></a>
+    <a title="Event Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RADAttribution Docs</a> (98% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RADAttribution Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Configuration Structure Reference
+        Event Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -113,14 +113,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Configuration</h1>
+            <h1>Event</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Configuration</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AttributionConfiguration.html">AttributionConfiguration</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Event</span></code></pre>
 
                 </div>
               </div>
-            <p>A struct that confirms <code><a href="../Protocols/AttributionConfiguration.html">AttributionConfiguration</a></code> protocol, convenience for SDK setup</p>
+            <p>A struct that encapsulates information related to event</p>
 
           </section>
           <section class="section task-group-section">
@@ -138,9 +138,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttribution13ConfigurationV13launchOptionsSDySo019UIApplicationLaunchD3KeyaypGSgvp"></a>
-                    <a name="//apple_ref/swift/Property/launchOptions" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttribution13ConfigurationV13launchOptionsSDySo019UIApplicationLaunchD3KeyaypGSgvp">launchOptions</a>
+                    <a name="/s:14RADAttribution5EventV4nameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution5EventV4nameSSvp">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -148,14 +148,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>application launch options</p>
+                        <p>Name of event.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:14RADAttribution13LaunchOptionsa">LaunchOptions</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -165,9 +165,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttribution13ConfigurationV3keyAA10PrivateKeyOvp"></a>
-                    <a name="//apple_ref/swift/Property/key" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttribution13ConfigurationV3keyAA10PrivateKeyOvp">key</a>
+                    <a name="/s:14RADAttribution5EventV9eventDataAA0bD0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/eventData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution5EventV9eventDataAA0bD0VSgvp">eventData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -175,14 +175,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>private key</p>
+                        <p>Additional information related to event data</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Enums/PrivateKey.html">PrivateKey</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">eventData</span><span class="p">:</span> <span class="kt"><a href="../Structs/EventData.html">EventData</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -192,9 +192,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttribution13ConfigurationV17isManualAppLaunchSbvp"></a>
-                    <a name="//apple_ref/swift/Property/isManualAppLaunch" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttribution13ConfigurationV17isManualAppLaunchSbvp">isManualAppLaunch</a>
+                    <a name="/s:14RADAttribution5EventV10customDataSDySSSE_pGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/customData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution5EventV10customDataSDySSSE_pGSgvp">customData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -202,14 +202,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If application opened from link with the associated domain - <code>false</code>, otherwise <code>true</code></p>
+                        <p>Additional information, provided as instance of EventCustomData type</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isManualAppLaunch</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">customData</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:14RADAttribution15EventCustomDataa">EventCustomData</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14RADAttribution5EventV12contentItemsSaySDySSSE_pGGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/contentItems" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution5EventV12contentItemsSaySDySSSE_pGGSgvp">contentItems</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of additional information, where element is  instance of EventCustomData type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">contentItems</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:14RADAttribution15EventCustomDataa">EventCustomData</a></span><span class="p">]?</span></code></pre>
 
                         </div>
                       </div>
@@ -232,9 +259,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttribution13ConfigurationV3key13launchOptionsAcA10PrivateKeyO_SDySo019UIApplicationLauncheG0aypGSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(key:launchOptions:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttribution13ConfigurationV3key13launchOptionsAcA10PrivateKeyO_SDySo019UIApplicationLauncheG0aypGSgtcfc">init(key:<wbr>launchOptions:<wbr>)</a>
+                    <a name="/s:14RADAttribution5EventV4name9eventData06customE012contentItemsACSS_AA0bE0VSgSDySSSE_pGSgSayAKGSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(name:eventData:customData:contentItems:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution5EventV4name9eventData06customE012contentItemsACSS_AA0bE0VSgSDySSSE_pGSgSayAKGSgtcfc">init(name:<wbr>eventData:<wbr>customData:<wbr>contentItems:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -242,14 +269,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize new instanse of <code>Configuration</code> struct with given parameters</p>
+                        <p>Initialize new instanse of <code>Event</code> struct with given parameters</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Enums/PrivateKey.html">PrivateKey</a></span><span class="p">,</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:14RADAttribution13LaunchOptionsa">LaunchOptions</a></span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+            <span class="nv">eventData</span><span class="p">:</span> <span class="kt"><a href="../Structs/EventData.html">EventData</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">customData</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:14RADAttribution15EventCustomDataa">EventCustomData</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">contentItems</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:14RADAttribution15EventCustomDataa">EventCustomData</a></span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -260,24 +290,48 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>key</em>
+                                <em>name</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>private key for SDK setup</p>
+                                  <p>Name of event.</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>launchOptions</em>
+                                <em>eventData</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>application launch options</p>
+                                  <p>Additional information related to event data. Default is nil</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Additional information, provided as instance of EventCustomData type. Default is nil</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>contentItems</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>List of additional information, where element is  instance of EventCustomData type. Default is nil</p>
                                 </div>
                               </td>
                             </tr>
@@ -286,51 +340,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new instanse of <code>Configuration</code> struct</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Public"></a>
-                <a name="//apple_ref/swift/Section/Public" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Public"></a>
-                  <h3 class="section-name"><p>Public</p>
-</h3>
-                </div>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14RADAttribution13ConfigurationV8validateSbyF"></a>
-                    <a name="//apple_ref/swift/Method/validate()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttribution13ConfigurationV8validateSbyF">validate()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Validate of current configuration instance on ability properly setup SDK</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">validate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Bool value <code>true</code> in case current configuration valid, otherwise <code>false</code>.</p>
+                        <p>new instanse of <code>Event</code> struct</p>
                       </div>
                     </section>
                   </div>

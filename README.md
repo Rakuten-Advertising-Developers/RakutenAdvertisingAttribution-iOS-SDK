@@ -150,12 +150,11 @@ extension ViewController: LinkResolvableDelegate {
 
 RADAttribution SDK provides an ability to handle events like SEARCH,PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
 
-Use `RADAttribution.shared.eventSender` to send your events. Send data associated with event in `eventData`
-
-
+Use `RADAttribution.shared.eventSender` to send your events. Optionally you can provide additional data with an event. Check [`Event struct`](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/Event.html) documentation.
 
 ```swift
-RADAttribution.shared.eventSender.sendEvent(name: "YOUR_EVENT_NAME", eventData: nil)
+let event = Event(name: "YOUR_EVENT_NAME")
+RADAttribution.shared.eventSender.send(event: event)
 ```
 
 Similarly, you can use `delegate` property of `eventSender`, to track statuses of sending events

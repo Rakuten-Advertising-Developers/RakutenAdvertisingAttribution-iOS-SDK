@@ -20,31 +20,31 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-EF-1sp">
-                                <rect key="frame" x="111" y="243.5" width="153" height="180"/>
+                                <rect key="frame" x="100" y="243.5" width="175" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZs-os-jt4">
-                                        <rect key="frame" x="0.0" y="0.0" width="153" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
                                         <state key="normal" title="Resolve Universal Link"/>
                                         <connections>
                                             <action selector="resolveLinkUniversalButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B4I-JG-exI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY6-iA-Gmb">
-                                        <rect key="frame" x="0.0" y="50" width="153" height="30"/>
-                                        <state key="normal" title="Send Event"/>
+                                        <rect key="frame" x="0.0" y="50" width="175" height="30"/>
+                                        <state key="normal" title="Send Simple Event"/>
                                         <connections>
-                                            <action selector="sendEventButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kvg-Kl-CWj"/>
+                                            <action selector="sendSimpleEventButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kvg-Kl-CWj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-Jl-jaz">
-                                        <rect key="frame" x="0.0" y="100" width="153" height="30"/>
-                                        <state key="normal" title="Sent Event With Data"/>
+                                        <rect key="frame" x="0.0" y="100" width="175" height="30"/>
+                                        <state key="normal" title="Send Random Data Event"/>
                                         <connections>
-                                            <action selector="sendEventCustomDataButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vSE-t6-Hih"/>
+                                            <action selector="sendRandomDataEventButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vSE-t6-Hih"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVK-HF-zYS">
-                                        <rect key="frame" x="0.0" y="150" width="153" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="175" height="30"/>
                                         <state key="normal" title="Resolve Branch Link"/>
                                         <connections>
                                             <action selector="resolveLinkBranchButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lP0-wi-ggO"/>
