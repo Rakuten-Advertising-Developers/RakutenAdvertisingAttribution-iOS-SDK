@@ -28,7 +28,12 @@ public enum PrivateKey {
 /**
  A type alias for events custom data
  */
-public typealias EventCustomData = [String: Encodable]
+public typealias EventCustomData = [String: String]
+
+/**
+ A type alias for events content item
+ */
+public typealias EventContentItem = [String: Encodable]
 
 
 //MARK: Public protocols

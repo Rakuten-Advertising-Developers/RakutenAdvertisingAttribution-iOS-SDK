@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         let customData: EventCustomData = ["purchase_loc": "Palo Alto",
                                            "store_pickup": "unavailable"]
         
-        let customItems: [EventCustomData] = [
+        let contentItems: [EventContentItem] = [
             ["custom_fields": [["foo1": "bar1"],
                                ["foo2":"bar2"]]
             ],
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         let event = Event(name: "ADD_TO_CART",
                           eventData: Bool.random() ? eventData : nil,
                           customData: Bool.random() ? customData : nil,
-                          contentItems: Bool.random() ? customItems : nil)
+                          contentItems: Bool.random() ? contentItems : nil)
 
         RADAttribution.shared.eventSender.send(event: event)
     }

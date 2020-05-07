@@ -21,7 +21,7 @@ public struct Event {
     /// Additional information, provided as instance of EventCustomData type
     public let customData: EventCustomData?
     /// List of additional information, where element is  instance of EventCustomData type
-    public let contentItems: [EventCustomData]?
+    public let contentItems: [EventContentItem]?
     
     //MARK: Init
     
@@ -30,13 +30,13 @@ public struct Event {
      - Parameter name: Name of event.
      - Parameter eventData: Additional information related to event data. Default is nil
      - Parameter customData: Additional information, provided as instance of EventCustomData type. Default is nil
-     - Parameter contentItems: List of additional information, where element is  instance of EventCustomData type. Default is nil
+     - Parameter contentItems: List of additional information, where element is  instance of EventContentItem type. Default is nil
      - Returns: new instanse of `Event` struct
      */
     public init(name: String,
                 eventData: EventData? = nil,
                 customData: EventCustomData? = nil,
-                contentItems: [EventCustomData]? = nil) {
+                contentItems: [EventContentItem]? = nil) {
         
         self.name = name
         self.eventData = eventData
