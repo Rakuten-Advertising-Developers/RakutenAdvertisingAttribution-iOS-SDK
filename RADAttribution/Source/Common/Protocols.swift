@@ -26,7 +26,7 @@ public enum PrivateKey {
 }
 
 /**
- A type alias for events content item
+ A type alias for events custom data
  */
 public typealias EventCustomData = [String: String]
 
