@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         let customData: EventCustomData = ["purchase_loc": "Palo Alto",
                                            "store_pickup": "unavailable"]
         
-        let customItems: [EventCustomData] = [
+        let customItems: [EventContentItem] = [
             ["custom_fields": [["foo1": "bar1"],
                                ["foo2":"bar2"]]
             ],
