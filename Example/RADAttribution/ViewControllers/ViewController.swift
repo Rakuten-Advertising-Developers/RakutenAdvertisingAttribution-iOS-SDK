@@ -30,29 +30,43 @@ class ViewController: UIViewController {
          RADAttribution.shared.linkResolver.resolveLink(url: appToAppBranchLink)
     }
     
-    @IBAction func sendEventButtonPressed(_ sender: Any) {
+    @IBAction func sendSimpleEventButtonPressed(_ sender: Any) {
         
-        RADAttribution.shared.eventSender.sendEvent(name: "ADD_TO_CART")
+        let event = Event(name: "VIEW_ITEM")
+        RADAttribution.shared.eventSender.send(event: event)
     }
     
-    @IBAction func sendEventCustomDataButtonPressed(_ sender: Any) {
+    @IBAction func sendRandomDataEventButtonPressed(_ sender: Any) {
         
-        let customData: [String: Encodable] = ["purchase_loc": "Palo Alto",
-                                               "store_pickup": "unavailable"]
+         let eventData = EventData(transactionId: UUID().uuidString,
+                                         currency: "USD",
+                                         revenue: 10,
+                                         shipping: Double.random(in: 10.0 ..< 20.0),
+                                         tax: Double.random(in: 5.0 ..< 15.0),
+                                         coupon: "coupon_text",
+                                         affiliation: "affiliation",
+                                         description: "description",
+                                         searchQuery: "search_query")
         
-        let customItems: [Encodable] = ["sneakers",
-                                        "shoes",
-                                        ["custom_fields": [["foo1": "bar1"], ["foo2":"bar2"]]],
-                                        120,
-                                        CGFloat.pi,
-                                        true,
-                                        URL("http://example.com")
-                                        ]
+        let customData: EventCustomData = ["purchase_loc": "Palo Alto",
+                                           "store_pickup": "unavailable"]
         
-        RADAttribution.shared.eventSender.sendEvent(name: "ADD_TO_CART",
-                                                    eventData: nil,
-                                                    customData: customData,
-                                                    customItems: customItems)
+        let customItems: [EventCustomData] = [
+            ["custom_fields": [["foo1": "bar1"],
+                               ["foo2":"bar2"]]
+            ],
+            ["int": 120,
+             "double": CGFloat.pi,
+             "bool": true,
+             "url": URL("http://example.com")]
+        ]
+        
+        let event = Event(name: "ADD_TO_CART",
+                          eventData: Bool.random() ? eventData : nil,
+                          customData: Bool.random() ? customData : nil,
+                          contentItems: Bool.random() ? customItems : nil)
+
+        RADAttribution.shared.eventSender.send(event: event)
     }
 }
 

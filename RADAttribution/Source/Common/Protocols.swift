@@ -32,11 +32,12 @@ public protocol EventSenderableDelegate: class {
 /**
  A type alias for events custom data
  */
-public typealias EventCustomData = [UIApplication.LaunchOptionsKey: Any]
+public typealias EventCustomData = [String: Encodable]
 
 /**
  A type that can send various events via SDK
  */
+
 public protocol EventSenderable: class {
     
     /// The object that acts as the event results delegate
@@ -46,16 +47,16 @@ public protocol EventSenderable: class {
      Send specific event  to server
      - Parameter name: Name of event.
      */
-    func sendEvent(name: String)
+    func send(event: Event)
     
     /**
      Send specific event  to server
      - Parameter name: Name of event.
      - Parameter eventData: Additional information related to event data
      - Parameter customData: Additional information, in key-value pairs representation, where value - instance various type that confirms Encodable protocol
-     - Parameter customItems:  Additional information, in Array representation, where element - instance various type that confirms Encodable protocol
+     - Parameter contentItems:  Additional information, in Array representation, where element - instance various type that confirms Encodable protocol
      */
-    func sendEvent(name: String, eventData: EventData?, customData: [String: Encodable]?, customItems: [Encodable]?)
+    //func sendEvent(name: String, eventData: EventData?, customData: EventCustomData?, contentItems: [EventCustomData]?)
 }
 
 /**
