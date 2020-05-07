@@ -41,35 +41,4 @@ extension EventSender: EventSenderable {
             }
         }
     }
-    
-    
-    func sendEvent(name: String) {
-        
-        sendEvent(name: name, eventData: nil, customData: nil, contentItems: nil)
-    }
-    
-    func sendEvent(name: String, eventData: EventData? = nil, customData: EventCustomData?, contentItems: [EventCustomData]?) {
-        
-        let customDataConverted = customData?.mapValues(AnyEncodable.init)
-        let customItemsConverted = contentItems?.map { return $0.mapValues(AnyEncodable.init) }
-        
-        let request = SendEventRequest(name: name,
-                                       sessionId: sessionProvider.sessionID,
-                                       userData: DataBuilder.defaultUserData(),
-                                       deviceData: DataBuilder.defaultDeviceData(),
-                                       customData: customDataConverted,
-                                       contentItems: customItemsConverted,
-                                       eventData: eventData)
-        
-        let endpoint = SendEventEndpoint.sendEvent(request: request)
-        RemoteDataProvider(with: endpoint).receiveRemoteObject { [weak self] (result: DataTransformerResult<SendEventResponse> ) in
-        
-            switch result {
-            case .success(let response):
-                self?.delegate?.didSend(eventName: name, resultMessage: response.message)
-            case .failure(let error):
-                self?.delegate?.didFailedSend(eventName: name, with: error)
-            }
-        }
-    }
 }
