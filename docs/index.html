@@ -80,6 +80,9 @@
                 <a href="Structs/Configuration.html">Configuration</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/EventData.html">EventData</a>
               </li>
               <li class="nav-group-task">
@@ -212,7 +215,13 @@ struct SecretConstants {
 <p>Simply call the <code>RADAttribution.shared.linkResolver</code> function whenever iOS app is brought to foreground.</p>
 
 <p>In your AppDelegate use:</p>
-<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="k">continue</span> <span class="nv">userActivity</span><span class="p">:</span> <span class="kt">NSUserActivity</span><span class="p">,</span> <span class="nv">restorationHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">UIUserActivityRestoring</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="kd">open</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIApplication</span><span class="o">.</span><span class="kt">OpenURLOptionsKey</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:])</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+
+    <span class="kt">RADAttribution</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">linkResolver</span><span class="o">.</span><span class="nf">resolveLink</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="k">continue</span> <span class="nv">userActivity</span><span class="p">:</span> <span class="kt">NSUserActivity</span><span class="p">,</span> <span class="nv">restorationHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">UIUserActivityRestoring</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
 
     <span class="k">let</span> <span class="nv">resolved</span> <span class="o">=</span> <span class="kt">RADAttribution</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">linkResolver</span><span class="o">.</span><span class="nf">resolve</span><span class="p">(</span><span class="nv">userActivity</span><span class="p">:</span> <span class="n">userActivity</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">resolved</span> <span class="p">{</span>
@@ -250,8 +259,9 @@ struct SecretConstants {
 
 <p>RADAttribution SDK provides an ability to handle events like SEARCH,PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. </p>
 
-<p>Use <code>RADAttribution.shared.eventSender</code> to send your events. Send data associated with event in <code>eventData</code></p>
-<pre class="highlight swift"><code><span class="kt">RADAttribution</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">eventSender</span><span class="o">.</span><span class="nf">sendEvent</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"YOUR_EVENT_NAME"</span><span class="p">,</span> <span class="nv">eventData</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<p>Use <code>RADAttribution.shared.eventSender</code> to send your events. Optionally you can provide additional data with an event. Check <a href="https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/Event.html"><code>Event struct</code></a> documentation.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">event</span> <span class="o">=</span> <span class="kt">Event</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"YOUR_EVENT_NAME"</span><span class="p">)</span>
+<span class="kt">RADAttribution</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">eventSender</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="nv">event</span><span class="p">:</span> <span class="n">event</span><span class="p">)</span>
 </code></pre>
 
 <p>Similarly, you can use <code>delegate</code> property of <code>eventSender</code>, to track statuses of sending events</p>
@@ -311,7 +321,7 @@ struct SecretConstants {
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS" target="_blank" rel="external">Rakuten Advertising</a>. All rights reserved. (Last updated: 2020-05-06)</p>
+          <p>&copy; 2020 <a class="link" href="https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS" target="_blank" rel="external">Rakuten Advertising</a>. All rights reserved. (Last updated: 2020-05-07)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
