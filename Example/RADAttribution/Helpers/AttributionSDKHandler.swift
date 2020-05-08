@@ -60,14 +60,21 @@ extension AttributionSDKHandler: LinkResolvableDelegate {
 
         showNotification(title: "Resolve link ✅",
                          subTitle: response.sessionId,
-                         body: "link: \(response.data.nonBranchLink)")
+                         body: response.data.descriptionString)
     }
     
     func didFailedResolve(link: String, with error: Error) {
         
+        let errorText: String
+        if let radError = error as? RADError {
+            errorText = radError.localizedDescription
+        } else {
+            errorText = error.localizedDescription
+        }
+    
         showNotification(title: "Resolve link ❌",
-                         subTitle: error.localizedDescription,
-                         body: "link: \(link)")
+                         subTitle: "link: \(link)",
+                         body: errorText)
     }
 }
 
@@ -82,5 +89,36 @@ extension AttributionSDKHandler: UNUserNotificationCenterDelegate {
         
         center.removeAllDeliveredNotifications()
         completionHandler()
+    }
+}
+
+extension ResolveLinkData {
+    
+    var descriptionString: String {
+        
+        var description = ""
+        let newLine = "\n"
+        
+        if let partner = advertisingPartnerName {
+            description += "Partner \(partner)"
+            description += newLine
+        }
+        
+        if let nonBranchLink = nonBranchLink {
+            description += "Non branch: \(nonBranchLink)"
+            description += newLine
+        }
+        
+        if let channel = channel {
+            description += "Channel: \(channel)"
+            description += newLine
+        }
+        
+        if let refLink = referringLink {
+            description += "Ref: \(refLink)"
+            description += newLine
+        }
+    
+        return description
     }
 }

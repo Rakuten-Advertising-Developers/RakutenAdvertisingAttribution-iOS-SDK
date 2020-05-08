@@ -10,6 +10,30 @@ import Foundation
 //MARK: Public types
 
 /**
+An enum type that represents errors specific to RADAttribution SDK
+*/
+public enum RADError: Error {
+    /// absence any data from the server
+    case unableFetchData
+    /// receiving some unexpected result from the server
+    case backend(description: String)
+}
+
+extension RADError: LocalizedError {
+    
+    /// localized description of the error
+    public var localizedDescription: String {
+        
+        switch self {
+        case .unableFetchData:
+            return "Unable fetch data"
+        case .backend(let description):
+            return description
+        }
+    }
+}
+
+/**
  A type alias for application launch options added for convenience reasons
  */
 public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
@@ -35,7 +59,9 @@ public typealias EventCustomData = [String: String]
  */
 public typealias EventContentItem = [ContentItemKey: Encodable]
 
-
+/**
+A struct that encapsulates content item key
+*/
 public struct ContentItemKey: Codable, Hashable {
     
     public static let price = ContentItemKey("$price")

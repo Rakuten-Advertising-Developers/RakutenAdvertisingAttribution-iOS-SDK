@@ -34,9 +34,8 @@ class JSONDataTransformer<T: Decodable> {
             let decoded = try decoder.decode(T.self, from: data)
             completion(.success(decoded))
         } catch {
-            if let decodingError = error as? DecodingError, case .keyNotFound(_, _) = decodingError {
-                let responseText = String(data: data, encoding: .utf8) ?? "NO RESPONSE"
-                completion(.failure(RADError.backend(description: responseText)))
+            if let decodingError = error as? DecodingError, case .keyNotFound(_, let context) = decodingError {
+                completion(.failure(RADError.backend(description: context.debugDescription)))
             } else {
                 completion(.failure(error))
             }
