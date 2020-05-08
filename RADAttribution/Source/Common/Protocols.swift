@@ -7,35 +7,6 @@
 
 import Foundation
 
-//MARK: Public types
-
-/**
- A type alias for application launch options added for convenience reasons
- */
-public typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
-
-/**
- An enum type that represents private key
- */
-public enum PrivateKey {
-    
-    /// string value representation of key
-    case string(value: String)
-    /// data value representation of key
-    case data(value: Data)
-}
-
-/**
- A type alias for events custom data
- */
-public typealias EventCustomData = [String: String]
-
-/**
- A type alias for events content item
- */
-public typealias EventContentItem = [String: Encodable]
-
-
 //MARK: Public protocols
 
 /**

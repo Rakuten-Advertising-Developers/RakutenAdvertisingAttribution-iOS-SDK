@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yj6-B4-AgM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -19,50 +19,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-EF-1sp">
-                                <rect key="frame" x="100" y="243.5" width="175" height="180"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZs-os-jt4">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
-                                        <state key="normal" title="Resolve Universal Link"/>
-                                        <connections>
-                                            <action selector="resolveLinkUniversalButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B4I-JG-exI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY6-iA-Gmb">
-                                        <rect key="frame" x="0.0" y="50" width="175" height="30"/>
-                                        <state key="normal" title="Send Simple Event"/>
-                                        <connections>
-                                            <action selector="sendSimpleEventButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kvg-Kl-CWj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-Jl-jaz">
-                                        <rect key="frame" x="0.0" y="100" width="175" height="30"/>
-                                        <state key="normal" title="Send Random Data Event"/>
-                                        <connections>
-                                            <action selector="sendRandomDataEventButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vSE-t6-Hih"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVK-HF-zYS">
-                                        <rect key="frame" x="0.0" y="150" width="175" height="30"/>
-                                        <state key="normal" title="Resolve Branch Link"/>
-                                        <connections>
-                                            <action selector="resolveLinkBranchButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lP0-wi-ggO"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="USk-2L-dQk">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="J3f-EF-1sp" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="1Sg-lm-a7Q"/>
-                            <constraint firstItem="J3f-EF-1sp" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="YuF-fj-NWg"/>
+                            <constraint firstAttribute="trailing" secondItem="USk-2L-dQk" secondAttribute="trailing" id="6xA-s8-pt6"/>
+                            <constraint firstItem="USk-2L-dQk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="BKe-q6-CpC"/>
+                            <constraint firstItem="USk-2L-dQk" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ITp-Pn-j0P"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="USk-2L-dQk" secondAttribute="bottom" id="ZyQ-W5-98O"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HPd-IZ-Pf3"/>
+                    <connections>
+                        <outlet property="tableView" destination="USk-2L-dQk" id="h5R-Kq-05T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="133"/>
+            <point key="canvasLocation" x="736.79999999999995" y="148.87556221889056"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TOP-LV-y6I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yj6-B4-AgM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w4Y-Fa-1YN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="t9R-yx-OhK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zi2-yR-iiF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-202.40000000000001" y="148.87556221889056"/>
         </scene>
     </scenes>
 </document>

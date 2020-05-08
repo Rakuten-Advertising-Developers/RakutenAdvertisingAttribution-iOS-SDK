@@ -3,6 +3,9 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
 
 ![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/workflows/PR%20Unit%20Tests/badge.svg)
 [![RADAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/master/docs/badge.svg?sanitize=true)](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
+![GitHub](https://img.shields.io/github/license/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS?label=License)
+![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
+
 ## Requirements
 
 - iOS 11.0+

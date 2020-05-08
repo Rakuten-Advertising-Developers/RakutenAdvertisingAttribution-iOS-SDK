@@ -77,6 +77,11 @@ extension RADLogger: NetworkLogger {
         descriptionString += separator
         log(message: descriptionString)
     }
+    
+    func log(debugInfo: String) {
+        
+        log(message: debugInfo)
+    }
 }
 
 

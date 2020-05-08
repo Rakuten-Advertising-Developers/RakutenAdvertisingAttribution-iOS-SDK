@@ -37,7 +37,11 @@ extension SendEventRequest {
         self.name = event.name
         self.eventData = event.eventData
         self.customData = event.customData?.mapValues(AnyEncodable.init)
-        self.contentItems = event.contentItems?.map { return $0.mapValues(AnyEncodable.init) }
+
+        self.contentItems = event.contentItems?.map { value in
+            return Dictionary(uniqueKeysWithValues:value.map { key, value in
+                return (key.value, AnyEncodable(value: value))
+            })}
         
         self.sessionId = sessionId
         self.userData = userData

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>EventData Structure Reference</title>
+    <title>RADError Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/EventData" class="dashAnchor"></a>
-    <a title="EventData Structure Reference"></a>
+    <a name="//apple_ref/swift/Enum/RADError" class="dashAnchor"></a>
+    <a title="RADError Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RADAttribution 0.0.1 Docs</a> (83% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RADAttribution Reference</a>
         <img id="carat" src="../img/carat.png" />
-        EventData Structure Reference
+        RADError Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -122,14 +122,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>EventData</h1>
+            <h1>RADError</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">EventData</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RADError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">RADError</span><span class="p">:</span> <span class="kt">LocalizedError</span></code></pre>
 
                 </div>
               </div>
-            <p>A struct that represents details of event data</p>
+            <p>An enum type that represents errors specific to RADAttribution SDK</p>
 
           </section>
           <section class="section task-group-section">
@@ -138,9 +139,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttribution9EventDataV13transactionId8currency7revenue8shipping3tax6coupon11affiliation11description11searchQueryACSSSg_AMSdSgA2n4Mtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(transactionId:currency:revenue:shipping:tax:coupon:affiliation:description:searchQuery:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttribution9EventDataV13transactionId8currency7revenue8shipping3tax6coupon11affiliation11description11searchQueryACSSSg_AMSdSgA2n4Mtcfc">init(transactionId:<wbr>currency:<wbr>revenue:<wbr>shipping:<wbr>tax:<wbr>coupon:<wbr>affiliation:<wbr>description:<wbr>searchQuery:<wbr>)</a>
+                    <a name="/s:14RADAttribution8RADErrorO15unableFetchDatayA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/unableFetchData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution8RADErrorO15unableFetchDatayA2CmF">unableFetchData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -148,14 +149,81 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>absence any data from the server</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">transactionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">revenue</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?,</span> <span class="nv">shipping</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?,</span> <span class="nv">tax</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?,</span> <span class="nv">coupon</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">affiliation</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">searchQuery</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unableFetchData</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14RADAttribution8RADErrorO7backendyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/backend(description:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution8RADErrorO7backendyACSS_tcACmF">backend(description:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>receiving some unexpected result from the server</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">backend</span><span class="p">(</span><span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20types"></a>
+                <a name="//apple_ref/swift/Section/Public types" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20types"></a>
+                  <h3 class="section-name"><p>Public types</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14RADAttribution8RADErrorO20localizedDescriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/localizedDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution8RADErrorO20localizedDescriptionSSvp">localizedDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>localized description of the error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">localizedDescription</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
