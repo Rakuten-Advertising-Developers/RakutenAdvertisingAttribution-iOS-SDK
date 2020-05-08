@@ -3,6 +3,9 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
 
 ![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/workflows/PR%20Unit%20Tests/badge.svg)
 [![RADAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/master/docs/badge.svg?sanitize=true)](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
+![GitHub](https://img.shields.io/github/license/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS?label=License)
+![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
+
 ## Requirements
 
 - iOS 11.0+
@@ -153,35 +156,8 @@ RADAttribution SDK provides an ability to handle events like SEARCH,PURCHASE, AD
 Use `RADAttribution.shared.eventSender` to send your events. Optionally you can provide additional data with an event. Check [`Event struct`](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/Event.html) documentation.
 
 ```swift
-   let eventData = EventData(transactionId: “293825802352359825”,
-        currency: “USD”,
-        revenue: 10,
-        shipping: 20,
-        tax: 8,
-        coupon: “coupon”,
-        affiliation: “affiliation”,
-        description: “description”,
-        searchQuery: “search query”)
-    
-    let customData: EventCustomData = [“key1”: “value1",
-    “key2”: “value2"]
-    
-    let content1: EventContentItem = [.price: 100,
-                                      .quantity: 1,
-                                      .sku: “32980982424”,
-                                      .productName: “Some product name”]
-    
-    let content2: EventContentItem = [.price: 30,
-                                      .quantity: 2,
-                                      .sku: “09823803244”,
-                                      .productName: “Name”]
-    
-    let event = Event(name: “ADD_TO_CART”,
-        eventData: eventData,
-        customData: customData,
-        contentItems: [content1, content2])
-        
-    RADAttribution.shared.eventSender.send(event: event)
+let event = Event(name: "YOUR_EVENT_NAME")
+RADAttribution.shared.eventSender.send(event: event)
 ```
 
 Similarly, you can use `delegate` property of `eventSender`, to track statuses of sending events

@@ -64,9 +64,13 @@ A struct that encapsulates content item key
 */
 public struct ContentItemKey: Codable, Hashable {
     
+    /// The price of the item
     public static let price = ContentItemKey("$price")
+    /// quantity of items
     public static let quantity = ContentItemKey("$quantity")
+    /// stock keeping unit
     public static let sku = ContentItemKey("$sku")
+    /// The name of the item
     public static let productName = ContentItemKey("$product_name")
     
     let value: String
