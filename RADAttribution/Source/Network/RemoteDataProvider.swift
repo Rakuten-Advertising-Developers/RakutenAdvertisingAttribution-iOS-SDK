@@ -19,6 +19,8 @@ class RemoteDataProvider {
     var logger: NetworkLogger = RADLogger.shared
     
     private(set) var counter: Int = 0
+    private(set) var retryCount: Int = 0
+    var attemptsCount: Int = 3
     
     //MARK: Init
     
@@ -42,17 +44,25 @@ class RemoteDataProvider {
             
             self.counter -= 1 //Also retain self
             
-            self.logger.logInfo(request: request, data: data, response: response, error: error)
-            
             let internalCompletion: RemoteDataCompletion = { result in
+                self.logger.logInfo(request: request, data: data, response: response, error: error)
                 targetQueue.async {
                     completion(result)
                 }
             }
     
             guard let data = data else {
+                
                 if let error = error {
-                    internalCompletion(.failure(error))
+                    self.shouldRetry(with: error, completion: { (retry, timeoffset) in
+                        if retry {
+                            DispatchQueue.global().asyncAfter(deadline: .now() + timeoffset) {
+                                self.receiveRemoteData(targetQueue: targetQueue, completion: completion)
+                            }
+                        } else {
+                            internalCompletion(.failure(error))
+                        }
+                    })
                 } else {
                     internalCompletion(.failure(RADError.unableFetchData))
                 }
@@ -64,6 +74,24 @@ class RemoteDataProvider {
         return task
     }
     
+    private func shouldRetry(with error: Error, completion: @escaping (Bool, TimeInterval)->()) {
+        
+        guard retryCount < attemptsCount else {
+            completion(false, 0)
+            return
+        }
+        retryCount += 1
+        let delayTime: TimeInterval = 0.5
+        if error.isSoftwareCausedConnectionAbort {
+            logger.log(debugInfo: "Retrying request, software caused connection abort")
+            completion(true, delayTime)
+        } else if error.isNetworkConnectionWasLost {
+            logger.log(debugInfo: "Retrying request, network connection was lost")
+            completion(true, delayTime)
+        } else {
+            completion(false, 0)
+        }
+    }
     
     //MARK: Public
     
@@ -95,5 +123,20 @@ class RemoteDataProvider {
                 resultHandler()
             }
         }
+    }
+}
+
+fileprivate extension Error {
+    
+    var isSoftwareCausedConnectionAbort: Bool {
+        
+        let nsError = self as NSError
+        return nsError.domain == "NSPOSIXErrorDomain" && nsError.code == 53
+    }
+    
+    var isNetworkConnectionWasLost: Bool {
+        
+        let nsError = self as NSError
+        return nsError.domain == "NSURLErrorDomain" && nsError.code == -1005
     }
 }

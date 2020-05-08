@@ -18,6 +18,7 @@ protocol NetworkLogger: Loggable {
     
     func logInfo(request: URLRequest)
     func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?)
+    func log(debugInfo: String)
 }
 
 protocol SessionModifier {
