@@ -57,6 +57,8 @@
 		57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */; };
 		57752F792459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */; };
 		57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */; };
+		5791F30324654A2F00658B5A /* TableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791F301246541D300658B5A /* TableHandler.swift */; };
+		5791F30524654CF500658B5A /* AttributionSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791F30424654CF500658B5A /* AttributionSDKHandler.swift */; };
 		5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
 		5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
 		5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
@@ -110,6 +112,8 @@
 		57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBackendURLProvider.swift; sourceTree = "<group>"; };
 		57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLaunchOptionsHandlerTests.swift; sourceTree = "<group>"; };
 		57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObfuscatorTests.swift; sourceTree = "<group>"; };
+		5791F301246541D300658B5A /* TableHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHandler.swift; sourceTree = "<group>"; };
+		5791F30424654CF500658B5A /* AttributionSDKHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributionSDKHandler.swift; sourceTree = "<group>"; };
 		5799738624582386007DA45E /* MockAttributionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttributionConfiguration.swift; sourceTree = "<group>"; };
 		5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
@@ -177,6 +181,15 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		5791F300246541B100658B5A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5791F301246541D300658B5A /* TableHandler.swift */,
+				5791F30424654CF500658B5A /* AttributionSDKHandler.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		5799738E245839C1007DA45E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +251,7 @@
 		607FACD21AFB9204008FA782 /* Example for RADAttribution */ = {
 			isa = PBXGroup;
 			children = (
+				5791F300246541B100658B5A /* Helpers */,
 				5799738F245839DE007DA45E /* ViewControllers */,
 				5799738E245839C1007DA45E /* Extensions */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -542,7 +556,9 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				5791F30324654A2F00658B5A /* TableHandler.swift in Sources */,
 				5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
+				5791F30524654CF500658B5A /* AttributionSDKHandler.swift in Sources */,
 				5733B6892461C1FA006A889D /* SecretConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

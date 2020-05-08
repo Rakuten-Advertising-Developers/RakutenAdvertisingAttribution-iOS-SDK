@@ -16,27 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else { return true }
-        
-        let configuration: AttributionConfiguration
-     
-        if ProcessInfo.processInfo.isUnitTesting {
-            configuration = MockAttributionConfiguration()
-        } else {
-            let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
-            configuration = Configuration(key: PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey)),
-                                          launchOptions: launchOptions)
+        if !ProcessInfo.processInfo.isUnitTesting {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge],
+                                                                    completionHandler: { _, _ in })
+            
         }
-        
-        RADAttribution.setup(with: configuration)
-        RADAttribution.shared.logger.enabled = !ProcessInfo.processInfo.isUnitTesting
-        RADAttribution.shared.linkResolver.delegate = viewController
-        RADAttribution.shared.eventSender.delegate = viewController
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
+        setupRADAttribution(with: launchOptions)
         
         return true
     }
@@ -57,6 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("link unavailable to resolve")
         }
         return true
-
+    }
+    
+    func setupRADAttribution(with launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        
+        let configuration: AttributionConfiguration
+        
+        if ProcessInfo.processInfo.isUnitTesting {
+            configuration = MockAttributionConfiguration()
+        } else {
+            let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
+            configuration = Configuration(key: PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey)),
+                                          launchOptions: launchOptions)
+        }
+        
+        RADAttribution.setup(with: configuration)
+        RADAttribution.shared.logger.enabled = !ProcessInfo.processInfo.isUnitTesting
+        RADAttribution.shared.linkResolver.delegate = AttributionSDKHandler.shared
+        RADAttribution.shared.eventSender.delegate = AttributionSDKHandler.shared
     }
 }

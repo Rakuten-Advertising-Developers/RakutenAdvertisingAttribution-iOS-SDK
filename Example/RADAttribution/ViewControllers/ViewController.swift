@@ -11,34 +11,39 @@ import RADAttribution
 
 class ViewController: UIViewController {
     
-    func showAlert(title: String?, message: String?) {
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction.init(title: "OK", style: .cancel))
-        present(alert, animated: true)
-    }
+    @IBOutlet weak var tableView: UITableView!
+    
+    lazy var tableHandler: TableHandler = {
+        let handler = TableHandler()
+        tableView.delegate = handler
+        tableView.dataSource = handler
+        return handler
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    @IBAction func resolveLinkUniversalButtonPressed(_ sender: Any) {
-        
-        let appToAppUniversalLink: URL = "https://rakutenready.app.link/ui3knDTZH0?%243p=a_rakuten_marketing%24s2s=true"
-        RADAttribution.shared.linkResolver.resolveLink(url: appToAppUniversalLink)
+        tableHandler.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        prepareDataSource()
+        tableView.reloadData()
     }
     
-    @IBAction func resolveLinkBranchButtonPressed(_ sender: Any) {
+    func prepareDataSource() {
         
-        let appToAppBranchLink: URL = "https://rakutenready.app.link/SRzsoXecN0"
-         RADAttribution.shared.linkResolver.resolveLink(url: appToAppBranchLink)
+        let linkAction = TableAction.resolve(link: "https://rakutenadvertising.app.link/vpgd5mKFV5?%243p=a_custom_781200801305432596&id=lMh2Xiq9xN0&offerid=725768.2&type=3&subid=0&mid=44066&u1=aaron")
+        tableHandler.actions.append(linkAction)
+        
+        let simpleEvent = TableAction.send(event: Event(name: "VIEW_ITEM"))
+        tableHandler.actions.append(simpleEvent)
+        
+        let event = TableAction.send(event: randomEvent())
+        tableHandler.actions.append(event)
     }
     
-    @IBAction func sendSimpleEventButtonPressed(_ sender: Any) {
+    func randomEvent() -> Event {
         
-        let event = Event(name: "VIEW_ITEM")
-        RADAttribution.shared.eventSender.send(event: event)
-    }
-    
-    @IBAction func sendRandomDataEventButtonPressed(_ sender: Any) {
-        
-         let eventData = EventData(transactionId: UUID().uuidString,
+        let eventData = EventData(transactionId: UUID().uuidString,
                                          currency: "USD",
                                          revenue: 10,
                                          shipping: Double.random(in: 10.0 ..< 20.0),
@@ -51,63 +56,33 @@ class ViewController: UIViewController {
         let customData: EventCustomData = ["purchase_loc": "Palo Alto",
                                            "store_pickup": "unavailable"]
         
-        let contentItems: [EventContentItem] = [
-            ["custom_fields": [["foo1": "bar1"],
-                               ["foo2":"bar2"]]
-            ],
-            ["int": 120,
-             "double": CGFloat.pi,
-             "bool": true,
-             "url": URL("http://example.com")]
-        ]
+        let content1: EventContentItem = [.price: 100,
+                                          .quantity: 1,
+                                          .sku: "SomeSKU",
+                                          .productName: "Product name 1"]
+        
+        let content2: EventContentItem = [.price: 200,
+                                          .quantity: 2,
+                                          .sku: "Some another SKU",
+                                          .productName: "Product name 2"]
         
         let event = Event(name: "ADD_TO_CART",
-                          eventData: Bool.random() ? eventData : nil,
-                          customData: Bool.random() ? customData : nil,
-                          contentItems: Bool.random() ? contentItems : nil)
-
-        RADAttribution.shared.eventSender.send(event: event)
+                          eventData: eventData, //Bool.random() ? eventData : nil,
+                          customData: customData, //Bool.random() ? customData : nil,
+                          contentItems: [content1, content2]) //Bool.random() ? contentItems : nil)
+        return event
     }
 }
 
-extension ViewController: LinkResolvableDelegate {
+extension ViewController: TableHandlerDelegate {
     
-    func didResolveLink(response: ResolveLinkResponse) {
+    func didSelect(tableAction: TableAction) {
         
-        DispatchQueue.main.async { [weak self] in
-            let title = "Resolve link"
-            let message = "Link: \(response.data.nonBranchLink)\nSessionID: \(response.sessionId)"
-            self?.showAlert(title: title, message: message)
-        }
-    }
-    
-    func didFailedResolve(link: String, with error: Error) {
-        
-        DispatchQueue.main.async { [weak self] in
-            let title = "Resolve link"
-            let message = "Link: \(link)\nError: \(error.localizedDescription)"
-            self?.showAlert(title: title, message: message)
-        }
-    }
-}
-
-extension ViewController: EventSenderableDelegate {
-    
-    func didSend(eventName: String, resultMessage: String) {
-        
-        DispatchQueue.main.async { [weak self] in
-            let title = "Event Sender"
-            let message = "Event: \(eventName)\nMessage: \(resultMessage)"
-            self?.showAlert(title: title, message: message)
-        }
-    }
-    
-    func didFailedSend(eventName: String, with error: Error) {
-        
-        DispatchQueue.main.async { [weak self] in
-            let title = "Event Sender"
-            let message = "Event: \(eventName)\nError: \(error.localizedDescription)"
-            self?.showAlert(title: title, message: message)
+        switch tableAction {
+        case .resolve(let link):
+            RADAttribution.shared.linkResolver.resolveLink(url: link)
+        case .send(let event):
+            RADAttribution.shared.eventSender.send(event: event)
         }
     }
 }
