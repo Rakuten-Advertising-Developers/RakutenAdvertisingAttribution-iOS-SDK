@@ -106,15 +106,52 @@ extension ViewController: LinkResolvableDelegate {
     }
 }
 ```
+
 #### Handing other events like SEARCH, ADD_TO_CART, PURCHASE or any app activities
 
 RADAttribution SDK provides an ability to handle events like SEARCH,PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
 
-Use `RADAttribution.shared.eventSender` to send your events. Optionally you can provide additional data with an event. Check [`Event struct`](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/Event.html) documentation.
+Use `RADAttribution.shared.eventSender` to send your events.
 
 ```swift
-let event = Event(name: "YOUR_EVENT_NAME")
+let event = Event(name: "ADD_TO_CART")
 RADAttribution.shared.eventSender.send(event: event)
+```
+
+Optionally you can provide additional data with an event. Check [Event struct](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/Event.html) documentation.
+
+```swift
+
+let eventData = EventData(transactionId: "0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ",
+                                         currency: "USD",
+                                         revenue: 10,
+                                         shipping: 15,
+                                         tax: 7,
+                                         coupon: "WcqiYwSzSaan",
+                                         affiliation: "affiliation",
+                                         description: "product description",
+                                         searchQuery: "search query")
+        
+let customData: EventCustomData = ["purchase_loc": "Palo Alto",
+                                   "store_pickup": "unavailable"]
+        
+let content1: EventContentItem = [.price: 100,
+                                  .quantity: 1,
+                                  .sku: "788672541568328428",
+                                  .productName: "First Product Name"]
+        
+let content2: EventContentItem = [.price: 150,
+                                  .quantity: 2,
+                                  .sku: "788672541527138674",
+                                  .productName: "Second Product Name"]
+        
+let event = Event(name: "PURCHASE",
+                  eventData: eventData,
+                  customData: customData,
+                  contentItems: [content1, content2])
+
+RADAttribution.shared.eventSender.send(event: event)
+
 ```
 
 Similarly, you can use `delegate` property of `eventSender`, to track statuses of sending events
@@ -163,4 +200,4 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Rakuten Advertising
 
 ## License
-RADAttribution iOS SDK is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
+RADAttribution iOS SDK is available under the MIT license. See the [LICENSE](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/blob/master/LICENSE) file for more info.
