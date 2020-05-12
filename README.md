@@ -47,7 +47,7 @@ This command will create the following two files.
 
 #### Setup RADAttribution SDK initalization
 
-> Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/blob/master/guides/KeyPreparationGuide.md)
+> Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/blob/master/guides/KeyObfuscatingGuide.md)
 
 In your AppDelegate `application:didFinishLaunchingWithOptions:`
 
