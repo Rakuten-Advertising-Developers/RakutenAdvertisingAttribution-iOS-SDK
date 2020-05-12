@@ -89,7 +89,8 @@ let vc = ViewController()
 RADAttribution.shared.linkResolver.delegate = viewController
 navigationController?.pushViewController(vc, animated: true)
 ```
-In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response
+
+In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response. Check [ResolveLinkResponse](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/ResolveLinkResponse.html) struct documentation for details
 ```swift
 extension ViewController: LinkResolvableDelegate {
     
@@ -109,7 +110,7 @@ extension ViewController: LinkResolvableDelegate {
 
 #### Handing other events like SEARCH, ADD_TO_CART, PURCHASE or any app activities
 
-RADAttribution SDK provides an ability to handle events like SEARCH,PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
+RADAttribution SDK provides an ability to handle events like SEARCH, PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
 
 Use `RADAttribution.shared.eventSender` to send your events.
 
