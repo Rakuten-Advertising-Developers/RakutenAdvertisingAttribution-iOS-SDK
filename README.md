@@ -45,59 +45,16 @@ This command will create the following two files.
 1. rad_rsa_private.pem: Store this private key securely. We dont recommended to store the private key in app bundles or source code. Follow the below steps for obfuscating the private key.
 2. rad_rsa_public.pem: This file is required by Rakuten Attribution backend platform to verify the signature of the authentication JWT. (Public key handover process will be communicated separately)
 
-#### RADAttributionKey generation by obfuscating private key
-
-Private key obfuscation process avoids bundling the private key in executable file and make it hard for someone looking for senstive information by opening up your app's executable file.
-
-RADAttribution SDK provides Obfuscator helper class to generate obfuscated key (RADAttributionKey). Run the below one time swift code in your project to generate RADAttributionKey. 
-
-```swift
-
-// secure your passphase in case needed to regenerate obfuscated key
- 
-let obfuscator = Obfuscator(with: "<your passphase>") 
-
-//  copy the rad_rsa_private.pem content in <YOUR_RSA_PRIVATE_KEY>
-let bytes = obfuscator.obfuscatingBytes(from: "<YOUR_RSA_PRIVATE_KEY>")
-
-// TODO: remove the above two lines after key generation.
-
-
-```
-
-Run the above code in DEBUG mode and check for the following message (sample) in the console log.
-
-```
---------------------
-Salt used: <YOUR_SALT_STRING>
---------------------
-Swift code:
-
-struct SecretConstants {
-
-    let RADAttributionKey: [UInt8] = [78, 66, 64, 3, 95, 35, 46, 50, 61, 43, 78, 124, 50, 37, 86, 53, 32, 61, 63, 50, 61, 
-...
-    91, 48, 5, 27, 1, 9, 103, 11, 21, 5, 39, 5, 7, 84, 33, 30, 60, 73, 6, 47, 34, 32, 30, 92, 35, 66, 83, 49, 48, 60, 20, 36, 81, 11, 38, 32, 94, 22, 2, 10, 48, 25, 12, 69, 8, 48, 46, 47, 36, 15, 0, 83, 39, 104, 85, 76, 64, 93, 41, 43, 39, 79, 63, 125, 51, 65, 59, 39, 61, 51, 47, 122, 36, 68, 61, 32, 43, 89, 68, 94, 68, 67]
-}
-```
-
-The private key is required during the RADAttribution SDK initalization setup. Optionally you can copy the above swift code printed in the console in a new swift file (like SecretContants.swift) so you can pass key by the following command
-```swift
-let key = PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey))
-```
-
 #### Setup RADAttribution SDK initalization
 
-Initialize RADAttribution SDK with private key in `application:didFinishLaunchingWithOptions:`
+> Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/blob/master/guides/KeyObfuscatingGuide.md)
 
-1. Initialize `Configuration` struct instance with the key and launch options
-
-```swift
-let configuration = Configuration(key: PrivateKey.data(value: <Your RADAttributionKey>), launchOptions: launchOptions)
-```
-2. Pass configuration to `RADAttribution` SDK
+In your AppDelegate `application:didFinishLaunchingWithOptions:`
 
 ```swift
+// init configuration struct instance with the key and launch options
+let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>), launchOptions: launchOptions)
+// pass configuration to SDK
 RADAttribution.setup(with: configuration)
 ```
 
@@ -132,7 +89,8 @@ let vc = ViewController()
 RADAttribution.shared.linkResolver.delegate = viewController
 navigationController?.pushViewController(vc, animated: true)
 ```
-In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response
+
+In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response. Check [ResolveLinkResponse](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/ResolveLinkResponse.html) struct documentation for details
 ```swift
 extension ViewController: LinkResolvableDelegate {
     
@@ -149,15 +107,52 @@ extension ViewController: LinkResolvableDelegate {
     }
 }
 ```
+
 #### Handing other events like SEARCH, ADD_TO_CART, PURCHASE or any app activities
 
-RADAttribution SDK provides an ability to handle events like SEARCH,PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
+RADAttribution SDK provides an ability to handle events like SEARCH, PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
 
-Use `RADAttribution.shared.eventSender` to send your events. Optionally you can provide additional data with an event. Check [`Event struct`](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/Event.html) documentation.
+Use `RADAttribution.shared.eventSender` to send your events.
 
 ```swift
-let event = Event(name: "YOUR_EVENT_NAME")
+let event = Event(name: "ADD_TO_CART")
 RADAttribution.shared.eventSender.send(event: event)
+```
+
+Optionally you can provide additional data with an event. Check [Event struct](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/Event.html) documentation.
+
+```swift
+
+let eventData = EventData(transactionId: "0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ",
+                                         currency: "USD",
+                                         revenue: 10,
+                                         shipping: 15,
+                                         tax: 7,
+                                         coupon: "WcqiYwSzSaan",
+                                         affiliation: "affiliation",
+                                         description: "product description",
+                                         searchQuery: "search query")
+        
+let customData: EventCustomData = ["purchase_loc": "Palo Alto",
+                                   "store_pickup": "unavailable"]
+        
+let content1: EventContentItem = [.price: 100,
+                                  .quantity: 1,
+                                  .sku: "788672541568328428",
+                                  .productName: "First Product Name"]
+        
+let content2: EventContentItem = [.price: 150,
+                                  .quantity: 2,
+                                  .sku: "788672541527138674",
+                                  .productName: "Second Product Name"]
+        
+let event = Event(name: "PURCHASE",
+                  eventData: eventData,
+                  customData: customData,
+                  contentItems: [content1, content2])
+
+RADAttribution.shared.eventSender.send(event: event)
+
 ```
 
 Similarly, you can use `delegate` property of `eventSender`, to track statuses of sending events
@@ -206,4 +201,4 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Rakuten Advertising
 
 ## License
-RADAttribution iOS SDK is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
+RADAttribution iOS SDK is available under the MIT license. See the [LICENSE](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/blob/master/LICENSE) file for more info.
