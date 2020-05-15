@@ -18,7 +18,7 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
   s.homepage         = 'https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'Rakuten Advertising'
-  s.source           = { :git => 'https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS.git', :branch => 'develop' } #:tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS.git', :tag => s.version.to_s }
   
   s.platform = :ios, "11.0"
   s.ios.deployment_target = '11.0'
