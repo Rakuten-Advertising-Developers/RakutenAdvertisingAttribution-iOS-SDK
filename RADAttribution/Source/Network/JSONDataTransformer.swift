@@ -8,28 +8,28 @@
 import Foundation
 
 typealias DataTransformerResult<T> = Result<T, Error>
-typealias DataTransformerCompletion<T> = (DataTransformerResult<T>) -> ()
+typealias DataTransformerCompletion<T> = (DataTransformerResult<T>) -> Void
 
 class JSONDataTransformer<T: Decodable> {
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     var decoder = JSONDecoder()
-    
-    //MARK: Init
-    
+
+    // MARK: Init
+
     init() {
-        
+
     }
-    
-    //MARK: Public
-    
+
+    // MARK: Public
+
     func transform(data: Data, completion: DataTransformerCompletion<T>) {
-        
+
         guard !Thread.isMainThread else {
             fatalError("Don't call on Main thread")
         }
-        
+
         do {
             let decoded = try decoder.decode(T.self, from: data)
             completion(.success(decoded))

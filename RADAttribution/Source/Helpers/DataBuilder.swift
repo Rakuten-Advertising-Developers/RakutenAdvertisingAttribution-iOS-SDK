@@ -11,31 +11,31 @@ import AdSupport
 class DataBuilder {
     //TODO: Avoid usage of hiding dependencies
     static func defaultUserData() -> UserData {
-        
+
         let sdkVersion = EnvironmentManager.shared.currentEnvironment.sdkVersion
         let bundleIdentifier = Bundle.main.bundleIdentifier ?? "n/a"
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "n/a"
         let userData = UserData(sdkVersion: sdkVersion, bundleIdentifier: bundleIdentifier, appVersion: appVersion)
         return userData
     }
-    
+
     static func defaultDeviceData() -> DeviceData {
-        
+
         let os = "iOS"
         let osVersion = UIDevice.current.systemVersion
         let model = UIDevice.current.userInterfaceIdiom == .pad ? "iPad" : "iPhone"
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight = UIScreen.main.bounds.height
         let isSimulator = ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil
-        
+
         let idfaExists = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
         let vendorExists = UIDevice.current.identifierForVendor != nil
-        
+
         let idfaValue = ASIdentifierManager.shared().advertisingIdentifier.uuidString
         let vendorValue = UIDevice.current.identifierForVendor?.uuidString
-        
+
         switch (idfaExists, vendorExists) {
-            
+
         case (true, true):
             return DeviceData(os: os,
                               osVersion: osVersion,

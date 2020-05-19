@@ -8,36 +8,36 @@
 import Foundation
 
 class RADLogger {
-    
+
     static let shared = RADLogger(enabled: false)
-    
+
     var enabled: Bool
     var newLine = "\n"
     var space = " "
-    
+
     init(enabled: Bool) {
         self.enabled = enabled
     }
-    
-    //MARK: Private
-    
+
+    // MARK: Private
+
     private func log(message: String) {
-        
+
         guard enabled else { return }
-        
+
         print(message)
     }
 }
 
 extension RADLogger: NetworkLogger {
-    
+
     func logInfo(request: URLRequest) {
-     
+
         let separator = "----->"
         var descriptionString = newLine + separator + newLine
-        
+
         descriptionString += (request.httpMethod ?? "get") + space
-        
+
         request.url.do {
             descriptionString += $0.absoluteString + newLine
         }
@@ -52,14 +52,14 @@ extension RADLogger: NetworkLogger {
         descriptionString += separator
         log(message: descriptionString)
     }
-    
+
     func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?) {
-        
+
         let separator = "<-----"
         var descriptionString = newLine + separator + newLine
-        
+
         descriptionString += (request.httpMethod ?? "get") + space
-        
+
         request.url.do {
             descriptionString += $0.absoluteString + newLine
         }
@@ -77,18 +77,17 @@ extension RADLogger: NetworkLogger {
         descriptionString += separator
         log(message: descriptionString)
     }
-    
+
     func log(debugInfo: String) {
-        
+
         log(message: debugInfo)
     }
 }
 
-
 fileprivate extension Collection {
 
     func asJSON() -> String? {
-        
+
         guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: [.prettyPrinted]) else { return nil }
         return String(data: jsonData, encoding: .utf8) ?? "{}"
     }
@@ -97,7 +96,7 @@ fileprivate extension Collection {
 fileprivate extension Data {
 
     func asJSON() -> String? {
-        
+
         guard let jsonObject = try? JSONSerialization.jsonObject(with: self),
             let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted]) else { return nil }
         return String(data: jsonData, encoding: .utf8) ?? "{}"

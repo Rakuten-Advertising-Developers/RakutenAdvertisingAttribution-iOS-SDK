@@ -8,8 +8,8 @@
 import Foundation
 
 extension Optional {
-    
-    func `do`(_ action: (Wrapped) -> ()) {
+
+    func `do`(_ action: (Wrapped) -> Void) {
         map(action)
     }
 }

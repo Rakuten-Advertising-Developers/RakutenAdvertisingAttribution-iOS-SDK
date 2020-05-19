@@ -8,17 +8,17 @@
 import Foundation
 
 class EnvironmentManager {
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     static let shared = EnvironmentManager()
-    
+
     let currentEnvironment: Environment
-    
-    //MARK: Private
+
+    // MARK: Private
 
     init(plistName: String = "RADAttributionSDKEnvironment-Info") {
-        
+
         let bundle = Bundle(for: EnvironmentManager.self)
         guard let path = bundle.path(forResource: plistName, ofType: ".plist"),
             let plistData = FileManager.default.contents(atPath: path),

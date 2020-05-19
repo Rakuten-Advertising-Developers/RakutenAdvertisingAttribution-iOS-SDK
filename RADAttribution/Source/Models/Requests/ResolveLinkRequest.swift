@@ -14,14 +14,14 @@ struct ResolveLinkRequest: Codable {
     let userData: UserData
     let deviceData: DeviceData
     let linkId: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case firstSession = "first_session"
         case universalLinkUrl = "universal_link_url"
         case userData = "user_data"
         case deviceData = "device_data"
         case linkId = "link_identifier"
-    }    
+    }
 
 // sourcery:inline:auto:ResolveLinkRequest.AutoInit
     internal init(firstSession: Bool, universalLinkUrl: String, userData: UserData, deviceData: DeviceData, linkId: String?) { // swiftlint:disable:this line_length

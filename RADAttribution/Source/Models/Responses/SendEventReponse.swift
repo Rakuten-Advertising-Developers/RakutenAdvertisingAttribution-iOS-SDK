@@ -8,9 +8,9 @@
 import Foundation
 
 struct SendEventResponse: Codable {
-    
+
     let message: String
-    
+
     enum CodingKeys: String, CodingKey {
         case message
     }
