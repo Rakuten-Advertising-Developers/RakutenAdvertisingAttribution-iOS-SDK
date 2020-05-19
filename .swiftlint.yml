@@ -1,0 +1,16 @@
+included: # paths to include during linting. `--path` is ignored if present.
+  - RADAttribution/Source
+  - Example/RADAttribution
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - RADAttribution/Source/Models/SourceryGenerated
+superfluous_disable_command: true
+line_length: 
+  warning: 150
+  error: 250
+  ignores_function_declarations: false 
+  ignores_comments: true
+  ignores_urls: true
+private_over_fileprivate: no
+identifier_name:
+  min_length: # only min_length
+    warning: 1 # only warning
