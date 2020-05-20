@@ -58,7 +58,7 @@ let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>
 > Optionally you can provide another server information, for example for testing environment
 ```swift
 let networkInfo = NetworkInfo(baseURL: "https://test.attribution.sdk.io", apiVersion: "v2", apiPath: "api")
-let configuration = Configuration(key: PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey)), launchOptions: launchOptions, backendURLProvider: networkInfo)
+let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>), launchOptions: launchOptions, backendURLProvider: networkInfo)
 ```
 
 Then pass it to SDK
