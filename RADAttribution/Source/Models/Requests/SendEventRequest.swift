@@ -8,9 +8,9 @@
 import Foundation
 
 struct SendEventRequest: Encodable {
-    
+
     typealias CustomData = [String: AnyEncodable]
-    
+
     let name: String
     let sessionId: String?
     let userData: UserData
@@ -31,18 +31,18 @@ struct SendEventRequest: Encodable {
 }
 
 extension SendEventRequest {
-    
+
     init(event: Event, sessionId: String?, userData: UserData, deviceData: DeviceData) {
-        
+
         self.name = event.name
         self.eventData = event.eventData
         self.customData = event.customData?.mapValues(AnyEncodable.init)
 
         self.contentItems = event.contentItems?.map { value in
-            return Dictionary(uniqueKeysWithValues:value.map { key, value in
+            return Dictionary(uniqueKeysWithValues: value.map { key, value in
                 return (key.value, AnyEncodable(value: value))
             })}
-        
+
         self.sessionId = sessionId
         self.userData = userData
         self.deviceData = deviceData
@@ -50,7 +50,7 @@ extension SendEventRequest {
 }
 
 struct AnyEncodable: Encodable {
-    
+
     let value: Encodable
 
     func encode(to encoder: Encoder) throws {

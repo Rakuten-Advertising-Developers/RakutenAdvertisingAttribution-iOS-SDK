@@ -9,9 +9,9 @@
 import Foundation
 
 extension ProcessInfo {
-    
+
     var isUnitTesting: Bool {
-        
+
         return environment["IS_UNIT_TESTING"] != nil
     }
 }

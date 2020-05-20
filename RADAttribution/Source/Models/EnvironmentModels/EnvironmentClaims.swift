@@ -8,7 +8,7 @@
 import Foundation
 
 struct EnvironmentClaims: Codable {
-    
+
     let iss: String
     let sub: String
     let aud: String

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Environment: Codable {
-    
+
     let sdkVersion: String
     let backendInfo: BackendInfo
     let claims: EnvironmentClaims

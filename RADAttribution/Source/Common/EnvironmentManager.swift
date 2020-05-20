@@ -8,18 +8,18 @@
 import Foundation
 
 class EnvironmentManager {
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     static let shared = EnvironmentManager()
-    
+
     let currentEnvironment: Environment
     private(set) var currentBackendURLProvider: BackendURLProvider
-    
-    //MARK: Private
+
+    // MARK: Private
 
     init(plistName: String = "RADAttributionSDKEnvironment-Info") {
-        
+
         let bundle = Bundle(for: EnvironmentManager.self)
         guard let path = bundle.path(forResource: plistName, ofType: ".plist"),
             let plistData = FileManager.default.contents(atPath: path),
@@ -32,17 +32,17 @@ class EnvironmentManager {
 }
 
 extension EnvironmentManager: BackendURLProviderReceiver {
-    
+
     func setBackend(provider: BackendURLProvider) {
         currentBackendURLProvider = provider
     }
 }
 
 public extension BackendInfo {
-    
+
     /// default backend configuration
     static var defaultConfiguration: BackendInfo {
-        
+
         return EnvironmentManager.shared.currentEnvironment.backendInfo
     }
 }

@@ -11,14 +11,14 @@ import Foundation
 A struct that represents detailed data info of link resolving
 */
 public struct ResolveLinkData: Codable {
-    
+
     /// Flag indicating branch link
     public let clickedBranchLink: Bool
     /// Flag indicating first usage
     public let isFirstSession: Bool
     /// App was opened from a non Branch link (third party, invalid Branch deep link, or Branch key mismatch)
     public let nonBranchLink: String?
-    
+
     public let subid: String?
     /// The referring link that drove the install/open, if present
     public let referringLink: String?
@@ -37,7 +37,7 @@ public struct ResolveLinkData: Codable {
     public let clickTimestamp: Int?
     /// This is the feature of your app that the link might be associated with. For example, if you had built a referral program, you would label links with the feature 'referral'
     public let feature: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case clickedBranchLink = "+clicked_branch_link"
         case isFirstSession = "+is_first_session"

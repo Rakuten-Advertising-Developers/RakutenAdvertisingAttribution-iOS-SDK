@@ -8,51 +8,52 @@
 import Foundation
 
 typealias RemoteDataResult = Result<Data, Error>
-typealias RemoteDataCompletion = (RemoteDataResult) -> ()
+typealias RemoteDataCompletion = (RemoteDataResult) -> Void
 
 class RemoteDataProvider {
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     let endpoint: Endpointable
     let session: URLSessionProtocol
     var logger: NetworkLogger = RADLogger.shared
-    
+
     private(set) var counter: Int = 0
     private(set) var retryCount: Int = 0
     var attemptsCount: Int = 3
-    
-    //MARK: Init
-    
+
+    // MARK: Init
+
     init(with endpoint: Endpointable, session: URLSessionProtocol = URLSession.shared) {
         self.endpoint = endpoint
         self.session = session
     }
-    
-    //MARK: Private
-    
+
+    // MARK: Private
+
     @discardableResult
-    private func receiveRemoteData(targetQueue: DispatchQueue = DispatchQueue.global(), completion: @escaping RemoteDataCompletion) -> URLSessionDataTaskProtocol {
-        
+    private func receiveRemoteData(targetQueue: DispatchQueue = DispatchQueue.global(),
+                                   completion: @escaping RemoteDataCompletion) -> URLSessionDataTaskProtocol {
+
         let request = endpoint.urlRequest
-        
+
         logger.logInfo(request: request)
-        
+
         counter += 1
-        
+
         let task = session.sessionDataTask(with: request) { (data, response, error) in
-            
+
             self.counter -= 1 //Also retain self
-            
+
             let internalCompletion: RemoteDataCompletion = { result in
                 self.logger.logInfo(request: request, data: data, response: response, error: error)
                 targetQueue.async {
                     completion(result)
                 }
             }
-    
+
             guard let data = data else {
-                
+
                 if let error = error {
                     self.shouldRetry(with: error, completion: { (retry, timeoffset) in
                         if retry {
@@ -73,9 +74,9 @@ class RemoteDataProvider {
         task.resume()
         return task
     }
-    
-    private func shouldRetry(with error: Error, completion: @escaping (Bool, TimeInterval)->()) {
-        
+
+    private func shouldRetry(with error: Error, completion: @escaping (Bool, TimeInterval) -> Void) {
+
         guard retryCount < attemptsCount else {
             completion(false, 0)
             return
@@ -92,20 +93,22 @@ class RemoteDataProvider {
             completion(false, 0)
         }
     }
-    
-    //MARK: Public
-    
+
+    // MARK: Public
+
     @discardableResult
-    func receiveRemoteObject<T: Decodable>(targetQueue: DispatchQueue = DispatchQueue.global(), transformer: JSONDataTransformer<T> = JSONDataTransformer<T>(), completion: @escaping DataTransformerCompletion<T>) -> URLSessionDataTaskProtocol {
-  
+    func receiveRemoteObject<T: Decodable>(targetQueue: DispatchQueue = DispatchQueue.global(),
+                                           transformer: JSONDataTransformer<T> = JSONDataTransformer<T>(),
+                                           completion: @escaping DataTransformerCompletion<T>) -> URLSessionDataTaskProtocol {
+
         return receiveRemoteData(targetQueue: targetQueue) { result in
-            
+
             let internalCompletion: DataTransformerCompletion<T> = { result in
                 targetQueue.async {
                     completion(result)
                 }
             }
-            
+
             let resultHandler = {
                 switch result {
                 case .success(let data):
@@ -114,7 +117,7 @@ class RemoteDataProvider {
                     internalCompletion(.failure(error))
                 }
             }
-            
+
             if Thread.isMainThread {
                 DispatchQueue.global().async {
                     resultHandler()
@@ -127,15 +130,15 @@ class RemoteDataProvider {
 }
 
 fileprivate extension Error {
-    
+
     var isSoftwareCausedConnectionAbort: Bool {
-        
+
         let nsError = self as NSError
         return nsError.domain == "NSPOSIXErrorDomain" && nsError.code == 53
     }
-    
+
     var isNetworkConnectionWasLost: Bool {
-        
+
         let nsError = self as NSError
         return nsError.domain == "NSURLErrorDomain" && nsError.code == -1005
     }

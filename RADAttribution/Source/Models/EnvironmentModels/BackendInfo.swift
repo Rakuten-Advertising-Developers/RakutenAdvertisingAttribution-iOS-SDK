@@ -28,7 +28,7 @@ public struct BackendInfo: Codable {
 }
 
 extension BackendInfo {
-    
+
     /**
     Initialize new instanse of `BackendInfo` struct with given baseURL
     - Parameter baseURL: server base URL
@@ -44,10 +44,10 @@ extension BackendInfo {
 extension BackendInfo: AutoInit {}
 
 extension BackendInfo: BackendURLProvider {
-    
+
     /// server base URL
     public var backendURL: URL {
-        
+
         var url = URL(string: baseURL)!
         if !apiPath.isEmpty {
             url = url.appendingPathComponent(apiPath)
@@ -60,9 +60,9 @@ extension BackendInfo: BackendURLProvider {
 }
 
 private extension String {
-    
+
     func appendingPathComponent(_ path: String) -> String {
-       
+
         return (self as NSString).appendingPathComponent(path)
     }
 }

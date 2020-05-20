@@ -8,9 +8,9 @@
 import Foundation
 
 extension Collection {
-    
+
     var asData: Data? {
- 
+
         return try? JSONSerialization.data(withJSONObject: self)
     }
 }

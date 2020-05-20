@@ -7,20 +7,20 @@
 
 import Foundation
 
-//MARK: Public protocols
+// MARK: Public protocols
 
 /**
  A type that can receive result of sending events
  */
 public protocol EventSenderableDelegate: class {
-    
+
     /**
      Will be called in case of success event sending
      - Parameter eventName: Name of event.
      - Parameter resultMessage: Message from server.
      */
     func didSend(eventName: String, resultMessage: String)
-    
+
     /**
      Will be called in case of failing event sending
      - Parameter eventName: Name of event.
@@ -34,10 +34,10 @@ public protocol EventSenderableDelegate: class {
  */
 
 public protocol EventSenderable: class {
-    
+
     /// The object that acts as the event results delegate
-    var delegate: EventSenderableDelegate? { set get }
-    
+    var delegate: EventSenderableDelegate? { get set }
+
     /**
      Send specific event  to server
      - Parameter event: Event info struct.
@@ -49,13 +49,13 @@ public protocol EventSenderable: class {
  A type that can receive result of resolving links
  */
 public protocol LinkResolvableDelegate: class {
-    
+
     /**
      Will be called in case of success link resolving
      - Parameter response: Resolved link info
      */
     func didResolveLink(response: ResolveLinkResponse)
-    
+
     /**
      Will be called in case of failing link resolving
      - Parameter link: string representation of URL.
@@ -68,16 +68,16 @@ public protocol LinkResolvableDelegate: class {
  A type that can resolve links via SDK
  */
 public protocol LinkResolvable: class {
-    
+
     /// The object that acts as the link resolver results delegate
-    var delegate: LinkResolvableDelegate? { set get }
-    
+    var delegate: LinkResolvableDelegate? { get set }
+
     /**
      Resolve specific url
      - Parameter url: URL instance to resolve
      */
     func resolveLink(url: URL)
-    
+
     /**
      Checks if `userActivity` parameter contain all needed data for link resolving and in success case tried to resolve link
      - Parameter userActivity: Instance of NSUserActivity class with specific user state
@@ -91,7 +91,7 @@ public protocol LinkResolvable: class {
  A type that can interact with logging activity
  */
 public protocol Loggable: class {
-    
+
     /// If `true` logging enabled, otherwise no
     var enabled: Bool { get set }
 }
@@ -100,7 +100,7 @@ public protocol Loggable: class {
  A type that provides the ability to configure SDK
  */
 public protocol AttributionConfiguration {
-    
+
     /// application launch options
     var launchOptions: LaunchOptions? { get }
     /// private key for SDK configuration

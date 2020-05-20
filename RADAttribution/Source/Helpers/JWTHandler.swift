@@ -9,13 +9,13 @@ import Foundation
 import SwiftJWT
 
 enum JWTHandlerError: Error {
-    
+
     case stringConversion
     case incorrectKey(error: Error)
 }
 
 extension JWTHandlerError: LocalizedError {
-    
+
     var errorDescription: String? {
         switch self {
         case .stringConversion:
@@ -27,21 +27,21 @@ extension JWTHandlerError: LocalizedError {
 }
 
 struct JWTHandler {
-    
-    //MARK: Inner types
-    
+
+    // MARK: Inner types
+
     struct RADClaims: Claims {
-        
+
         let iss: String
         let sub: String
         let aud: String
         let kid: String
         let iat: Date
         let exp: Date
-        
+
         static func standartClaims(envClaims: EnvironmentClaims = EnvironmentManager.shared.currentEnvironment.claims,
                                    bundleID: String = Bundle.main.bundleIdentifier ?? "") -> RADClaims {
-            
+
             return RADClaims(iss: envClaims.iss,
                              sub: envClaims.sub,
                              aud: envClaims.aud,
@@ -53,11 +53,11 @@ struct JWTHandler {
 }
 
 extension JWTHandler: AccessKeyProcessor {
-    
+
     func process(key: PrivateKey, with tokenModifier: AccessTokenModifier) throws {
-        
+
         var jwt = JWT(claims: RADClaims.standartClaims())
-        
+
         let privateKeyData: Data
         switch key {
         case .string(let value):
@@ -68,9 +68,9 @@ extension JWTHandler: AccessKeyProcessor {
         case .data(let value):
             privateKeyData = value
         }
-        
+
         let jwtSigner = JWTSigner.rs256(privateKey: privateKeyData)
-        
+
         do {
             let signedJWT = try jwt.sign(using: jwtSigner)
             tokenModifier.modify(token: signedJWT)

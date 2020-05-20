@@ -11,7 +11,7 @@ import Foundation
 A struct that represents details of event data
 */
 public struct EventData: Codable {
-    
+
     let transactionId: String?
     let currency: String?
     let revenue: Double?

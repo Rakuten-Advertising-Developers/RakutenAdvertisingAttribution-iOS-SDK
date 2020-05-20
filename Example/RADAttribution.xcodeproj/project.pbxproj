@@ -331,6 +331,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				3BED29C4D641ADA51ED1418D /* [CP] Embed Pods Frameworks */,
+				57C671ED2473D5FA006F97F8 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -523,6 +524,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./PreBuildScripts/PreBuldConfigure.sh \"${SRCROOT}\" \"${CONFIGURATION}\"\n";
+		};
+		57C671ED2473D5FA006F97F8 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ..\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint or install it by running 'brew install swiftlint' command in Terminal\"\nfi\n";
 		};
 		5D2EB9DB2EAED0D22E47A610 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

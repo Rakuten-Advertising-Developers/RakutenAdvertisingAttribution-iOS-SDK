@@ -11,9 +11,9 @@ import Foundation
  A struct that encapsulates information related to event
  */
 public struct Event {
-    
-    //MARK: Properties
-    
+
+    // MARK: Properties
+
     /// Name of event.
     public let name: String
     /// Additional information related to event data
@@ -22,9 +22,9 @@ public struct Event {
     public let customData: EventCustomData?
     /// List of additional information, where element is  instance of EventCustomData type
     public let contentItems: [EventContentItem]?
-    
-    //MARK: Init
-    
+
+    // MARK: Init
+
     /**
      Initialize new instanse of `Event` struct with given parameters
      - Parameter name: Name of event.
@@ -37,7 +37,7 @@ public struct Event {
                 eventData: EventData? = nil,
                 customData: EventCustomData? = nil,
                 contentItems: [EventContentItem]? = nil) {
-        
+
         self.name = name
         self.eventData = eventData
         self.customData = customData
