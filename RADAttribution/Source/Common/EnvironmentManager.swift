@@ -27,7 +27,7 @@ class EnvironmentManager {
                 fatalError("\(plistName) missed or have wrong format")
         }
         self.currentEnvironment = environment
-        self.currentBackendURLProvider = environment.network
+        self.currentBackendURLProvider = environment.backendInfo
     }
 }
 
@@ -38,11 +38,11 @@ extension EnvironmentManager: BackendURLProviderReceiver {
     }
 }
 
-public extension NetworkInfo {
+public extension BackendInfo {
     
     /// default backend configuration
-    static var defaultConfiguration: NetworkInfo {
+    static var defaultConfiguration: BackendInfo {
         
-        return EnvironmentManager.shared.currentEnvironment.network
+        return EnvironmentManager.shared.currentEnvironment.backendInfo
     }
 }

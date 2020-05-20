@@ -43,7 +43,7 @@ public struct Configuration: AttributionConfiguration {
      */
     public init(key: PrivateKey,
                 launchOptions: LaunchOptions?,
-                backendURLProvider: BackendURLProvider = NetworkInfo.defaultConfiguration) {
+                backendURLProvider: BackendURLProvider = BackendInfo.defaultConfiguration) {
         self.key = key
         self.launchOptions = launchOptions
         self.backendURLProvider = backendURLProvider
@@ -89,7 +89,7 @@ struct EmptyConfiguration: AttributionConfiguration {
         launchOptions = nil
         key = .string(value: "")
         isManualAppLaunch = false
-        backendURLProvider = NetworkInfo(baseURL: "")
+        backendURLProvider = BackendInfo(baseURL: "")
     }
     
     func validate() -> Bool {
