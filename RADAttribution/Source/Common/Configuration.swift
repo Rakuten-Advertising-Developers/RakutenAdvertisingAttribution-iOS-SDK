@@ -18,6 +18,8 @@ public struct Configuration: AttributionConfiguration {
     public let launchOptions: LaunchOptions?
     /// private key
     public let key: PrivateKey
+    /// server info
+    public let backendURLProvider: BackendURLProvider
     
     var accessKeyProcessor: AccessKeyProcessor = JWTHandler()
     var accessTokenModifier: AccessTokenModifier = TokensStorage.shared
@@ -35,11 +37,15 @@ public struct Configuration: AttributionConfiguration {
      Initialize new instanse of `Configuration` struct with given parameters
      - Parameter key: private key for SDK setup
      - Parameter launchOptions: application launch options
+     - Parameter backendURLProvider: server info
      - Returns: new instanse of `Configuration` struct
      */
-    public init(key: PrivateKey, launchOptions: LaunchOptions?) {
+    public init(key: PrivateKey,
+                launchOptions: LaunchOptions?,
+                backendURLProvider: BackendURLProvider = NetworkInfo.defaultConfiguration) {
         self.key = key
         self.launchOptions = launchOptions
+        self.backendURLProvider = backendURLProvider
     }
     
     //MARK: Public
@@ -61,12 +67,13 @@ public struct Configuration: AttributionConfiguration {
 }
 
 struct EmptyConfiguration: AttributionConfiguration {
-    
+
     //MARK: Properties
     
     let launchOptions: LaunchOptions?
     let key: PrivateKey
     let isManualAppLaunch: Bool
+    let backendURLProvider: BackendURLProvider
     
     //MARK: Static
     
@@ -80,6 +87,7 @@ struct EmptyConfiguration: AttributionConfiguration {
         launchOptions = nil
         key = .string(value: "")
         isManualAppLaunch = false
+        backendURLProvider = NetworkInfo(baseURL: "")
     }
     
     func validate() -> Bool {

@@ -89,8 +89,3 @@ extension URLSession: URLSessionProtocol {
 }
 
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}
-
-protocol BackendURLProvider {
-    
-    var backendURL: URL { get }
-}

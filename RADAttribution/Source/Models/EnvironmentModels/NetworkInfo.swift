@@ -7,16 +7,35 @@
 
 import Foundation
 
-struct NetworkInfo: Codable {
+public struct NetworkInfo: Codable {
     
-    let baseURL: String
-    let apiVersion: String
-    let apiPath: String
+    public let baseURL: String
+    public let apiVersion: String
+    public let apiPath: String
+
+// sourcery:inline:auto:NetworkInfo.AutoInit
+    public init(baseURL: String, apiVersion: String, apiPath: String) { // swiftlint:disable:this line_length
+        self.baseURL = baseURL
+        self.apiVersion = apiVersion
+        self.apiPath = apiPath
+    }
+// sourcery:end
 }
+
+extension NetworkInfo {
+    
+    init(baseURL: String) {
+        self.baseURL = baseURL
+        self.apiVersion = ""
+        self.apiPath = ""
+    }
+}
+
+extension NetworkInfo: AutoInit {}
 
 extension NetworkInfo: BackendURLProvider {
     
-    var backendURL: URL {
+    public var backendURL: URL {
         
         let url = URL(string: baseURL)!
         var path = "".appendingPathComponent(apiPath)
@@ -25,7 +44,7 @@ extension NetworkInfo: BackendURLProvider {
     }
 }
 
-extension String {
+private extension String {
     
     func appendingPathComponent(_ path: String) -> String {
        

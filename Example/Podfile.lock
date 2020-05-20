@@ -43,7 +43,7 @@ SPEC CHECKSUMS:
   KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
   LoggerAPI: fb78461eedac5316b290f2404d88b9d614d96c57
   Logging: 7838d379d234d7e5ae1265fa02804a9084caf04c
-  RADAttribution: 1ec8aa4cb6a8d9e4a543f0d1478b4e2a3a6897af
+  RADAttribution: 3058ed6d9f801ca4d8b3c23b3d3a2ebb0d186315
   Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
   SwiftJWT: 9a47a71090cae25767078756b5810e3b630aa9a7
 

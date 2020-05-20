@@ -28,3 +28,12 @@ class EnvironmentManager {
         self.currentEnvironment = environment
     }
 }
+
+public extension NetworkInfo {
+    
+    /// default backend configuration
+    static var defaultConfiguration: NetworkInfo {
+        
+        return EnvironmentManager.shared.currentEnvironment.network
+    }
+}
