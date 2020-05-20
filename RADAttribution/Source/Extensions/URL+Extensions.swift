@@ -8,7 +8,7 @@
 import Foundation
 
 extension URL: ExpressibleByStringLiteral {
-    
+
     /**
      Initialize with string literal.
      - Parameter value: URL string value.

@@ -8,26 +8,26 @@
 import Foundation
 
 struct DeviceData: Codable {
-    
+
     enum HardwareType: String, Codable {
         case idfa = "idfa"
         case vendor = "vendor_id"
     }
-    
+
     let os: String
     let osVersion: String
     let model: String
-    
+
     let screenWidth: CGFloat
     let screenHeight: CGFloat
-    
+
     let isSimulator: Bool
-    
+
     let deviceId: String?
     let hardwareType: HardwareType?
     let vendorID: String?
     let isHardwareIdReal: Bool?
-    
+
     enum CodingKeys: String, CodingKey {
         case os
         case osVersion = "os_version"

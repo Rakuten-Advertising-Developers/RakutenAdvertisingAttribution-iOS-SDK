@@ -15,7 +15,7 @@ struct MockAttributionConfiguration: AttributionConfiguration {
     let launchOptions: LaunchOptions? = nil
     let key: PrivateKey = .string(value: "")
     let isManualAppLaunch = false
-    
+
     func validate() -> Bool {
         return true
     }

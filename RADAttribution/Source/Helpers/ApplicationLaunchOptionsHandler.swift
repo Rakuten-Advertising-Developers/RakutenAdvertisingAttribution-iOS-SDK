@@ -9,18 +9,18 @@ import Foundation
 
 struct ApplicationLaunchOptionsHandler {
 
-    //MARK: Properties
-    
+    // MARK: Properties
+
     let launchOptions: LaunchOptions?
-    
-    //MARK: Init
-    
+
+    // MARK: Init
+
     init(launchOptions: LaunchOptions?) {
         self.launchOptions = launchOptions
     }
-    
-    //MARK: Public
-    
+
+    // MARK: Public
+
     var isUserActivityContainsWebURL: Bool {
 
         guard let launchOptions = launchOptions,
@@ -31,9 +31,9 @@ struct ApplicationLaunchOptionsHandler {
         }
         return true
     }
-    
+
     var isOptionsContainsURL: Bool {
-        
+
         guard let launchOptions = launchOptions,
             let url = launchOptions[UIApplication.LaunchOptionsKey.url] else {
                 return false

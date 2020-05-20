@@ -6,6 +6,7 @@ target 'RADAttribution_Example' do
   
   pod 'RADAttribution', :path => '../'
   pod 'Sourcery'
+  pod 'SwiftLint'
 
   target 'RADAttribution_Tests' do
     inherit! :search_paths
