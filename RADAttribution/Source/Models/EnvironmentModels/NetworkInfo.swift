@@ -48,10 +48,14 @@ extension NetworkInfo: BackendURLProvider {
     /// server base URL
     public var backendURL: URL {
         
-        let url = URL(string: baseURL)!
-        var path = "".appendingPathComponent(apiPath)
-        path = path.appendingPathComponent(apiVersion)
-        return url.appendingPathComponent(path)
+        var url = URL(string: baseURL)!
+        if !apiPath.isEmpty {
+            url = url.appendingPathComponent(apiPath)
+        }
+        if !apiVersion.isEmpty {
+            url = url.appendingPathComponent(apiVersion)
+        }
+        return url
     }
 }
 

@@ -14,6 +14,7 @@ class EnvironmentManager {
     static let shared = EnvironmentManager()
     
     let currentEnvironment: Environment
+    private(set) var currentBackendURLProvider: BackendURLProvider
     
     //MARK: Private
 
@@ -26,6 +27,14 @@ class EnvironmentManager {
                 fatalError("\(plistName) missed or have wrong format")
         }
         self.currentEnvironment = environment
+        self.currentBackendURLProvider = environment.network
+    }
+}
+
+extension EnvironmentManager: BackendURLProviderReceiver {
+    
+    func setBackend(provider: BackendURLProvider) {
+        currentBackendURLProvider = provider
     }
 }
 

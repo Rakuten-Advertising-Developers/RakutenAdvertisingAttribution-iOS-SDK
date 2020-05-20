@@ -23,6 +23,7 @@ public struct Configuration: AttributionConfiguration {
     
     var accessKeyProcessor: AccessKeyProcessor = JWTHandler()
     var accessTokenModifier: AccessTokenModifier = TokensStorage.shared
+    var backendURLProviderReceiver: BackendURLProviderReceiver = EnvironmentManager.shared
     
     /// If application opened from link with the associated domain - `false`, otherwise `true`
     public var isManualAppLaunch: Bool {
@@ -58,6 +59,7 @@ public struct Configuration: AttributionConfiguration {
         
         do {
             try accessKeyProcessor.process(key: key, with: accessTokenModifier)
+            backendURLProviderReceiver.setBackend(provider: backendURLProvider)
             return true
         } catch {
             assertionFailure(error.localizedDescription)

@@ -49,12 +49,20 @@ This command will create the following two files.
 
 > Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/blob/master/guides/KeyObfuscatingGuide.md)
 
-In your AppDelegate `application:didFinishLaunchingWithOptions:`
+In your AppDelegate `application:didFinishLaunchingWithOptions:` initialize `Configuration` struct
 
 ```swift
-// init configuration struct instance with the key and launch options
 let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>), launchOptions: launchOptions)
-// pass configuration to SDK
+```
+
+> Optionally you can provide another server information, for example for testing environment
+```swift
+let networkInfo = NetworkInfo(baseURL: "https://test.attribution.sdk.io", apiVersion: "v2", apiPath: "api")
+let configuration = Configuration(key: PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey)), launchOptions: launchOptions, backendURLProvider: networkInfo)
+```
+
+Then pass it to SDK
+```Swift
 RADAttribution.setup(with: configuration)
 ```
 

@@ -24,7 +24,7 @@ extension Endpointable {
     
     var backendURLProvider: BackendURLProvider {
 
-        return EnvironmentManager.shared.currentEnvironment.network
+        return EnvironmentManager.shared.currentBackendURLProvider
     }
     
     var tokenProvider: AccessTokenProvider {
