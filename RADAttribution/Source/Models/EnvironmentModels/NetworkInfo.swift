@@ -7,10 +7,15 @@
 
 import Foundation
 
+/**
+A struct that confirms `BackendURLProvider` protocol, describe backend server config
+*/
 public struct NetworkInfo: Codable {
-    
+    /// server base URL
     public let baseURL: String
+    /// API version (leave empty in case not relevant)
     public let apiVersion: String
+    /// API path (leave empty in case not relevant)
     public let apiPath: String
 
 // sourcery:inline:auto:NetworkInfo.AutoInit
@@ -24,7 +29,12 @@ public struct NetworkInfo: Codable {
 
 extension NetworkInfo {
     
-    init(baseURL: String) {
+    /**
+    Initialize new instanse of `NetworkInfo` struct with given baseURL
+    - Parameter baseURL: server base URL
+    - Returns: new instanse of `NetworkInfo` struct
+    */
+    public init(baseURL: String) {
         self.baseURL = baseURL
         self.apiVersion = ""
         self.apiPath = ""
@@ -35,6 +45,7 @@ extension NetworkInfo: AutoInit {}
 
 extension NetworkInfo: BackendURLProvider {
     
+    /// server base URL
     public var backendURL: URL {
         
         let url = URL(string: baseURL)!

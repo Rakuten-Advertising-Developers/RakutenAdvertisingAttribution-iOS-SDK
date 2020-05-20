@@ -75,10 +75,16 @@ public struct ContentItemKey: Codable, Hashable {
     
     let value: String
     
+    /**
+    Initialize new instanse of `ContentItemKey` struct with given parameter
+    - Parameter value: string Value
+    - Returns: new instanse of `ContentItemKey` struct
+    */
     public init(_ value: String) {
         self.value = value
     }
     
+    /// hash 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(value)
     }
