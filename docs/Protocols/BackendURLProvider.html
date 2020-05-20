@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Loggable Protocol Reference</title>
+    <title>BackendURLProvider Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/Loggable" class="dashAnchor"></a>
-    <a title="Loggable Protocol Reference"></a>
+    <a name="//apple_ref/swift/Protocol/BackendURLProvider" class="dashAnchor"></a>
+    <a title="BackendURLProvider Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RADAttribution 0.0.1 Docs</a> (86% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RADAttribution Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Loggable Protocol Reference
+        BackendURLProvider Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -128,14 +128,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Loggable</h1>
+            <h1>BackendURLProvider</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Loggable</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">BackendURLProvider</span></code></pre>
 
                 </div>
               </div>
-            <p>A type that can interact with logging activity</p>
+            <p>A type that provides network base URL info</p>
 
           </section>
           <section class="section task-group-section">
@@ -144,9 +144,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RADAttribution8LoggableP7enabledSbvp"></a>
-                    <a name="//apple_ref/swift/Property/enabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RADAttribution8LoggableP7enabledSbvp">enabled</a>
+                    <a name="/s:14RADAttribution18BackendURLProviderP10backendURL10Foundation0E0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/backendURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RADAttribution18BackendURLProviderP10backendURL10Foundation0E0Vvp">backendURL</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,14 +154,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>true</code> logging enabled, otherwise no</p>
+                        <p>server base URL</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">enabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">backendURL</span><span class="p">:</span> <span class="kt">URL</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
