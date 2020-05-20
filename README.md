@@ -56,6 +56,7 @@ let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>
 ```
 
 > Optionally you can provide another server information, for example for testing environment
+
 ```swift
 let backendInfo = BackendInfo(baseURL: "https://test.attribution.sdk.io", apiVersion: "v2", apiPath: "api")
 let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>), launchOptions: launchOptions, backendURLProvider: backendInfo)
