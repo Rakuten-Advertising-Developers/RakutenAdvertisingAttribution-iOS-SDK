@@ -107,9 +107,19 @@ public protocol AttributionConfiguration {
     var key: PrivateKey { get }
     /// If application opened from link with the associated domain - `false`, otherwise `true`
     var isManualAppLaunch: Bool { get }
+    /// server base URL info
+    var backendURLProvider: BackendURLProvider { get }
     /**
      Validate of current configuration instance on ability properly setup SDK
      - Returns: Bool value `true` in case current configuration valid, otherwise `false`.
      */
     func validate() -> Bool
+}
+
+/**
+A type that provides network base URL info
+*/
+public protocol BackendURLProvider {
+    /// server base URL
+    var backendURL: URL { get }
 }

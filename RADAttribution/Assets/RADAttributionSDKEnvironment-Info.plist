@@ -13,7 +13,7 @@
 		<key>iss</key>
 		<string>attribution-sdk</string>
 	</dict>
-	<key>network</key>
+	<key>backendInfo</key>
 	<dict>
 		<key>baseURL</key>
 		<string>https://attribution-sdk-endpoint-ff5ckcoswq-uc.a.run.app/</string>

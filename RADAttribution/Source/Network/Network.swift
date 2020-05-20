@@ -24,7 +24,7 @@ extension Endpointable {
 
     var backendURLProvider: BackendURLProvider {
 
-        return EnvironmentManager.shared.currentEnvironment.network
+        return EnvironmentManager.shared.currentBackendURLProvider
     }
 
     var tokenProvider: AccessTokenProvider {
@@ -88,8 +88,3 @@ extension URLSession: URLSessionProtocol {
 }
 
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}
-
-protocol BackendURLProvider {
-
-    var backendURL: URL { get }
-}

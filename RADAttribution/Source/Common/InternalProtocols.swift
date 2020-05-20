@@ -45,3 +45,8 @@ protocol AccessKeyProcessor {
 
     func process(key: PrivateKey, with tokenModifier: AccessTokenModifier) throws
 }
+
+protocol BackendURLProviderReceiver {
+
+    func setBackend(provider: BackendURLProvider)
+}

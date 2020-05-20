@@ -15,7 +15,8 @@ struct MockAttributionConfiguration: AttributionConfiguration {
     let launchOptions: LaunchOptions? = nil
     let key: PrivateKey = .string(value: "")
     let isManualAppLaunch = false
-
+    let backendURLProvider: BackendURLProvider = BackendInfo(baseURL: "")
+    
     func validate() -> Bool {
         return true
     }

@@ -10,6 +10,6 @@ import Foundation
 struct Environment: Codable {
 
     let sdkVersion: String
-    let network: NetworkInfo
+    let backendInfo: BackendInfo
     let claims: EnvironmentClaims
 }

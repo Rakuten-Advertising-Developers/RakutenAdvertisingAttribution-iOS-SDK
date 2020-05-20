@@ -18,9 +18,12 @@ public struct Configuration: AttributionConfiguration {
     public let launchOptions: LaunchOptions?
     /// private key
     public let key: PrivateKey
+    /// server info
+    public let backendURLProvider: BackendURLProvider
 
     var accessKeyProcessor: AccessKeyProcessor = JWTHandler()
     var accessTokenModifier: AccessTokenModifier = TokensStorage.shared
+    var backendURLProviderReceiver: BackendURLProviderReceiver = EnvironmentManager.shared
 
     /// If application opened from link with the associated domain - `false`, otherwise `true`
     public var isManualAppLaunch: Bool {
@@ -35,11 +38,15 @@ public struct Configuration: AttributionConfiguration {
      Initialize new instanse of `Configuration` struct with given parameters
      - Parameter key: private key for SDK setup
      - Parameter launchOptions: application launch options
+     - Parameter backendURLProvider: server info
      - Returns: new instanse of `Configuration` struct
      */
-    public init(key: PrivateKey, launchOptions: LaunchOptions?) {
+    public init(key: PrivateKey,
+                launchOptions: LaunchOptions?,
+                backendURLProvider: BackendURLProvider = BackendInfo.defaultConfiguration) {
         self.key = key
         self.launchOptions = launchOptions
+        self.backendURLProvider = backendURLProvider
     }
 
     // MARK: Public
@@ -52,6 +59,7 @@ public struct Configuration: AttributionConfiguration {
 
         do {
             try accessKeyProcessor.process(key: key, with: accessTokenModifier)
+            backendURLProviderReceiver.setBackend(provider: backendURLProvider)
             return true
         } catch {
             assertionFailure(error.localizedDescription)
@@ -67,6 +75,7 @@ struct EmptyConfiguration: AttributionConfiguration {
     let launchOptions: LaunchOptions?
     let key: PrivateKey
     let isManualAppLaunch: Bool
+    let backendURLProvider: BackendURLProvider
 
     // MARK: Static
 
@@ -80,6 +89,7 @@ struct EmptyConfiguration: AttributionConfiguration {
         launchOptions = nil
         key = .string(value: "")
         isManualAppLaunch = false
+        backendURLProvider = BackendInfo(baseURL: "")
     }
 
     func validate() -> Bool {

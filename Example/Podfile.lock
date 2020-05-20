@@ -16,12 +16,10 @@ PODS:
     - BlueRSA (~> 1.0)
     - KituraContracts (~> 1.1)
     - LoggerAPI (~> 1.7)
-  - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - RADAttribution (from `../`)
   - Sourcery
-  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -33,7 +31,6 @@ SPEC REPOS:
     - Logging
     - Sourcery
     - SwiftJWT
-    - SwiftLint
 
 EXTERNAL SOURCES:
   RADAttribution:
@@ -49,8 +46,7 @@ SPEC CHECKSUMS:
   RADAttribution: 3058ed6d9f801ca4d8b3c23b3d3a2ebb0d186315
   Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
   SwiftJWT: 9a47a71090cae25767078756b5810e3b630aa9a7
-  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 7b26e298773eceb46c690741385788cd58b8bffd
+PODFILE CHECKSUM: 44222cd21a87d5bbf23ee3f49f7e1b9becdc73d2
 
 COCOAPODS: 1.9.1

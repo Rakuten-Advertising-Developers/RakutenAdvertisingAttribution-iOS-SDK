@@ -1,16 +1,16 @@
 {
   "warnings": [
     {
-      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Common/Types.swift",
-      "line": 78,
-      "symbol": "ContentItemKey.init(_:)",
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Models/DataModels/EventData.swift",
+      "line": 38,
+      "symbol": "EventData.init(transactionId:currency:revenue:shipping:tax:coupon:affiliation:description:searchQuery:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Models/DataModels/EventData.swift",
-      "line": 38,
-      "symbol": "EventData.init(transactionId:currency:revenue:shipping:tax:coupon:affiliation:description:searchQuery:)",
+      "file": "/Users/ts-andrii.durbalo/Development/Rakuten/Rakuten-Advertising-Developers/attribution-sdk-ios/RADAttribution/Source/Models/EnvironmentModels/BackendInfo.swift",
+      "line": 22,
+      "symbol": "BackendInfo.init(baseURL:apiVersion:apiPath:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },

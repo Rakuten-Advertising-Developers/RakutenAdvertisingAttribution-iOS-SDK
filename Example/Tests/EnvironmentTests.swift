@@ -49,9 +49,9 @@ class EnvironmentTests: XCTestCase {
         XCTAssertEqual(sut.iss, "attribution-sdk")
     }
     
-    func testNetwork() {
+    func testBackendInfo() {
         
-        let sut = env.network
+        let sut = env.backendInfo
         
         XCTAssertNotNil(URL(string: sut.baseURL))
         XCTAssertEqual(sut.apiVersion, "v2")
