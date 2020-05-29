@@ -1,5 +1,5 @@
-output: ../RakutenAdvertisingAttribution-iOS-SDK-API-References/
-clean: false
+output: ../RakutenAdvertisingAttribution-iOS-SDK-API-References/docs/
+clean: true
 theme: apple 
 skip_undocumented: false
 readme: README.md
