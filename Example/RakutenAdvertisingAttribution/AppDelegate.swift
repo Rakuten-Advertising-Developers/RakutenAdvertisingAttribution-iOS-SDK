@@ -1,13 +1,13 @@
 //
 //  AppDelegate.swift
-//  RADAttribution
+//  RakutenAdvertisingAttribution
 //
 //  Created by Andrii Durbalo on 03/31/2020.
 //  Copyright (c) 2020 Andrii Durbalo. All rights reserved.
 //
 
 import UIKit
-import RADAttribution
+import RakutenAdvertisingAttribution
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,15 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                                     completionHandler: { _, _ in })
 
         }
-        setupRADAttribution(with: launchOptions)
+        setupRakutenAdvertisingAttribution(with: launchOptions)
 
         return true
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
 
-        // radattribution://resolve?link_click_id=1234
-        RADAttribution.shared.linkResolver.resolveLink(url: url)
+        // RakutenAdvertisingAttribution://resolve?link_click_id=1234
+        RakutenAdvertisingAttribution.shared.linkResolver.resolveLink(url: url)
         return true
     }
 
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
 
-        let resolved = RADAttribution.shared.linkResolver.resolve(userActivity: userActivity)
+        let resolved = RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
         if resolved {
             print("link available to resolve")
         } else {
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func setupRADAttribution(with launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+    func setupRakutenAdvertisingAttribution(with launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
 
         let configuration: AttributionConfiguration
 
@@ -54,13 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration = MockAttributionConfiguration()
         } else {
             let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
-            configuration = Configuration(key: PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RakutenAdvertisingAttributionKey)),
+            let key = PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().rakutenAdvertisingAttributionKey))
+            configuration = Configuration(key: key,
                                           launchOptions: launchOptions)
         }
 
-        RADAttribution.setup(with: configuration)
-        RADAttribution.shared.logger.enabled = !ProcessInfo.processInfo.isUnitTesting
-        RADAttribution.shared.linkResolver.delegate = AttributionSDKHandler.shared
-        RADAttribution.shared.eventSender.delegate = AttributionSDKHandler.shared
+        RakutenAdvertisingAttribution.setup(with: configuration)
+        RakutenAdvertisingAttribution.shared.logger.enabled = !ProcessInfo.processInfo.isUnitTesting
+        RakutenAdvertisingAttribution.shared.linkResolver.delegate = AttributionSDKHandler.shared
+        RakutenAdvertisingAttribution.shared.eventSender.delegate = AttributionSDKHandler.shared
     }
 }

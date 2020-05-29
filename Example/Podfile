@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'RakutenAdvertisingAttribution_Example' do
   
-  pod 'RADAttribution', :path => '../'
+  pod 'RakutenAdvertisingAttribution', :path => '../'
   pod 'Sourcery'
 
   target 'RakutenAdvertisingAttribution_Tests' do

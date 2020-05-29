@@ -1,6 +1,6 @@
 //
 //  DataBuilderTests.swift
-//  RADAttribution_Tests
+//  RakutenAdvertisingAttribution_Tests
 //
 //  Created by Durbalo, Andrii on 06.04.2020.
 //  Copyright © 2020 Rakuten Advertising. All rights reserved.
@@ -9,7 +9,7 @@
 import XCTest
 import AdSupport
 
-@testable import RADAttribution
+@testable import RakutenAdvertisingAttribution
 
 class DataBuilderTests: XCTestCase {
     
@@ -17,7 +17,7 @@ class DataBuilderTests: XCTestCase {
         
         let sut = DataBuilder.defaultUserData()
         
-        XCTAssertEqual(sut.bundleIdentifier, "com.rakutenadvertising.RADAttribution-Example")
+        XCTAssertEqual(sut.bundleIdentifier, "com.rakutenadvertising.RakutenAdvertisingAttribution-Example")
         XCTAssertEqual(sut.appVersion, Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
     }
     

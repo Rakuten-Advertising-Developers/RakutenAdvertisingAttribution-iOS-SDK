@@ -1,13 +1,13 @@
 //
 //  ViewController.swift
-//  RADAttribution
+//  RakutenAdvertisingAttribution
 //
 //  Created by Andrii Durbalo on 03/31/2020.
 //  Copyright (c) 2020 Andrii Durbalo. All rights reserved.
 //
 
 import UIKit
-import RADAttribution
+import RakutenAdvertisingAttribution
 
 class ViewController: UIViewController {
 
@@ -80,9 +80,9 @@ extension ViewController: TableHandlerDelegate {
 
         switch tableAction {
         case .resolve(let link):
-            RADAttribution.shared.linkResolver.resolveLink(url: link)
+            RakutenAdvertisingAttribution.shared.linkResolver.resolveLink(url: link)
         case .send(let event):
-            RADAttribution.shared.eventSender.send(event: event)
+            RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
         }
     }
 }

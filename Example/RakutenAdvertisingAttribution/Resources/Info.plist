@@ -27,7 +27,7 @@
 			<string>main</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>radattribution</string>
+				<string>RakutenAdvertisingAttribution</string>
 			</array>
 		</dict>
 	</array>

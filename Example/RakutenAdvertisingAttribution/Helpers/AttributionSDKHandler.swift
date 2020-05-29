@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RADAttribution
+import RakutenAdvertisingAttribution
 import UserNotifications
 
 class AttributionSDKHandler: NSObject {
@@ -66,7 +66,7 @@ extension AttributionSDKHandler: LinkResolvableDelegate {
     func didFailedResolve(link: String, with error: Error) {
 
         let errorText: String
-        if let radError = error as? RADError {
+        if let radError = error as? AttributionError {
             errorText = radError.localizedDescription
         } else {
             errorText = error.localizedDescription
