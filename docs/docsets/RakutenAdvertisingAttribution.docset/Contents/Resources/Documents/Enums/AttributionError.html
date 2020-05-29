@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Loggable Protocol Reference</title>
+    <title>AttributionError Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/Loggable" class="dashAnchor"></a>
-    <a title="Loggable Protocol Reference"></a>
+    <a name="//apple_ref/swift/Enum/AttributionError" class="dashAnchor"></a>
+    <a title="AttributionError Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RakutenAdvertisingAttribution 0.0.1 Docs</a> (86% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RakutenAdvertisingAttribution Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Loggable Protocol Reference
+        AttributionError Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -128,14 +128,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Loggable</h1>
+            <h1>AttributionError</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Loggable</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AttributionError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AttributionError</span><span class="p">:</span> <span class="kt">LocalizedError</span></code></pre>
 
                 </div>
               </div>
-            <p>A type that can interact with logging activity</p>
+            <p>An enum type that represents errors specific to RakutenAdvertisingAttribution SDK</p>
 
           </section>
           <section class="section task-group-section">
@@ -144,9 +145,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:29RakutenAdvertisingAttribution8LoggableP7enabledSbvp"></a>
-                    <a name="//apple_ref/swift/Property/enabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:29RakutenAdvertisingAttribution8LoggableP7enabledSbvp">enabled</a>
+                    <a name="/s:29RakutenAdvertisingAttribution0C5ErrorO15unableFetchDatayA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/unableFetchData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:29RakutenAdvertisingAttribution0C5ErrorO15unableFetchDatayA2CmF">unableFetchData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,14 +155,81 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>true</code> logging enabled, otherwise no</p>
+                        <p>absence any data from the server</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">enabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unableFetchData</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:29RakutenAdvertisingAttribution0C5ErrorO7backendyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/backend(description:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:29RakutenAdvertisingAttribution0C5ErrorO7backendyACSS_tcACmF">backend(description:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>receiving some unexpected result from the server</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">backend</span><span class="p">(</span><span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20types"></a>
+                <a name="//apple_ref/swift/Section/Public types" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20types"></a>
+                  <h3 class="section-name"><p>Public types</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:29RakutenAdvertisingAttribution0C5ErrorO20localizedDescriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/localizedDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:29RakutenAdvertisingAttribution0C5ErrorO20localizedDescriptionSSvp">localizedDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>localized description of the error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">localizedDescription</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
