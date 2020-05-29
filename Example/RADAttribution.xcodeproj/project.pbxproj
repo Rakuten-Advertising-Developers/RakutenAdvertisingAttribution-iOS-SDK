@@ -98,8 +98,7 @@
 		09FA0D503A69CB6BCAF8674C /* Pods-RADAttribution_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RADAttribution_Tests.release.xcconfig"; path = "Target Support Files/Pods-RADAttribution_Tests/Pods-RADAttribution_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		25FD706BCCB125EC245304E6 /* RADAttribution.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RADAttribution.podspec; path = ../RADAttribution.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5710C36E2460334900E52548 /* EnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTests.swift; sourceTree = "<group>"; };
-		5733B6882461C1FA006A889D /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecretConstants.swift; path = RADAttribution/SecretConstants.swift; sourceTree = SOURCE_ROOT; };
-		57436CD324374EE50010B7E9 /* RADAttribution_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RADAttribution_Example.entitlements; sourceTree = "<group>"; };
+		5733B6882461C1FA006A889D /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecretConstants.swift; path = RADAttribution/Resources/SecretConstants.swift; sourceTree = SOURCE_ROOT; };
 		574C11AC243F294400DC0E24 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataProviderTests.swift; sourceTree = "<group>"; };
@@ -124,7 +123,7 @@
 		595484D9EE7280736E9024CF /* Pods-RADAttribution_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RADAttribution_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RADAttribution_Tests/Pods-RADAttribution_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RADAttribution_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RADAttribution_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = RADAttribution/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -187,35 +186,40 @@
 				5791F301246541D300658B5A /* TableHandler.swift */,
 				5791F30424654CF500658B5A /* AttributionSDKHandler.swift */,
 			);
-			path = Helpers;
-			sourceTree = "<group>";
+			name = Helpers;
+			path = RADAttribution/Helpers;
+			sourceTree = SOURCE_ROOT;
 		};
 		5799738E245839C1007DA45E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */,
 			);
-			path = Extensions;
-			sourceTree = "<group>";
+			name = Extensions;
+			path = RADAttribution/Extensions;
+			sourceTree = SOURCE_ROOT;
 		};
 		5799738F245839DE007DA45E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 			);
-			path = ViewControllers;
-			sourceTree = "<group>";
+			name = ViewControllers;
+			path = RADAttribution/ViewControllers;
+			sourceTree = SOURCE_ROOT;
 		};
 		57997390245839F5007DA45E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5733B6882461C1FA006A889D /* SecretConstants.swift */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
-				5733B6882461C1FA006A889D /* SecretConstants.swift */,
+				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
+			name = Resources;
+			path = RADAttribution/Resources;
+			sourceTree = SOURCE_ROOT;
 		};
 		57A1B21924349F750045D1D1 /* PreBuildScripts */ = {
 			isa = PBXGroup;
@@ -223,12 +227,11 @@
 				57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */,
 			);
 			path = PreBuildScripts;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				57436CD324374EE50010B7E9 /* RADAttribution_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for RADAttribution */,
 				57A1B21924349F750045D1D1 /* PreBuildScripts */,
@@ -256,19 +259,10 @@
 				5799738E245839C1007DA45E /* Extensions */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				57997390245839F5007DA45E /* Resources */,
-				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for RADAttribution";
 			path = RADAttribution;
-			sourceTree = "<group>";
-		};
-		607FACD31AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACD41AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
@@ -288,7 +282,7 @@
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		607FACE91AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -802,10 +796,10 @@
 			baseConfigurationReference = CAAEB0303B50D87960C024F2 /* Pods-RADAttribution_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = RADAttribution_Example.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y7X3534ZWR;
-				INFOPLIST_FILE = RADAttribution/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/$(PROJECT_NAME)/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -826,10 +820,10 @@
 			baseConfigurationReference = AD1576891FB97B7EFE857E12 /* Pods-RADAttribution_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = RADAttribution_Example.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = RADAttribution/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/$(PROJECT_NAME)/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
