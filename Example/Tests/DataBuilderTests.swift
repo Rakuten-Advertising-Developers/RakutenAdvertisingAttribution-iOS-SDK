@@ -17,7 +17,7 @@ class DataBuilderTests: XCTestCase {
         
         let sut = DataBuilder.defaultUserData()
         
-        XCTAssertEqual(sut.bundleIdentifier, "com.rakutenadvertising.RakutenAdvertisingAttribution-Example")
+        XCTAssertEqual(sut.bundleIdentifier, "com.rakutenadvertising.RADAttribution-Example")
         XCTAssertEqual(sut.appVersion, Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
     }
     
