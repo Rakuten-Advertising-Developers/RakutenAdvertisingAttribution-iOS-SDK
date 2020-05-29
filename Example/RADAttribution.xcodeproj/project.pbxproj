@@ -807,7 +807,7 @@
 				);
 				MARKETING_VERSION = 0.0.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rakutenadvertising.RADAttribution-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rakutenadvertising.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Rakuten Advertising Wildcard Development";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -831,7 +831,7 @@
 				);
 				MARKETING_VERSION = 0.0.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rakutenadvertising.RADAttribution-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rakutenadvertising.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
