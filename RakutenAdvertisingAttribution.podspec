@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
 Rakuten advertising attribution SDK allows advertisers to track app installs and in-app conversion events using any affiliate link promoted within a publisher’s mobile app or on a mobile web page.
                        DESC
 
-  s.homepage         = 'https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS'
+  s.homepage         = 'https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'Rakuten Advertising'
-  s.source           = { :git => 'https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK.git', :tag => s.version.to_s }
   
   s.platform = :ios, "11.0"
   s.ios.deployment_target = '11.0'

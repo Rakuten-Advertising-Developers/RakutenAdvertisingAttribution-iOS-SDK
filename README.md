@@ -1,9 +1,9 @@
 # RakutenAdvertisingAttribution iOS SDK
 Rakuten advertising attribution SDK allows advertisers to track app installs and in-app conversion events using any affiliate link promoted within a publisher’s mobile app or on a mobile web page.
 
-![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS/workflows/PR%20Unit%20Tests/badge.svg)
-[![RakutenAdvertisingAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS/master/docs/badge.svg?sanitize=true)](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-SDK-iOS/)
-![GitHub](https://img.shields.io/github/license/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS?label=License)
+![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/workflows/PR%20Unit%20Tests/badge.svg)
+[![RakutenAdvertisingAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/master/docs/badge.svg?sanitize=true)](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/)
+![GitHub](https://img.shields.io/github/license/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK?label=License)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
 
 ## Requirements
@@ -47,7 +47,7 @@ This command will create the following two files.
 
 #### Setup RakutenAdvertisingAttribution SDK initalization
 
-> Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS/blob/master/guides/KeyObfuscatingGuide.md)
+> Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/blob/master/guides/KeyObfuscatingGuide.md)
 
 In your AppDelegate `application:didFinishLaunchingWithOptions:` initialize `Configuration` struct
 
@@ -99,7 +99,7 @@ RakutenAdvertisingAttribution.shared.linkResolver.delegate = viewController
 navigationController?.pushViewController(vc, animated: true)
 ```
 
-In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response. Check [ResolveLinkResponse](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-SDK-iOS/Structs/ResolveLinkResponse.html) struct documentation for details
+In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response. Check [ResolveLinkResponse](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/Structs/ResolveLinkResponse.html) struct documentation for details
 ```swift
 extension ViewController: LinkResolvableDelegate {
     
@@ -128,7 +128,7 @@ let event = Event(name: "ADD_TO_CART")
 RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
 ```
 
-Optionally you can provide additional data with an event. Check [Event struct](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-SDK-iOS/Structs/Event.html) documentation.
+Optionally you can provide additional data with an event. Check [Event struct](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/Structs/Event.html) documentation.
 
 ```swift
 
@@ -203,11 +203,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 > All examples require `import RakutenAdvertisingAttribution` somewhere in the source file.
 
 ## Documentation
-* [API References](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-SDK-iOS/)
+* [API References](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/)
 
 
 ## Author
 Rakuten Advertising
 
 ## License
-RakutenAdvertisingAttribution iOS SDK is available under the MIT license. See the [LICENSE](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS/blob/master/LICENSE) file for more info.
+RakutenAdvertisingAttribution iOS SDK is available under the MIT license. See the [LICENSE](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/blob/master/LICENSE) file for more info.
