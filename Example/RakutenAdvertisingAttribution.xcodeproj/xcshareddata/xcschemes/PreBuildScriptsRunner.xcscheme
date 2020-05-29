@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "574EFD9E244A04780065617E"
-               BuildableName = "Generate Documentation"
-               BlueprintName = "Generate Documentation"
-               ReferencedContainer = "container:RADAttribution.xcodeproj">
+               BlueprintIdentifier = "57A1B21C2434A2310045D1D1"
+               BuildableName = "PreBuildScriptsRunner"
+               BlueprintName = "PreBuildScriptsRunner"
+               ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,10 +50,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "574EFD9E244A04780065617E"
-            BuildableName = "Generate Documentation"
-            BlueprintName = "Generate Documentation"
-            ReferencedContainer = "container:RADAttribution.xcodeproj">
+            BlueprintIdentifier = "57A1B21C2434A2310045D1D1"
+            BuildableName = "PreBuildScriptsRunner"
+            BlueprintName = "PreBuildScriptsRunner"
+            ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

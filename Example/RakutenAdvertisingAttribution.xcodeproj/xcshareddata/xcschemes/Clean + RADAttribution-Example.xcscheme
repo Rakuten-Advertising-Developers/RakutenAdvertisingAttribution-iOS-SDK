@@ -15,9 +15,9 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-                     BuildableName = "RADAttribution_Example.app"
-                     BlueprintName = "RADAttribution_Example"
-                     ReferencedContainer = "container:RADAttribution.xcodeproj">
+                     BuildableName = "RakutenAdvertisingAttribution_Example.app"
+                     BlueprintName = "RakutenAdvertisingAttribution_Example"
+                     ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "RADAttribution_Example.app"
-               BlueprintName = "RADAttribution_Example"
-               ReferencedContainer = "container:RADAttribution.xcodeproj">
+               BuildableName = "RakutenAdvertisingAttribution_Example.app"
+               BlueprintName = "RakutenAdvertisingAttribution_Example"
+               ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "RADAttribution_Tests.xctest"
-               BlueprintName = "RADAttribution_Tests"
-               ReferencedContainer = "container:RADAttribution.xcodeproj">
+               BuildableName = "RakutenAdvertisingAttribution_Tests.xctest"
+               BlueprintName = "RakutenAdvertisingAttribution_Tests"
+               ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "RADAttribution_Example.app"
-            BlueprintName = "RADAttribution_Example"
-            ReferencedContainer = "container:RADAttribution.xcodeproj">
+            BuildableName = "RakutenAdvertisingAttribution_Example.app"
+            BlueprintName = "RakutenAdvertisingAttribution_Example"
+            ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <EnvironmentVariables>
@@ -81,9 +81,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "RADAttribution_Tests.xctest"
-               BlueprintName = "RADAttribution_Tests"
-               ReferencedContainer = "container:RADAttribution.xcodeproj">
+               BuildableName = "RakutenAdvertisingAttribution_Tests.xctest"
+               BlueprintName = "RakutenAdvertisingAttribution_Tests"
+               ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -103,9 +103,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "RADAttribution_Example.app"
-            BlueprintName = "RADAttribution_Example"
-            ReferencedContainer = "container:RADAttribution.xcodeproj">
+            BuildableName = "RakutenAdvertisingAttribution_Example.app"
+            BlueprintName = "RakutenAdvertisingAttribution_Example"
+            ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -120,9 +120,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "RADAttribution_Example.app"
-            BlueprintName = "RADAttribution_Example"
-            ReferencedContainer = "container:RADAttribution.xcodeproj">
+            BuildableName = "RakutenAdvertisingAttribution_Example.app"
+            BlueprintName = "RakutenAdvertisingAttribution_Example"
+            ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

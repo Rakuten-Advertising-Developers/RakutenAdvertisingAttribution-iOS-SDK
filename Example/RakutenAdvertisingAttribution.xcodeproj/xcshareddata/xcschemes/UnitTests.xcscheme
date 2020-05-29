@@ -9,15 +9,15 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "57A1B21C2434A2310045D1D1"
-               BuildableName = "PreBuildScriptsRunner"
-               BlueprintName = "PreBuildScriptsRunner"
-               ReferencedContainer = "container:RADAttribution.xcodeproj">
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "RakutenAdvertisingAttribution_Tests.xctest"
+               BlueprintName = "RakutenAdvertisingAttribution_Tests"
+               ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "RakutenAdvertisingAttribution_Tests.xctest"
+               BlueprintName = "RakutenAdvertisingAttribution_Tests"
+               ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -40,6 +50,13 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "IS_UNIT_TESTING"
+            value = "true"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -50,10 +67,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "57A1B21C2434A2310045D1D1"
-            BuildableName = "PreBuildScriptsRunner"
-            BlueprintName = "PreBuildScriptsRunner"
-            ReferencedContainer = "container:RADAttribution.xcodeproj">
+            BlueprintIdentifier = "607FACE41AFB9204008FA782"
+            BuildableName = "RakutenAdvertisingAttribution_Tests.xctest"
+            BlueprintName = "RakutenAdvertisingAttribution_Tests"
+            ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

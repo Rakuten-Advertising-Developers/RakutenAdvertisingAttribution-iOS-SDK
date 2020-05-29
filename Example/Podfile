@@ -2,12 +2,12 @@ platform :ios, '11.0'
 
 use_frameworks!
 
-target 'RADAttribution_Example' do
+target 'RakutenAdvertisingAttribution_Example' do
   
   pod 'RADAttribution', :path => '../'
   pod 'Sourcery'
 
-  target 'RADAttribution_Tests' do
+  target 'RakutenAdvertisingAttribution_Tests' do
     inherit! :search_paths
   end
   

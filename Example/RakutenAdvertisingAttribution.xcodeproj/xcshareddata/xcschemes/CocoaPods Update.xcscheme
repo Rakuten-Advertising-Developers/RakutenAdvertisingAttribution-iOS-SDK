@@ -17,7 +17,7 @@
                BlueprintIdentifier = "57A1B1D1243397190045D1D1"
                BuildableName = "CocoaPods Update"
                BlueprintName = "CocoaPods Update"
-               ReferencedContainer = "container:RADAttribution.xcodeproj">
+               ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -53,7 +53,7 @@
             BlueprintIdentifier = "57A1B1D1243397190045D1D1"
             BuildableName = "CocoaPods Update"
             BlueprintName = "CocoaPods Update"
-            ReferencedContainer = "container:RADAttribution.xcodeproj">
+            ReferencedContainer = "container:RakutenAdvertisingAttribution.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

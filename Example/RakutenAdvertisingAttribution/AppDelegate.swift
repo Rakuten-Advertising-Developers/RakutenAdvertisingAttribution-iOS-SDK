@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration = MockAttributionConfiguration()
         } else {
             let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
-            configuration = Configuration(key: PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RADAttributionKey)),
+            configuration = Configuration(key: PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().RakutenAdvertisingAttributionKey)),
                                           launchOptions: launchOptions)
         }
 

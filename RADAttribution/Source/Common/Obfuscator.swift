@@ -45,7 +45,9 @@ public struct Obfuscator {
 
         debugMessage += "struct SecretConstants {" + newLine + newLine
         debugMessage += tab
-        debugMessage += "let RADAttributionKey: [UInt8] = \(bytes)" + newLine + "}" + newLine
+        debugMessage += "let RakutenAdvertisingAttributionKey: [UInt8] = \(bytes) "
+        debugMessage += "// swiftlint:disable:this line_length"
+        debugMessage += newLine + "}" + newLine
         debugMessage += newLine + separator + newLine
 
         print(debugMessage)
