@@ -1,6 +1,6 @@
 //
 //  OptionalsExtentionsTests.swift
-//  RADAttribution_Example
+//  RakutenAdvertisingAttribution_Example
 //
 //  Created by Durbalo, Andrii on 06.04.2020.
 //  Copyright © 2020 Rakuten Advertising. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-@testable import RADAttribution
+@testable import RakutenAdvertisingAttribution
 
 class OptionalsExtentionsTests: XCTestCase {
 

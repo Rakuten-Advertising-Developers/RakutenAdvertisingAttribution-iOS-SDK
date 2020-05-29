@@ -1,8 +1,8 @@
 included:
-  - RADAttribution/Source
-  - Example/RADAttribution
+  - RakutenAdvertisingAttribution/Source
+  - Example/RakutenAdvertisingAttribution
 excluded:
-  - RADAttribution/Source/Models/SourceryGenerated
+  - RakutenAdvertisingAttribution/Source/Models/SourceryGenerated
 disabled_rules:
   - superfluous_disable_command
 line_length: 

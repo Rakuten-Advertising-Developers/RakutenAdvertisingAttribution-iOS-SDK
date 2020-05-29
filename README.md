@@ -1,9 +1,9 @@
-# RADAttribution iOS SDK
+# RakutenAdvertisingAttribution iOS SDK
 Rakuten advertising attribution SDK allows advertisers to track app installs and in-app conversion events using any affiliate link promoted within a publisher’s mobile app or on a mobile web page.
 
-![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/workflows/PR%20Unit%20Tests/badge.svg)
-[![RADAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/master/docs/badge.svg?sanitize=true)](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
-![GitHub](https://img.shields.io/github/license/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS?label=License)
+![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS/workflows/PR%20Unit%20Tests/badge.svg)
+[![RakutenAdvertisingAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS/master/docs/badge.svg?sanitize=true)](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-SDK-iOS/)
+![GitHub](https://img.shields.io/github/license/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS?label=License)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
 
 ## Requirements
@@ -12,9 +12,9 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
 - Xcode 11+
 - Swift 5+
 
-## Import the RADAttribution SDK into your iOS workspace
+## Import the RakutenAdvertisingAttribution SDK into your iOS workspace
 
-Use [CocoaPods](https://cocoapods.org) to install RADAttribution private pod. If you dont have Cocoapods installed follow this [guide](https://guides.cocoapods.org/using/getting-started) for intallations. If you have Cocopods already installed add the following lines in your Podfile:
+Use [CocoaPods](https://cocoapods.org) to install RakutenAdvertisingAttribution private pod. If you dont have Cocoapods installed follow this [guide](https://guides.cocoapods.org/using/getting-started) for intallations. If you have Cocopods already installed add the following lines in your Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -23,7 +23,7 @@ source 'https://github.com/Rakuten-Advertising-Developers/Specs.git'
 target 'YOUR_TARGET_NAME' do
   
   use_frameworks!
-  pod 'RADAttribution'
+  pod 'RakutenAdvertisingAttribution'
   
 end
 ```
@@ -45,9 +45,9 @@ This command will create the following two files.
 1. rad_rsa_private.pem: Store this private key securely. We dont recommended to store the private key in app bundles or source code. Follow the below steps for obfuscating the private key.
 2. rad_rsa_public.pem: This file is required by Rakuten Attribution backend platform to verify the signature of the authentication JWT. (Public key handover process will be communicated separately)
 
-#### Setup RADAttribution SDK initalization
+#### Setup RakutenAdvertisingAttribution SDK initalization
 
-> Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/blob/master/guides/KeyObfuscatingGuide.md)
+> Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS/blob/master/guides/KeyObfuscatingGuide.md)
 
 In your AppDelegate `application:didFinishLaunchingWithOptions:` initialize `Configuration` struct
 
@@ -64,26 +64,26 @@ let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>
 
 Then pass it to SDK
 ```Swift
-RADAttribution.setup(with: configuration)
+RakutenAdvertisingAttribution.setup(with: configuration)
 ```
 
 #### Handling INSTALL and OPEN events along with deeplink data
 
-RADAttribution SDK provides a function to track app install and open events by itself. It also provides an ability to handle  deep link data if any associated with the affiliate link promoted within a publisher’s mobile app or on a mobile web page.
+RakutenAdvertisingAttribution SDK provides a function to track app install and open events by itself. It also provides an ability to handle  deep link data if any associated with the affiliate link promoted within a publisher’s mobile app or on a mobile web page.
 
-Simply call the `RADAttribution.shared.linkResolver` function whenever iOS app is brought to foreground.
+Simply call the `RakutenAdvertisingAttribution.shared.linkResolver` function whenever iOS app is brought to foreground.
 
 In your AppDelegate use:
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     
-    RADAttribution.shared.linkResolver.resolveLink(url: url)
+    RakutenAdvertisingAttribution.shared.linkResolver.resolveLink(url: url)
     return true
 }
 
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
        
-    let resolved = RADAttribution.shared.linkResolver.resolve(userActivity: userActivity)
+    let resolved = RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
     if resolved {
         print("link available to resolve")
     } else {
@@ -95,11 +95,11 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
 Optionally you can use `delegate` property of `linkResolver`, to handle deeplink data from the response
 ```swift
 let vc = ViewController()
-RADAttribution.shared.linkResolver.delegate = viewController
+RakutenAdvertisingAttribution.shared.linkResolver.delegate = viewController
 navigationController?.pushViewController(vc, animated: true)
 ```
 
-In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response. Check [ResolveLinkResponse](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/ResolveLinkResponse.html) struct documentation for details
+In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response. Check [ResolveLinkResponse](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-SDK-iOS/Structs/ResolveLinkResponse.html) struct documentation for details
 ```swift
 extension ViewController: LinkResolvableDelegate {
     
@@ -119,16 +119,16 @@ extension ViewController: LinkResolvableDelegate {
 
 #### Handing other events like SEARCH, ADD_TO_CART, PURCHASE or any app activities
 
-RADAttribution SDK provides an ability to handle events like SEARCH, PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
+RakutenAdvertisingAttribution SDK provides an ability to handle events like SEARCH, PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
 
-Use `RADAttribution.shared.eventSender` to send your events.
+Use `RakutenAdvertisingAttribution.shared.eventSender` to send your events.
 
 ```swift
 let event = Event(name: "ADD_TO_CART")
-RADAttribution.shared.eventSender.send(event: event)
+RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
 ```
 
-Optionally you can provide additional data with an event. Check [Event struct](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/Structs/Event.html) documentation.
+Optionally you can provide additional data with an event. Check [Event struct](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-SDK-iOS/Structs/Event.html) documentation.
 
 ```swift
 
@@ -160,14 +160,14 @@ let event = Event(name: "PURCHASE",
                   customData: customData,
                   contentItems: [content1, content2])
 
-RADAttribution.shared.eventSender.send(event: event)
+RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
 
 ```
 
 Similarly, you can use `delegate` property of `eventSender`, to track statuses of sending events
 ```swift
 let vc = ViewController()
-RADAttribution.shared.eventSender.delegate = viewController
+RakutenAdvertisingAttribution.shared.eventSender.delegate = viewController
 navigationController?.pushViewController(vc, animated: true)
 ```
 Confirm to `EventSenderableDelegate` in a place where you would like to receive statuses
@@ -188,9 +188,9 @@ extension ViewController: EventSenderableDelegate {
 }
 ```
 #### Logging
-For debugging purpose you can enable network logs. `RADAttribution.shared.logger` property is responsible for this process.
+For debugging purpose you can enable network logs. `RakutenAdvertisingAttribution.shared.logger` property is responsible for this process.
 ```swift
-RADAttribution.shared.logger.enabled = true
+RakutenAdvertisingAttribution.shared.logger.enabled = true
 ```
 ## Demo app
 We provide a sample app that demonstrate the use of the Rakuten Advertising attribution SDK. You can find the open source application at this Git Repsitory
@@ -200,14 +200,14 @@ We provide a sample app that demonstrate the use of the Rakuten Advertising attr
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Usage
-> All examples require `import RADAttribution` somewhere in the source file.
+> All examples require `import RakutenAdvertisingAttribution` somewhere in the source file.
 
 ## Documentation
-* [API References](https://rakuten-advertising-developers.github.io/RADAttribution-SDK-iOS/)
+* [API References](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-SDK-iOS/)
 
 
 ## Author
 Rakuten Advertising
 
 ## License
-RADAttribution iOS SDK is available under the MIT license. See the [LICENSE](https://github.com/Rakuten-Advertising-Developers/RADAttribution-SDK-iOS/blob/master/LICENSE) file for more info.
+RakutenAdvertisingAttribution iOS SDK is available under the MIT license. See the [LICENSE](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-SDK-iOS/blob/master/LICENSE) file for more info.
