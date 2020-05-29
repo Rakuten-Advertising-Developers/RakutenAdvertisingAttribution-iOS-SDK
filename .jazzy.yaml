@@ -1,0 +1,10 @@
+output: ../RakutenAdvertisingAttribution-iOS-SDK-API-References/
+clean: false
+theme: apple 
+skip_undocumented: false
+readme: README.md
+hide_documentation_coverage: false
+author: Rakuten Advertising
+author_url: https://github.com/Rakuten-Advertising-Developers/
+github_url: https://github.com/Rakuten-Advertising-Developers/Ad-iOS-SDK
+podspec: RakutenAdvertisingAttribution.podspec
