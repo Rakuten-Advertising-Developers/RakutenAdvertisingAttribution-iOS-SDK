@@ -2,7 +2,7 @@
 Rakuten advertising attribution SDK allows advertisers to track app installs and in-app conversion events using any affiliate link promoted within a publisher’s mobile app or on a mobile web page.
 
 ![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/workflows/PR%20Unit%20Tests/badge.svg)
-[![RakutenAdvertisingAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/master/docs/badge.svg?sanitize=true)](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/)
+[![RakutenAdvertisingAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK-API-References/master/docs/badge.svg)](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/)
 ![GitHub](https://img.shields.io/github/license/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK?label=License)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
 
