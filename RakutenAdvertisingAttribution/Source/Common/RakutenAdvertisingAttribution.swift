@@ -17,15 +17,25 @@ public class RakutenAdvertisingAttribution {
     /// global instance of RakutenAdvertisingAttribution configured for links resolving and sending events
     public static let shared = RakutenAdvertisingAttribution()
     /// instance of Loggable type with the ability to interact with logging behavior
-    public let logger: Loggable = Logger.shared
-    /// instance of EventSenderable type with the ability to send events
+    public var logger: Loggable = Logger.shared
+    /// instance of EventSenderable type with the ability to xsend events
     public var eventSender: EventSenderable
     /// instance of linkResolver type with the ability to resolve links
     public var linkResolver: LinkResolvable
+    /// provide apps with access to an advertising info
+    public var adSupport: AdSupportable = AdSupportInfoProvider.shared {
+        didSet {
+            _eventSender.adSupportable = self.adSupport
+            _linkResolver.adSupportable = self.adSupport
+        }
+    }
 
-    let emptyLinkResolver: EmptyLinkResolvable
+    private let emptyLinkResolver: EmptyLinkResolvable
+    private var notificationCenter: NotificationCenter = .default
 
     private static var configuration: AttributionConfiguration = EmptyConfiguration.default
+    private var _eventSender = EventSender()
+    private var _linkResolver = LinkResolver()
 
     // MARK: Static
 
@@ -50,32 +60,36 @@ public class RakutenAdvertisingAttribution {
 
         Self.checkConfiguration()
 
-        let eventSender = EventSender()
-        let linkResolver = LinkResolver()
+        self.eventSender = _eventSender
+        self.linkResolver = _linkResolver
+        self.emptyLinkResolver = _linkResolver
 
-        self.eventSender = eventSender
-        self.linkResolver = linkResolver
-        self.emptyLinkResolver = linkResolver
-
-        sendAppLaunchedEventIfNeeded()
-    }
-
-    init(eventSender: EventSenderable,
-         linkResolver: LinkResolver,
-         emptyLinkResolver: EmptyLinkResolvable) {
-
-        Self.checkConfiguration()
-
-        self.eventSender = eventSender
-        self.linkResolver = linkResolver
-        self.emptyLinkResolver = linkResolver
-
-        sendAppLaunchedEventIfNeeded()
+        subscribeToNotifications()
     }
 
     // MARK: Private
 
+    private func subscribeToNotifications() {
+
+        notificationCenter.addObserver(self,
+                                       selector: #selector(didFinishLaunchingNotification),
+                                       name: UIApplication.didFinishLaunchingNotification,
+                                       object: nil)
+    }
+
+    private func unsubscribeFromNotifications() {
+
+        notificationCenter.removeObserver(self)
+    }
+
+    @objc private func didFinishLaunchingNotification() {
+
+        sendAppLaunchedEventIfNeeded()
+    }
+
     private func sendAppLaunchedEventIfNeeded() {
+
+        unsubscribeFromNotifications()
 
         guard Self.configuration.isManualAppLaunch else { return }
 

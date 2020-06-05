@@ -123,3 +123,13 @@ public protocol BackendURLProvider {
     /// server base URL
     var backendURL: URL { get }
 }
+
+/**
+Provide apps with access to an advertising identifier and a flag indicating whether a device is using limited ad tracking.
+*/
+public protocol AdSupportable {
+    /// A Boolean value that indicates whether the user has limited ad tracking.
+    var isTrackingEnabled: Bool { get set }
+    /// An alphanumeric string unique to each device, used only for serving advertisements.
+    var advertisingIdentifier: String? { get set }
+}

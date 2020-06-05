@@ -16,6 +16,8 @@ class LinkResolver {
     let firstLaunchDetector: FirstLaunchDetector
     let sessionModifier: SessionModifier
 
+    var adSupportable: AdSupportable = AdSupportInfoProvider.shared
+
     // MARK: Init
 
     init(sessionModifier: SessionModifier = TokensStorage.shared,
@@ -76,7 +78,7 @@ extension LinkResolver: LinkResolvable {
         let request = ResolveLinkRequest(firstSession: firstLaunchDetector.isFirstLaunch,
                                          universalLinkUrl: universalLink,
                                          userData: DataBuilder.defaultUserData(),
-                                         deviceData: DataBuilder.defaultDeviceData(),
+                                         deviceData: DataBuilder.defaultDeviceData(adSupportable: adSupportable),
                                          linkId: linkId)
 
         let link = url.absoluteString
@@ -104,7 +106,7 @@ extension LinkResolver: EmptyLinkResolvable {
         let request = ResolveLinkRequest(firstSession: firstLaunchDetector.isFirstLaunch,
                                          universalLinkUrl: link,
                                          userData: DataBuilder.defaultUserData(),
-                                         deviceData: DataBuilder.defaultDeviceData(),
+                                         deviceData: DataBuilder.defaultDeviceData(adSupportable: adSupportable),
                                          linkId: nil)
 
         sendResolveLink(request: request, link: link)
