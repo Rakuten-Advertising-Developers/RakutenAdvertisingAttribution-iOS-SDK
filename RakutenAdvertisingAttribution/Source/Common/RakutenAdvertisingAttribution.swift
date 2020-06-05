@@ -18,7 +18,7 @@ public class RakutenAdvertisingAttribution {
     public static let shared = RakutenAdvertisingAttribution()
     /// instance of Loggable type with the ability to interact with logging behavior
     public var logger: Loggable = Logger.shared
-    /// instance of EventSenderable type with the ability to xsend events
+    /// instance of EventSenderable type with the ability to send events
     public var eventSender: EventSenderable
     /// instance of linkResolver type with the ability to resolve links
     public var linkResolver: LinkResolvable
