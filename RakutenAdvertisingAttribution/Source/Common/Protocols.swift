@@ -94,7 +94,7 @@ public protocol Loggable: class {
 
     /// If `true` logging enabled, otherwise no
     var enabled: Bool { get set }
-    /// dafault prefix for logs related to SDK
+    /// default prefix for logs related to SDK
     var prefix: String { get set }
     /**
      Log message
