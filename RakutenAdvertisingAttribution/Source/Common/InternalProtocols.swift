@@ -14,11 +14,10 @@ protocol EmptyLinkResolvable: class {
     func resolveEmptyLink()
 }
 
-protocol NetworkLogger: Loggable {
+protocol LoggableNetworkMessage {
 
-    func logInfo(request: URLRequest)
-    func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?)
-    func log(debugInfo: String)
+    func loggableMessage(request: URLRequest) -> String
+    func loggableMessage(request: URLRequest, data: Data?, response: URLResponse?, error: Error?) -> String
 }
 
 protocol SessionModifier {

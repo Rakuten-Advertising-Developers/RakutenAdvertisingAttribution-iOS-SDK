@@ -9,29 +9,33 @@ import Foundation
 
 class Logger {
 
-    static let shared = Logger(enabled: false)
+    static let shared = Logger()
 
-    var enabled: Bool
+    var enabled: Bool = false
+    var prefix: String
+
     var newLine = "\n"
     var space = " "
 
-    init(enabled: Bool) {
-        self.enabled = enabled
-    }
-
     // MARK: Private
 
-    private func log(message: String) {
-
-        guard enabled else { return }
-
-        print(message)
+    private init() {
+        self.prefix = String(reflecting: Logger.self)
     }
 }
 
-extension Logger: NetworkLogger {
+extension Logger: Loggable {
 
-    func logInfo(request: URLRequest) {
+    func log(_ message: String) {
+
+        guard enabled else { return }
+        print(prefix + " " + message)
+    }
+}
+
+extension Logger: LoggableNetworkMessage {
+
+    func loggableMessage(request: URLRequest) -> String {
 
         let separator = "----->"
         var descriptionString = newLine + separator + newLine
@@ -50,10 +54,10 @@ extension Logger: NetworkLogger {
               descriptionString += "BODY: \($0)" + newLine
         }
         descriptionString += separator
-        log(message: descriptionString)
+        return descriptionString
     }
 
-    func logInfo(request: URLRequest, data: Data?, response: URLResponse?, error: Error?) {
+    func loggableMessage(request: URLRequest, data: Data?, response: URLResponse?, error: Error?) -> String {
 
         let separator = "<-----"
         var descriptionString = newLine + separator + newLine
@@ -75,12 +79,7 @@ extension Logger: NetworkLogger {
             descriptionString += "ERROR: \n\($0)" + newLine
         }
         descriptionString += separator
-        log(message: descriptionString)
-    }
-
-    func log(debugInfo: String) {
-
-        log(message: debugInfo)
+        return descriptionString
     }
 }
 
