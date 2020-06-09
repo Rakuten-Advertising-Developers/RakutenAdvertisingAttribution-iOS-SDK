@@ -16,7 +16,8 @@ class RemoteDataProvider {
 
     let endpoint: Endpointable
     let session: URLSessionProtocol
-    var logger: NetworkLogger = Logger.shared
+    var logger: Loggable = RakutenAdvertisingAttribution.shared.logger
+    var loggableMessage: LoggableNetworkMessage = Logger.shared
 
     private(set) var counter: Int = 0
     private(set) var retryCount: Int = 0
@@ -37,7 +38,7 @@ class RemoteDataProvider {
 
         let request = endpoint.urlRequest
 
-        logger.logInfo(request: request)
+        logger.log(loggableMessage.loggableMessage(request: request))
 
         counter += 1
 
@@ -46,7 +47,8 @@ class RemoteDataProvider {
             self.counter -= 1 //Also retain self
 
             let internalCompletion: RemoteDataCompletion = { result in
-                self.logger.logInfo(request: request, data: data, response: response, error: error)
+
+                self.logger.log(self.loggableMessage.loggableMessage(request: request, data: data, response: response, error: error))
                 targetQueue.async {
                     completion(result)
                 }
@@ -84,10 +86,10 @@ class RemoteDataProvider {
         retryCount += 1
         let delayTime: TimeInterval = 0.5
         if error.isSoftwareCausedConnectionAbort {
-            logger.log(debugInfo: "Retrying request, software caused connection abort")
+            logger.log("Retrying request, software caused connection abort")
             completion(true, delayTime)
         } else if error.isNetworkConnectionWasLost {
-            logger.log(debugInfo: "Retrying request, network connection was lost")
+            logger.log("Retrying request, network connection was lost")
             completion(true, delayTime)
         } else {
             completion(false, 0)

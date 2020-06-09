@@ -13,6 +13,7 @@ class EventSender {
 
     weak var delegate: EventSenderableDelegate?
     let sessionProvider: SessionProvider
+    var adSupportable: AdSupportable = AdSupportInfoProvider.shared
 
     // MARK: Init
 
@@ -28,7 +29,7 @@ extension EventSender: EventSenderable {
         let request = SendEventRequest(event: event,
                                        sessionId: sessionProvider.sessionID,
                                        userData: DataBuilder.defaultUserData(),
-                                       deviceData: DataBuilder.defaultDeviceData())
+                                       deviceData: DataBuilder.defaultDeviceData(adSupportable: adSupportable))
 
         let endpoint = SendEventEndpoint.sendEvent(request: request)
         RemoteDataProvider(with: endpoint).receiveRemoteObject { [weak self] (result: DataTransformerResult<SendEventResponse> ) in

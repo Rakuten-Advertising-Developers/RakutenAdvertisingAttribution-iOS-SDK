@@ -94,6 +94,13 @@ public protocol Loggable: class {
 
     /// If `true` logging enabled, otherwise no
     var enabled: Bool { get set }
+    /// default prefix for logs related to SDK
+    var prefix: String { get set }
+    /**
+     Log message
+     - Parameter message: String instance to log
+     */
+    func log(_ message: String)
 }
 
 /**
@@ -122,4 +129,14 @@ A type that provides network base URL info
 public protocol BackendURLProvider {
     /// server base URL
     var backendURL: URL { get }
+}
+
+/**
+Provide apps with access to an advertising identifier and a flag indicating whether a device is using limited ad tracking.
+*/
+public protocol AdSupportable {
+    /// A Boolean value that indicates whether the user has limited ad tracking.
+    var isTrackingEnabled: Bool { get set }
+    /// An alphanumeric string unique to each device, used only for serving advertisements.
+    var advertisingIdentifier: String? { get set }
 }

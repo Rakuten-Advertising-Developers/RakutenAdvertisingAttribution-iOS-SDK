@@ -40,6 +40,17 @@
 			name = PreBuildScriptsRunner;
 			productName = PreBuildScriptsRunner;
 		};
+		57DDF077248A4C4400C5411E /* Swiftlint Autocorrect */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 57DDF07A248A4C4400C5411E /* Build configuration list for PBXAggregateTarget "Swiftlint Autocorrect" */;
+			buildPhases = (
+				57DDF07B248A4C7800C5411E /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Swiftlint Autocorrect";
+			productName = "Swiftlint Autocorrect";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -62,6 +73,7 @@
 		5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
 		5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
 		5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
+		57DDF076248A42C700C5411E /* MockAdSupportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DDF075248A42C700C5411E /* MockAdSupportable.swift */; };
 		57E19AC224811ED800D7C407 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC124811ED800D7C407 /* SecretConstants.swift */; };
 		57E19AC424811EF300D7C407 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC324811EF300D7C407 /* AppDelegate.swift */; };
 		57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABA243B76390048E34F /* DataBuilderTests.swift */; };
@@ -116,6 +128,7 @@
 		5799738624582386007DA45E /* MockAttributionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttributionConfiguration.swift; sourceTree = "<group>"; };
 		5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
+		57DDF075248A42C700C5411E /* MockAdSupportable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAdSupportable.swift; sourceTree = "<group>"; };
 		57E19AC124811ED800D7C407 /* SecretConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
 		57E19AC324811EF300D7C407 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57FC5ABA243B76390048E34F /* DataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBuilderTests.swift; sourceTree = "<group>"; };
@@ -180,6 +193,7 @@
 				5799738624582386007DA45E /* MockAttributionConfiguration.swift */,
 				57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */,
 				575CF72F2462A2B400F59612 /* MockSessionModifier.swift */,
+				57DDF075248A42C700C5411E /* MockAdSupportable.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -383,6 +397,9 @@
 					57A1B21C2434A2310045D1D1 = {
 						CreatedOnToolsVersion = 11.4;
 					};
+					57DDF077248A4C4400C5411E = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 1140;
@@ -412,6 +429,7 @@
 				57A1B1D1243397190045D1D1 /* CocoaPods Update */,
 				57A1B21C2434A2310045D1D1 /* PreBuildScriptsRunner */,
 				574EFD9E244A04780065617E /* Generate Documentation */,
+				57DDF077248A4C4400C5411E /* Swiftlint Autocorrect */,
 			);
 		};
 /* End PBXProject section */
@@ -545,6 +563,23 @@
 			shellPath = /bin/sh;
 			shellScript = "cd ..\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint or install it by running 'brew install swiftlint' command in Terminal\"\nfi\n";
 		};
+		57DDF07B248A4C7800C5411E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ..\n\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint or install it by running 'brew install swiftlint' command in Terminal\"\n  exit 1\nfi\n";
+		};
 		5D2EB9DB2EAED0D22E47A610 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -594,6 +629,7 @@
 				5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */,
 				575CF72E2462A11100F59612 /* LinkResolverTests.swift in Sources */,
 				575CF7302462A2B400F59612 /* MockSessionModifier.swift in Sources */,
+				57DDF076248A42C700C5411E /* MockAdSupportable.swift in Sources */,
 				57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */,
 				57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */,
 				575CF7322462A36B00F59612 /* SessionModifierTests.swift in Sources */,
@@ -686,6 +722,22 @@
 			name = Debug;
 		};
 		57A1B21F2434A2310045D1D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		57DDF078248A4C4400C5411E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		57DDF079248A4C4400C5411E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -931,6 +983,15 @@
 			buildConfigurations = (
 				57A1B21E2434A2310045D1D1 /* Debug */,
 				57A1B21F2434A2310045D1D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57DDF07A248A4C4400C5411E /* Build configuration list for PBXAggregateTarget "Swiftlint Autocorrect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57DDF078248A4C4400C5411E /* Debug */,
+				57DDF079248A4C4400C5411E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

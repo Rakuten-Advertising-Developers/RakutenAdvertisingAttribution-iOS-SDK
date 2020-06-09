@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import AdSupport
 
 @testable import RakutenAdvertisingAttribution
 
@@ -23,17 +22,18 @@ class DataBuilderTests: XCTestCase {
     
     func testDataBuilderDefaultDevice() {
         
-        let sut = DataBuilder.defaultDeviceData()
+        let adSupportableMock = MockAdSupportable()
+        
+        let sut = DataBuilder.defaultDeviceData(adSupportable: adSupportableMock)
         
         let currentDevice = UIDevice.current
         
         XCTAssertEqual(sut.os, "iOS")
         XCTAssertEqual(sut.osVersion, currentDevice.systemVersion)
 
-        XCTAssertEqual(sut.deviceId, ASIdentifierManager.shared().advertisingIdentifier.uuidString)
         XCTAssertEqual(sut.hardwareType, DeviceData.HardwareType.idfa)
+        XCTAssertEqual(sut.deviceId, "123")
         XCTAssertEqual(sut.vendorID, UIDevice.current.identifierForVendor?.uuidString)
-        XCTAssertNil(sut.isHardwareIdReal)
         
         let currentScreen = UIScreen.main
         

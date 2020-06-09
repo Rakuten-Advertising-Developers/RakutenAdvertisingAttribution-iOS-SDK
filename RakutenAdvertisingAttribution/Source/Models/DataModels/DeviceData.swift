@@ -26,7 +26,6 @@ struct DeviceData: Codable {
     let deviceId: String?
     let hardwareType: HardwareType?
     let vendorID: String?
-    let isHardwareIdReal: Bool?
 
     enum CodingKeys: String, CodingKey {
         case os
@@ -38,11 +37,10 @@ struct DeviceData: Codable {
         case isSimulator = "is_simulator"
         case hardwareType = "hardware_id_type"
         case vendorID = "ios_vendor_id"
-        case isHardwareIdReal = "is_hardware_id_real"
     }
 
 // sourcery:inline:auto:DeviceData.AutoInit
-    internal init(os: String, osVersion: String, model: String, screenWidth: CGFloat, screenHeight: CGFloat, isSimulator: Bool, deviceId: String?, hardwareType: HardwareType?, vendorID: String?, isHardwareIdReal: Bool?) { // swiftlint:disable:this line_length
+    internal init(os: String, osVersion: String, model: String, screenWidth: CGFloat, screenHeight: CGFloat, isSimulator: Bool, deviceId: String?, hardwareType: HardwareType?, vendorID: String?) { // swiftlint:disable:this line_length
         self.os = os
         self.osVersion = osVersion
         self.model = model
@@ -52,7 +50,6 @@ struct DeviceData: Codable {
         self.deviceId = deviceId
         self.hardwareType = hardwareType
         self.vendorID = vendorID
-        self.isHardwareIdReal = isHardwareIdReal
     }
 // sourcery:end
 }

@@ -117,6 +117,15 @@ extension ViewController: LinkResolvableDelegate {
 }
 ```
 
+For improving user experience you can also provide advertising information
+
+```swift
+RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
+RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+```
+
+> In this case `import AdSupport` required.
+
 #### Handing other events like SEARCH, ADD_TO_CART, PURCHASE or any app activities
 
 RakutenAdvertisingAttribution SDK provides an ability to handle events like SEARCH, PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 

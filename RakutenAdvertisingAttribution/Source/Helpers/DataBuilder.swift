@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import AdSupport
 
 class DataBuilder {
-    //TODO: Avoid usage of hiding dependencies
+
     static func defaultUserData() -> UserData {
 
         let sdkVersion = EnvironmentManager.shared.currentEnvironment.sdkVersion
@@ -19,7 +18,7 @@ class DataBuilder {
         return userData
     }
 
-    static func defaultDeviceData() -> DeviceData {
+    static func defaultDeviceData(adSupportable: AdSupportable) -> DeviceData {
 
         let os = "iOS"
         let osVersion = UIDevice.current.systemVersion
@@ -28,10 +27,10 @@ class DataBuilder {
         let screenHeight = UIScreen.main.bounds.height
         let isSimulator = ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil
 
-        let idfaExists = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
+        let idfaExists = adSupportable.isTrackingEnabled && (adSupportable.advertisingIdentifier != nil)
         let vendorExists = UIDevice.current.identifierForVendor != nil
 
-        let idfaValue = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        let idfaValue = adSupportable.advertisingIdentifier
         let vendorValue = UIDevice.current.identifierForVendor?.uuidString
 
         switch (idfaExists, vendorExists) {
@@ -45,8 +44,7 @@ class DataBuilder {
                               isSimulator: isSimulator,
                               deviceId: idfaValue,
                               hardwareType: .idfa,
-                              vendorID: vendorValue,
-                              isHardwareIdReal: nil)
+                              vendorID: vendorValue)
         case (true, false):
             return DeviceData(os: os,
                               osVersion: osVersion,
@@ -56,8 +54,7 @@ class DataBuilder {
                               isSimulator: isSimulator,
                               deviceId: idfaValue,
                               hardwareType: .idfa,
-                              vendorID: nil,
-                              isHardwareIdReal: nil)
+                              vendorID: nil)
         case (false, true):
             return DeviceData(os: os,
                               osVersion: osVersion,
@@ -67,8 +64,7 @@ class DataBuilder {
                               isSimulator: isSimulator,
                               deviceId: vendorValue,
                               hardwareType: .vendor,
-                              vendorID: nil,
-                              isHardwareIdReal: nil)
+                              vendorID: nil)
         case (false, false):
             return DeviceData(os: os,
                               osVersion: osVersion,
@@ -78,8 +74,7 @@ class DataBuilder {
                               isSimulator: isSimulator,
                               deviceId: nil,
                               hardwareType: nil,
-                              vendorID: nil,
-                              isHardwareIdReal: false)
+                              vendorID: nil)
         }
     }
 }
