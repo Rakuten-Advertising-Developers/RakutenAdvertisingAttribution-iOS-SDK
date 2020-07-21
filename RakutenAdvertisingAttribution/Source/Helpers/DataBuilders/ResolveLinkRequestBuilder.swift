@@ -13,7 +13,7 @@ class ResolveLinkRequestBuilder {
 
     var deviceDataBuilder: DeviceDataBuilder = DeviceDataBuilder()
     var userDataBuilder: UserDataBuilder = UserDataBuilder()
-    var firstLaunchDetector: FirstLaunchDetector = FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)
+    var firstLaunchDetector: FirstLaunchDetector = FirstLaunchDetector.default
 
     func buildResolveRequest(url: URL, linkId: String?, completion: @escaping ResolveLinkRequestBuilderCompletion) {
 

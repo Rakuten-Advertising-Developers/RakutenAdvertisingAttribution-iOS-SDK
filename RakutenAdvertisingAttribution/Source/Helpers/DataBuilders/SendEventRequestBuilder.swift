@@ -13,7 +13,6 @@ class SendEventRequestBuilder {
 
     var deviceDataBuilder: DeviceDataBuilder = DeviceDataBuilder()
     var userDataBuilder: UserDataBuilder = UserDataBuilder()
-    var firstLaunchDetector: FirstLaunchDetector = FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)
 
     func buildEventRequest(event: Event, sessionId: String?, completion: @escaping SendEventRequestBuilderCompletion) {
 
