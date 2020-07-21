@@ -17,7 +17,7 @@ public struct ResolveLinkResponse: Codable {
     /// Current device identifier
     public let deviceFingerprintId: String
     /// Detailed data
-    public let data: ResolveLinkData
+    public let data: ResolveLinkData?
 
     enum CodingKeys: String, CodingKey {
         case sessionId = "session_id"
