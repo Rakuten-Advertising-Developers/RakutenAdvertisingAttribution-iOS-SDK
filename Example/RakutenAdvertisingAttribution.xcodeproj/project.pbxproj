@@ -80,7 +80,6 @@
 		57F14B3E24C70607008B7068 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3D24C70606008B7068 /* TestConstants.swift */; };
 		57F14B4124C7065F008B7068 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3F24C7065F008B7068 /* MockData.swift */; };
 		57F14B4224C7065F008B7068 /* MockFingerprintFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */; };
-		57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABA243B76390048E34F /* DataBuilderTests.swift */; };
 		57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */; };
 		57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */; };
 		57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */; };
@@ -139,7 +138,6 @@
 		57F14B3D24C70606008B7068 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		57F14B3F24C7065F008B7068 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFingerprintFetcher.swift; sourceTree = "<group>"; };
-		57FC5ABA243B76390048E34F /* DataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBuilderTests.swift; sourceTree = "<group>"; };
 		57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetectorTests.swift; sourceTree = "<group>"; };
 		57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensionsTests.swift; sourceTree = "<group>"; };
 		57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalsExtentionsTests.swift; sourceTree = "<group>"; };
@@ -297,7 +295,6 @@
 			children = (
 				57F14B3D24C70606008B7068 /* TestConstants.swift */,
 				574C11BB243F3BD100DC0E24 /* Mocks */,
-				57FC5ABA243B76390048E34F /* DataBuilderTests.swift */,
 				57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */,
 				57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */,
 				574C11B9243F313B00DC0E24 /* EndpointableTests.swift */,
@@ -644,7 +641,6 @@
 				575CF72E2462A11100F59612 /* LinkResolverTests.swift in Sources */,
 				575CF7302462A2B400F59612 /* MockSessionModifier.swift in Sources */,
 				57DDF076248A42C700C5411E /* MockAdSupportable.swift in Sources */,
-				57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */,
 				57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */,
 				575CF7322462A36B00F59612 /* SessionModifierTests.swift in Sources */,
 				574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */,
