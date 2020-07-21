@@ -10,20 +10,17 @@ import Foundation
 class LinkResolver {
 
     // MARK: Properties
-
     weak var delegate: LinkResolvableDelegate?
 
-    let firstLaunchDetector: FirstLaunchDetector
     let sessionModifier: SessionModifier
 
-    var adSupportable: AdSupportable = AdSupportInfoProvider.shared
+    var requestBuilder = ResolveLinkRequestBuilder()
+    var session: URLSessionProtocol = URLSession.shared
 
     // MARK: Init
 
-    init(sessionModifier: SessionModifier = TokensStorage.shared,
-         firstLaunchDetector: FirstLaunchDetector = FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)) {
+    init(sessionModifier: SessionModifier = TokensStorage.shared) {
         self.sessionModifier = sessionModifier
-        self.firstLaunchDetector = firstLaunchDetector
     }
 
     typealias BundleDictionary = [String: Any]
@@ -54,8 +51,8 @@ class LinkResolver {
     func sendResolveLink(request: ResolveLinkRequest, link: String) {
 
         let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
-
-        RemoteDataProvider(with: endpoint).receiveRemoteObject { [weak self] (result: DataTransformerResult<ResolveLinkResponse> ) in
+        let dataProvider = RemoteDataProvider(with: endpoint, session: session)
+        dataProvider.receiveRemoteObject { [weak self] (result: DataTransformerResult<ResolveLinkResponse> ) in
 
             switch result {
             case .success(let response):
@@ -73,17 +70,11 @@ extension LinkResolver: LinkResolvable {
     func resolveLink(url: URL) {
 
         let linkId = linkIdentifier(from: url)
-        let universalLink = linkId != nil ? "" : url.absoluteString
-
-        let request = ResolveLinkRequest(firstSession: firstLaunchDetector.isFirstLaunch,
-                                         universalLinkUrl: universalLink,
-                                         userData: DataBuilder.defaultUserData(),
-                                         deviceData: DataBuilder.defaultDeviceData(adSupportable: adSupportable),
-                                         linkId: linkId)
-
         let link = url.absoluteString
 
-        sendResolveLink(request: request, link: link)
+        requestBuilder.buildResolveRequest(url: url, linkId: linkId) { [weak self] request in
+            self?.sendResolveLink(request: request, link: link)
+        }
     }
 
     @discardableResult
@@ -102,13 +93,8 @@ extension LinkResolver: EmptyLinkResolvable {
     func resolveEmptyLink() {
 
         let link = ""
-
-        let request = ResolveLinkRequest(firstSession: firstLaunchDetector.isFirstLaunch,
-                                         universalLinkUrl: link,
-                                         userData: DataBuilder.defaultUserData(),
-                                         deviceData: DataBuilder.defaultDeviceData(adSupportable: adSupportable),
-                                         linkId: nil)
-
-        sendResolveLink(request: request, link: link)
+        requestBuilder.buildEmptyResolveLinkRequest { [weak self] request in
+            self?.sendResolveLink(request: request, link: link)
+        }
     }
 }

@@ -29,3 +29,65 @@ func |> <A, B, C> (f: @escaping (A) -> B, g: @escaping (B) -> C) -> (A) -> C {
     return { g(f($0)) }
 }
 
+extension DeviceData {
+  static let osLens = Lens<DeviceData, String>(
+    get: { $0.os },
+    set: { os, devicedata in
+       DeviceData(os: os, osVersion: devicedata.osVersion, model: devicedata.model, screenWidth: devicedata.screenWidth, screenHeight: devicedata.screenHeight, isSimulator: devicedata.isSimulator, deviceId: devicedata.deviceId, hardwareType: devicedata.hardwareType, vendorID: devicedata.vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let osVersionLens = Lens<DeviceData, String>(
+    get: { $0.osVersion },
+    set: { osVersion, devicedata in
+       DeviceData(os: devicedata.os, osVersion: osVersion, model: devicedata.model, screenWidth: devicedata.screenWidth, screenHeight: devicedata.screenHeight, isSimulator: devicedata.isSimulator, deviceId: devicedata.deviceId, hardwareType: devicedata.hardwareType, vendorID: devicedata.vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let modelLens = Lens<DeviceData, String>(
+    get: { $0.model },
+    set: { model, devicedata in
+       DeviceData(os: devicedata.os, osVersion: devicedata.osVersion, model: model, screenWidth: devicedata.screenWidth, screenHeight: devicedata.screenHeight, isSimulator: devicedata.isSimulator, deviceId: devicedata.deviceId, hardwareType: devicedata.hardwareType, vendorID: devicedata.vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let screenWidthLens = Lens<DeviceData, CGFloat>(
+    get: { $0.screenWidth },
+    set: { screenWidth, devicedata in
+       DeviceData(os: devicedata.os, osVersion: devicedata.osVersion, model: devicedata.model, screenWidth: screenWidth, screenHeight: devicedata.screenHeight, isSimulator: devicedata.isSimulator, deviceId: devicedata.deviceId, hardwareType: devicedata.hardwareType, vendorID: devicedata.vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let screenHeightLens = Lens<DeviceData, CGFloat>(
+    get: { $0.screenHeight },
+    set: { screenHeight, devicedata in
+       DeviceData(os: devicedata.os, osVersion: devicedata.osVersion, model: devicedata.model, screenWidth: devicedata.screenWidth, screenHeight: screenHeight, isSimulator: devicedata.isSimulator, deviceId: devicedata.deviceId, hardwareType: devicedata.hardwareType, vendorID: devicedata.vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let isSimulatorLens = Lens<DeviceData, Bool>(
+    get: { $0.isSimulator },
+    set: { isSimulator, devicedata in
+       DeviceData(os: devicedata.os, osVersion: devicedata.osVersion, model: devicedata.model, screenWidth: devicedata.screenWidth, screenHeight: devicedata.screenHeight, isSimulator: isSimulator, deviceId: devicedata.deviceId, hardwareType: devicedata.hardwareType, vendorID: devicedata.vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let deviceIdLens = Lens<DeviceData, String?>(
+    get: { $0.deviceId },
+    set: { deviceId, devicedata in
+       DeviceData(os: devicedata.os, osVersion: devicedata.osVersion, model: devicedata.model, screenWidth: devicedata.screenWidth, screenHeight: devicedata.screenHeight, isSimulator: devicedata.isSimulator, deviceId: deviceId, hardwareType: devicedata.hardwareType, vendorID: devicedata.vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let hardwareTypeLens = Lens<DeviceData, HardwareType?>(
+    get: { $0.hardwareType },
+    set: { hardwareType, devicedata in
+       DeviceData(os: devicedata.os, osVersion: devicedata.osVersion, model: devicedata.model, screenWidth: devicedata.screenWidth, screenHeight: devicedata.screenHeight, isSimulator: devicedata.isSimulator, deviceId: devicedata.deviceId, hardwareType: hardwareType, vendorID: devicedata.vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let vendorIDLens = Lens<DeviceData, String?>(
+    get: { $0.vendorID },
+    set: { vendorID, devicedata in
+       DeviceData(os: devicedata.os, osVersion: devicedata.osVersion, model: devicedata.model, screenWidth: devicedata.screenWidth, screenHeight: devicedata.screenHeight, isSimulator: devicedata.isSimulator, deviceId: devicedata.deviceId, hardwareType: devicedata.hardwareType, vendorID: vendorID, fingerprint: devicedata.fingerprint)
+    }
+  )
+  static let fingerprintLens = Lens<DeviceData, String?>(
+    get: { $0.fingerprint },
+    set: { fingerprint, devicedata in
+       DeviceData(os: devicedata.os, osVersion: devicedata.osVersion, model: devicedata.model, screenWidth: devicedata.screenWidth, screenHeight: devicedata.screenHeight, isSimulator: devicedata.isSimulator, deviceId: devicedata.deviceId, hardwareType: devicedata.hardwareType, vendorID: devicedata.vendorID, fingerprint: fingerprint)
+    }
+  )
+}

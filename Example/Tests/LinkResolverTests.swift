@@ -21,7 +21,7 @@ class LinkResolverTests: XCTestCase {
     
     override func setUp() {
         
-        sut = LinkResolver(sessionModifier: MockSessionModifier(), firstLaunchDetector: .init(getLaunchedAction: { return false }, setLaunchedAction: { _ in }))
+        sut = LinkResolver(sessionModifier: MockSessionModifier())
     }
 
     func testIsFromURLSchemeValidScheme() {

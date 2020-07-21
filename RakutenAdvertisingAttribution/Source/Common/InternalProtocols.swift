@@ -49,3 +49,8 @@ protocol BackendURLProviderReceiver {
 
     func setBackend(provider: BackendURLProvider)
 }
+
+protocol FingerprintFetchable {
+
+    func fetchFingerprint(completion: @escaping (String) -> Void)
+}
