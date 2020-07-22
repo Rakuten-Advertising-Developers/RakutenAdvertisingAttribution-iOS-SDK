@@ -29,7 +29,7 @@ class DeviceDataBuilder {
                                     isSimulator: isSimulator,
                                     deviceId: nil,
                                     hardwareType: nil,
-                                    vendorID: nil,
+                                    vendorID: identifierForVendor,
                                     fingerprint: nil)
         return deviceData
     }
@@ -44,43 +44,24 @@ class DeviceDataBuilder {
             }
         }
 
+        let idfaExists = adSupportable.isValid
+        let idfaValue = adSupportable.advertisingIdentifier
+
         var deviceData = baseDeviceData()
 
-        let idfaExists = adSupportable.isValid
-        let vendorExists = identifierForVendor != nil
-
-        let idfaValue = adSupportable.advertisingIdentifier
-        let vendorValue = identifierForVendor
-
-        switch (idfaExists, vendorExists) {
-        case (true, true):
+        if idfaExists {
             deviceData = deviceData
                 |> DeviceData.deviceIdLens *~ idfaValue
                 |> DeviceData.hardwareTypeLens *~ .idfa
-                |> DeviceData.vendorIDLens *~ vendorValue
-            innerCompletion(deviceData)
-
-        case (true, false):
+        } else {
             deviceData = deviceData
-                |> DeviceData.deviceIdLens *~ idfaValue
-                |> DeviceData.hardwareTypeLens *~ .idfa
-            innerCompletion(deviceData)
-
-        case (false, true):
-            deviceData = deviceData
-                |> DeviceData.deviceIdLens *~ vendorValue
+                |> DeviceData.deviceIdLens *~ identifierForVendor
                 |> DeviceData.hardwareTypeLens *~ .vendor
+        }
 
-            fingerprintFetchable.fetchFingerprint { fingerPrint in
-                deviceData = deviceData |> DeviceData.fingerprintLens *~ fingerPrint
-                innerCompletion(deviceData)
-            }
-
-        case (false, false):
-            fingerprintFetchable.fetchFingerprint { fingerPrint in
-                deviceData = deviceData |> DeviceData.fingerprintLens *~ fingerPrint
-                innerCompletion(deviceData)
-            }
+        fingerprintFetchable.fetchFingerprint { fingerPrint in
+            deviceData = deviceData |> DeviceData.fingerprintLens *~ fingerPrint
+            innerCompletion(deviceData)
         }
     }
 }

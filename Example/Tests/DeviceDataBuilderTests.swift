@@ -26,8 +26,9 @@ class DeviceDataBuilderTests: XCTestCase {
         let exp = expectation(description: "OS exp")
 
         builder.buildDeviceData { data in
-            exp.fulfill()
+
             XCTAssertEqual(data.os, "iOS")
+            exp.fulfill()
         }
         wait(for: [exp], timeout: shortTimeoutInterval)
     }
@@ -38,8 +39,9 @@ class DeviceDataBuilderTests: XCTestCase {
 
         builder.osVersion = "test_iOS_version"
         builder.buildDeviceData { data in
-            exp.fulfill()
+
             XCTAssertEqual(data.osVersion, "test_iOS_version")
+            exp.fulfill()
         }
         wait(for: [exp], timeout: shortTimeoutInterval)
     }
@@ -50,8 +52,9 @@ class DeviceDataBuilderTests: XCTestCase {
 
         builder.model = "test_model"
         builder.buildDeviceData { data in
-            exp.fulfill()
+
             XCTAssertEqual(data.model, "test_model")
+            exp.fulfill()
         }
         wait(for: [exp], timeout: shortTimeoutInterval)
     }
@@ -62,9 +65,10 @@ class DeviceDataBuilderTests: XCTestCase {
 
         builder.screenSize = CGSize(width: 1, height: 1)
         builder.buildDeviceData { data in
-            exp.fulfill()
+
             XCTAssertEqual(data.screenWidth, 1)
             XCTAssertEqual(data.screenHeight, 1)
+            exp.fulfill()
         }
         wait(for: [exp], timeout: shortTimeoutInterval)
     }
@@ -75,8 +79,9 @@ class DeviceDataBuilderTests: XCTestCase {
 
         builder.isSimulator = true
         builder.buildDeviceData { data in
-            exp1.fulfill()
+
             XCTAssertTrue(data.isSimulator)
+            exp1.fulfill()
         }
         wait(for: [exp1], timeout: shortTimeoutInterval)
 
@@ -84,8 +89,9 @@ class DeviceDataBuilderTests: XCTestCase {
 
         builder.isSimulator = false
         builder.buildDeviceData { data in
-            exp2.fulfill()
+
             XCTAssertFalse(data.isSimulator)
+            exp2.fulfill()
         }
         wait(for: [exp2], timeout: shortTimeoutInterval)
     }
@@ -96,10 +102,13 @@ class DeviceDataBuilderTests: XCTestCase {
 
         builder.identifierForVendor = "test_device_id"
         builder.buildDeviceData { data in
-            exp.fulfill()
+
             XCTAssertEqual(data.deviceId, "test_device_id")
+            XCTAssertEqual(data.vendorID, "test_device_id")
             XCTAssertEqual(data.hardwareType, .vendor)
             XCTAssertEqual(data.fingerprint, "fingerprint")
+
+            exp.fulfill()
         }
         wait(for: [exp], timeout: shortTimeoutInterval)
     }
@@ -112,11 +121,13 @@ class DeviceDataBuilderTests: XCTestCase {
 
         builder.identifierForVendor = "test_device_id"
         builder.buildDeviceData(adSupportable: adSupportable) { data in
-            exp.fulfill()
+
             XCTAssertEqual(data.deviceId, "123")
             XCTAssertEqual(data.hardwareType, .idfa)
             XCTAssertEqual(data.vendorID, "test_device_id")
-            XCTAssertNil(data.fingerprint)
+            XCTAssertEqual(data.fingerprint, "fingerprint")
+
+            exp.fulfill()
         }
         wait(for: [exp], timeout: shortTimeoutInterval)
     }
