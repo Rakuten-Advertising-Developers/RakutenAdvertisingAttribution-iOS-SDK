@@ -13,3 +13,5 @@ let longTimeoutInterval: TimeInterval = 2
 let veryLongTimeoutInterval: TimeInterval = 4
 
 let testURL: URL = "http://example.com"
+
+let testStringValue = "test_string"
