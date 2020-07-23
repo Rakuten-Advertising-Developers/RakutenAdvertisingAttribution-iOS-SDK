@@ -26,3 +26,30 @@ extension ResolveLinkResponse {
                                    data: nil)
     }
 }
+
+extension DeviceDataBuilder {
+
+    static var mock: DeviceDataBuilder {
+
+        let builder = DeviceDataBuilder()
+        builder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+        builder.os = "os"
+        builder.osVersion = "osVersion"
+        builder.model = "model"
+        builder.screenSize = .zero
+        builder.isSimulator = true
+        builder.identifierForVendor = "identifierForVendor"
+
+        return builder
+    }
+}
+
+extension UserDataBuilder {
+
+    static var mock: UserDataBuilder {
+        let builder = UserDataBuilder()
+        builder.sdkVersion = "test"
+        builder.mainBundle = MockBundle()
+        return builder
+    }
+}

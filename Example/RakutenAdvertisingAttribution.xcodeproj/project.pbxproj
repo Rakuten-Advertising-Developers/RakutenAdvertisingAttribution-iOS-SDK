@@ -69,6 +69,7 @@
 		57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */; };
 		578BA60C24C9A5FC00BE6945 /* AccessTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */; };
 		578BA60E24C9A6E000BE6945 /* MockAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */; };
+		578BA61024C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */; };
 		5791F30324654A2F00658B5A /* TableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791F301246541D300658B5A /* TableHandler.swift */; };
 		5791F30524654CF500658B5A /* AttributionSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791F30424654CF500658B5A /* AttributionSDKHandler.swift */; };
 		5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
@@ -134,6 +135,7 @@
 		57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObfuscatorTests.swift; sourceTree = "<group>"; };
 		578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenTests.swift; sourceTree = "<group>"; };
 		578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccessToken.swift; sourceTree = "<group>"; };
+		578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveLinkRequestBuilderTests.swift; sourceTree = "<group>"; };
 		5791F301246541D300658B5A /* TableHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHandler.swift; sourceTree = "<group>"; };
 		5791F30424654CF500658B5A /* AttributionSDKHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributionSDKHandler.swift; sourceTree = "<group>"; };
 		5799738624582386007DA45E /* MockAttributionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttributionConfiguration.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				57E2472424C8526600BE4447 /* AdSupportableTests.swift */,
 				57E2471E24C848EE00BE4447 /* UserDataBuilderTests.swift */,
 				57E2472224C84D2E00BE4447 /* DeviceDataBuilderTests.swift */,
+				578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -658,6 +661,7 @@
 				57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */,
 				57F14B3C24C705F5008B7068 /* EventSenderTests.swift in Sources */,
 				5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */,
+				578BA61024C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift in Sources */,
 				57E2472324C84D2E00BE4447 /* DeviceDataBuilderTests.swift in Sources */,
 				575CF72E2462A11100F59612 /* LinkResolverTests.swift in Sources */,
 				575CF7302462A2B400F59612 /* MockSessionModifier.swift in Sources */,

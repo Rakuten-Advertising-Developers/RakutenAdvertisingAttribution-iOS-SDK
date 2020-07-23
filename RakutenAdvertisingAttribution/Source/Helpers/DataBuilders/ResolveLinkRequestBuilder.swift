@@ -15,11 +15,14 @@ class ResolveLinkRequestBuilder {
     var userDataBuilder: UserDataBuilder = UserDataBuilder()
     var firstLaunchDetector: FirstLaunchDetector = FirstLaunchDetector.default
 
-    func buildResolveRequest(url: URL, linkId: String?, completion: @escaping ResolveLinkRequestBuilderCompletion) {
+    func buildResolveRequest(url: URL,
+                             linkId: String?,
+                             adSupportable: AdSupportable = RakutenAdvertisingAttribution.shared.adSupport,
+                             completion: @escaping ResolveLinkRequestBuilderCompletion) {
 
         let universalLink = linkId != nil ? "" : url.absoluteString
 
-        deviceDataBuilder.buildDeviceData { [weak self] deviceData in
+        deviceDataBuilder.buildDeviceData(adSupportable: adSupportable) { [weak self] deviceData in
 
             guard let self = self else { return }
 
@@ -33,9 +36,10 @@ class ResolveLinkRequestBuilder {
         }
     }
 
-    func buildEmptyResolveLinkRequest(completion: @escaping ResolveLinkRequestBuilderCompletion) {
+    func buildEmptyResolveLinkRequest(adSupportable: AdSupportable = RakutenAdvertisingAttribution.shared.adSupport,
+                                      completion: @escaping ResolveLinkRequestBuilderCompletion) {
 
-        deviceDataBuilder.buildDeviceData { [weak self] deviceData in
+        deviceDataBuilder.buildDeviceData(adSupportable: adSupportable) { [weak self] deviceData in
 
             guard let self = self else { return }
 
