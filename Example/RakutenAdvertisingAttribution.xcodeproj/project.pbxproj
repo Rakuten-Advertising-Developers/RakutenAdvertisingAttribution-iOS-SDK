@@ -67,6 +67,8 @@
 		57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */; };
 		57752F792459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */; };
 		57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */; };
+		578BA60C24C9A5FC00BE6945 /* AccessTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */; };
+		578BA60E24C9A6E000BE6945 /* MockAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */; };
 		5791F30324654A2F00658B5A /* TableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791F301246541D300658B5A /* TableHandler.swift */; };
 		5791F30524654CF500658B5A /* AttributionSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791F30424654CF500658B5A /* AttributionSDKHandler.swift */; };
 		5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
@@ -130,6 +132,8 @@
 		57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBackendURLProvider.swift; sourceTree = "<group>"; };
 		57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLaunchOptionsHandlerTests.swift; sourceTree = "<group>"; };
 		57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObfuscatorTests.swift; sourceTree = "<group>"; };
+		578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenTests.swift; sourceTree = "<group>"; };
+		578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccessToken.swift; sourceTree = "<group>"; };
 		5791F301246541D300658B5A /* TableHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHandler.swift; sourceTree = "<group>"; };
 		5791F30424654CF500658B5A /* AttributionSDKHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributionSDKHandler.swift; sourceTree = "<group>"; };
 		5799738624582386007DA45E /* MockAttributionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttributionConfiguration.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				57F14B3F24C7065F008B7068 /* MockData.swift */,
 				57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */,
 				57E2472024C84A5700BE4447 /* MockBundle.swift */,
+				578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */,
 				57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */,
 				5710C36E2460334900E52548 /* EnvironmentTests.swift */,
+				578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */,
 				575CF7312462A36B00F59612 /* SessionModifierTests.swift */,
 				575CF72D2462A11100F59612 /* LinkResolverTests.swift */,
 				57F14B3B24C705F5008B7068 /* EventSenderTests.swift */,
@@ -646,6 +652,7 @@
 			files = (
 				57E2471F24C848EE00BE4447 /* UserDataBuilderTests.swift in Sources */,
 				574C11B5243F2E3B00DC0E24 /* MockEndpointable.swift in Sources */,
+				578BA60C24C9A5FC00BE6945 /* AccessTokenTests.swift in Sources */,
 				574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */,
 				57F14B4124C7065F008B7068 /* MockData.swift in Sources */,
 				57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */,
@@ -659,6 +666,7 @@
 				575CF7322462A36B00F59612 /* SessionModifierTests.swift in Sources */,
 				574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */,
 				5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
+				578BA60E24C9A6E000BE6945 /* MockAccessToken.swift in Sources */,
 				57F14B3E24C70607008B7068 /* TestConstants.swift in Sources */,
 				574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */,
 				574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */,
