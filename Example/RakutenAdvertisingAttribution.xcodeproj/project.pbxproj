@@ -76,6 +76,7 @@
 		5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
 		5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
 		5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
+		57B183AB24CB13FD00249DE7 /* FingerprintFetchableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */; };
 		57DDF076248A42C700C5411E /* MockAdSupportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DDF075248A42C700C5411E /* MockAdSupportable.swift */; };
 		57E19AC224811ED800D7C407 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC124811ED800D7C407 /* SecretConstants.swift */; };
 		57E19AC424811EF300D7C407 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC324811EF300D7C407 /* AppDelegate.swift */; };
@@ -141,6 +142,7 @@
 		5799738624582386007DA45E /* MockAttributionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttributionConfiguration.swift; sourceTree = "<group>"; };
 		5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
+		57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintFetchableTests.swift; sourceTree = "<group>"; };
 		57DDF075248A42C700C5411E /* MockAdSupportable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAdSupportable.swift; sourceTree = "<group>"; };
 		57E19AC124811ED800D7C407 /* SecretConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
 		57E19AC324811EF300D7C407 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				57E2471E24C848EE00BE4447 /* UserDataBuilderTests.swift */,
 				57E2472224C84D2E00BE4447 /* DeviceDataBuilderTests.swift */,
 				578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */,
+				57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -660,6 +663,7 @@
 				57F14B4124C7065F008B7068 /* MockData.swift in Sources */,
 				57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */,
 				57F14B3C24C705F5008B7068 /* EventSenderTests.swift in Sources */,
+				57B183AB24CB13FD00249DE7 /* FingerprintFetchableTests.swift in Sources */,
 				5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */,
 				578BA61024C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift in Sources */,
 				57E2472324C84D2E00BE4447 /* DeviceDataBuilderTests.swift in Sources */,

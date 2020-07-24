@@ -50,7 +50,9 @@ protocol BackendURLProviderReceiver {
     func setBackend(provider: BackendURLProvider)
 }
 
+typealias FingerprintCompletion = (String?) -> Void
 protocol FingerprintFetchable {
 
-    func fetchFingerprint(completion: @escaping (String) -> Void)
+    var timeout: DispatchTimeInterval { get }
+    func fetchFingerprint(completion: @escaping FingerprintCompletion)
 }

@@ -11,22 +11,50 @@ import Foundation
 
 class MockFingerprintFetcher: FingerprintFetchable {
 
-    let fingerprint: String
-    var didFetch: VoidToVoid?
+    let fingerprint: String?
+    var timeout: DispatchTimeInterval = .seconds(10)
+    var executionTime: DispatchTimeInterval = .seconds(0)
 
-    private(set) var fetched: Bool = false
+    private var completion: FingerprintCompletion?
+    private let queue = DispatchQueue.global()
+    private var timeoutWorkItem: DispatchWorkItem?
+    private var fetchWorkItem: DispatchWorkItem?
 
-    init(fingerprint: String) {
+    init(fingerprint: String?) {
         self.fingerprint = fingerprint
     }
 
-    func fetchFingerprint(completion: @escaping (String) -> Void) {
+    private func scheduleFetch() {
 
-        DispatchQueue.global().async {
-
-            self.fetched = true
-            completion(self.fingerprint)
-            self.didFetch?()
+        fetchWorkItem?.cancel()
+        let fetchItem = DispatchWorkItem { [weak self] in
+            self?.apply(fingerprint: self?.fingerprint)
         }
+        fetchWorkItem = fetchItem
+        queue.asyncAfter(deadline: .now() + executionTime, execute: fetchItem)
+
+        timeoutWorkItem?.cancel()
+        let timeOutItem = DispatchWorkItem { [weak self] in
+            self?.apply(fingerprint: nil)
+        }
+        timeoutWorkItem = timeOutItem
+        queue.asyncAfter(deadline: .now() + timeout, execute: timeOutItem)
+    }
+
+    private func apply(fingerprint: String?) {
+
+        completion?(fingerprint)
+
+        timeoutWorkItem?.cancel()
+        timeoutWorkItem = nil
+
+        fetchWorkItem?.cancel()
+        fetchWorkItem = nil
+    }
+
+    func fetchFingerprint(completion: @escaping FingerprintCompletion) {
+
+        self.completion = completion
+        scheduleFetch()
     }
 }

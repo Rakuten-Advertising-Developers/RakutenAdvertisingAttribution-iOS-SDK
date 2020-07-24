@@ -12,11 +12,14 @@ class FingerprintFetcher: NSObject {
 
     static let shared = FingerprintFetcher()
 
+    var timeout: DispatchTimeInterval = .seconds(10)
+
     private let url: URL = "https://dev-attribution-sdk.web.app/fingerprint"
     private let jsPostMessageName = "finger"
     private var webView: WKWebView?
-    private var innerCompletion: ((String) -> Void)?
+    private var innerCompletion: FingerprintCompletion?
     private var fingerprintValue: String?
+    private var timeoutWorkItem: DispatchWorkItem?
 
     private override init() {
         super.init()
@@ -34,6 +37,27 @@ class FingerprintFetcher: NSObject {
         var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringCacheData
         webView?.load(request)
+        scheduleTimeout()
+    }
+
+    private func scheduleTimeout() {
+
+        let item = DispatchWorkItem(block: { [weak self] in
+            self?.apply(fingerprint: nil)
+        })
+        timeoutWorkItem?.cancel()
+        timeoutWorkItem = item
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeout, execute: item)
+    }
+
+    private func apply(fingerprint: String?) {
+
+        fingerprintValue = nil
+        innerCompletion?(fingerprintValue ?? "")
+        webView = nil
+
+        timeoutWorkItem?.cancel()
+        timeoutWorkItem = nil
     }
 }
 
@@ -42,28 +66,23 @@ extension FingerprintFetcher: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
 
         guard let fingerprint = message.body as? String else { return }
-
-        fingerprintValue = fingerprint
-        innerCompletion?(fingerprint)
-        webView = nil
+        apply(fingerprint: fingerprint)
     }
 }
 
 extension FingerprintFetcher: FingerprintFetchable {
 
-    func fetchFingerprint(completion: @escaping (String) -> Void) {
+    func fetchFingerprint(completion: @escaping FingerprintCompletion) {
 
         DispatchQueue.main.async { [weak self] in
 
-            guard let self = self else { return }
-
-            guard let fingerprintValue = self.fingerprintValue else {
-                self.innerCompletion = completion
-                self.configureWebView()
-                self.executeRequest()
-                return
+            if let fingerprint = self?.fingerprintValue {
+                completion(fingerprint)
+            } else {
+                self?.innerCompletion = completion
+                self?.configureWebView()
+                self?.executeRequest()
             }
-            completion(fingerprintValue)
         }
     }
 }
