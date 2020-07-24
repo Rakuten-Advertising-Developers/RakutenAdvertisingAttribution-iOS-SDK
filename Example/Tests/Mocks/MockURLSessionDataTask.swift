@@ -26,16 +26,16 @@ extension MockURLSessionDataTask: URLSessionDataTaskProtocol {
     func resume() {
 
         DispatchQueue.global().async {
-            self.didResume?()
             self.resumed = true
+            self.didResume?()
         }
     }
 
     func cancel() {
 
         DispatchQueue.global().async {
-            self.didCancel?()
             self.cancelled = true
+            self.didCancel?()
         }
     }
 }

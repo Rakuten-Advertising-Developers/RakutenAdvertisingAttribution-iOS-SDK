@@ -28,7 +28,7 @@ class RemoteDataProviderTests: XCTestCase {
         task.didResume = {
             exp.fulfill()
         }
-        wait(for: [exp], timeout: shortTimeoutInterval)
+        wait(for: [exp], timeout: longTimeoutInterval)
         XCTAssertTrue(task.resumed)
     }
 
