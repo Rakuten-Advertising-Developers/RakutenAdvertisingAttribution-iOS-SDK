@@ -21,6 +21,8 @@ class FingerprintFetcher: NSObject {
     private var fingerprintValue: String?
     private var timeoutWorkItem: DispatchWorkItem?
 
+    private var queue = DispatchQueue.main
+
     private override init() {
         super.init()
     }
@@ -30,7 +32,7 @@ class FingerprintFetcher: NSObject {
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.add(self, name: jsPostMessageName)
         webView = WKWebView(frame: .zero, configuration: configuration)
-   }
+    }
 
     private func executeRequest() {
 
@@ -47,13 +49,13 @@ class FingerprintFetcher: NSObject {
         })
         timeoutWorkItem?.cancel()
         timeoutWorkItem = item
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeout, execute: item)
+        queue.asyncAfter(deadline: .now() + timeout, execute: item)
     }
 
     private func apply(fingerprint: String?) {
 
-        fingerprintValue = nil
-        innerCompletion?(fingerprintValue ?? "")
+        fingerprintValue = fingerprint
+        innerCompletion?(fingerprintValue)
         webView = nil
 
         timeoutWorkItem?.cancel()
@@ -74,7 +76,7 @@ extension FingerprintFetcher: FingerprintFetchable {
 
     func fetchFingerprint(completion: @escaping FingerprintCompletion) {
 
-        DispatchQueue.main.async { [weak self] in
+        queue.async { [weak self] in
 
             if let fingerprint = self?.fingerprintValue {
                 completion(fingerprint)
