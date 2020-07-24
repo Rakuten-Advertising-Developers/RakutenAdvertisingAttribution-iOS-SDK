@@ -7,6 +7,9 @@
 
 import Foundation
 
+typealias GETLaunchedAction = () -> (Bool)
+typealias SETLaunchedAction = (Bool) -> Void
+
 final class FirstLaunchDetector {
 
     // MARK: Inner types
@@ -16,16 +19,15 @@ final class FirstLaunchDetector {
         case firstLaunch = "com.rakuten.advertising.attribution.UserDefaults.key.firstLaunch"
     }
 
-    typealias GETLaunchedAction = () -> (Bool)
-    typealias SETLaunchedAction = (Bool) -> Void
-
     // MARK: Properties
 
-    private let wasLaunchedBefore: Bool
+    static let `default`: FirstLaunchDetector = FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)
 
     var isFirstLaunch: Bool {
         return !wasLaunchedBefore
     }
+
+    private let wasLaunchedBefore: Bool
 
     // MARK: Init
 
@@ -38,7 +40,7 @@ final class FirstLaunchDetector {
         }
     }
 
-    convenience init(userDefaults: UserDefaults, key: UserDefaultsKeys) {
+    private convenience init(userDefaults: UserDefaults, key: UserDefaultsKeys) {
 
         self.init(getLaunchedAction: { userDefaults.bool(forKey: key.rawValue) },
                   setLaunchedAction: { userDefaults.set($0, forKey: key.rawValue) })

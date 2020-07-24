@@ -18,7 +18,7 @@ extension ResolveLinkEndpoint: Endpointable {
 
         switch self {
         case .resolveLink:
-            return "resolve-link"
+            return "resolve-link-rak"
         }
     }
 

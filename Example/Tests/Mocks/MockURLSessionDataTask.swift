@@ -10,21 +10,32 @@ import Foundation
 
 @testable import RakutenAdvertisingAttribution
 
+typealias VoidToVoid = () -> Void
+
 class MockURLSessionDataTask {
-    
-    private(set) var isResumed: Bool = false
-    private(set) var isCancelled: Bool = false
+
+    private(set) var resumed: Bool = false
+    private(set) var cancelled: Bool = false
+
+    var didResume: VoidToVoid?
+    var didCancel: VoidToVoid?
 }
 
 extension MockURLSessionDataTask: URLSessionDataTaskProtocol {
-    
+
     func resume() {
-        
-        isResumed = true
+
+        DispatchQueue.global().async {
+            self.resumed = true
+            self.didResume?()
+        }
     }
-    
+
     func cancel() {
-        
-        isCancelled = true
+
+        DispatchQueue.global().async {
+            self.cancelled = true
+            self.didCancel?()
+        }
     }
 }

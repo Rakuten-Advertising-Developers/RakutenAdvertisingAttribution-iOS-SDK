@@ -60,7 +60,7 @@ extension AttributionSDKHandler: LinkResolvableDelegate {
 
         showNotification(title: "Resolve link ✅",
                          subTitle: response.sessionId,
-                         body: response.data.descriptionString)
+                         body: response.data?.descriptionString ?? "")
     }
 
     func didFailedResolve(link: String, with error: Error) {

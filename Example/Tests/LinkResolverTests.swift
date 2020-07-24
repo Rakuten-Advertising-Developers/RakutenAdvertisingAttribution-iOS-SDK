@@ -18,10 +18,15 @@ class LinkResolverTests: XCTestCase {
     let testWebURL: URL = "http://example.com"
 
     var sut: LinkResolver!
+
+    private var loadedExp: XCTestExpectation?
+    private var failExp: XCTestExpectation?
     
     override func setUp() {
         
-        sut = LinkResolver(sessionModifier: MockSessionModifier(), firstLaunchDetector: .init(getLaunchedAction: { return false }, setLaunchedAction: { _ in }))
+        sut = LinkResolver(sessionModifier: MockSessionModifier())
+        sut.delegate = self
+        sut.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
     }
 
     func testIsFromURLSchemeValidScheme() {
@@ -57,5 +62,58 @@ class LinkResolverTests: XCTestCase {
     func testLinkIdentifierWithWebURL() {
         
         XCTAssertNil(sut.linkIdentifier(from: testWebURL))
+    }
+
+    func testURLLinkResolveRequestSuccess() {
+
+        loadedExp = expectation(description: "Resolve success exp")
+
+        sut.session = MockURLSession(dataType: .resolveLink(response: .mock))
+        sut.resolveLink(url: testWebURL)
+
+        wait(for: [loadedExp!], timeout: shortTimeoutInterval)
+    }
+
+    func testURLLinkResolveRequestFail() {
+
+        failExp = expectation(description: "Resolve fail exp")
+
+        sut.session = MockURLSession(dataType: .error)
+        sut.resolveLink(url: testWebURL)
+
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+    }
+
+    func testEmptyLinkResolveRequestSuccess() {
+
+        loadedExp = expectation(description: "Resolve success exp")
+
+        sut.session = MockURLSession(dataType: .resolveLink(response: .mock))
+        sut.resolveEmptyLink()
+
+        wait(for: [loadedExp!], timeout: shortTimeoutInterval)
+    }
+
+    func testEmptyLinkResolveRequestFail() {
+
+        failExp = expectation(description: "Resolve fail exp")
+
+        sut.session = MockURLSession(dataType: .error)
+        sut.resolveEmptyLink()
+
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+    }
+}
+
+extension LinkResolverTests: LinkResolvableDelegate {
+
+    func didResolveLink(response: ResolveLinkResponse) {
+
+        loadedExp?.fulfill()
+    }
+
+    func didFailedResolve(link: String, with error: Error) {
+
+        failExp?.fulfill()
     }
 }

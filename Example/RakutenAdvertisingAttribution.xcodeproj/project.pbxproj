@@ -67,16 +67,27 @@
 		57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */; };
 		57752F792459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */; };
 		57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */; };
+		578BA60C24C9A5FC00BE6945 /* AccessTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */; };
+		578BA60E24C9A6E000BE6945 /* MockAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */; };
+		578BA61024C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */; };
 		5791F30324654A2F00658B5A /* TableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791F301246541D300658B5A /* TableHandler.swift */; };
 		5791F30524654CF500658B5A /* AttributionSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791F30424654CF500658B5A /* AttributionSDKHandler.swift */; };
 		5799738724582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
 		5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799738624582386007DA45E /* MockAttributionConfiguration.swift */; };
 		5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
 		5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */; };
+		57B183AB24CB13FD00249DE7 /* FingerprintFetchableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */; };
 		57DDF076248A42C700C5411E /* MockAdSupportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DDF075248A42C700C5411E /* MockAdSupportable.swift */; };
 		57E19AC224811ED800D7C407 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC124811ED800D7C407 /* SecretConstants.swift */; };
 		57E19AC424811EF300D7C407 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC324811EF300D7C407 /* AppDelegate.swift */; };
-		57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABA243B76390048E34F /* DataBuilderTests.swift */; };
+		57E2471F24C848EE00BE4447 /* UserDataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2471E24C848EE00BE4447 /* UserDataBuilderTests.swift */; };
+		57E2472124C84A5700BE4447 /* MockBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2472024C84A5700BE4447 /* MockBundle.swift */; };
+		57E2472324C84D2E00BE4447 /* DeviceDataBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2472224C84D2E00BE4447 /* DeviceDataBuilderTests.swift */; };
+		57E2472524C8526600BE4447 /* AdSupportableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2472424C8526600BE4447 /* AdSupportableTests.swift */; };
+		57F14B3C24C705F5008B7068 /* EventSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3B24C705F5008B7068 /* EventSenderTests.swift */; };
+		57F14B3E24C70607008B7068 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3D24C70606008B7068 /* TestConstants.swift */; };
+		57F14B4124C7065F008B7068 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3F24C7065F008B7068 /* MockData.swift */; };
+		57F14B4224C7065F008B7068 /* MockFingerprintFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */; };
 		57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */; };
 		57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */; };
 		57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */; };
@@ -123,15 +134,26 @@
 		57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBackendURLProvider.swift; sourceTree = "<group>"; };
 		57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLaunchOptionsHandlerTests.swift; sourceTree = "<group>"; };
 		57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObfuscatorTests.swift; sourceTree = "<group>"; };
+		578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenTests.swift; sourceTree = "<group>"; };
+		578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccessToken.swift; sourceTree = "<group>"; };
+		578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveLinkRequestBuilderTests.swift; sourceTree = "<group>"; };
 		5791F301246541D300658B5A /* TableHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHandler.swift; sourceTree = "<group>"; };
 		5791F30424654CF500658B5A /* AttributionSDKHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributionSDKHandler.swift; sourceTree = "<group>"; };
 		5799738624582386007DA45E /* MockAttributionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttributionConfiguration.swift; sourceTree = "<group>"; };
 		5799739124583A1F007DA45E /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
 		57A1B2232434A2CE0045D1D1 /* PreBuldConfigure.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PreBuldConfigure.sh; sourceTree = "<group>"; };
+		57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintFetchableTests.swift; sourceTree = "<group>"; };
 		57DDF075248A42C700C5411E /* MockAdSupportable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAdSupportable.swift; sourceTree = "<group>"; };
 		57E19AC124811ED800D7C407 /* SecretConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
 		57E19AC324811EF300D7C407 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57FC5ABA243B76390048E34F /* DataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBuilderTests.swift; sourceTree = "<group>"; };
+		57E2471E24C848EE00BE4447 /* UserDataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataBuilderTests.swift; sourceTree = "<group>"; };
+		57E2472024C84A5700BE4447 /* MockBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBundle.swift; sourceTree = "<group>"; };
+		57E2472224C84D2E00BE4447 /* DeviceDataBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataBuilderTests.swift; sourceTree = "<group>"; };
+		57E2472424C8526600BE4447 /* AdSupportableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSupportableTests.swift; sourceTree = "<group>"; };
+		57F14B3B24C705F5008B7068 /* EventSenderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSenderTests.swift; sourceTree = "<group>"; };
+		57F14B3D24C70606008B7068 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		57F14B3F24C7065F008B7068 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFingerprintFetcher.swift; sourceTree = "<group>"; };
 		57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetectorTests.swift; sourceTree = "<group>"; };
 		57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensionsTests.swift; sourceTree = "<group>"; };
 		57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalsExtentionsTests.swift; sourceTree = "<group>"; };
@@ -194,6 +216,10 @@
 				57752F6B24597C7D0022F8B9 /* MockBackendURLProvider.swift */,
 				575CF72F2462A2B400F59612 /* MockSessionModifier.swift */,
 				57DDF075248A42C700C5411E /* MockAdSupportable.swift */,
+				57F14B3F24C7065F008B7068 /* MockData.swift */,
+				57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */,
+				57E2472024C84A5700BE4447 /* MockBundle.swift */,
+				578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -285,8 +311,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				57F14B3D24C70606008B7068 /* TestConstants.swift */,
 				574C11BB243F3BD100DC0E24 /* Mocks */,
-				57FC5ABA243B76390048E34F /* DataBuilderTests.swift */,
 				57752F7A2459D9ED0022F8B9 /* ObfuscatorTests.swift */,
 				57752F782459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift */,
 				574C11B9243F313B00DC0E24 /* EndpointableTests.swift */,
@@ -295,8 +321,15 @@
 				574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */,
 				57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */,
 				5710C36E2460334900E52548 /* EnvironmentTests.swift */,
+				578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */,
 				575CF7312462A36B00F59612 /* SessionModifierTests.swift */,
 				575CF72D2462A11100F59612 /* LinkResolverTests.swift */,
+				57F14B3B24C705F5008B7068 /* EventSenderTests.swift */,
+				57E2472424C8526600BE4447 /* AdSupportableTests.swift */,
+				57E2471E24C848EE00BE4447 /* UserDataBuilderTests.swift */,
+				57E2472224C84D2E00BE4447 /* DeviceDataBuilderTests.swift */,
+				578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */,
+				57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -623,26 +656,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57E2471F24C848EE00BE4447 /* UserDataBuilderTests.swift in Sources */,
 				574C11B5243F2E3B00DC0E24 /* MockEndpointable.swift in Sources */,
+				578BA60C24C9A5FC00BE6945 /* AccessTokenTests.swift in Sources */,
 				574C11BE243F3D6C00DC0E24 /* MockCodable.swift in Sources */,
+				57F14B4124C7065F008B7068 /* MockData.swift in Sources */,
 				57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */,
+				57F14B3C24C705F5008B7068 /* EventSenderTests.swift in Sources */,
+				57B183AB24CB13FD00249DE7 /* FingerprintFetchableTests.swift in Sources */,
 				5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */,
+				578BA61024C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift in Sources */,
+				57E2472324C84D2E00BE4447 /* DeviceDataBuilderTests.swift in Sources */,
 				575CF72E2462A11100F59612 /* LinkResolverTests.swift in Sources */,
 				575CF7302462A2B400F59612 /* MockSessionModifier.swift in Sources */,
 				57DDF076248A42C700C5411E /* MockAdSupportable.swift in Sources */,
-				57FC5ABB243B76390048E34F /* DataBuilderTests.swift in Sources */,
 				57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */,
 				575CF7322462A36B00F59612 /* SessionModifierTests.swift in Sources */,
 				574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */,
 				5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
+				578BA60E24C9A6E000BE6945 /* MockAccessToken.swift in Sources */,
+				57F14B3E24C70607008B7068 /* TestConstants.swift in Sources */,
 				574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */,
 				574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */,
 				57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */,
+				57F14B4224C7065F008B7068 /* MockFingerprintFetcher.swift in Sources */,
 				5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
 				57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */,
+				57E2472524C8526600BE4447 /* AdSupportableTests.swift in Sources */,
 				574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */,
 				57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */,
 				57752F792459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift in Sources */,
+				57E2472124C84A5700BE4447 /* MockBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

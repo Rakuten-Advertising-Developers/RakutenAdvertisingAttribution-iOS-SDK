@@ -139,4 +139,17 @@ public protocol AdSupportable {
     var isTrackingEnabled: Bool { get set }
     /// An alphanumeric string unique to each device, used only for serving advertisements.
     var advertisingIdentifier: String? { get set }
+    /// A Boolean value that indicates `advertisingIdentifier` is valid
+    var isValid: Bool { get }
+}
+
+extension AdSupportable {
+
+    var isValid: Bool {
+
+        guard isTrackingEnabled, let id = advertisingIdentifier else {
+            return false
+        }
+        return !id.hasPrefix("00000000") //avoid case 00000000-0000-0000-0000-000000000000
+    }
 }

@@ -18,7 +18,7 @@ extension SendEventEndpoint: Endpointable {
 
         switch self {
         case .sendEvent:
-            return "send-event"
+            return "send-event-rak"
         }
     }
 
