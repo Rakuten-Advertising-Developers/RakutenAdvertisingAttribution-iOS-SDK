@@ -173,13 +173,13 @@ RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
 
 ```
 
-Similarly, you can use `delegate` property of `eventSender`, to track statuses of sending events
+Similarly, you can use `delegate` property of `eventSender`, to track status of sending events
 ```swift
 let vc = ViewController()
 RakutenAdvertisingAttribution.shared.eventSender.delegate = viewController
 navigationController?.pushViewController(vc, animated: true)
 ```
-Confirm to `EventSenderableDelegate` in a place where you would like to receive statuses
+Confirm to `EventSenderableDelegate` in a place where you would like to receive status
 ```swift
 extension ViewController: EventSenderableDelegate {
     
