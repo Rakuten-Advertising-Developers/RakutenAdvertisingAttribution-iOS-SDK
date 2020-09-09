@@ -16,12 +16,15 @@ public struct ResolveLinkResponse: Codable {
     public let sessionId: String
     /// Current device identifier
     public let deviceFingerprintId: String
+    /// Click Timestamp
+    public let clickTimestamp: TimeInterval
     /// Detailed data
-    public let data: ResolveLinkData?
+    public let data: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case sessionId = "session_id"
         case deviceFingerprintId = "device_fingerprint_id"
+        case clickTimestamp = "click_timestamp"
         case data
     }
 }

@@ -23,6 +23,7 @@ extension ResolveLinkResponse {
 
         return ResolveLinkResponse(sessionId: "mock",
                                    deviceFingerprintId: "mock",
+                                   clickTimestamp: 0,
                                    data: nil)
     }
 }
