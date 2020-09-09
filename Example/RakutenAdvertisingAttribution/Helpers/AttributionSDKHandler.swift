@@ -60,7 +60,7 @@ extension AttributionSDKHandler: LinkResolvableDelegate {
 
         showNotification(title: "Resolve link ✅",
                          subTitle: response.sessionId,
-                         body: response.data?.descriptionString ?? "")
+                         body: response.data?.asJSON() ?? "")
     }
 
     func didFailedResolve(link: String, with error: Error) {
@@ -96,33 +96,11 @@ extension AttributionSDKHandler: UNUserNotificationCenterDelegate {
     }
 }
 
-extension ResolveLinkData {
+fileprivate extension Collection {
 
-    var descriptionString: String {
+    func asJSON() -> String? {
 
-        var description = ""
-        let newLine = "\n"
-
-        if let partner = advertisingPartnerName {
-            description += "Partner \(partner)"
-            description += newLine
-        }
-
-        if let nonBranchLink = nonBranchLink {
-            description += "Non branch: \(nonBranchLink)"
-            description += newLine
-        }
-
-        if let channel = channel {
-            description += "Channel: \(channel)"
-            description += newLine
-        }
-
-        if let refLink = referringLink {
-            description += "Ref: \(refLink)"
-            description += newLine
-        }
-
-        return description
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: [.prettyPrinted]) else { return nil }
+        return String(data: jsonData, encoding: .utf8) ?? "{}"
     }
 }
