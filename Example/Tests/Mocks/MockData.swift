@@ -22,6 +22,7 @@ extension ResolveLinkResponse {
     static var mock: ResolveLinkResponse {
 
         return ResolveLinkResponse(sessionId: "mock",
+                                   link: testURL.absoluteString,
                                    deviceFingerprintId: "mock",
                                    clickTimestamp: 0,
                                    data: nil)

@@ -109,6 +109,10 @@ extension LinkResolverTests: LinkResolvableDelegate {
 
     func didResolveLink(response: ResolveLinkResponse) {
 
+        guard response.link == ResolveLinkResponse.mock.link else {
+            XCTFail()
+            return
+        }
         loadedExp?.fulfill()
     }
 
