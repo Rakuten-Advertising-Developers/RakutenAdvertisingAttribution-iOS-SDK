@@ -14,7 +14,7 @@ class FingerprintFetcher: NSObject {
 
     var timeout: DispatchTimeInterval = .seconds(10)
 
-    private let url: URL = "https://dev-attribution-sdk.web.app/fingerprint"
+    private let url: URL = "https://click.rakutenadvertising.io/fingerprint"
     private let jsPostMessageName = "finger"
     private var webView: WKWebView?
     private var innerCompletion: FingerprintCompletion?

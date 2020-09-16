@@ -1,14 +1,25 @@
 platform :ios, '11.0'
 
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/Rakuten-Advertising-Developers/Specs.git'
+
 use_frameworks!
 
 target 'RakutenAdvertisingAttribution_Example' do
   
   pod 'RakutenAdvertisingAttribution', :path => '../'
   pod 'Sourcery'
-
-  target 'RakutenAdvertisingAttribution_Tests' do
-    inherit! :search_paths
-  end
   
+end
+
+target 'RakutenAdvertisingAttribution_Tests' do
+
+  pod 'RakutenAdvertisingAttribution', :path => '../'
+
+end
+
+target 'IntegrationTests' do
+
+  pod 'RakutenAdvertisingAttribution', :path => '../'
+
 end

@@ -6,10 +6,10 @@ PODS:
     - LoggerAPI (~> 1.7)
   - LoggerAPI (1.9.0):
     - Logging (~> 1.1)
-  - Logging (1.2.0)
+  - Logging (1.4.0)
   - RakutenAdvertisingAttribution (0.0.1):
     - SwiftJWT
-  - Sourcery (0.18.0)
+  - Sourcery (1.0.0)
   - SwiftJWT (3.5.3):
     - BlueCryptor (~> 1.0)
     - BlueECC (~> 1.1)
@@ -22,7 +22,7 @@ DEPENDENCIES:
   - Sourcery
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - BlueCryptor
     - BlueECC
     - BlueRSA
@@ -42,11 +42,11 @@ SPEC CHECKSUMS:
   BlueRSA: 6f9776d62d9773502415a7db3bcbb2bbb3f71fc3
   KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
   LoggerAPI: fb78461eedac5316b290f2404d88b9d614d96c57
-  Logging: 7838d379d234d7e5ae1265fa02804a9084caf04c
+  Logging: beeb016c9c80cf77042d62e83495816847ef108b
   RakutenAdvertisingAttribution: d73d2fd3da0d2ff47d92c6435d6ea7c751243a9b
-  Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
+  Sourcery: 928a146ea9b777fa64b0c6ce915c4128b4488cff
   SwiftJWT: 9a47a71090cae25767078756b5810e3b630aa9a7
 
-PODFILE CHECKSUM: 87bcd69ab373083c0c9d020ee06c44950697a6f0
+PODFILE CHECKSUM: 9cd695e2a1e21497a6085e4768cc92cd0e357c02
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
