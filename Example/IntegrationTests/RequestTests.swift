@@ -36,9 +36,9 @@ class RequestTests: XCTestCase {
         wait(for: [resolveExp], timeout: defaultTimeout)
     }
 
-    func DISABLED_testSendEvent() {
+    func testSendEvent() {
 
-        let event = Event(name: "TEST_EVENT")
+        let event = Event(name: "VIEW_ITEM", customData: ["test": "test"])
         RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
         wait(for: [eventExp], timeout: defaultTimeout)
     }
