@@ -88,6 +88,10 @@
 		57F14B3E24C70607008B7068 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3D24C70606008B7068 /* TestConstants.swift */; };
 		57F14B4124C7065F008B7068 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3F24C7065F008B7068 /* MockData.swift */; };
 		57F14B4224C7065F008B7068 /* MockFingerprintFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */; };
+		57F3ECA52512267700CC27D0 /* FingerprintFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3ECA42512267700CC27D0 /* FingerprintFetcherTests.swift */; };
+		57F3ECA725122F4400CC27D0 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3ECA625122F4400CC27D0 /* RequestTests.swift */; };
+		57F3ECA82512306400CC27D0 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC124811ED800D7C407 /* SecretConstants.swift */; };
+		57F3ECAA2512317800CC27D0 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3ECA92512317800CC27D0 /* TestConstants.swift */; };
 		57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */; };
 		57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */; };
 		57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */; };
@@ -95,6 +99,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		7F8E59C754746417929DDDE3 /* Pods_IntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750EAA75C17D9DBA063E1077 /* Pods_IntegrationTests.framework */; };
 		B8833CB4A0D7BC61896C154C /* Pods_RakutenAdvertisingAttribution_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEDBAA81985631423CAF6F4 /* Pods_RakutenAdvertisingAttribution_Example.framework */; };
 		BACF66D5B9EBD6349AB82B21 /* Pods_RakutenAdvertisingAttribution_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB363AA84C9A28A617F5E3E /* Pods_RakutenAdvertisingAttribution_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +111,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 57A1B21C2434A2310045D1D1;
 			remoteInfo = PreBuildScriptsRunner;
+		};
+		57F3EC9F2512256900CC27D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = RakutenAdvertisingAttribution_Example;
 		};
 		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -154,6 +166,11 @@
 		57F14B3D24C70606008B7068 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		57F14B3F24C7065F008B7068 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFingerprintFetcher.swift; sourceTree = "<group>"; };
+		57F3EC9A2512256900CC27D0 /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57F3EC9E2512256900CC27D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57F3ECA42512267700CC27D0 /* FingerprintFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintFetcherTests.swift; sourceTree = "<group>"; };
+		57F3ECA625122F4400CC27D0 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		57F3ECA92512317800CC27D0 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetectorTests.swift; sourceTree = "<group>"; };
 		57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensionsTests.swift; sourceTree = "<group>"; };
 		57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalsExtentionsTests.swift; sourceTree = "<group>"; };
@@ -166,6 +183,9 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* RakutenAdvertisingAttribution_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RakutenAdvertisingAttribution_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		741AED4E470BC77804318125 /* Pods-IntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-IntegrationTests/Pods-IntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		750EAA75C17D9DBA063E1077 /* Pods_IntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80EEF421CD1CEBA5E2758C60 /* Pods-IntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-IntegrationTests/Pods-IntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		8DB363AA84C9A28A617F5E3E /* Pods_RakutenAdvertisingAttribution_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RakutenAdvertisingAttribution_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9020F8EC11F4871FB6A9EEA0 /* Pods-RakutenAdvertisingAttribution_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RakutenAdvertisingAttribution_Example.debug.xcconfig"; path = "Target Support Files/Pods-RakutenAdvertisingAttribution_Example/Pods-RakutenAdvertisingAttribution_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		AAEDC2F50210424B820C7F21 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -177,6 +197,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		57F3EC972512256900CC27D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8E59C754746417929DDDE3 /* Pods_IntegrationTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,6 +229,7 @@
 			children = (
 				4BEDBAA81985631423CAF6F4 /* Pods_RakutenAdvertisingAttribution_Example.framework */,
 				8DB363AA84C9A28A617F5E3E /* Pods_RakutenAdvertisingAttribution_Tests.framework */,
+				750EAA75C17D9DBA063E1077 /* Pods_IntegrationTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,6 +302,17 @@
 			path = PreBuildScripts;
 			sourceTree = SOURCE_ROOT;
 		};
+		57F3EC9B2512256900CC27D0 /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				57F3ECA42512267700CC27D0 /* FingerprintFetcherTests.swift */,
+				57F3ECA625122F4400CC27D0 /* RequestTests.swift */,
+				57F3EC9E2512256900CC27D0 /* Info.plist */,
+				57F3ECA92512317800CC27D0 /* TestConstants.swift */,
+			);
+			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +320,7 @@
 				607FACD21AFB9204008FA782 /* Example for RakutenAdvertisingAttribution */,
 				57A1B21924349F750045D1D1 /* PreBuildScripts */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				57F3EC9B2512256900CC27D0 /* IntegrationTests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				632AA4DA06EB71DAA51A45A3 /* Pods */,
 				2B3A6607B181F4177F070FE2 /* Frameworks */,
@@ -291,6 +332,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* RakutenAdvertisingAttribution_Example.app */,
 				607FACE51AFB9204008FA782 /* RakutenAdvertisingAttribution_Tests.xctest */,
+				57F3EC9A2512256900CC27D0 /* IntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -364,6 +406,8 @@
 				C990DCBDEEBA1B876C608FFB /* Pods-RakutenAdvertisingAttribution_Example.release.xcconfig */,
 				EC8C23EF2D42653234B23578 /* Pods-RakutenAdvertisingAttribution_Tests.debug.xcconfig */,
 				F13B688A69980C250D0F6481 /* Pods-RakutenAdvertisingAttribution_Tests.release.xcconfig */,
+				741AED4E470BC77804318125 /* Pods-IntegrationTests.debug.xcconfig */,
+				80EEF421CD1CEBA5E2758C60 /* Pods-IntegrationTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -371,6 +415,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		57F3EC992512256900CC27D0 /* IntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57F3ECA32512256900CC27D0 /* Build configuration list for PBXNativeTarget "IntegrationTests" */;
+			buildPhases = (
+				7814DE4BB5DC1FC72EF9052D /* [CP] Check Pods Manifest.lock */,
+				57F3EC962512256900CC27D0 /* Sources */,
+				57F3EC972512256900CC27D0 /* Frameworks */,
+				57F3EC982512256900CC27D0 /* Resources */,
+				BD9B622B5BA1672BBEBD4301 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57F3ECA02512256900CC27D0 /* PBXTargetDependency */,
+			);
+			name = IntegrationTests;
+			productName = IntegrationTests;
+			productReference = 57F3EC9A2512256900CC27D0 /* IntegrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		607FACCF1AFB9204008FA782 /* RakutenAdvertisingAttribution_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RakutenAdvertisingAttribution_Example" */;
@@ -400,6 +464,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				AB57D2FDABE7690196E1010B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -417,7 +482,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1170;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Rakuten Advertising";
 				TargetAttributes = {
@@ -432,6 +497,10 @@
 					};
 					57DDF077248A4C4400C5411E = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					57F3EC992512256900CC27D0 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -459,6 +528,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* RakutenAdvertisingAttribution_Example */,
 				607FACE41AFB9204008FA782 /* RakutenAdvertisingAttribution_Tests */,
+				57F3EC992512256900CC27D0 /* IntegrationTests */,
 				57A1B1D1243397190045D1D1 /* CocoaPods Update */,
 				57A1B21C2434A2310045D1D1 /* PreBuildScriptsRunner */,
 				574EFD9E244A04780065617E /* Generate Documentation */,
@@ -468,6 +538,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		57F3EC982512256900CC27D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -635,9 +712,76 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7814DE4BB5DC1FC72EF9052D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IntegrationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB57D2FDABE7690196E1010B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RakutenAdvertisingAttribution_Tests/Pods-RakutenAdvertisingAttribution_Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RakutenAdvertisingAttribution_Tests/Pods-RakutenAdvertisingAttribution_Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RakutenAdvertisingAttribution_Tests/Pods-RakutenAdvertisingAttribution_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD9B622B5BA1672BBEBD4301 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IntegrationTests/Pods-IntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IntegrationTests/Pods-IntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IntegrationTests/Pods-IntegrationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		57F3EC962512256900CC27D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57F3ECA82512306400CC27D0 /* SecretConstants.swift in Sources */,
+				57F3ECA52512267700CC27D0 /* FingerprintFetcherTests.swift in Sources */,
+				57F3ECA725122F4400CC27D0 /* RequestTests.swift in Sources */,
+				57F3ECAA2512317800CC27D0 /* TestConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -697,6 +841,11 @@
 			isa = PBXTargetDependency;
 			target = 57A1B21C2434A2310045D1D1 /* PreBuildScriptsRunner */;
 			targetProxy = 57A1B2212434A25D0045D1D1 /* PBXContainerItemProxy */;
+		};
+		57F3ECA02512256900CC27D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* RakutenAdvertisingAttribution_Example */;
+			targetProxy = 57F3EC9F2512256900CC27D0 /* PBXContainerItemProxy */;
 		};
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -786,6 +935,67 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		57F3ECA12512256900CC27D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 741AED4E470BC77804318125 /* Pods-IntegrationTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = IntegrationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rakuten.advertising.IntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RakutenAdvertisingAttribution_Example.app/RakutenAdvertisingAttribution_Example";
+			};
+			name = Debug;
+		};
+		57F3ECA22512256900CC27D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80EEF421CD1CEBA5E2758C60 /* Pods-IntegrationTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = IntegrationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rakuten.advertising.IntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RakutenAdvertisingAttribution_Example.app/RakutenAdvertisingAttribution_Example";
 			};
 			name = Release;
 		};
@@ -1036,6 +1246,15 @@
 			buildConfigurations = (
 				57DDF078248A4C4400C5411E /* Debug */,
 				57DDF079248A4C4400C5411E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57F3ECA32512256900CC27D0 /* Build configuration list for PBXNativeTarget "IntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57F3ECA12512256900CC27D0 /* Debug */,
+				57F3ECA22512256900CC27D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

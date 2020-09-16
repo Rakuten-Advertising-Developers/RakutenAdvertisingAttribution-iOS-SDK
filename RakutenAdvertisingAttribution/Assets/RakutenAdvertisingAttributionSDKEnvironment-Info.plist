@@ -16,7 +16,7 @@
 	<key>backendInfo</key>
 	<dict>
 		<key>baseURL</key>
-		<string>https://attribution-sdk-endpoint-ff5ckcoswq-uc.a.run.app/</string>
+		<string>https://api.rakutenadvertising.io/</string>
 		<key>apiVersion</key>
 		<string>v2</string>
 		<key>apiPath</key>
