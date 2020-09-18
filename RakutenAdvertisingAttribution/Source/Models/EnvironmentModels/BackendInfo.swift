@@ -17,12 +17,15 @@ public struct BackendInfo: Codable {
     public let apiVersion: String
     /// API path (leave empty in case not relevant)
     public let apiPath: String
+    /// Fingerprint collector URL
+    public let fingerprintCollectorURL: String
 
 // sourcery:inline:auto:BackendInfo.AutoInit
-    public init(baseURL: String, apiVersion: String, apiPath: String) { // swiftlint:disable:this line_length
+    public init(baseURL: String, apiVersion: String, apiPath: String, fingerprintCollectorURL: String) { // swiftlint:disable:this line_length
         self.baseURL = baseURL
         self.apiVersion = apiVersion
         self.apiPath = apiPath
+        self.fingerprintCollectorURL = fingerprintCollectorURL
     }
 // sourcery:end
 }
@@ -34,10 +37,29 @@ extension BackendInfo {
     - Parameter baseURL: server base URL
     - Returns: new instanse of `BackendInfo` struct
     */
-    public init(baseURL: String) {
+    public init(baseURL: String, fingerprintCollectorURL: String) {
         self.baseURL = baseURL
         self.apiVersion = ""
         self.apiPath = ""
+        self.fingerprintCollectorURL = fingerprintCollectorURL
+    }
+}
+
+public extension BackendInfo {
+
+    /// default backend configuration
+    static var defaultConfiguration: BackendInfo {
+
+        return EnvironmentManager.shared.currentEnvironment.backendInfo
+    }
+
+    /// stage backend configuration
+    static var stageConfiguration: BackendInfo {
+
+        return BackendInfo(baseURL: "https://attribution-sdk-endpoint-z7j3tzzl4q-uc.a.run.app",
+                           apiVersion: "v2",
+                           apiPath: "",
+                           fingerprintCollectorURL: "https://click-attribution-sdk-staging.web.app/fingerprint")
     }
 }
 

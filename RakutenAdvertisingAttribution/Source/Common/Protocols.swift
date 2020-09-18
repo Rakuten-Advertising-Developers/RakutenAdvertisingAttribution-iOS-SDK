@@ -129,6 +129,8 @@ A type that provides network base URL info
 public protocol BackendURLProvider {
     /// server base URL
     var backendURL: URL { get }
+    /// fingerprint collector URL
+    var fingerprintCollectorURL: String { get }
 }
 
 /**

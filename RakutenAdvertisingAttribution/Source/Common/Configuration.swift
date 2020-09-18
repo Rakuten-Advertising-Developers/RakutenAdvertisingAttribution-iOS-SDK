@@ -89,7 +89,7 @@ struct EmptyConfiguration: AttributionConfiguration {
         launchOptions = nil
         key = .string(value: "")
         isManualAppLaunch = false
-        backendURLProvider = BackendInfo(baseURL: "")
+        backendURLProvider = BackendInfo(baseURL: "", fingerprintCollectorURL: "")
     }
 
     func validate() -> Bool {

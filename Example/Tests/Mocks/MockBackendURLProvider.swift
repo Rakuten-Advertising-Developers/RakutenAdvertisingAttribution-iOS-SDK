@@ -11,6 +11,7 @@ import Foundation
 @testable import RakutenAdvertisingAttribution
 
 struct MockBackendURLProvider: BackendURLProvider {
-    
+
     let backendURL: URL = "http://example.com/mockapipath/v2"
+    let fingerprintCollectorURL = ""
 }

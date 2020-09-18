@@ -21,6 +21,8 @@
 		<string>v2</string>
 		<key>apiPath</key>
 		<string></string>
+		<key>fingerprintCollectorURL</key>
+		<string>https://click.rakutenadvertising.io/fingerprint/</string>
 	</dict>
 </dict>
 </plist>
