@@ -5,21 +5,37 @@ source 'https://github.com/Rakuten-Advertising-Developers/Specs.git'
 
 use_frameworks!
 
-target 'RakutenAdvertisingAttribution_Example' do
-  
+DEPLOYMENT_TARGET = '11.0'
+
+def required_pods
   pod 'RakutenAdvertisingAttribution', :path => '../'
+end
+
+target 'RakutenAdvertisingAttribution_Example' do
+  required_pods
   pod 'Sourcery'
-  
 end
 
 target 'RakutenAdvertisingAttribution_Tests' do
-
-  pod 'RakutenAdvertisingAttribution', :path => '../'
-
+  required_pods
 end
 
 target 'IntegrationTests' do
+  required_pods
+end
 
-  pod 'RakutenAdvertisingAttribution', :path => '../'
+post_install do |installer|
 
+  podsToSwkipWarnings = ['BlueRSA', 'BlueCryptor', 'KituraContracts'] # 'SwiftJWT' dependencies
+
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = DEPLOYMENT_TARGET
+            targetString = "#{target}"
+            if podsToSwkipWarnings.include? targetString
+              puts "<<<<<<<<<<< Skip warnings in #{target} target"
+              config.build_settings['SWIFT_SUPPRESS_WARNINGS'] = "YES"
+            end
+        end
+    end
 end
