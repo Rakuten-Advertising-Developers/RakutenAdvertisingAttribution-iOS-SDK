@@ -56,7 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
             let key = PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().rakutenAdvertisingAttributionKey))
             configuration = Configuration(key: key,
-                                          launchOptions: launchOptions)
+                                          launchOptions: launchOptions,
+                                          backendURLProvider: BackendInfo.stageConfiguration)
         }
 
         RakutenAdvertisingAttribution.setup(with: configuration)

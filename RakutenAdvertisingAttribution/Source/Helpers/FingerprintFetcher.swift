@@ -13,8 +13,8 @@ class FingerprintFetcher: NSObject {
     static let shared = FingerprintFetcher()
 
     var timeout: DispatchTimeInterval = .seconds(10)
+    var urlString = EnvironmentManager.shared.currentBackendURLProvider.fingerprintCollectorURL
 
-    private let url: URL = "https://click.rakutenadvertising.io/fingerprint"
     private let jsPostMessageName = "finger"
     private var webView: WKWebView?
     private var innerCompletion: FingerprintCompletion?
@@ -35,6 +35,10 @@ class FingerprintFetcher: NSObject {
     }
 
     private func executeRequest() {
+
+        guard let url = URL(string: urlString) else {
+            return
+        }
 
         var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringCacheData

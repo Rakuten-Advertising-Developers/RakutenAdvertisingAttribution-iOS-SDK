@@ -37,12 +37,3 @@ extension EnvironmentManager: BackendURLProviderReceiver {
         currentBackendURLProvider = provider
     }
 }
-
-public extension BackendInfo {
-
-    /// default backend configuration
-    static var defaultConfiguration: BackendInfo {
-
-        return EnvironmentManager.shared.currentEnvironment.backendInfo
-    }
-}

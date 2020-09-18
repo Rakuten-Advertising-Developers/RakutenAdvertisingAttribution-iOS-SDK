@@ -16,15 +16,21 @@ class RequestTests: XCTestCase {
     lazy var resolveExp = { return expectation(description: "Resolve exp") }()
     lazy var eventExp = { return expectation(description: "Event exp") }()
 
-    override func setUp() {
+    override class func setUp() {
         super.setUp()
 
         let obfuscator = Obfuscator(with: "com.rakutenadvertising.RADAttribution-Example")
         let key = PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().rakutenAdvertisingAttributionKey))
         let configuration = Configuration(key: key,
-                                          launchOptions: nil)
-
+                                          launchOptions: nil,
+                                          backendURLProvider: BackendInfo.stageConfiguration)
         RakutenAdvertisingAttribution.setup(with: configuration)
+        RakutenAdvertisingAttribution.shared.logger.enabled = true
+    }
+
+    override func setUp() {
+        super.setUp()
+
         RakutenAdvertisingAttribution.shared.linkResolver.delegate = self
         RakutenAdvertisingAttribution.shared.eventSender.delegate = self
     }
@@ -36,7 +42,7 @@ class RequestTests: XCTestCase {
         wait(for: [resolveExp], timeout: defaultTimeout)
     }
 
-    func testSendEvent() {
+    func DISABLED_testSendEvent() {
 
         let event = Event(name: "VIEW_ITEM", customData: ["test": "test"])
         RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
