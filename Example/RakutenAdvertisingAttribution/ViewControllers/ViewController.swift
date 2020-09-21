@@ -34,42 +34,39 @@ class ViewController: UIViewController {
         let linkAction = TableAction.resolve(link: "https://rakutenadvertising.app.link/vpgd5mKFV5?%243p=a_custom_781200801305432596&id=lMh2Xiq9xN0&offerid=725768.2&type=3&subid=0&mid=44066&u1=aaron")
         tableHandler.actions.append(linkAction)
 
-        let simpleEvent = TableAction.send(event: Event(name: "VIEW_ITEM"))
+        let simpleEvent = TableAction.send(event: purchaseEvent())
         tableHandler.actions.append(simpleEvent)
-
-        let event = TableAction.send(event: randomEvent())
-        tableHandler.actions.append(event)
     }
 
-    func randomEvent() -> Event {
+    func purchaseEvent() -> Event {
+
+        let revenue: Decimal = 10
+        let description: String = "Description"
 
         let eventData = EventData(transactionId: UUID().uuidString,
-                                         currency: "USD",
-                                         revenue: 10,
-                                         shipping: Double.random(in: 10.0 ..< 20.0),
-                                         tax: Double.random(in: 5.0 ..< 15.0),
-                                         coupon: "coupon_text",
-                                         affiliation: "affiliation",
-                                         description: "description",
-                                         searchQuery: "search_query")
+                                  currency: "USD",
+                                  revenue: Double(truncating: revenue as NSNumber),
+                                  shipping: Double.random(in: 10.0 ..< 20.0).percentStyle,
+                                  tax: Double.random(in: 5.0 ..< 15.0).percentStyle,
+                                  coupon: "coupon_text",
+                                  affiliation: "affiliation",
+                                  description: description,
+                                  searchQuery: description)
 
-        let customData: EventCustomData = ["purchase_loc": "Palo Alto",
-                                           "store_pickup": "unavailable"]
+        let customData: EventCustomData = ["Key3": "Value3",
+                                           "Key4": "Value4"]
 
-        let content1: EventContentItem = [.price: 100,
-                                          .quantity: 1,
-                                          .sku: "SomeSKU",
-                                          .productName: "Product name 1"]
+        let contentItems: [EventContentItem] = [
+            [.price: 8,
+             .quantity: 2,
+             .sku: UUID().uuidString,
+             .productName: "Test Name"]
+        ]
 
-        let content2: EventContentItem = [.price: 200,
-                                          .quantity: 2,
-                                          .sku: "Some another SKU",
-                                          .productName: "Product name 2"]
-
-        let event = Event(name: "ADD_TO_CART",
-                          eventData: eventData, //Bool.random() ? eventData : nil,
-                          customData: customData, //Bool.random() ? customData : nil,
-                          contentItems: [content1, content2]) //Bool.random() ? contentItems : nil)
+        let event = Event(name: "PURCHASE",
+                          eventData: eventData,
+                          customData: customData,
+                          contentItems: contentItems)
         return event
     }
 }
@@ -84,5 +81,20 @@ extension ViewController: TableHandlerDelegate {
         case .send(let event):
             RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
         }
+    }
+}
+
+fileprivate extension Double {
+
+    var percentStyle: Double {
+
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+
+        guard let stringValue = formatter.string(from: self as NSNumber),
+            let value = Double(stringValue) else {
+                return 0
+        }
+        return value
     }
 }
