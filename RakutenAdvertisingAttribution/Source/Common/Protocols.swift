@@ -76,15 +76,13 @@ public protocol LinkResolvable: class {
      Resolve specific url
      - Parameter url: URL instance to resolve
      */
-    func resolveLink(url: URL)
+    func resolve(url: URL)
 
     /**
-     Checks if `userActivity` parameter contain all needed data for link resolving and in success case tried to resolve link
+     Resolve user activity
      - Parameter userActivity: Instance of NSUserActivity class with specific user state
-     - Returns: Bool value `true` in case userActivity parameter contains needed data for link resolving, otherwise `false`.
      */
-    @discardableResult
-    func resolve(userActivity: NSUserActivity) -> Bool
+    func resolve(userActivity: NSUserActivity)
 }
 
 /**

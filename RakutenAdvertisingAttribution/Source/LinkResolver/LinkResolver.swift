@@ -63,11 +63,18 @@ class LinkResolver {
             }
         }
     }
+
+    func sendNoUserActivityLinkError(targetQueue: DispatchQueue = DispatchQueue.global()) {
+
+        targetQueue.async { [weak self] in
+            self?.delegate?.didFailedResolve(link: "", with: AttributionError.noLinkInUserActivity)
+        }
+    }
 }
 
 extension LinkResolver: LinkResolvable {
 
-    func resolveLink(url: URL) {
+    func resolve(url: URL) {
 
         let linkId = linkIdentifier(from: url)
         let link = url.absoluteString
@@ -77,14 +84,15 @@ extension LinkResolver: LinkResolvable {
         }
     }
 
-    @discardableResult
-    func resolve(userActivity: NSUserActivity) -> Bool {
+    func resolve(userActivity: NSUserActivity) {
 
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-            let incomingURL = userActivity.webpageURL else { return false }
+            let incomingURL = userActivity.webpageURL else {
 
-        resolveLink(url: incomingURL)
-        return true
+            sendNoUserActivityLinkError()
+            return
+        }
+        resolve(url: incomingURL)
     }
 }
 
