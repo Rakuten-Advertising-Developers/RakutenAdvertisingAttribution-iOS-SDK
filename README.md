@@ -133,7 +133,7 @@ RakutenAdvertisingAttribution SDK provides an ability to handle events like SEAR
 Use `RakutenAdvertisingAttribution.shared.eventSender` to send your events.
 
 ```swift
-let event = Event(name: "ADD_TO_CART")
+let event = Event(name: "PURCHASE")
 RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
 ```
 
@@ -201,14 +201,14 @@ For debugging purpose you can enable network logs. `RakutenAdvertisingAttributio
 ```swift
 RakutenAdvertisingAttribution.shared.logger.enabled = true
 ```
-Example of console log
+Console log example output
 ```
 RakutenAdvertisingAttribution.Logger 
 ----->
 POST https://attribution-sdk-endpoint-z7j3tzzl4q-uc.a.run.app/v2/resolve-link-rak
 HEADERS: {
   "Content-Type" : "application\/json",
-  "Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJraWQiOiJjb20ucmFrdXRlbmFkdmVydGlzaW5nLlJBREF0dHJpYnV0aW9uLUV4YW1wbGUiLCJpYXQiOjE2MDA5NDI5NjAuMjg3MTI2MSwiaXNzIjoiYXR0cmlidXRpb24tc2RrIiwiZXhwIjoxNjAxMDI5MzYwLjI4NzEyNywic3ViIjoiYXR0cmlidXRpb24tc2RrIiwiYXVkIjoiMSJ9.uqQU_yjVO9q0Fh0wmtl4Mqf3iBnYapkAUAUUI5XXxrlxKcVhHy7ukBWmEJFMnykj5QYrydZP8-4pvitgkovTDLptob1q4JIwq2Q7Uge0WVvjlXewTpQ8T4gFUTgLch9c2nvoMn1pWB2zNHpmkxeESxWnQHFK_KXZ-k77CUffQZrJEjSkdxO6U7BcrfCHA1c81Aaz1CJs15S4BVQhzbW74Ec4RT5UqyH43S25iOpAMBvqGIKX5fc1czJcKKGQ9UtGkZDIhTZ8oCTa7JAVrTTkOafZShFS1-8DaBU5PRC14vbImPf9RaAHHggViaAbdXPG35BPpvu3hfs1zRQARsO8LWACcqrAf3DDxtLHw7isizRJjCMct2Gc3NM1hBmIkj3sG7t-BqYOewC6L4ly1fspQsES3qeGUnNGh2Lua_jny-W_NDXsUudeB7QwSTqiljtgLYxLv1xN-bXYDYsWHPNBQr8hQWfq4pTXxIEtZQWscqUPZLSw9bF0ikGQJ0jH0Yof2CFalNbz1CaQvK8N-ja9PCV0JDFY4y7unRRUpR-oFbGU5A5mkzGYqbtXavpvyYqRn82rH1Dx0bBQ2wckzi8OmuFm3Y8I47Ic49_lMRZC018q6gRE3SZh7g6LIotnv7K72W3aSmWzQyJ5X4SW5384L98T8nj7PuE8jmelTr9gEuY"
+  "Authorization" : "Bearer eyJ0eX <...> EuY"
 }
 BODY: {
   "device_data" : {
