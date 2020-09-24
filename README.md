@@ -52,14 +52,17 @@ This command will create the following two files.
 In your AppDelegate `application:didFinishLaunchingWithOptions:` initialize `Configuration` struct
 
 ```swift
-let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>), launchOptions: launchOptions)
+let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>), 
+                                  launchOptions: launchOptions)
 ```
 
-> Optionally you can provide another server information, for example for testing environment
+> Optionally you can provide another server information, for example for stage environment
 
 ```swift
-let backendInfo = BackendInfo(baseURL: "https://test.attribution.sdk.io", apiVersion: "v2", apiPath: "api")
-let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>), launchOptions: launchOptions, backendURLProvider: backendInfo)
+let backendInfo = BackendInfo.stageConfiguration
+let configuration = Configuration(key: PrivateKey.data(value: <Your Private Key>), 
+                                  launchOptions: launchOptions, 
+                                  backendURLProvider: backendInfo)
 ```
 
 Then pass it to SDK
@@ -75,20 +78,17 @@ Simply call the `RakutenAdvertisingAttribution.shared.linkResolver` function whe
 
 In your AppDelegate use:
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    
-    RakutenAdvertisingAttribution.shared.linkResolver.resolveLink(url: url)
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+
+    RakutenAdvertisingAttribution.shared.linkResolver.resolve(url: url)
     return true
 }
 
-func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-       
-    let resolved = RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
-    if resolved {
-        print("link available to resolve")
-    } else {
-        print("link unavailable to resolve")
-    }
+func application(_ application: UIApplication,
+                continue userActivity: NSUserActivity,
+                restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+
+    RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
     return true
 }
 ```
@@ -201,6 +201,51 @@ For debugging purpose you can enable network logs. `RakutenAdvertisingAttributio
 ```swift
 RakutenAdvertisingAttribution.shared.logger.enabled = true
 ```
+Example of console log
+```
+RakutenAdvertisingAttribution.Logger 
+----->
+POST https://attribution-sdk-endpoint-z7j3tzzl4q-uc.a.run.app/v2/resolve-link-rak
+HEADERS: {
+  "Content-Type" : "application\/json",
+  "Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJraWQiOiJjb20ucmFrdXRlbmFkdmVydGlzaW5nLlJBREF0dHJpYnV0aW9uLUV4YW1wbGUiLCJpYXQiOjE2MDA5NDI5NjAuMjg3MTI2MSwiaXNzIjoiYXR0cmlidXRpb24tc2RrIiwiZXhwIjoxNjAxMDI5MzYwLjI4NzEyNywic3ViIjoiYXR0cmlidXRpb24tc2RrIiwiYXVkIjoiMSJ9.uqQU_yjVO9q0Fh0wmtl4Mqf3iBnYapkAUAUUI5XXxrlxKcVhHy7ukBWmEJFMnykj5QYrydZP8-4pvitgkovTDLptob1q4JIwq2Q7Uge0WVvjlXewTpQ8T4gFUTgLch9c2nvoMn1pWB2zNHpmkxeESxWnQHFK_KXZ-k77CUffQZrJEjSkdxO6U7BcrfCHA1c81Aaz1CJs15S4BVQhzbW74Ec4RT5UqyH43S25iOpAMBvqGIKX5fc1czJcKKGQ9UtGkZDIhTZ8oCTa7JAVrTTkOafZShFS1-8DaBU5PRC14vbImPf9RaAHHggViaAbdXPG35BPpvu3hfs1zRQARsO8LWACcqrAf3DDxtLHw7isizRJjCMct2Gc3NM1hBmIkj3sG7t-BqYOewC6L4ly1fspQsES3qeGUnNGh2Lua_jny-W_NDXsUudeB7QwSTqiljtgLYxLv1xN-bXYDYsWHPNBQr8hQWfq4pTXxIEtZQWscqUPZLSw9bF0ikGQJ0jH0Yof2CFalNbz1CaQvK8N-ja9PCV0JDFY4y7unRRUpR-oFbGU5A5mkzGYqbtXavpvyYqRn82rH1Dx0bBQ2wckzi8OmuFm3Y8I47Ic49_lMRZC018q6gRE3SZh7g6LIotnv7K72W3aSmWzQyJ5X4SW5384L98T8nj7PuE8jmelTr9gEuY"
+}
+BODY: {
+  "device_data" : {
+    "is_simulator" : true,
+    "os" : "iOS",
+    "device_id" : "DA128118-C52B-4EAA-9F65-4C6A6F686F66",
+    "screen_width" : 414,
+    "model" : "iPhone",
+    "os_version" : "14.0",
+    "screen_height" : 896,
+    "ios_vendor_id" : "DA128118-C52B-4EAA-9F65-4C6A6F686F66",
+    "fingerprint" : "{\"userAgent\":\"Mozilla\/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Mobile\/15E148\",\"webdriver\":false,\"language\":\"en-us\",\"colorDepth\":32,\"deviceMemory\":\"not available\",\"pixelRatio\":2,\"hardwareConcurrency\":\"not available\",\"screenResolution\":[896,414],\"availableScreenResolution\":[896,414],\"timezoneOffset\":-180,\"timezone\":\"Europe\/Kiev\",\"sessionStorage\":true,\"localStorage\":true,\"indexedDb\":true,\"addBehavior\":false,\"openDatabase\":false,\"cpuClass\":\"not available\",\"platform\":\"iPhone\",\"doNotTrack\":\"not available\",\"webglVendorAndRenderer\":\"Apple Inc.~Apple GPU\",\"adBlock\":false,\"hasLiedLanguages\":false,\"hasLiedResolution\":false,\"hasLiedOs\":false,\"hasLiedBrowser\":false,\"touchSupport\":[5,true,true],\"fontsFlash\":\"swf object not loaded\",\"audio\":\"35.10892752557993\",\"ip\":\"192.168.1.2\"}",
+    "hardware_id_type" : "vendor_id"
+  },
+  "universal_link_url" : "",
+  "first_session" : false,
+  "user_data" : {
+    "sdk_version" : "1.0.0",
+    "bundle_identifier" : "com.rakutenadvertising.RADAttribution-Example",
+    "app_version" : "1.0.0"
+  }
+}
+----->
+
+RakutenAdvertisingAttribution.Logger 
+<-----
+POST https://attribution-sdk-endpoint-z7j3tzzl4q-uc.a.run.app/v2/resolve-link-rak
+CODE: 200
+RESPONSE: {
+  "session_id" : "5f6c7374421aa900012733c4",
+  "link" : "",
+  "click_timestamp" : 0,
+  "device_fingerprint_id" : "5f6c7374421aa9000127343f"
+}
+<-----
+```
+
 ## Demo app
 We provide a sample app that demonstrate the use of the Rakuten Advertising attribution SDK. You can find the open source application at this Git Repsitory
 * [RAd Advertiser Demo](https://github.com/Rakuten-Advertising-Developers/radadvertiser-demo-ios/)
