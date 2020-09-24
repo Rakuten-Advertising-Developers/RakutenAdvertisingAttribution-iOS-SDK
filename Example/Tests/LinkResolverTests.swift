@@ -21,6 +21,8 @@ class LinkResolverTests: XCTestCase {
 
     private var loadedExp: XCTestExpectation?
     private var failExp: XCTestExpectation?
+
+    private var lastError: Error?
     
     override func setUp() {
         
@@ -69,7 +71,7 @@ class LinkResolverTests: XCTestCase {
         loadedExp = expectation(description: "Resolve success exp")
 
         sut.session = MockURLSession(dataType: .resolveLink(response: .mock))
-        sut.resolveLink(url: testWebURL)
+        sut.resolve(url: testWebURL)
 
         wait(for: [loadedExp!], timeout: shortTimeoutInterval)
     }
@@ -79,9 +81,18 @@ class LinkResolverTests: XCTestCase {
         failExp = expectation(description: "Resolve fail exp")
 
         sut.session = MockURLSession(dataType: .error)
-        sut.resolveLink(url: testWebURL)
+        sut.resolve(url: testWebURL)
 
         wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+
+        switch (lastError as! AttributionError) {
+        case .unableFetchData:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
     }
 
     func testEmptyLinkResolveRequestSuccess() {
@@ -102,6 +113,67 @@ class LinkResolverTests: XCTestCase {
         sut.resolveEmptyLink()
 
         wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+        switch (lastError as! AttributionError) {
+        case .unableFetchData:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
+    }
+
+    func testUserActivityWithWebpageURL() {
+
+        let userActivity = NSUserActivity(activityType: NSUserActivityTypeBrowsingWeb)
+        userActivity.webpageURL = testWebURL
+
+        loadedExp = expectation(description: "Resolve success exp")
+
+        sut.session = MockURLSession(dataType: .resolveLink(response: .mock))
+        sut.resolve(userActivity: userActivity)
+
+        wait(for: [loadedExp!], timeout: shortTimeoutInterval)
+    }
+
+    func testUserActivityWithoutWebpageURL() {
+
+        let userActivity = NSUserActivity(activityType: NSUserActivityTypeBrowsingWeb)
+
+        failExp = expectation(description: "Resolve fail exp")
+
+        sut.resolve(userActivity: userActivity)
+
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+
+        switch (lastError as! AttributionError) {
+        case .noLinkInUserActivity:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
+    }
+
+    func testUserActivityNonBrowsingWebType() {
+
+        let userActivity = NSUserActivity(activityType: "test")
+
+        failExp = expectation(description: "Resolve fail exp")
+
+        sut.resolve(userActivity: userActivity)
+
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+
+        switch (lastError as! AttributionError) {
+        case .noLinkInUserActivity:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
     }
 }
 
@@ -110,7 +182,7 @@ extension LinkResolverTests: LinkResolvableDelegate {
     func didResolveLink(response: ResolveLinkResponse) {
 
         guard response.link == ResolveLinkResponse.mock.link else {
-            XCTFail()
+            XCTFail("Wrong link received")
             return
         }
         loadedExp?.fulfill()
@@ -118,6 +190,7 @@ extension LinkResolverTests: LinkResolvableDelegate {
 
     func didFailedResolve(link: String, with error: Error) {
 
+        lastError = error
         failExp?.fulfill()
     }
 }
