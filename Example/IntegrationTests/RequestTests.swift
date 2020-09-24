@@ -38,7 +38,7 @@ class RequestTests: XCTestCase {
     func testResolveLink() {
 
         let testLink = URL(string: "http://click.linksynergy.com/fs-bin/click?id=lMh2Xiq9xN0&offerid=529995.10000015&type=3&subid=0")!
-        RakutenAdvertisingAttribution.shared.linkResolver.resolveLink(url: testLink)
+        RakutenAdvertisingAttribution.shared.linkResolver.resolve(url: testLink)
         wait(for: [resolveExp], timeout: defaultTimeout)
     }
 

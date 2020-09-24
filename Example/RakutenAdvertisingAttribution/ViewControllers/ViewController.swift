@@ -77,7 +77,7 @@ extension ViewController: TableHandlerDelegate {
 
         switch tableAction {
         case .resolve(let link):
-            RakutenAdvertisingAttribution.shared.linkResolver.resolveLink(url: link)
+            RakutenAdvertisingAttribution.shared.linkResolver.resolve(url: link)
         case .send(let event):
             RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
         }

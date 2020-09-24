@@ -28,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
 
-        // RakutenAdvertisingAttribution://resolve?link_click_id=1234
-        RakutenAdvertisingAttribution.shared.linkResolver.resolveLink(url: url)
+        RakutenAdvertisingAttribution.shared.linkResolver.resolve(url: url)
         return true
     }
 
@@ -37,12 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
 
-        let resolved = RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
-        if resolved {
-            print("link available to resolve")
-        } else {
-            print("link unavailable to resolve")
-        }
+        RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
         return true
     }
 

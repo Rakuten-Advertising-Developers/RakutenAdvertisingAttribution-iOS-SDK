@@ -17,6 +17,8 @@ public enum AttributionError: Error {
     case unableFetchData
     /// receiving some unexpected result from the server
     case backend(description: String)
+    /// absence link in user activity object
+    case noLinkInUserActivity
 }
 
 extension AttributionError: LocalizedError {
@@ -29,6 +31,8 @@ extension AttributionError: LocalizedError {
             return "Unable fetch data"
         case .backend(let description):
             return description
+        case .noLinkInUserActivity:
+            return "No Link In User Activity"
         }
     }
 }
