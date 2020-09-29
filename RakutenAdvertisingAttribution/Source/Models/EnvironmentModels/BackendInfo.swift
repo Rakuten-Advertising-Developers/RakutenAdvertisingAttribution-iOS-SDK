@@ -56,10 +56,10 @@ public extension BackendInfo {
     /// stage backend configuration
     static var stageConfiguration: BackendInfo {
 
-        return BackendInfo(baseURL: "https://attribution-sdk-endpoint-z7j3tzzl4q-uc.a.run.app",
+        return BackendInfo(baseURL: "https://api.staging.rakutenadvertising.io",
                            apiVersion: "v2",
                            apiPath: "",
-                           fingerprintCollectorURL: "https://click-attribution-sdk-staging.web.app/fingerprint")
+                           fingerprintCollectorURL: "https://click.staging.rakutenadvertising.io/fingerprint")
     }
 }
 
