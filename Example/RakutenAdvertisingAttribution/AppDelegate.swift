@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !ProcessInfo.processInfo.isUnitTesting {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge],
                                                                     completionHandler: { _, _ in })
-
         }
         setupRakutenAdvertisingAttribution(with: launchOptions)
         return true
@@ -47,9 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.isUnitTesting {
             configuration = MockAttributionConfiguration()
         } else {
-            let saltValue = "Demo salt string"
-            let obfuscator = Obfuscator(with: saltValue)
-            let key = PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().rakutenAdvertisingAttributionKey))
+            let secretConstants = SecretConstants()
+            let obfuscator = Obfuscator(with: secretConstants.salt)
+            let key = PrivateKey.data(value: obfuscator.revealData(from: secretConstants.demoAttributionKey))
             configuration = Configuration(key: key,
                                           launchOptions: launchOptions,
                                           backendURLProvider: BackendInfo.stageConfiguration)

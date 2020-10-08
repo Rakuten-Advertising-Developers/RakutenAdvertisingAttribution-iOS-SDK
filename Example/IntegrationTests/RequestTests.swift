@@ -19,8 +19,10 @@ class RequestTests: XCTestCase {
     override class func setUp() {
         super.setUp()
 
-        let obfuscator = Obfuscator(with: "com.rakutenadvertising.RADAttribution-Example")
-        let key = PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().rakutenAdvertisingAttributionKey))
+        let secretConstants = SecretConstants()
+        let obfuscator = Obfuscator(with: secretConstants.salt)
+        let key = PrivateKey.data(value: obfuscator.revealData(from: secretConstants.serviceAttributionKey))
+
         let configuration = Configuration(key: key,
                                           launchOptions: nil,
                                           backendURLProvider: BackendInfo.stageConfiguration)
