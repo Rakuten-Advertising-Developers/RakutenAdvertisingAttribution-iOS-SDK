@@ -15,26 +15,31 @@ class FingerprintFetcher: NSObject {
     var timeout: DispatchTimeInterval = .seconds(10)
     var urlString = EnvironmentManager.shared.currentBackendURLProvider.fingerprintCollectorURL
 
-    private let jsPostMessageName = "finger"
-    private var webView: WKWebView?
-    private var innerCompletion: FingerprintCompletion?
-    private var fingerprintValue: String?
-    private var timeoutWorkItem: DispatchWorkItem?
+    let jsPostMessageName = "finger"
+    var webView: WKWebView?
+    private(set) var innerCompletion: FingerprintCompletion?
+    private(set) var fingerprintValue: String?
+    private(set) var timeoutWorkItem: DispatchWorkItem?
 
-    private var queue = DispatchQueue.main
+    private(set) var queue = DispatchQueue.main
 
-    private override init() {
+    override init() {
         super.init()
     }
 
-    private func configureWebView() {
+    var webViewConfiguration: WKWebViewConfiguration {
 
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.add(self, name: jsPostMessageName)
-        webView = WKWebView(frame: .zero, configuration: configuration)
+        return configuration
     }
 
-    private func executeRequest() {
+    func configureWebView() {
+
+        webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
+    }
+
+    func executeRequest() {
 
         guard let url = URL(string: urlString) else {
             return
@@ -46,7 +51,7 @@ class FingerprintFetcher: NSObject {
         scheduleTimeout()
     }
 
-    private func scheduleTimeout() {
+    func scheduleTimeout() {
 
         let item = DispatchWorkItem(block: { [weak self] in
             self?.apply(fingerprint: nil)
@@ -56,7 +61,7 @@ class FingerprintFetcher: NSObject {
         queue.asyncAfter(deadline: .now() + timeout, execute: item)
     }
 
-    private func apply(fingerprint: String?) {
+    func apply(fingerprint: String?) {
 
         fingerprintValue = fingerprint
         innerCompletion?(fingerprintValue)

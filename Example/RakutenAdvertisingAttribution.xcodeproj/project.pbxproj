@@ -55,6 +55,8 @@
 
 /* Begin PBXBuildFile section */
 		5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5710C36E2460334900E52548 /* EnvironmentTests.swift */; };
+		571547672525FE79001E705A /* FingerprintFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571547662525FE79001E705A /* FingerprintFetcherTests.swift */; };
+		5715477025260398001E705A /* MockWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5715476F25260398001E705A /* MockWebView.swift */; };
 		574C11B0243F2BCB00DC0E24 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11AC243F294400DC0E24 /* MockURLSession.swift */; };
 		574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */; };
 		574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */; };
@@ -134,6 +136,8 @@
 		25FD706BCCB125EC245304E6 /* RakutenAdvertisingAttribution.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RakutenAdvertisingAttribution.podspec; path = ../RakutenAdvertisingAttribution.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4BEDBAA81985631423CAF6F4 /* Pods_RakutenAdvertisingAttribution_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RakutenAdvertisingAttribution_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5710C36E2460334900E52548 /* EnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTests.swift; sourceTree = "<group>"; };
+		571547662525FE79001E705A /* FingerprintFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintFetcherTests.swift; sourceTree = "<group>"; };
+		5715476F25260398001E705A /* MockWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebView.swift; sourceTree = "<group>"; };
 		574C11AC243F294400DC0E24 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		574C11AE243F298F00DC0E24 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		574C11B2243F2CD600DC0E24 /* RemoteDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataProviderTests.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */,
 				57E2472024C84A5700BE4447 /* MockBundle.swift */,
 				578BA60D24C9A6E000BE6945 /* MockAccessToken.swift */,
+				5715476F25260398001E705A /* MockWebView.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 				57E2472224C84D2E00BE4447 /* DeviceDataBuilderTests.swift */,
 				578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */,
 				57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */,
+				571547662525FE79001E705A /* FingerprintFetcherTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -807,6 +813,7 @@
 				57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */,
 				57F14B3C24C705F5008B7068 /* EventSenderTests.swift in Sources */,
 				57B183AB24CB13FD00249DE7 /* FingerprintFetchableTests.swift in Sources */,
+				5715477025260398001E705A /* MockWebView.swift in Sources */,
 				5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */,
 				578BA61024C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift in Sources */,
 				57E2472324C84D2E00BE4447 /* DeviceDataBuilderTests.swift in Sources */,
@@ -819,6 +826,7 @@
 				5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				578BA60E24C9A6E000BE6945 /* MockAccessToken.swift in Sources */,
 				57F14B3E24C70607008B7068 /* TestConstants.swift in Sources */,
+				571547672525FE79001E705A /* FingerprintFetcherTests.swift in Sources */,
 				574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */,
 				574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */,
 				57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */,

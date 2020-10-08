@@ -47,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.isUnitTesting {
             configuration = MockAttributionConfiguration()
         } else {
-            let obfuscator = Obfuscator(with: Bundle.main.bundleIdentifier!)
+            let saltValue = "Demo salt string"
+            let obfuscator = Obfuscator(with: saltValue)
             let key = PrivateKey.data(value: obfuscator.revealData(from: SecretConstants().rakutenAdvertisingAttributionKey))
             configuration = Configuration(key: key,
                                           launchOptions: launchOptions,

@@ -38,8 +38,8 @@ Our SDK internally uses a private key to sign a JSON Web Token(JWT). This token 
 Generate public/private key pairs with the following commands
 
 ```sh
-openssl genpkey -algorithm RSA -out rad_rsa_private.pem -pkeyopt rsa_keygen_bits:256
-openssl rsa -in rad_rsa_private.pem -pubout -out rad_rsa_public.pem
+openssl genrsa -out rad_rsa_private.pem 4096
+openssl rsa -in rad_rsa_private.pem -outform PEM -pubout -out rad_rsa_public.pem
 ```
 This command will create the following two files.
 1. rad_rsa_private.pem: Store this private key securely. We dont recommended to store the private key in app bundles or source code. Follow the below steps for obfuscating the private key.
