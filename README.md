@@ -1,5 +1,7 @@
 # RakutenAdvertisingAttribution iOS SDK
-Rakuten advertising attribution SDK allows advertisers to track app installs and in-app conversion events using any affiliate link promoted within a publisher’s mobile app or on a mobile web page.
+Our attribution SDK enables you to track app activity, including installs and purchase events, within your affiliate program.
+> **Important:** We recommend reading through the entire SDK documentation before beginning your SDK integration to make sure everything is clear. Your Implementation Specialist is happy to answer any questions you may have. Engineering support is also available to you as needed. 
+
 
 ![PR Unit Tests](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/workflows/PR%20Unit%20Tests/badge.svg)
 [![RakutenAdvertisingAttribution](https://raw.githubusercontent.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK-API-References/master/docs/badge.svg)](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/)
@@ -12,9 +14,9 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
 - Xcode 11+
 - Swift 5+
 
-## Import the RakutenAdvertisingAttribution SDK into your iOS workspace
+## Import the attribution SDK into your iOS workspace
 
-Use [CocoaPods](https://cocoapods.org) to install RakutenAdvertisingAttribution private pod. If you dont have Cocoapods installed follow this [guide](https://guides.cocoapods.org/using/getting-started) for intallations. If you have Cocopods already installed add the following lines in your Podfile:
+Use [CocoaPods](https://cocoapods.org) to install attribution SDK as a pod. If you don’t have Cocoapods installed, follow this [guide](https://guides.cocoapods.org/using/getting-started) for intallations. If you have Cocopods already installed add the following lines in your Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -33,19 +35,19 @@ pod install --repo-update
 ```
 
 #### Creating public/private key pairs
-Our SDK internally uses a private key to sign a JSON Web Token(JWT). This token is passed to our Attribution backend system to verify the SDK's identity. 
-
-Generate public/private key pairs with the following commands
+To integrate the SDK into your application, you must generate public/private key pairs using the following commands.
 
 ```sh
 openssl genrsa -out rad_rsa_private.pem 4096
 openssl rsa -in rad_rsa_private.pem -outform PEM -pubout -out rad_rsa_public.pem
 ```
-This command will create the following two files.
-1. rad_rsa_private.pem: Store this private key securely. We dont recommended to store the private key in app bundles or source code. Follow the below steps for obfuscating the private key.
-2. rad_rsa_public.pem: This file is required by Rakuten Attribution backend platform to verify the signature of the authentication JWT. (Public key handover process will be communicated separately)
+The above commands will create the following two files.
+1. **rad_rsa_private.pem:** Store this private key securely. This key is required by the SDK to report events to our attribution server in a secured manner. We recommend obfuscating the private key which is required during SDK initialization. To obfuscate the private key, follow the instructions the “Private Key Obfuscation steps” section.
+2. **rad_rsa_public.pem:** This file is required by our attribution server to verify the signature.
 
-#### Setup RakutenAdvertisingAttribution SDK initalization
+> **Note:** Email the rad_ras_public.pem public key and your app bundle id details to ra-sdk-support@mail.rakuten.com
+
+#### Setup attribution SDK initialization
 
 > Optionally you can obfuscate your key [using the following guide](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/blob/master/guides/KeyObfuscatingGuide.md)
 
@@ -72,10 +74,8 @@ RakutenAdvertisingAttribution.setup(with: configuration)
 
 #### Handling INSTALL and OPEN events along with deeplink data
 
-RakutenAdvertisingAttribution SDK provides a function to track app install and open events by itself. It also provides an ability to handle  deep link data if any associated with the affiliate link promoted within a publisher’s mobile app or on a mobile web page.
-
-Simply call the `RakutenAdvertisingAttribution.shared.linkResolver` function whenever iOS app is brought to foreground.
-
+Our attribution SDK provides a function (resolve) to capture app install events automatically.
+Simply call the `RakutenAdvertisingAttribution.shared.linkResolver.resolve` function in AppDeletgate foreground method.
 In your AppDelegate use:
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
@@ -116,6 +116,24 @@ extension ViewController: LinkResolvableDelegate {
     }
 }
 ```
+When the app launches for the first time after installation, the resolve() method flags the session as the first session and our attribution server records the event as an INSTALL.
+
+> **Important:** When `resolve()` is called, our attribution server will attempt to attribute the event to an affiliate link referral. Please follow your business requirement on when to call `resolve()`.  Any excluding logic is the individual developer’s responsibility; however, we have included the following sample code to illustrate how to call `resolve()` for specific traffic.
+```swift
+func shouldIgnoreLinkResolver(userActivity: NSUserActivity) -> Bool {
+    guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+          let incomingURL = userActivity.webpageURL,
+          let host = incomingURL.host else { return false }
+    let excludedDomains: Set<String> = ["example.com", "excluded.com"]
+    return excludedDomains.contains(host)
+}
+func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+    if !shouldIgnoreLinkResolver(userActivity: userActivity) {
+            RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
+        }
+    return true
+}
+```
 
 For improving user experience you can also provide advertising information
 
@@ -126,51 +144,33 @@ RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = ASIdentif
 
 > In this case `import AdSupport` required.
 
-#### Handing other events like SEARCH, ADD_TO_CART, PURCHASE or any app activities
+#### Handling Purchase Events
 
-RakutenAdvertisingAttribution SDK provides an ability to handle events like SEARCH, PURCHASE, ADD_TO_CART or any app activities you would like to handle on behalf of your business. 
+Our attribution SDK provides a function `RakutenAdvertisingAttribution.shared.eventSender` to capture in-app purchase events.  Upon successfully completing the order processing routine, call the `RakutenAdvertisingAttribution.shared.eventSender` function passing details about the purchase.
 
-Use `RakutenAdvertisingAttribution.shared.eventSender` to send your events.
-
+Sample purchase event reporting code:
 ```swift
-let event = Event(name: "PURCHASE")
-RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
-```
-
-Optionally you can provide additional data with an event. Check [Event struct](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/Structs/Event.html) documentation.
-
-```swift
-
-let eventData = EventData(transactionId: "0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ",
-                                         currency: "USD",
-                                         revenue: 10,
-                                         shipping: 15,
-                                         tax: 7,
-                                         coupon: "WcqiYwSzSaan",
-                                         affiliation: "affiliation",
-                                         description: "product description",
-                                         searchQuery: "search query")
-        
-let customData: EventCustomData = ["purchase_loc": "Palo Alto",
-                                   "store_pickup": "unavailable"]
-        
+// Item level details (item1)
 let content1: EventContentItem = [.price: 100,
                                   .quantity: 1,
                                   .sku: "788672541568328428",
                                   .productName: "First Product Name"]
-        
+// Item level details (item2)
 let content2: EventContentItem = [.price: 150,
                                   .quantity: 2,
                                   .sku: "788672541527138674",
                                   .productName: "Second Product Name"]
-        
+// if you have more items continue with content3, content4 and so on and include in the Event() as below
+// Order details 
+let eventData = EventData(transactionId: "12345",
+                                         currency: "USD",
+                                         revenue: 415,
+                                         shipping: 15,
+                                         tax: 7)                                
 let event = Event(name: "PURCHASE",
                   eventData: eventData,
-                  customData: customData,
                   contentItems: [content1, content2])
-
 RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
-
 ```
 
 Similarly, you can use `delegate` property of `eventSender`, to track status of sending events
@@ -196,12 +196,14 @@ extension ViewController: EventSenderableDelegate {
     }
 }
 ```
-#### Logging
-For debugging purpose you can enable network logs. `RakutenAdvertisingAttribution.shared.logger` property is responsible for this process.
+#### Debugging
+For debugging enable the logger as below:
 ```swift
 RakutenAdvertisingAttribution.shared.logger.enabled = true
 ```
-Console log example output
+Once the logging flag enabled, you will be able to see resolve() and sendEvent() request and response payloads in the debug console.
+
+Sample debug log:
 ```
 RakutenAdvertisingAttribution.Logger 
 ----->
@@ -245,6 +247,7 @@ RESPONSE: {
 }
 <-----
 ```
+> **IMPORTANT:** We recommend disabling debugging in the production build.
 
 ## Demo app
 We provide a sample app that demonstrate the use of the Rakuten Advertising attribution SDK. You can find the open source application at this Git Repsitory
