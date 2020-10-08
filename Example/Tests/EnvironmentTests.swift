@@ -26,7 +26,7 @@ class EnvironmentTests: XCTestCase {
         
         let major = 1
         let minor = 0
-        let patch = 0
+        let patch = 1
         
         XCTAssertEqual(sut, [major, minor, patch].map(String.init).joined(separator: "."))
         
