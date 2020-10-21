@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  The class that encapsulates various feature of RakutenAdvertisingAttribution SDK  like sending events and links resolving
