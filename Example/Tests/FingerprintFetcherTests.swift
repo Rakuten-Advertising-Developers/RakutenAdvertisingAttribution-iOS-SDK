@@ -40,7 +40,7 @@ class FingerprintFetcherTests: XCTestCase {
         loadExp = expectation(description: "Load exp")
 
         let webView = MockWebView()
-        webView.didLoadDelay = .milliseconds(10)
+        webView.didLoadDelay = .milliseconds(100)
         webView.didLoaded = {
             self.loadExp?.fulfill()
         }
