@@ -16,6 +16,7 @@ Our attribution SDK enables you to track app activity, including installs and pu
 
 ## Import the attribution SDK into your iOS workspace
 
+##### CocoaPods
 Use [CocoaPods](https://cocoapods.org) to install attribution SDK as a pod. If you don’t have Cocoapods installed, follow this [guide](https://guides.cocoapods.org/using/getting-started) for intallations. If you have Cocopods already installed add the following lines in your Podfile:
 
 ```ruby
@@ -32,6 +33,18 @@ end
 Run the following command from your project's Podfile location
 ```sh 
 pod install --repo-update 
+```
+
+##### Swift Package Manager
+Also you can use the Swift Package Manager as integration method. If you want to use the Swift Package Manager as integration method, either [use Xcode to add the package dependency](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) or add the following dependency to your `Package.swift`:
+
+
+```swift
+dependencies: [
+    .package(name: "RakutenAdvertisingAttribution", 
+             url: "https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK.git", 
+             .upToNextMajor(from: "1.0.0"))
+]
 ```
 
 #### Creating public/private key pairs

@@ -1,6 +1,8 @@
 // Generated using Sourcery 1.0.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
+import CoreGraphics
+
 // swiftlint:disable variable_name
 infix operator *~: MultiplicationPrecedence
 infix operator |>: AdditionPrecedence

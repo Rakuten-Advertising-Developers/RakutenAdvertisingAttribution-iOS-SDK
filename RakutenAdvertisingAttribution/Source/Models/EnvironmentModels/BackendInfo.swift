@@ -50,7 +50,10 @@ public extension BackendInfo {
     /// default backend configuration
     static var defaultConfiguration: BackendInfo {
 
-        return EnvironmentManager.shared.currentEnvironment.backendInfo
+        return BackendInfo(baseURL: "https://api.rakutenadvertising.io",
+                           apiVersion: "v2",
+                           apiPath: "",
+                           fingerprintCollectorURL: "https://click.rakutenadvertising.io/fingerprint/")
     }
 
     /// stage backend configuration

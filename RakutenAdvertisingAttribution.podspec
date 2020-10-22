@@ -25,7 +25,6 @@ Rakuten advertising attribution SDK allows advertisers to track app installs and
   s.swift_version = '5.0'
 
   s.source_files = 'RakutenAdvertisingAttribution/Source/**/*'
-  s.resources = 'RakutenAdvertisingAttribution/Assets/**/*'
 
   s.dependency 'SwiftJWT'
 end

@@ -19,6 +19,13 @@ class EnvironmentTests: XCTestCase {
         
         env = EnvironmentManager.shared.currentEnvironment
     }
+
+    func testProjectVersion() {
+
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let sut = env.sdkVersion
+        XCTAssertEqual(appVersion, sut)
+    }
     
     func testVersion() {
         

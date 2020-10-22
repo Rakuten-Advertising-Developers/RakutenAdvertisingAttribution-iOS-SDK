@@ -18,14 +18,8 @@ class EnvironmentManager {
 
     // MARK: Private
 
-    init(plistName: String = "RakutenAdvertisingAttributionSDKEnvironment-Info") {
+    init(environment: Environment = Environment.default) {
 
-        let bundle = Bundle(for: EnvironmentManager.self)
-        guard let path = bundle.path(forResource: plistName, ofType: ".plist"),
-            let plistData = FileManager.default.contents(atPath: path),
-            let environment = try? PropertyListDecoder().decode(Environment.self, from: plistData) else {
-                fatalError("\(plistName) missed or have wrong format")
-        }
         self.currentEnvironment = environment
         self.currentBackendURLProvider = environment.backendInfo
     }
