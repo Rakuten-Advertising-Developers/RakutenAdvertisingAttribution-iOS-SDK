@@ -24,10 +24,14 @@ struct DeviceData: Codable {
 
     let isSimulator: Bool
 
+    let idfv: String?
+    let idfa: String?
+    let fingerprint: String?
+
+    // Deprecated
     let deviceId: String?
     let hardwareType: HardwareType?
     let vendorID: String?
-    let fingerprint: String?
 
     enum CodingKeys: String, CodingKey {
         case os
@@ -39,21 +43,25 @@ struct DeviceData: Codable {
         case isSimulator = "is_simulator"
         case hardwareType = "hardware_id_type"
         case vendorID = "ios_vendor_id"
+        case idfv
+        case idfa
         case fingerprint = "fingerprint"
     }
 
 // sourcery:inline:auto:DeviceData.AutoInit
-    internal init(os: String, osVersion: String, model: String, screenWidth: CGFloat, screenHeight: CGFloat, isSimulator: Bool, deviceId: String?, hardwareType: HardwareType?, vendorID: String?, fingerprint: String?) { // swiftlint:disable:this line_length
+    internal init(os: String, osVersion: String, model: String, screenWidth: CGFloat, screenHeight: CGFloat, isSimulator: Bool, idfv: String?, idfa: String?, fingerprint: String?, deviceId: String?, hardwareType: HardwareType?, vendorID: String?) { // swiftlint:disable:this line_length
         self.os = os
         self.osVersion = osVersion
         self.model = model
         self.screenWidth = screenWidth
         self.screenHeight = screenHeight
         self.isSimulator = isSimulator
+        self.idfv = idfv
+        self.idfa = idfa
+        self.fingerprint = fingerprint
         self.deviceId = deviceId
         self.hardwareType = hardwareType
         self.vendorID = vendorID
-        self.fingerprint = fingerprint
     }
 // sourcery:end
 }

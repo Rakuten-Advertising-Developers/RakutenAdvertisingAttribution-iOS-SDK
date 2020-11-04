@@ -28,10 +28,12 @@ class DeviceDataBuilder {
                                     screenWidth: screenSize.width,
                                     screenHeight: screenSize.height,
                                     isSimulator: isSimulator,
+                                    idfv: identifierForVendor,
+                                    idfa: nil,
+                                    fingerprint: nil,
                                     deviceId: nil,
                                     hardwareType: nil,
-                                    vendorID: identifierForVendor,
-                                    fingerprint: nil)
+                                    vendorID: identifierForVendor)
         return deviceData
     }
 
@@ -49,6 +51,9 @@ class DeviceDataBuilder {
         let idfaValue = adSupportable.advertisingIdentifier
 
         var deviceData = baseDeviceData()
+
+        deviceData = deviceData
+            |> DeviceData.idfaLens *~ idfaValue
 
         if idfaExists {
             deviceData = deviceData
