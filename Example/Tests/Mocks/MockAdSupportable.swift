@@ -12,6 +12,16 @@ import Foundation
 
 class MockAdSupportable: AdSupportable {
     
-    var isTrackingEnabled: Bool = true
-    var advertisingIdentifier: String? = "123"
+    var isTrackingEnabled: Bool
+    var advertisingIdentifier: String?
+
+    init(isTrackingEnabled: Bool = true, advertisingIdentifier: String? = "123") {
+        self.isTrackingEnabled = isTrackingEnabled
+        self.advertisingIdentifier = advertisingIdentifier
+    }
+
+    static var empty: MockAdSupportable {
+
+        return MockAdSupportable(isTrackingEnabled: false, advertisingIdentifier: nil)
+    }
 }
