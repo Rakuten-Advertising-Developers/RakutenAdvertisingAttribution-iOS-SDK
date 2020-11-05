@@ -152,7 +152,7 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
 
 For improving user experience you can also provide advertising information. Starting from iOS 14 Apple made a couple of changes relating to receiving IDFA data. Here code sample which you can use, to retrieve this value for iOS14 and also for previous versions as well.
 
-> Also, don't forget to add to Info.plist tracking usage description information
+> Don't forget to add to Info.plist tracking usage description information
 ```xml
 <key>NSUserTrackingUsageDescription</key>
 <string>This identifier will be used to deliver personalized ads to you.</string>
