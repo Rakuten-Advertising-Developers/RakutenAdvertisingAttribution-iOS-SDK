@@ -7,6 +7,7 @@ Released on 2020-11-05.
 
 #### Added
 - Swift Package Manager as integration option [#34](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/pull/34)
+- `CHANGELOG.md` [#36](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/pull/36)
 
 #### Changed
 - IDFA value handling [#35](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/pull/35)
