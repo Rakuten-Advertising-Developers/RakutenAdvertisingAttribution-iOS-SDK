@@ -28,7 +28,6 @@ struct DeviceData: Codable {
     let idfa: String?
     let fingerprint: String?
 
-    // Deprecated
     let deviceId: String?
     let hardwareType: HardwareType?
     let vendorID: String?

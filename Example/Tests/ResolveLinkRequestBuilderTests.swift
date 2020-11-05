@@ -67,7 +67,7 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
         builder.userDataBuilder = UserDataBuilder.mock
         builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
 
-        builder.buildEmptyResolveLinkRequest() { request in
+        builder.buildEmptyResolveLinkRequest(adSupportable: MockAdSupportable.empty) { request in
 
             XCTAssertFalse(request.firstSession)
             XCTAssertTrue(request.universalLinkUrl.isEmpty)
@@ -75,8 +75,8 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
 
             self.verifyStaticFields(deviceData: request.deviceData)
 
-            XCTAssertEqual(request.deviceData.hardwareType, .vendor)
-            XCTAssertEqual(request.deviceData.deviceId, "identifierForVendor")
+            XCTAssertEqual(request.deviceData.idfv, "identifierForVendor")
+            XCTAssertNil(request.deviceData.idfa)
 
             self.verify(userData: request.userData)
 
@@ -95,7 +95,8 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
         builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
 
         builder.buildResolveRequest(url: testURL,
-                                    linkId: nil) { request in
+                                    linkId: nil,
+                                    adSupportable: MockAdSupportable.empty) { request in
 
                                         XCTAssertFalse(request.firstSession)
                                         XCTAssertEqual(request.universalLinkUrl, "http://example.com")
@@ -103,8 +104,8 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
 
                                         self.verifyStaticFields(deviceData: request.deviceData)
 
-                                        XCTAssertEqual(request.deviceData.hardwareType, .vendor)
-                                        XCTAssertEqual(request.deviceData.deviceId, "identifierForVendor")
+                                        XCTAssertEqual(request.deviceData.idfv, "identifierForVendor")
+                                        XCTAssertNil(request.deviceData.idfa)
 
                                         self.verify(userData: request.userData)
 
@@ -123,7 +124,8 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
         builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
 
         builder.buildResolveRequest(url: testURL,
-                                    linkId: "12345") { request in
+                                    linkId: "12345",
+                                    adSupportable: MockAdSupportable.empty) { request in
 
                                         XCTAssertFalse(request.firstSession)
                                         XCTAssertTrue(request.universalLinkUrl.isEmpty)
@@ -131,8 +133,37 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
 
                                         self.verifyStaticFields(deviceData: request.deviceData)
 
-                                        XCTAssertEqual(request.deviceData.hardwareType, .vendor)
-                                        XCTAssertEqual(request.deviceData.deviceId, "identifierForVendor")
+                                        XCTAssertEqual(request.deviceData.idfv, "identifierForVendor")
+                                        XCTAssertNil(request.deviceData.idfa)
+
+                                        self.verify(userData: request.userData)
+
+                                        exp.fulfill()
+        }
+        wait(for: [exp], timeout: shortTimeoutInterval)
+    }
+
+    func testLinkRequestWithAdSupportableWithLinkId() {
+
+        let exp = expectation(description: "Builder exp")
+
+        let builder = ResolveLinkRequestBuilder()
+        builder.deviceDataBuilder = DeviceDataBuilder.mock
+        builder.userDataBuilder = UserDataBuilder.mock
+        builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
+
+        builder.buildResolveRequest(url: testURL,
+                                    linkId: "12345",
+                                    adSupportable: MockAdSupportable()) { request in
+
+                                        XCTAssertFalse(request.firstSession)
+                                        XCTAssertTrue(request.universalLinkUrl.isEmpty)
+                                        XCTAssertEqual(request.linkId, "12345")
+
+                                        self.verifyStaticFields(deviceData: request.deviceData)
+
+                                        XCTAssertEqual(request.deviceData.idfv, "identifierForVendor")
+                                        XCTAssertEqual(request.deviceData.idfa, "123")
 
                                         self.verify(userData: request.userData)
 

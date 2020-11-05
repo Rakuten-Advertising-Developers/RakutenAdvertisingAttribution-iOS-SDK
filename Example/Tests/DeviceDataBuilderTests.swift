@@ -101,11 +101,10 @@ class DeviceDataBuilderTests: XCTestCase {
         let exp = expectation(description: "Device id exp")
 
         builder.identifierForVendor = "test_device_id"
-        builder.buildDeviceData { data in
+        builder.buildDeviceData(adSupportable: MockAdSupportable.empty) { data in
 
-            XCTAssertEqual(data.deviceId, "test_device_id")
-            XCTAssertEqual(data.vendorID, "test_device_id")
-            XCTAssertEqual(data.hardwareType, .vendor)
+            XCTAssertEqual(data.idfv, "test_device_id")
+            XCTAssertNil(data.idfa)
             XCTAssertEqual(data.fingerprint, "fingerprint")
 
             exp.fulfill()
@@ -122,9 +121,8 @@ class DeviceDataBuilderTests: XCTestCase {
         builder.identifierForVendor = "test_device_id"
         builder.buildDeviceData(adSupportable: adSupportable) { data in
 
-            XCTAssertEqual(data.deviceId, "123")
-            XCTAssertEqual(data.hardwareType, .idfa)
-            XCTAssertEqual(data.vendorID, "test_device_id")
+            XCTAssertEqual(data.idfv, "test_device_id")
+            XCTAssertEqual(data.idfa, "123")
             XCTAssertEqual(data.fingerprint, "fingerprint")
 
             exp.fulfill()
