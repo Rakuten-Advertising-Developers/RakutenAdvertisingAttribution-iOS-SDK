@@ -56,6 +56,7 @@
 /* Begin PBXBuildFile section */
 		5707FD89255D469C002EC958 /* JWTHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707FD88255D469C002EC958 /* JWTHandlerTests.swift */; };
 		5707FD91255D5070002EC958 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC124811ED800D7C407 /* SecretConstants.swift */; };
+		5707FDAE255D669E002EC958 /* IDFAFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707FDA5255D661A002EC958 /* IDFAFetcher.swift */; };
 		5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5710C36E2460334900E52548 /* EnvironmentTests.swift */; };
 		571547672525FE79001E705A /* FingerprintFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571547662525FE79001E705A /* FingerprintFetcherTests.swift */; };
 		5715477025260398001E705A /* MockWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5715476F25260398001E705A /* MockWebView.swift */; };
@@ -138,6 +139,7 @@
 		25FD706BCCB125EC245304E6 /* RakutenAdvertisingAttribution.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RakutenAdvertisingAttribution.podspec; path = ../RakutenAdvertisingAttribution.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4BEDBAA81985631423CAF6F4 /* Pods_RakutenAdvertisingAttribution_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RakutenAdvertisingAttribution_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5707FD88255D469C002EC958 /* JWTHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHandlerTests.swift; sourceTree = "<group>"; };
+		5707FDA5255D661A002EC958 /* IDFAFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFAFetcher.swift; sourceTree = "<group>"; };
 		5710C36E2460334900E52548 /* EnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTests.swift; sourceTree = "<group>"; };
 		571547662525FE79001E705A /* FingerprintFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintFetcherTests.swift; sourceTree = "<group>"; };
 		5715476F25260398001E705A /* MockWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebView.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				5791F301246541D300658B5A /* TableHandler.swift */,
 				5791F30424654CF500658B5A /* AttributionSDKHandler.swift */,
+				5707FDA5255D661A002EC958 /* IDFAFetcher.swift */,
 			);
 			name = Helpers;
 			path = RakutenAdvertisingAttribution/Helpers;
@@ -795,6 +798,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5707FDAE255D669E002EC958 /* IDFAFetcher.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				57E19AC224811ED800D7C407 /* SecretConstants.swift in Sources */,

@@ -59,7 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RakutenAdvertisingAttribution.shared.linkResolver.delegate = AttributionSDKHandler.shared
         RakutenAdvertisingAttribution.shared.eventSender.delegate = AttributionSDKHandler.shared
 
-        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
-        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        IDFAFetcher.startFetching {
+            RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
+            RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
+        }
     }
 }
