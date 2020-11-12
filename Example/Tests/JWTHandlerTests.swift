@@ -50,4 +50,25 @@ class JWTHandlerTests: XCTestCase {
             XCTFail()
         }
     }
+
+    func testJWTHandlerResultToken() {
+
+        let sut = JWTHandler()
+
+        let secretConstants = SecretConstants()
+        let obfuscator = Obfuscator(with: secretConstants.salt)
+        let privateKey = PrivateKey.data(value: obfuscator.revealData(from: secretConstants.serviceAttributionKey))
+
+        let mockAccessToken = MockAccessToken()
+
+        XCTAssertNil(mockAccessToken.token)
+
+        do {
+            try sut.process(key: privateKey, with: mockAccessToken)
+        } catch {
+            XCTFail()
+        }
+        XCTAssertNotNil(mockAccessToken.token)
+        XCTAssertFalse(mockAccessToken.token!.isEmpty)
+    }
 }
