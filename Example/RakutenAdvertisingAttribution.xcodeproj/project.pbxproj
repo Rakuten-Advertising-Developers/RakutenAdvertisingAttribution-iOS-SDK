@@ -54,6 +54,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		5707FD89255D469C002EC958 /* JWTHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707FD88255D469C002EC958 /* JWTHandlerTests.swift */; };
+		5707FD91255D5070002EC958 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC124811ED800D7C407 /* SecretConstants.swift */; };
 		5710C36F2460334900E52548 /* EnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5710C36E2460334900E52548 /* EnvironmentTests.swift */; };
 		571547672525FE79001E705A /* FingerprintFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571547662525FE79001E705A /* FingerprintFetcherTests.swift */; };
 		5715477025260398001E705A /* MockWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5715476F25260398001E705A /* MockWebView.swift */; };
@@ -135,6 +137,7 @@
 		09FA0D503A69CB6BCAF8674C /* Pods-RADAttribution_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RADAttribution_Tests.release.xcconfig"; path = "Target Support Files/Pods-RADAttribution_Tests/Pods-RADAttribution_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		25FD706BCCB125EC245304E6 /* RakutenAdvertisingAttribution.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RakutenAdvertisingAttribution.podspec; path = ../RakutenAdvertisingAttribution.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4BEDBAA81985631423CAF6F4 /* Pods_RakutenAdvertisingAttribution_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RakutenAdvertisingAttribution_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5707FD88255D469C002EC958 /* JWTHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHandlerTests.swift; sourceTree = "<group>"; };
 		5710C36E2460334900E52548 /* EnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTests.swift; sourceTree = "<group>"; };
 		571547662525FE79001E705A /* FingerprintFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintFetcherTests.swift; sourceTree = "<group>"; };
 		5715476F25260398001E705A /* MockWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebView.swift; sourceTree = "<group>"; };
@@ -378,6 +381,7 @@
 				578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */,
 				57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */,
 				571547662525FE79001E705A /* FingerprintFetcherTests.swift */,
+				5707FD88255D469C002EC958 /* JWTHandlerTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -831,8 +835,10 @@
 				574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */,
 				57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */,
 				57F14B4224C7065F008B7068 /* MockFingerprintFetcher.swift in Sources */,
+				5707FD89255D469C002EC958 /* JWTHandlerTests.swift in Sources */,
 				5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
 				57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */,
+				5707FD91255D5070002EC958 /* SecretConstants.swift in Sources */,
 				57E2472524C8526600BE4447 /* AdSupportableTests.swift in Sources */,
 				574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */,
 				57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */,
