@@ -8,13 +8,13 @@ PODS:
     - Logging (~> 1.1)
   - Logging (1.4.0)
   - RakutenAdvertisingAttribution (1.0.2):
-    - SwiftJWT
-  - Sourcery (1.0.0)
-  - SwiftJWT (3.5.3):
+    - SwiftJWT (~> 3.6.0)
+  - Sourcery (1.3.4)
+  - SwiftJWT (3.6.200):
     - BlueCryptor (~> 1.0)
     - BlueECC (~> 1.1)
     - BlueRSA (~> 1.0)
-    - KituraContracts (~> 1.1)
+    - KituraContracts (~> 1.2)
     - LoggerAPI (~> 1.7)
 
 DEPENDENCIES:
@@ -43,9 +43,9 @@ SPEC CHECKSUMS:
   KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
   LoggerAPI: ad9c4a6f1e32f518fdb43a1347ac14d765ab5e3d
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
-  RakutenAdvertisingAttribution: 037bc7c89bfd7be6084969f1bbe8f991edfb5a0c
-  Sourcery: 928a146ea9b777fa64b0c6ce915c4128b4488cff
-  SwiftJWT: 9a47a71090cae25767078756b5810e3b630aa9a7
+  RakutenAdvertisingAttribution: 7032befe1be0cc4a2574438f8554744472220d13
+  Sourcery: 1b5b0f816fbed6d0c7c066786fff4074e470e796
+  SwiftJWT: 88c412708f58c169d431d344c87bc79a87c830ae
 
 PODFILE CHECKSUM: 3cdf0a7bf39d0c7530648b764c9cd5a99f683f43
 
