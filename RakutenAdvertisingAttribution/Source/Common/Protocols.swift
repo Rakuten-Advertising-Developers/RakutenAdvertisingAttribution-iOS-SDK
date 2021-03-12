@@ -12,7 +12,7 @@ import Foundation
 /**
  A type that can receive result of sending events
  */
-public protocol EventSenderableDelegate: class {
+public protocol EventSenderableDelegate: AnyObject {
 
     /**
      Will be called in case of success event sending
@@ -33,7 +33,7 @@ public protocol EventSenderableDelegate: class {
  A type that can send various events via SDK
  */
 
-public protocol EventSenderable: class {
+public protocol EventSenderable: AnyObject {
 
     /// The object that acts as the event results delegate
     var delegate: EventSenderableDelegate? { get set }
@@ -48,7 +48,7 @@ public protocol EventSenderable: class {
 /**
  A type that can receive result of resolving links
  */
-public protocol LinkResolvableDelegate: class {
+public protocol LinkResolvableDelegate: AnyObject {
 
     /**
      Will be called in case of success link resolving
@@ -67,7 +67,7 @@ public protocol LinkResolvableDelegate: class {
 /**
  A type that can resolve links via SDK
  */
-public protocol LinkResolvable: class {
+public protocol LinkResolvable: AnyObject {
 
     /// The object that acts as the link resolver results delegate
     var delegate: LinkResolvableDelegate? { get set }
@@ -88,7 +88,7 @@ public protocol LinkResolvable: class {
 /**
  A type that can interact with logging activity
  */
-public protocol Loggable: class {
+public protocol Loggable: AnyObject {
 
     /// If `true` logging enabled, otherwise no
     var enabled: Bool { get set }
@@ -150,6 +150,6 @@ extension AdSupportable {
         guard isTrackingEnabled, let id = advertisingIdentifier else {
             return false
         }
-        return !id.hasPrefix("00000000") //avoid case 00000000-0000-0000-0000-000000000000
+        return !id.hasPrefix("00000000") // avoid case 00000000-0000-0000-0000-000000000000
     }
 }

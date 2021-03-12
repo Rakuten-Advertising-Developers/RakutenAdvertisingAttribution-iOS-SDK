@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RakutenAdvertisingAttribution
 
-protocol TableHandlerDelegate: class {
+protocol TableHandlerDelegate: AnyObject {
 
     func didSelect(tableAction: TableAction)
 }
