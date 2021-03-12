@@ -28,11 +28,11 @@ struct DeviceData: Codable {
     let idfa: String?
     let fingerprint: String?
 
-    //Start deprecated properties listing
+    // Start deprecated properties listing
     let deviceId: String?
     let hardwareType: HardwareType?
     let vendorID: String?
-    //End deprecated properties listing
+    // End deprecated properties listing
 
     enum CodingKeys: String, CodingKey {
         case os

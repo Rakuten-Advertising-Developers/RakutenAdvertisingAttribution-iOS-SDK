@@ -7,7 +7,7 @@ PODS:
   - LoggerAPI (1.9.200):
     - Logging (~> 1.1)
   - Logging (1.4.0)
-  - RakutenAdvertisingAttribution (1.0.1):
+  - RakutenAdvertisingAttribution (1.0.2):
     - SwiftJWT
   - Sourcery (1.0.0)
   - SwiftJWT (3.5.3):
@@ -43,10 +43,10 @@ SPEC CHECKSUMS:
   KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
   LoggerAPI: ad9c4a6f1e32f518fdb43a1347ac14d765ab5e3d
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
-  RakutenAdvertisingAttribution: 107c796f8818518cf860a811fac4bb29785b5545
+  RakutenAdvertisingAttribution: 037bc7c89bfd7be6084969f1bbe8f991edfb5a0c
   Sourcery: 928a146ea9b777fa64b0c6ce915c4128b4488cff
   SwiftJWT: 9a47a71090cae25767078756b5810e3b630aa9a7
 
 PODFILE CHECKSUM: 3cdf0a7bf39d0c7530648b764c9cd5a99f683f43
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

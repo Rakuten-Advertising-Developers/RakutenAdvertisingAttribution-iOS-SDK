@@ -31,7 +31,7 @@ class AttributionSDKHandler: NSObject {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
         let request = UNNotificationRequest(identifier: title, content: content, trigger: trigger)
 
-        //adding the notification to notification center
+        // adding the notification to notification center
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
