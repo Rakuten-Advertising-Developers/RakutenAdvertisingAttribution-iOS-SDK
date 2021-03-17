@@ -97,6 +97,8 @@
 		57FC5ABD243B78BA0048E34F /* FirstLaunchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */; };
 		57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */; };
 		57FC5AC2243B7E5B0048E34F /* OptionalsExtentionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */; };
+		57FFEB59260231EB00D11966 /* IDFAFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FFEB58260231EB00D11966 /* IDFAFetcher.swift */; };
+		57FFEB622602449800D11966 /* ResolveLinkRequestHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FFEB612602449800D11966 /* ResolveLinkRequestHandlerTests.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -178,6 +180,8 @@
 		57FC5ABC243B78BA0048E34F /* FirstLaunchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetectorTests.swift; sourceTree = "<group>"; };
 		57FC5ABE243B7ABA0048E34F /* URLExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensionsTests.swift; sourceTree = "<group>"; };
 		57FC5AC0243B7D2C0048E34F /* OptionalsExtentionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalsExtentionsTests.swift; sourceTree = "<group>"; };
+		57FFEB58260231EB00D11966 /* IDFAFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFAFetcher.swift; sourceTree = "<group>"; };
+		57FFEB612602449800D11966 /* ResolveLinkRequestHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveLinkRequestHandlerTests.swift; sourceTree = "<group>"; };
 		595484D9EE7280736E9024CF /* Pods-RADAttribution_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RADAttribution_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RADAttribution_Tests/Pods-RADAttribution_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RakutenAdvertisingAttribution_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RakutenAdvertisingAttribution_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 			children = (
 				5791F301246541D300658B5A /* TableHandler.swift */,
 				5791F30424654CF500658B5A /* AttributionSDKHandler.swift */,
+				57FFEB58260231EB00D11966 /* IDFAFetcher.swift */,
 			);
 			name = Helpers;
 			path = RakutenAdvertisingAttribution/Helpers;
@@ -371,6 +376,7 @@
 				578BA60B24C9A5FC00BE6945 /* AccessTokenTests.swift */,
 				575CF7312462A36B00F59612 /* SessionModifierTests.swift */,
 				575CF72D2462A11100F59612 /* LinkResolverTests.swift */,
+				57FFEB612602449800D11966 /* ResolveLinkRequestHandlerTests.swift */,
 				57F14B3B24C705F5008B7068 /* EventSenderTests.swift */,
 				57E2472424C8526600BE4447 /* AdSupportableTests.swift */,
 				57E2471E24C848EE00BE4447 /* UserDataBuilderTests.swift */,
@@ -792,6 +798,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				57FFEB59260231EB00D11966 /* IDFAFetcher.swift in Sources */,
 				5799739224583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				57E19AC224811ED800D7C407 /* SecretConstants.swift in Sources */,
 				5791F30324654A2F00658B5A /* TableHandler.swift in Sources */,
@@ -834,6 +841,7 @@
 				5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
 				57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */,
 				57E2472524C8526600BE4447 /* AdSupportableTests.swift in Sources */,
+				57FFEB622602449800D11966 /* ResolveLinkRequestHandlerTests.swift in Sources */,
 				574C11B3243F2CD600DC0E24 /* RemoteDataProviderTests.swift in Sources */,
 				57FC5ABF243B7ABA0048E34F /* URLExtensionsTests.swift in Sources */,
 				57752F792459CA500022F8B9 /* ApplicationLaunchOptionsHandlerTests.swift in Sources */,

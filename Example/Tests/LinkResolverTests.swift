@@ -13,8 +13,6 @@ import XCTest
 
 class LinkResolverTests: XCTestCase {
     
-    let validURLSchemeURL: URL = "RakutenAdvertisingAttribution://resolve?link_click_id=1234"
-    let invalidURLSchemeURL: URL = "app://open?key=value"
     let testWebURL: URL = "http://example.com"
 
     var sut: LinkResolver!
@@ -28,49 +26,19 @@ class LinkResolverTests: XCTestCase {
         
         sut = LinkResolver(sessionModifier: MockSessionModifier())
         sut.delegate = self
-        sut.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
-    }
-
-    func testIsFromURLSchemeValidScheme() {
-        
-        XCTAssertTrue(sut.isFromURLScheme(url: validURLSchemeURL))
-    }
-    
-    func testIsFromURLSchemeInvalidScheme() {
-        
-        XCTAssertFalse(sut.isFromURLScheme(url: invalidURLSchemeURL))
-    }
-    
-    func testIsFromURLSchemeWebURL() {
-        
-        XCTAssertFalse(sut.isFromURLScheme(url: testWebURL))
-    }
-    
-    func testIsFromURLSchemeValidSchemeAnotherBundle() {
-        
-         XCTAssertFalse(sut.isFromURLScheme(url: validURLSchemeURL, bundle: Bundle(for: LinkResolverTests.self)))
-    }
-    
-    func testLinkIdentifierWithValidScheme() {
-        
-        XCTAssertEqual(sut.linkIdentifier(from: validURLSchemeURL), "1234")
-    }
-    
-    func testLinkIdentifierWithInvalidScheme() {
-        
-        XCTAssertNil(sut.linkIdentifier(from: invalidURLSchemeURL))
-    }
-    
-    func testLinkIdentifierWithWebURL() {
-        
-        XCTAssertNil(sut.linkIdentifier(from: testWebURL))
     }
 
     func testURLLinkResolveRequestSuccess() {
 
         loadedExp = expectation(description: "Resolve success exp")
 
-        sut.session = MockURLSession(dataType: .resolveLink(response: .mock))
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
+            handler.adSupportable = MockAdSupportable()
+            return handler
+        }
         sut.resolve(url: testWebURL)
 
         wait(for: [loadedExp!], timeout: shortTimeoutInterval)
@@ -80,7 +48,13 @@ class LinkResolverTests: XCTestCase {
 
         failExp = expectation(description: "Resolve fail exp")
 
-        sut.session = MockURLSession(dataType: .error)
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .error)
+            handler.adSupportable = MockAdSupportable()
+            return handler
+        }
         sut.resolve(url: testWebURL)
 
         wait(for: [failExp!], timeout: shortTimeoutInterval)
@@ -94,12 +68,43 @@ class LinkResolverTests: XCTestCase {
             XCTFail("Wrong error type")
         }
     }
+    
+    func testURLLinkResolveRequestFailNoSonsent() {
+
+        failExp = expectation(description: "Resolve fail exp")
+
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .error)
+            handler.adSupportable = MockAdSupportable(isTrackingEnabled: false, advertisingIdentifier: nil)
+            return handler
+        }
+        sut.resolve(url: testWebURL)
+
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+
+        switch (lastError as! AttributionError) {
+        case .noUserConsent:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
+    }
 
     func testEmptyLinkResolveRequestSuccess() {
 
         loadedExp = expectation(description: "Resolve success exp")
 
-        sut.session = MockURLSession(dataType: .resolveLink(response: .mock))
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
+            handler.adSupportable = MockAdSupportable()
+            return handler
+        }
         sut.resolveEmptyLink()
 
         wait(for: [loadedExp!], timeout: shortTimeoutInterval)
@@ -109,7 +114,13 @@ class LinkResolverTests: XCTestCase {
 
         failExp = expectation(description: "Resolve fail exp")
 
-        sut.session = MockURLSession(dataType: .error)
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .error)
+            handler.adSupportable = MockAdSupportable()
+            return handler
+        }
         sut.resolveEmptyLink()
 
         wait(for: [failExp!], timeout: shortTimeoutInterval)
@@ -117,6 +128,30 @@ class LinkResolverTests: XCTestCase {
         XCTAssertNotNil(lastError as? AttributionError)
         switch (lastError as! AttributionError) {
         case .unableFetchData:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
+    }
+    
+    func testEmptyLinkResolveRequestFailNoConsent() {
+
+        failExp = expectation(description: "Resolve fail exp")
+
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .error)
+            handler.adSupportable = MockAdSupportable(isTrackingEnabled: false, advertisingIdentifier: nil)
+            return handler
+        }
+        sut.resolveEmptyLink()
+
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+        switch (lastError as! AttributionError) {
+        case .noUserConsent:
             break
         default:
             XCTFail("Wrong error type")
@@ -130,10 +165,43 @@ class LinkResolverTests: XCTestCase {
 
         loadedExp = expectation(description: "Resolve success exp")
 
-        sut.session = MockURLSession(dataType: .resolveLink(response: .mock))
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
+            handler.adSupportable = MockAdSupportable()
+            return handler
+        }
         sut.resolve(userActivity: userActivity)
 
         wait(for: [loadedExp!], timeout: shortTimeoutInterval)
+    }
+
+    func testUserActivityWithWebpageURLNoConsent() {
+
+        let userActivity = NSUserActivity(activityType: NSUserActivityTypeBrowsingWeb)
+        userActivity.webpageURL = testWebURL
+
+        failExp = expectation(description: "Resolve fail exp")
+
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
+            handler.adSupportable = MockAdSupportable(isTrackingEnabled: false, advertisingIdentifier: nil)
+            return handler
+        }
+        sut.resolve(userActivity: userActivity)
+
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+        switch (lastError as! AttributionError) {
+        case .noUserConsent:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
     }
 
     func testUserActivityWithoutWebpageURL() {
