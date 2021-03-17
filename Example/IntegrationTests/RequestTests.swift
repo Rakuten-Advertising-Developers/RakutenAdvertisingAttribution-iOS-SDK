@@ -37,7 +37,7 @@ class RequestTests: XCTestCase {
         RakutenAdvertisingAttribution.shared.eventSender.delegate = self
     }
 
-    func testResolveLink() {
+    func DISABLED_testResolveLink() {
 
         let testLink = URL(string: "http://click.linksynergy.com/fs-bin/click?id=lMh2Xiq9xN0&offerid=529995.10000015&type=3&subid=0")!
         RakutenAdvertisingAttribution.shared.linkResolver.resolve(url: testLink)

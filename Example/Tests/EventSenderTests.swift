@@ -23,7 +23,6 @@ class EventSenderTests: XCTestCase {
 
         sut = EventSender(sessionProvider: TokensStorage.shared)
         sut.delegate = self
-        sut.sendEventRequestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
     }
 
     func testSendEvent() {
@@ -31,8 +30,13 @@ class EventSenderTests: XCTestCase {
         sendExpectation = expectation(description: "Send exp")
 
         let event = Event(name: testEventName)
-        sut.session = MockURLSession(dataType: .sendEvent(response: .mock))
-
+        sut.requestHandlerAdapter = {
+            let handler = EventRequestHandler()
+            handler.session = MockURLSession(dataType: .sendEvent(response: .mock))
+            handler.adSupportable = MockAdSupportable()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            return handler
+        }
         sut.send(event: event)
         wait(for: [sendExpectation!], timeout: shortTimeoutInterval)
     }
@@ -42,7 +46,30 @@ class EventSenderTests: XCTestCase {
         failExpectation = expectation(description: "Fail exp")
 
         let event = Event(name: testEventName)
-        sut.session = MockURLSession(dataType: .error)
+        sut.requestHandlerAdapter = {
+            let handler = EventRequestHandler()
+            handler.session = MockURLSession(dataType: .error)
+            handler.adSupportable = MockAdSupportable()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            return handler
+        }
+
+        sut.send(event: event)
+        wait(for: [failExpectation!], timeout: shortTimeoutInterval)
+    }
+    
+    func testFailSendEventNoConsent() {
+
+        failExpectation = expectation(description: "Fail exp")
+
+        let event = Event(name: testEventName)
+        sut.requestHandlerAdapter = {
+            let handler = EventRequestHandler()
+            handler.session = MockURLSession(dataType: .error)
+            handler.adSupportable = MockAdSupportable()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            return handler
+        }
 
         sut.send(event: event)
         wait(for: [failExpectation!], timeout: shortTimeoutInterval)

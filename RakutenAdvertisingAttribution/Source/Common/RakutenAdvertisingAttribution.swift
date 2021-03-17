@@ -24,7 +24,7 @@ public class RakutenAdvertisingAttribution {
     /// instance of linkResolver type with the ability to resolve links
     public let linkResolver: LinkResolvable = LinkResolver()
     /// provide apps with access to an advertising info
-    public let adSupport: AdSupportable = AdSupportInfoProvider.shared
+    public let adSupport: AdSupportable = AdSupportInfoProvider()
 
     private var notificationCenter: NotificationCenter = .default
     private static var configuration: AttributionConfiguration = EmptyConfiguration.default

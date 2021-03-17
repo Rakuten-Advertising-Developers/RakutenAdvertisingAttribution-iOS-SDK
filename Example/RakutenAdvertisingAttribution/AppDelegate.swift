@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import RakutenAdvertisingAttribution
 import AdSupport
+import RakutenAdvertisingAttribution
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var attributionHandler: AttributionSDKHandler?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -56,7 +57,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         RakutenAdvertisingAttribution.setup(with: configuration)
         RakutenAdvertisingAttribution.shared.logger.enabled = !ProcessInfo.processInfo.isUnitTesting
-        RakutenAdvertisingAttribution.shared.linkResolver.delegate = AttributionSDKHandler.shared
-        RakutenAdvertisingAttribution.shared.eventSender.delegate = AttributionSDKHandler.shared
+        
+        let attributionHandler = AttributionSDKHandler()
+        
+        RakutenAdvertisingAttribution.shared.linkResolver.delegate = attributionHandler
+        RakutenAdvertisingAttribution.shared.eventSender.delegate = attributionHandler
+        
+        let adSupportable = MockAdSupportable()
+        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = adSupportable.isTrackingEnabled
+        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = adSupportable.advertisingIdentifier
+        
+        self.attributionHandler = attributionHandler
     }
 }

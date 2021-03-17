@@ -20,6 +20,24 @@ class ResolveLinkRequestHandler {
     var session: URLSessionProtocol = URLSession.shared
     var adSupportable: AdSupportable = RakutenAdvertisingAttribution.shared.adSupport
     
+    // MARK: Private
+    
+    private func sendResolveLink(request: ResolveLinkRequest,
+                                 targetQueue: DispatchQueue = DispatchQueue.global(),
+                                 completion: @escaping ResolveLinkRequestHandlerCompletion) {
+        
+        guard adSupportable.isValid else {
+            targetQueue.async {
+                completion(.failure(AttributionError.noUserConsent))
+            }
+            return
+        }
+        
+        let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
+        let dataProvider = RemoteDataProvider(with: endpoint, session: session)
+        dataProvider.receiveRemoteObject(targetQueue: targetQueue, completion: completion)
+    }
+    
     // MARK: Internal
     
     func isFromURLScheme(url: URL, bundle: Bundle = Bundle.main) -> Bool {
@@ -43,22 +61,6 @@ class ResolveLinkRequestHandler {
         
         let linkId = components.queryItems?.first(where: { return $0.name == "link_click_id" })?.value
         return linkId
-    }
-    
-    func sendResolveLink(request: ResolveLinkRequest,
-                         targetQueue: DispatchQueue = DispatchQueue.global(),
-                         completion: @escaping ResolveLinkRequestHandlerCompletion) {
-        
-        guard adSupportable.isValid else {
-            targetQueue.async {
-                completion(.failure(AttributionError.noUserConsent))
-            }
-            return
-        }
-        
-        let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
-        let dataProvider = RemoteDataProvider(with: endpoint, session: session)
-        dataProvider.receiveRemoteObject(targetQueue: targetQueue, completion: completion)
     }
     
     func resolve(url: URL,

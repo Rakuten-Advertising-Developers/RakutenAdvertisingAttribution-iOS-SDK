@@ -7,16 +7,14 @@
 //
 
 import Foundation
-import RakutenAdvertisingAttribution
 import UserNotifications
+import RakutenAdvertisingAttribution
 
 class AttributionSDKHandler: NSObject {
 
-    static let shared = AttributionSDKHandler()
-
     private let notificationCenter: UNUserNotificationCenter = .current()
 
-    private override init() {
+    override init() {
         super.init()
         self.notificationCenter.delegate = self
     }
@@ -51,6 +49,8 @@ extension AttributionSDKHandler: EventSenderableDelegate {
         showNotification(title: "Event Sender ❌",
                          subTitle: eventName,
                          body: error.localizedDescription)
+        
+        print(error)
     }
 }
 
@@ -75,6 +75,8 @@ extension AttributionSDKHandler: LinkResolvableDelegate {
         showNotification(title: "Resolve link ❌",
                          subTitle: "link: \(link)",
                          body: errorText)
+        
+        print(error)
     }
 }
 
