@@ -25,7 +25,7 @@ class DeviceDataBuilderTests: XCTestCase {
 
         let exp = expectation(description: "OS exp")
 
-        builder.buildDeviceData { data in
+        builder.buildDeviceData(adSupportable: MockAdSupportable()) { data in
 
             XCTAssertEqual(data.os, "iOS")
             exp.fulfill()
@@ -38,7 +38,7 @@ class DeviceDataBuilderTests: XCTestCase {
         let exp = expectation(description: "OS version exp")
 
         builder.osVersion = "test_iOS_version"
-        builder.buildDeviceData { data in
+        builder.buildDeviceData(adSupportable: MockAdSupportable()) { data in
 
             XCTAssertEqual(data.osVersion, "test_iOS_version")
             exp.fulfill()
@@ -51,7 +51,7 @@ class DeviceDataBuilderTests: XCTestCase {
         let exp = expectation(description: "Model exp")
 
         builder.model = "test_model"
-        builder.buildDeviceData { data in
+        builder.buildDeviceData(adSupportable: MockAdSupportable()) { data in
 
             XCTAssertEqual(data.model, "test_model")
             exp.fulfill()
@@ -64,7 +64,7 @@ class DeviceDataBuilderTests: XCTestCase {
         let exp = expectation(description: "Screen exp")
 
         builder.screenSize = CGSize(width: 1, height: 1)
-        builder.buildDeviceData { data in
+        builder.buildDeviceData(adSupportable: MockAdSupportable()) { data in
 
             XCTAssertEqual(data.screenWidth, 1)
             XCTAssertEqual(data.screenHeight, 1)
@@ -78,7 +78,7 @@ class DeviceDataBuilderTests: XCTestCase {
         let exp1 = expectation(description: "Simulator exp 1")
 
         builder.isSimulator = true
-        builder.buildDeviceData { data in
+        builder.buildDeviceData(adSupportable: MockAdSupportable()) { data in
 
             XCTAssertTrue(data.isSimulator)
             exp1.fulfill()
@@ -88,7 +88,7 @@ class DeviceDataBuilderTests: XCTestCase {
         let exp2 = expectation(description: "Simulator exp 2")
 
         builder.isSimulator = false
-        builder.buildDeviceData { data in
+        builder.buildDeviceData(adSupportable: MockAdSupportable()) { data in
 
             XCTAssertFalse(data.isSimulator)
             exp2.fulfill()

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: Internal
 
-protocol EmptyLinkResolvable: class {
+protocol EmptyLinkResolvable: AnyObject {
 
     func resolveEmptyLink()
 }
@@ -25,7 +25,7 @@ protocol SessionModifier {
     func modify(sessionId: String?)
 }
 
-protocol SessionProvider: class {
+protocol SessionProvider: AnyObject {
 
     var sessionID: String? { get }
 }

@@ -44,7 +44,7 @@ class RemoteDataProvider {
 
         let task = session.sessionDataTask(with: request) { (data, response, error) in
 
-            self.counter -= 1 //Also retain self
+            self.counter -= 1 // Also retain self
 
             let internalCompletion: RemoteDataCompletion = { result in
 

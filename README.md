@@ -166,7 +166,7 @@ import AdSupport
     import AppTrackingTransparency
 #endif
 
-typealias IDFAFetcherCompletion = ((Bool, UUID)->())
+typealias IDFAFetcherCompletion = ((Bool, UUID) -> Void)
 
 class IDFAFetcher {
 
@@ -174,7 +174,7 @@ class IDFAFetcher {
 
     static func startFetching(with completion: @escaping IDFAFetcherCompletion) {
 
-        let innerCompletion: ()->() = {
+        let innerCompletion: () -> Void = {
 
             let enabled: Bool
             if #available(iOS 14, *) {
@@ -191,7 +191,7 @@ class IDFAFetcher {
 
         if #available(iOS 14, *) {
             if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
-                ATTrackingManager.requestTrackingAuthorization { status in
+                ATTrackingManager.requestTrackingAuthorization { _ in
                     innerCompletion()
                 }
             } else {

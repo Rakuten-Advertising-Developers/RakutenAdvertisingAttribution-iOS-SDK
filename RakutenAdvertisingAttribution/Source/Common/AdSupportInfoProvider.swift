@@ -11,12 +11,10 @@ class AdSupportInfoProvider: AdSupportable {
 
     // MARK: Properties
 
-    static let shared = AdSupportInfoProvider()
-
     var isTrackingEnabled: Bool = false
     var advertisingIdentifier: String?
 
-    // MARK: Private
+    // MARK: Init
 
-    private init() {}
+    init() {}
 }

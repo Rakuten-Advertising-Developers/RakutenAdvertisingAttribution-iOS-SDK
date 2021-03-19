@@ -14,9 +14,9 @@ class SendEventRequestBuilder {
     var deviceDataBuilder: DeviceDataBuilder = DeviceDataBuilder()
     var userDataBuilder: UserDataBuilder = UserDataBuilder()
 
-    func buildEventRequest(event: Event, sessionId: String?, completion: @escaping SendEventRequestBuilderCompletion) {
+    func buildEventRequest(event: Event, sessionId: String?, adSupport: AdSupportable, completion: @escaping SendEventRequestBuilderCompletion) {
 
-        deviceDataBuilder.buildDeviceData { [weak self] deviceData in
+        deviceDataBuilder.buildDeviceData(adSupportable: adSupport) { [weak self] deviceData in
 
             guard let self = self else { return }
 

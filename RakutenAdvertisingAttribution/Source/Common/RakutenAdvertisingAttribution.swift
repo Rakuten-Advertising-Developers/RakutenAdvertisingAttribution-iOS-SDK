@@ -20,18 +20,14 @@ public class RakutenAdvertisingAttribution {
     /// instance of Loggable type with the ability to interact with logging behavior
     public var logger: Loggable = Logger.shared
     /// instance of EventSenderable type with the ability to send events
-    public var eventSender: EventSenderable
+    public let eventSender: EventSenderable = EventSender()
     /// instance of linkResolver type with the ability to resolve links
-    public var linkResolver: LinkResolvable
+    public let linkResolver: LinkResolvable = LinkResolver()
     /// provide apps with access to an advertising info
-    public var adSupport: AdSupportable = AdSupportInfoProvider.shared
+    public let adSupport: AdSupportable = AdSupportInfoProvider()
 
-    private let emptyLinkResolver: EmptyLinkResolvable
     private var notificationCenter: NotificationCenter = .default
-
     private static var configuration: AttributionConfiguration = EmptyConfiguration.default
-    private var _eventSender = EventSender()
-    private var _linkResolver = LinkResolver()
 
     // MARK: Static
 
@@ -52,13 +48,9 @@ public class RakutenAdvertisingAttribution {
 
     // MARK: Init
 
-    init() {
+    private init() {
 
         Self.checkConfiguration()
-
-        self.eventSender = _eventSender
-        self.linkResolver = _linkResolver
-        self.emptyLinkResolver = _linkResolver
 
         subscribeToNotifications()
     }
@@ -87,10 +79,11 @@ public class RakutenAdvertisingAttribution {
 
         unsubscribeFromNotifications()
 
-        guard Self.configuration.isManualAppLaunch else { return }
+        guard Self.configuration.isManualAppLaunch,
+              let resolver = linkResolver as? LinkResolver else { return }
 
         DispatchQueue.global().async {
-            self.emptyLinkResolver.resolveEmptyLink()
+            resolver.resolveEmptyLink()
         }
     }
 }

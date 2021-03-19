@@ -37,7 +37,7 @@ class DeviceDataBuilder {
         return deviceData
     }
 
-    func buildDeviceData(adSupportable: AdSupportable = RakutenAdvertisingAttribution.shared.adSupport,
+    func buildDeviceData(adSupportable: AdSupportable,
                          queue: DispatchQueue = DispatchQueue.global(),
                          completion: @escaping DeviceDataBuilderCompletion) {
 

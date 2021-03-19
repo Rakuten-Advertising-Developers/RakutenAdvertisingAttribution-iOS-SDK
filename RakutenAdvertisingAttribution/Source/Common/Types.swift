@@ -20,6 +20,8 @@ public enum AttributionError: Error {
     case backend(description: String)
     /// absence link in user activity object
     case noLinkInUserActivity
+    /// no user consent
+    case noUserConsent
 }
 
 extension AttributionError: LocalizedError {
@@ -34,6 +36,8 @@ extension AttributionError: LocalizedError {
             return description
         case .noLinkInUserActivity:
             return "No Link In User Activity"
+        case .noUserConsent:
+            return "No User Consent"
         }
     }
 }

@@ -27,6 +27,18 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         prepareDataSource()
         tableView.reloadData()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ask for IDFA",
+                                                            style: .done,
+                                                            target: self, action: #selector(requestTracking))
+    }
+
+    @objc func requestTracking() {
+
+        IDFAFetcher.startFetching {
+            RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
+            RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
+        }
     }
 
     func prepareDataSource() {

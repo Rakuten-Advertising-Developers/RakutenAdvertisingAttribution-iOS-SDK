@@ -5,6 +5,7 @@ excluded:
   - RakutenAdvertisingAttribution/Source/Models/SourceryGenerated
 disabled_rules:
   - superfluous_disable_command
+  - trailing_whitespace
 line_length: 
   warning: 150
   error: 250
