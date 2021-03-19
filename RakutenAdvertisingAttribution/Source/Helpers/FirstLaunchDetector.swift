@@ -21,8 +21,6 @@ final class FirstLaunchDetector {
 
     // MARK: Properties
 
-    static let `default`: FirstLaunchDetector = FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)
-
     var isFirstLaunch: Bool {
         return !wasLaunchedBefore
     }
@@ -40,7 +38,7 @@ final class FirstLaunchDetector {
         }
     }
 
-    private convenience init(userDefaults: UserDefaults, key: UserDefaultsKeys) {
+    convenience init(userDefaults: UserDefaults, key: UserDefaultsKeys) {
 
         self.init(getLaunchedAction: { userDefaults.bool(forKey: key.rawValue) },
                   setLaunchedAction: { userDefaults.set($0, forKey: key.rawValue) })

@@ -34,11 +34,21 @@ class ViewController: UIViewController {
     }
 
     @objc func requestTracking() {
-
+        
+        #if targetEnvironment(simulator)
+    
+        let adSupportable = MockAdSupportable()
+        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = adSupportable.isTrackingEnabled
+        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = adSupportable.advertisingIdentifier
+        
+        #else
+        
         IDFAFetcher.startFetching {
             RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
             RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
         }
+        
+        #endif
     }
 
     func prepareDataSource() {
