@@ -20,7 +20,7 @@ protocol LoggableNetworkMessage {
     func loggableMessage(request: URLRequest, data: Data?, response: URLResponse?, error: Error?) -> String
 }
 
-protocol SessionModifier {
+protocol SessionModifier: AnyObject {
 
     func modify(sessionId: String?)
 }
@@ -30,12 +30,12 @@ protocol SessionProvider: AnyObject {
     var sessionID: String? { get }
 }
 
-protocol AccessTokenProvider {
+protocol AccessTokenProvider: AnyObject {
 
     var token: String? { get }
 }
 
-protocol AccessTokenModifier {
+protocol AccessTokenModifier: AnyObject {
 
     func modify(token: String?)
 }

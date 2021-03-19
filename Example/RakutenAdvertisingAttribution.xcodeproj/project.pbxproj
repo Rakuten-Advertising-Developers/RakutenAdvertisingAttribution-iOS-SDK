@@ -90,6 +90,8 @@
 		57F14B3E24C70607008B7068 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3D24C70606008B7068 /* TestConstants.swift */; };
 		57F14B4124C7065F008B7068 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B3F24C7065F008B7068 /* MockData.swift */; };
 		57F14B4224C7065F008B7068 /* MockFingerprintFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */; };
+		57F341562604B770008A5EBE /* JWTHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F341552604B770008A5EBE /* JWTHandlerTests.swift */; };
+		57F341652604B79F008A5EBE /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC124811ED800D7C407 /* SecretConstants.swift */; };
 		57F3ECA52512267700CC27D0 /* FingerprintFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3ECA42512267700CC27D0 /* FingerprintFetcherTests.swift */; };
 		57F3ECA725122F4400CC27D0 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3ECA625122F4400CC27D0 /* RequestTests.swift */; };
 		57F3ECA82512306400CC27D0 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E19AC124811ED800D7C407 /* SecretConstants.swift */; };
@@ -173,6 +175,7 @@
 		57F14B3D24C70606008B7068 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		57F14B3F24C7065F008B7068 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		57F14B4024C7065F008B7068 /* MockFingerprintFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFingerprintFetcher.swift; sourceTree = "<group>"; };
+		57F341552604B770008A5EBE /* JWTHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTHandlerTests.swift; sourceTree = "<group>"; };
 		57F3EC9A2512256900CC27D0 /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3EC9E2512256900CC27D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57F3ECA42512267700CC27D0 /* FingerprintFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintFetcherTests.swift; sourceTree = "<group>"; };
@@ -385,6 +388,7 @@
 				578BA60F24C9A8C000BE6945 /* ResolveLinkRequestBuilderTests.swift */,
 				57B183A924CB13A900249DE7 /* FingerprintFetchableTests.swift */,
 				571547662525FE79001E705A /* FingerprintFetcherTests.swift */,
+				57F341552604B770008A5EBE /* JWTHandlerTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -835,11 +839,13 @@
 				5799739324583A1F007DA45E /* ProcessInfo+Extensions.swift in Sources */,
 				578BA60E24C9A6E000BE6945 /* MockAccessToken.swift in Sources */,
 				57F14B3E24C70607008B7068 /* TestConstants.swift in Sources */,
+				57F341562604B770008A5EBE /* JWTHandlerTests.swift in Sources */,
 				571547672525FE79001E705A /* FingerprintFetcherTests.swift in Sources */,
 				574C11BA243F313B00DC0E24 /* EndpointableTests.swift in Sources */,
 				574C11B1243F2BCF00DC0E24 /* MockURLSessionDataTask.swift in Sources */,
 				57752F6D24597CFF0022F8B9 /* MockBackendURLProvider.swift in Sources */,
 				57F14B4224C7065F008B7068 /* MockFingerprintFetcher.swift in Sources */,
+				57F341652604B79F008A5EBE /* SecretConstants.swift in Sources */,
 				5799738824582386007DA45E /* MockAttributionConfiguration.swift in Sources */,
 				57752F7B2459D9ED0022F8B9 /* ObfuscatorTests.swift in Sources */,
 				57E2472524C8526600BE4447 /* AdSupportableTests.swift in Sources */,
