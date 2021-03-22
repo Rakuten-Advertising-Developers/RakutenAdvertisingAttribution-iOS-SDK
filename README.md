@@ -171,21 +171,26 @@ typealias IDFAFetcherCompletion = ((Bool, UUID) -> Void)
 class IDFAFetcher {
 
     // MARK: Internal
+    
+    static func fetchIfAuthorized(completion: IDFAFetcherCompletion) {
+        
+        let enabled: Bool
+        if #available(iOS 14, *) {
+            enabled = ATTrackingManager.trackingAuthorizationStatus == .authorized
+        } else {
+            enabled = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
+        }
+        let identifier = ASIdentifierManager.shared().advertisingIdentifier
+        
+        completion(enabled, identifier)
+    }
 
-    static func startFetching(with completion: @escaping IDFAFetcherCompletion) {
+    static func requestTracking(receiveOn queue: DispatchQueue = DispatchQueue.main,
+                                completion: @escaping IDFAFetcherCompletion) {
 
         let innerCompletion: () -> Void = {
-
-            let enabled: Bool
-            if #available(iOS 14, *) {
-                enabled = ATTrackingManager.trackingAuthorizationStatus == .authorized
-            } else {
-                enabled = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
-            }
-            let identifier = ASIdentifierManager.shared().advertisingIdentifier
-
-            DispatchQueue.main.async {
-                completion(enabled, identifier)
+            queue.async {
+                fetchIfAuthorized(completion: completion)
             }
         }
 
@@ -204,10 +209,18 @@ class IDFAFetcher {
 }
 ```
 
-Then call it and pass parameters to SDK
+Then call it and pass parameters to SDK (ideally in AppDelegate during SDK initialization)
 
 ```swift
-IDFAFetcher.startFetching {
+IDFAFetcher.fetchIfAuthorized {
+    RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
+    RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
+}
+```
+
+Also, request for tracking is mandatory. Please ask the user at an appropriate time in your app (SDK will ignore all event until receive consent from user)
+```swift
+IDFAFetcher.requestTracking {
     RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
     RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
 }

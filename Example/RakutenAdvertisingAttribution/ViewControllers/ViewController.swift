@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         prepareDataSource()
         tableView.reloadData()
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ask for IDFA",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Request Tracking",
                                                             style: .done,
                                                             target: self, action: #selector(requestTracking))
     }
@@ -37,13 +37,12 @@ class ViewController: UIViewController {
         
         #if targetEnvironment(simulator)
     
-        let adSupportable = MockAdSupportable()
-        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = adSupportable.isTrackingEnabled
-        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = adSupportable.advertisingIdentifier
+        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = true
+        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = "some_test_identifier"
         
         #else
         
-        IDFAFetcher.startFetching {
+        IDFAFetcher.requestTracking {
             RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
             RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
         }
