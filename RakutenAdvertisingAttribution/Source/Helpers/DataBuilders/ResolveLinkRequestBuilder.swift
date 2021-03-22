@@ -17,10 +17,9 @@ class ResolveLinkRequestBuilder {
         return FirstLaunchDetector(userDefaults: .standard, key: .firstLaunch)
     }
     
-    
     func buildResolveRequest(url: URL,
                              linkId: String?,
-                             adSupportable: AdSupportable = RakutenAdvertisingAttribution.shared.adSupport,
+                             adSupportable: AdSupportable,
                              completion: @escaping ResolveLinkRequestBuilderCompletion) {
 
         let universalLink = linkId != nil ? "" : url.absoluteString
@@ -39,7 +38,7 @@ class ResolveLinkRequestBuilder {
         }
     }
 
-    func buildEmptyResolveLinkRequest(adSupportable: AdSupportable = RakutenAdvertisingAttribution.shared.adSupport,
+    func buildEmptyResolveLinkRequest(adSupportable: AdSupportable,
                                       completion: @escaping ResolveLinkRequestBuilderCompletion) {
 
         deviceDataBuilder.buildDeviceData(adSupportable: adSupportable) { [weak self] deviceData in

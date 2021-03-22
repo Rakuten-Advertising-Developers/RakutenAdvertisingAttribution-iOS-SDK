@@ -26,13 +26,6 @@ class ResolveLinkRequestHandler {
                                  targetQueue: DispatchQueue = DispatchQueue.global(),
                                  completion: @escaping ResolveLinkRequestHandlerCompletion) {
         
-        guard adSupportable.isValid else {
-            targetQueue.async {
-                completion(.failure(AttributionError.noUserConsent))
-            }
-            return
-        }
-        
         let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
         let dataProvider = RemoteDataProvider(with: endpoint, session: session)
         dataProvider.receiveRemoteObject(targetQueue: targetQueue, completion: completion)
@@ -76,7 +69,7 @@ class ResolveLinkRequestHandler {
         
         let linkId = linkIdentifier(from: url)
         
-        requestBuilder.buildResolveRequest(url: url, linkId: linkId) { request in
+        requestBuilder.buildResolveRequest(url: url, linkId: linkId, adSupportable: adSupportable) { request in
             self.sendResolveLink(request: request, targetQueue: targetQueue, completion: completion)
         }
     }

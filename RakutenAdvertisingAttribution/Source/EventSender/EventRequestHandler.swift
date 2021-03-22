@@ -21,13 +21,6 @@ class EventRequestHandler {
                          targetQueue: DispatchQueue = DispatchQueue.global(),
                          completion: @escaping DataTransformerCompletion<SendEventResponse>) {
         
-        guard adSupportable.isValid else {
-            targetQueue.async {
-                completion(.failure(AttributionError.noUserConsent))
-            }
-            return
-        }
-        
         let endpoint = SendEventEndpoint.sendEvent(request: request)
         let dataProvider = RemoteDataProvider(with: endpoint, session: session)
         dataProvider.receiveRemoteObject(targetQueue: targetQueue, completion: completion)

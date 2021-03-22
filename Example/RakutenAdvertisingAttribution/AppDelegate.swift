@@ -60,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let attributionHandler = AttributionSDKHandler()
         
+//        let adSupportable = MockAdSupportable()
+//        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = adSupportable.isTrackingEnabled
+//        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = adSupportable.advertisingIdentifier
+        
         RakutenAdvertisingAttribution.shared.linkResolver.delegate = attributionHandler
         RakutenAdvertisingAttribution.shared.eventSender.delegate = attributionHandler
         
