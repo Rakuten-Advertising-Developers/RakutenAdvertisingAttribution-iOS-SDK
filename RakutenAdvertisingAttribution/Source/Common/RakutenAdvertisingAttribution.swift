@@ -52,7 +52,10 @@ public class RakutenAdvertisingAttribution {
 
         Self.checkConfiguration()
 
-        subscribeToNotifications()
+        if let resolver = linkResolver as? LinkResolver {
+            resolver.handleAdSupportableStateChange = !Self.configuration.isManualAppLaunch
+        }
+//        subscribeToNotifications()
     }
 
     // MARK: Private

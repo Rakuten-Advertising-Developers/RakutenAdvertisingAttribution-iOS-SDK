@@ -36,9 +36,14 @@ class ViewController: UIViewController {
     @objc func requestTracking() {
         
         #if targetEnvironment(simulator)
-    
-        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = true
-        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = "some_test_identifier"
+        
+        if RakutenAdvertisingAttribution.shared.adSupport.isValid {
+            RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = false
+            RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = nil
+        } else {
+            RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = true
+            RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = "some_test_identifier"
+        }
         
         #else
         
