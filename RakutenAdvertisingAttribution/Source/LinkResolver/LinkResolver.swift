@@ -14,7 +14,7 @@ class LinkResolver {
     weak var delegate: LinkResolvableDelegate?
 
     let sessionModifier: SessionModifier
-    var handleAdSupportableStateChange: Bool = true
+    var isManualAppLaunch: Bool = true
     
     private(set) var adSupportableStateObserver: NotificationWrapper?
 
@@ -40,11 +40,12 @@ class LinkResolver {
     
     func handleChangeConsentState() {
         
-        guard handleAdSupportableStateChange else {
-            return
+        let requestHandler = requestHandlerAdapter()
+        
+        if !isManualAppLaunch && requestHandler.adSupportable.isValid {
+            return // waits for URL from reslve(url:)
         }
         
-        let requestHandler = requestHandlerAdapter()
         requestHandler.handleChangeConsentState { (result) in
             switch result {
             case .success(let response):
@@ -80,8 +81,6 @@ class LinkResolver {
 extension LinkResolver: LinkResolvable {
 
     func resolve(url: URL) {
-        
-        handleAdSupportableStateChange = true
 
         let requestHandler = requestHandlerAdapter()
         requestHandler.resolve(url: url) { (result) in
@@ -90,8 +89,6 @@ extension LinkResolver: LinkResolvable {
     }
 
     func resolve(userActivity: NSUserActivity) {
-        
-        handleAdSupportableStateChange = true
         
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
             let incomingURL = userActivity.webpageURL else {

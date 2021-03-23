@@ -27,7 +27,7 @@ class NotificationWrapper {
         self.notificationCenter = notificationCenter
         self.observer = notificationCenter.addObserver(forName: notificationName,
                                                              object: nil,
-                                                             queue: nil) { [weak self] notification in
+                                                             queue: nil) { [weak self] _ in
             self?.handler?()
         }
     }
