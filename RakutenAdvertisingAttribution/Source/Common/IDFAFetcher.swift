@@ -21,11 +21,17 @@ public class IDFAFetcher {
     public static func fetchIfAuthorized(completion: IDFAFetcherCompletion) {
         
         let enabled: Bool
-        if #available(iOS 14, *) {
-            enabled = ATTrackingManager.trackingAuthorizationStatus == .authorized
-        } else {
+        
+        #if canImport(AppTrackingTransparency)
+            if #available(iOS 14, *) {
+                enabled = ATTrackingManager.trackingAuthorizationStatus == .authorized
+            } else {
+                enabled = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
+            }
+        #else
             enabled = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
-        }
+        #endif
+        
         let identifier = ASIdentifierManager.shared().advertisingIdentifier
         
         completion(enabled, identifier)
@@ -40,16 +46,18 @@ public class IDFAFetcher {
             }
         }
         
-        if #available(iOS 14, *) {
-            if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
-                ATTrackingManager.requestTrackingAuthorization { _ in
+        #if canImport(AppTrackingTransparency)
+            if #available(iOS 14, *) {
+                if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+                    ATTrackingManager.requestTrackingAuthorization { _ in
+                        innerCompletion()
+                    }
+                } else {
                     innerCompletion()
                 }
-            } else {
-                innerCompletion()
             }
-        } else {
+        #else
             innerCompletion()
-        }
+        #endif
     }
 }

@@ -26,7 +26,6 @@ public class RakutenAdvertisingAttribution {
     /// provide apps with access to an advertising info
     public let adSupport: AdSupportable = AdSupportInfoProvider()
 
-    private var notificationCenter: NotificationCenter = .default
     private static var configuration: AttributionConfiguration = EmptyConfiguration.default
 
     // MARK: Static
@@ -54,39 +53,6 @@ public class RakutenAdvertisingAttribution {
 
         if let resolver = linkResolver as? LinkResolver {
             resolver.isManualAppLaunch = Self.configuration.isManualAppLaunch
-        }
-//        subscribeToNotifications()
-    }
-
-    // MARK: Private
-
-    private func subscribeToNotifications() {
-
-        notificationCenter.addObserver(self,
-                                       selector: #selector(didFinishLaunchingNotification),
-                                       name: UIApplication.didFinishLaunchingNotification,
-                                       object: nil)
-    }
-
-    private func unsubscribeFromNotifications() {
-
-        notificationCenter.removeObserver(self)
-    }
-
-    @objc private func didFinishLaunchingNotification() {
-
-        sendAppLaunchedEventIfNeeded()
-    }
-
-    private func sendAppLaunchedEventIfNeeded() {
-
-        unsubscribeFromNotifications()
-
-        guard Self.configuration.isManualAppLaunch,
-              let resolver = linkResolver as? LinkResolver else { return }
-
-        DispatchQueue.global().async {
-            resolver.resolveEmptyLink()
         }
     }
 }

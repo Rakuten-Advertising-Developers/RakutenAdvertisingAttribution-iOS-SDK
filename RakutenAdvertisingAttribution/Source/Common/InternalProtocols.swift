@@ -9,11 +9,6 @@ import Foundation
 
 // MARK: Internal
 
-protocol EmptyLinkResolvable: AnyObject {
-
-    func resolveEmptyLink()
-}
-
 protocol LoggableNetworkMessage {
 
     func loggableMessage(request: URLRequest) -> String

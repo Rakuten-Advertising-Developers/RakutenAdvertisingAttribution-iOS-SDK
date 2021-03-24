@@ -24,6 +24,7 @@ class NotificationWrapper {
     // MARK: Init
     
     init(notificationCenter: NotificationCenter = .default, notificationName: Notification.Name) {
+        
         self.notificationCenter = notificationCenter
         self.observer = notificationCenter.addObserver(forName: notificationName,
                                                              object: nil,

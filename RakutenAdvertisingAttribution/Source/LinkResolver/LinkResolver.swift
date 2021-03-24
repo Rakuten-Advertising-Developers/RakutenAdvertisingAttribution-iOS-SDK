@@ -43,7 +43,7 @@ class LinkResolver {
         let requestHandler = requestHandlerAdapter()
         
         if !isManualAppLaunch && requestHandler.adSupportable.isValid {
-            return // waits for URL from reslve(url:)
+            return
         }
         
         requestHandler.handleChangeConsentState { (result) in
@@ -51,9 +51,7 @@ class LinkResolver {
             case .success(let response):
                 self.sessionModifier.modify(sessionId: response.sessionId)
                 self.delegate?.didResolveLink(response: response)
-            case .failure(let error):
-                //delegate?.didFailedResolve(link: link, with: error)
-                print("\(error)")
+            case .failure:
                 break
             }
         }
@@ -98,15 +96,7 @@ extension LinkResolver: LinkResolvable {
         }
         resolve(url: incomingURL)
     }
-}
-
-extension LinkResolver: EmptyLinkResolvable {
-
-    func resolveEmptyLink() {
-
-//        let requestHandler = requestHandlerAdapter()
-//        requestHandler.resolveEmptyLink { (result) in
-//            self.handle(link: "", result: result)
-//        }
-    }
+    
+//    #warning("TEMP usage")
+//    func resolveEmptyLink() {}
 }
