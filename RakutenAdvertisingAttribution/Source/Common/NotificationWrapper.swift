@@ -7,11 +7,6 @@
 
 import Foundation
 
-extension Notification.Name {
-    
-    static let adSupportableStateNotificationName = Notification.Name("adSupportableStateNotificationName")
-}
-
 class NotificationWrapper {
     
     // MARK: Properties
@@ -23,7 +18,7 @@ class NotificationWrapper {
     
     // MARK: Init
     
-    init(notificationCenter: NotificationCenter = .default, notificationName: Notification.Name) {
+    init(_ notificationCenter: NotificationCenter = .default, _ notificationName: Notification.Name) {
         
         self.notificationCenter = notificationCenter
         self.observer = notificationCenter.addObserver(forName: notificationName,

@@ -27,7 +27,7 @@ class AdSupportInfoProvider: AdSupportable {
     private var _state: Bool = false {
         didSet {
             if oldValue != self._state {
-                notificationCenter.post(name: .adSupportableStateNotificationName,
+                notificationCenter.post(name: .adSupportableStateChangedNotification,
                                         object: nil)
             }
         }

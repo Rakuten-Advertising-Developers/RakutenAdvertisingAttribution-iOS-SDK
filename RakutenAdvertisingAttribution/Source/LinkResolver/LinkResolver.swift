@@ -29,8 +29,7 @@ class LinkResolver {
         self.configure()
     }
     
-    func configure(observerHelper: NotificationWrapper = NotificationWrapper(notificationCenter: .default,
-                                                                             notificationName: .adSupportableStateNotificationName)) {
+    func configure(observerHelper: NotificationWrapper = NotificationWrapper(.default, .adSupportableStateChangedNotification)) {
         
         self.adSupportableStateObserver = observerHelper
         self.adSupportableStateObserver?.handler = { [weak self] in

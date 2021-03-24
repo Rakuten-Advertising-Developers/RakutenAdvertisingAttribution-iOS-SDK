@@ -179,6 +179,52 @@ class LinkResolverTests: XCTestCase {
             XCTFail("Wrong error type")
         }
     }
+    
+    func testURLLinkResolveRequestSuccessDelayedConsent() {
+
+        failExp = expectation(description: "Resolve fail exp")
+
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
+            handler.adSupportable = MockAdSupportable(isTrackingEnabled: false, advertisingIdentifier: nil)
+            return handler
+        }
+        
+        let notificationCenter = NotificationCenter()
+        let wrapper = NotificationWrapper(notificationCenter, .adSupportableStateChangedNotification)
+        sut.configure(observerHelper: wrapper)
+        
+        sut.resolve(url: testWebURL)
+        
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+        switch (lastError as! AttributionError) {
+        case .noUserConsent:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
+
+        loadedExp = expectation(description: "Resolve success exp")
+        
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
+            handler.adSupportable = MockAdSupportable()
+            return handler
+        }
+        
+        DispatchQueue.global().async {
+            
+            notificationCenter.post(.init(name: .adSupportableStateChangedNotification))
+        }
+        
+        wait(for: [loadedExp!], timeout: shortTimeoutInterval)
+    }
 }
 
 extension LinkResolverTests: LinkResolvableDelegate {
