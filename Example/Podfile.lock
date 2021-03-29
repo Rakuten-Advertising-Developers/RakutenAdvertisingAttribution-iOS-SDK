@@ -43,7 +43,7 @@ SPEC CHECKSUMS:
   KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
   LoggerAPI: ad9c4a6f1e32f518fdb43a1347ac14d765ab5e3d
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
-  RakutenAdvertisingAttribution: 7032befe1be0cc4a2574438f8554744472220d13
+  RakutenAdvertisingAttribution: 2f47ca7e52d716203d602fdb77e19df319753452
   Sourcery: 1b5b0f816fbed6d0c7c066786fff4074e470e796
   SwiftJWT: 88c412708f58c169d431d344c87bc79a87c830ae
 
