@@ -14,24 +14,32 @@ typealias BundleDictionary = [String: Any]
 
 class ResolveLinkRequestHandler {
     
+    enum UserDefaultsKeys: String {
+
+        case recentURL = "com.rakuten.advertising.attribution.UserDefaults.key.recentURL"
+    }
+    
     // MARK: Properties
     
     var requestBuilder = ResolveLinkRequestBuilder()
     var session: URLSessionProtocol = URLSession.shared
     var adSupportable: AdSupportable = RakutenAdvertisingAttribution.shared.adSupport
+    var userDefaults: UserDefaults = .standard
+    
+    var recentURL: URL? {
+        get {
+            return userDefaults.url(forKey: UserDefaultsKeys.recentURL.rawValue)
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.recentURL.rawValue)
+        }
+    }
     
     // MARK: Private
     
     private func sendResolveLink(request: ResolveLinkRequest,
                                  targetQueue: DispatchQueue = DispatchQueue.global(),
                                  completion: @escaping ResolveLinkRequestHandlerCompletion) {
-        
-        guard adSupportable.isValid else {
-            targetQueue.async {
-                completion(.failure(AttributionError.noUserConsent))
-            }
-            return
-        }
         
         let endpoint = ResolveLinkEndpoint.resolveLink(request: request)
         let dataProvider = RemoteDataProvider(with: endpoint, session: session)
@@ -67,6 +75,8 @@ class ResolveLinkRequestHandler {
                  targetQueue: DispatchQueue = DispatchQueue.global(),
                  completion: @escaping ResolveLinkRequestHandlerCompletion) {
         
+        recentURL = url
+        
         guard adSupportable.isValid else {
             targetQueue.async {
                 completion(.failure(AttributionError.noUserConsent))
@@ -76,9 +86,11 @@ class ResolveLinkRequestHandler {
         
         let linkId = linkIdentifier(from: url)
         
-        requestBuilder.buildResolveRequest(url: url, linkId: linkId) { request in
+        requestBuilder.buildResolveRequest(url: url, linkId: linkId, adSupportable: adSupportable) { request in
             self.sendResolveLink(request: request, targetQueue: targetQueue, completion: completion)
         }
+        
+        recentURL = nil
     }
     
     func resolveEmptyLink(targetQueue: DispatchQueue = DispatchQueue.global(),
@@ -93,6 +105,23 @@ class ResolveLinkRequestHandler {
         
         requestBuilder.buildEmptyResolveLinkRequest(adSupportable: adSupportable) { request in
             self.sendResolveLink(request: request, targetQueue: targetQueue, completion: completion)
+        }
+    }
+    
+    func handleChangeConsentState(targetQueue: DispatchQueue = DispatchQueue.global(),
+                                  completion: @escaping ResolveLinkRequestHandlerCompletion) {
+  
+        guard adSupportable.isValid else {
+            targetQueue.async {
+                completion(.failure(AttributionError.noUserConsent))
+            }
+            return
+        }
+        
+        if let recentURL = recentURL {
+            resolve(url: recentURL, targetQueue: targetQueue, completion: completion)
+        } else {
+            resolveEmptyLink(targetQueue: targetQueue, completion: completion)
         }
     }
 }

@@ -38,7 +38,7 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
         let builder = ResolveLinkRequestBuilder()
         builder.deviceDataBuilder = DeviceDataBuilder.mock
         builder.userDataBuilder = UserDataBuilder.mock
-        builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
+        builder.firstLaunchDetectorAdapter = { return FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in}) }
 
         builder.buildEmptyResolveLinkRequest(adSupportable: MockAdSupportable()) { request in
 
@@ -65,7 +65,7 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
         let builder = ResolveLinkRequestBuilder()
         builder.deviceDataBuilder = DeviceDataBuilder.mock
         builder.userDataBuilder = UserDataBuilder.mock
-        builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
+        builder.firstLaunchDetectorAdapter = { return FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in}) }
 
         builder.buildEmptyResolveLinkRequest(adSupportable: MockAdSupportable.empty) { request in
 
@@ -92,7 +92,7 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
         let builder = ResolveLinkRequestBuilder()
         builder.deviceDataBuilder = DeviceDataBuilder.mock
         builder.userDataBuilder = UserDataBuilder.mock
-        builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
+        builder.firstLaunchDetectorAdapter = { return FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in}) }
 
         builder.buildResolveRequest(url: testURL,
                                     linkId: nil,
@@ -121,7 +121,7 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
         let builder = ResolveLinkRequestBuilder()
         builder.deviceDataBuilder = DeviceDataBuilder.mock
         builder.userDataBuilder = UserDataBuilder.mock
-        builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
+        builder.firstLaunchDetectorAdapter = { return FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in}) }
 
         builder.buildResolveRequest(url: testURL,
                                     linkId: "12345",
@@ -150,7 +150,7 @@ class ResolveLinkRequestBuilderTests: XCTestCase {
         let builder = ResolveLinkRequestBuilder()
         builder.deviceDataBuilder = DeviceDataBuilder.mock
         builder.userDataBuilder = UserDataBuilder.mock
-        builder.firstLaunchDetector = FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in})
+        builder.firstLaunchDetectorAdapter = { return FirstLaunchDetector(getLaunchedAction: { return true }, setLaunchedAction: { _ in}) }
 
         builder.buildResolveRequest(url: testURL,
                                     linkId: "12345",

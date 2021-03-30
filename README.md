@@ -84,6 +84,38 @@ Then pass it to SDK
 ```Swift
 RakutenAdvertisingAttribution.setup(with: configuration)
 ```
+#### User Consent
+
+According to [User Privacy and Data Use](https://developer.apple.com/app-store/user-privacy-and-data-use/) __SDK will ignore any events until user consent will be provided__. To do this you have to provide next parameters
+```swift
+RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = true
+RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = <IDFA_VALUE>
+```
+
+You can also retrive this value via `ASIdentifierManager` by yourself or using `IDFAFetcher` helper class which provided as part of SDK.
+
+`fetchIfAuthorized` checks current user's consent state and fetch values. It's common practise to call this function along with SDK configuration code and provide needed IDFA values as soon as possible.
+
+```swift
+IDFAFetcher.fetchIfAuthorized {
+    RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
+    RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
+}
+```
+
+In case you haven't ask user's consent previously, call `requestTracking` function to do this, at an appropriate time in your app (SDK will ignore all event until receive consent from user)
+
+```swift
+IDFAFetcher.requestTracking {
+    RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
+    RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
+}
+```
+> Don't forget to add to Info.plist tracking usage description information
+```xml
+<key>NSUserTrackingUsageDescription</key>
+<string>This identifier will be used to deliver personalized ads to you.</string>
+```
 
 #### Handling INSTALL and OPEN events along with deeplink data
 
@@ -145,71 +177,6 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
             RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
         }
     return true
-}
-```
-
-#### IDFA
-
-For improving user experience you can also provide advertising information. Starting from iOS 14 Apple made a couple of changes relating to receiving IDFA data. Here code sample which you can use, to retrieve this value for iOS14 and also for previous versions as well.
-
-> Don't forget to add to Info.plist tracking usage description information
-```xml
-<key>NSUserTrackingUsageDescription</key>
-<string>This identifier will be used to deliver personalized ads to you.</string>
-```
-
-```swift
-import Foundation
-import AdSupport
-
-#if canImport(AppTrackingTransparency)
-    import AppTrackingTransparency
-#endif
-
-typealias IDFAFetcherCompletion = ((Bool, UUID) -> Void)
-
-class IDFAFetcher {
-
-    // MARK: Internal
-
-    static func startFetching(with completion: @escaping IDFAFetcherCompletion) {
-
-        let innerCompletion: () -> Void = {
-
-            let enabled: Bool
-            if #available(iOS 14, *) {
-                enabled = ATTrackingManager.trackingAuthorizationStatus == .authorized
-            } else {
-                enabled = ASIdentifierManager.shared().isAdvertisingTrackingEnabled
-            }
-            let identifier = ASIdentifierManager.shared().advertisingIdentifier
-
-            DispatchQueue.main.async {
-                completion(enabled, identifier)
-            }
-        }
-
-        if #available(iOS 14, *) {
-            if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
-                ATTrackingManager.requestTrackingAuthorization { _ in
-                    innerCompletion()
-                }
-            } else {
-                innerCompletion()
-            }
-        } else {
-            innerCompletion()
-        }
-    }
-}
-```
-
-Then call it and pass parameters to SDK
-
-```swift
-IDFAFetcher.startFetching {
-    RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
-    RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
 }
 ```
 

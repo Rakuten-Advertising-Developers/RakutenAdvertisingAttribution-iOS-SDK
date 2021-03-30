@@ -28,17 +28,31 @@ class ViewController: UIViewController {
         prepareDataSource()
         tableView.reloadData()
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ask for IDFA",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Request Tracking",
                                                             style: .done,
                                                             target: self, action: #selector(requestTracking))
     }
 
     @objc func requestTracking() {
-
-        IDFAFetcher.startFetching {
+        
+        #if targetEnvironment(simulator)
+        
+        if RakutenAdvertisingAttribution.shared.adSupport.isValid {
+            RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = false
+            RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = nil
+        } else {
+            RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = true
+            RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = "some_test_identifier"
+        }
+        
+        #else
+        
+        IDFAFetcher.requestTracking {
             RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
             RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = $1.uuidString
         }
+        
+        #endif
     }
 
     func prepareDataSource() {

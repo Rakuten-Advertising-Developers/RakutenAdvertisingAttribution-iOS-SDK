@@ -14,6 +14,9 @@ class LinkResolver {
     weak var delegate: LinkResolvableDelegate?
 
     let sessionModifier: SessionModifier
+    var isManualAppLaunch: Bool = true
+    
+    private(set) var adSupportableStateObserver: NotificationWrapper?
 
     var requestHandlerAdapter: () -> (ResolveLinkRequestHandler) = {
         return ResolveLinkRequestHandler()
@@ -23,6 +26,34 @@ class LinkResolver {
 
     init(sessionModifier: SessionModifier = TokensStorage.shared) {
         self.sessionModifier = sessionModifier
+        self.configure()
+    }
+    
+    func configure(observerHelper: NotificationWrapper = NotificationWrapper(.default, .adSupportableStateChangedNotification)) {
+        
+        self.adSupportableStateObserver = observerHelper
+        self.adSupportableStateObserver?.handler = { [weak self] in
+            self?.handleChangeConsentState()
+        }
+    }
+    
+    func handleChangeConsentState() {
+        
+        let requestHandler = requestHandlerAdapter()
+        
+        if !isManualAppLaunch && requestHandler.adSupportable.isValid {
+            return
+        }
+        
+        requestHandler.handleChangeConsentState { (result) in
+            switch result {
+            case .success(let response):
+                self.sessionModifier.modify(sessionId: response.sessionId)
+                self.delegate?.didResolveLink(response: response)
+            case .failure:
+                break
+            }
+        }
     }
 
     func sendNoUserActivityLinkError(targetQueue: DispatchQueue = DispatchQueue.global()) {
@@ -55,7 +86,7 @@ extension LinkResolver: LinkResolvable {
     }
 
     func resolve(userActivity: NSUserActivity) {
-
+        
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
             let incomingURL = userActivity.webpageURL else {
 
@@ -63,16 +94,5 @@ extension LinkResolver: LinkResolvable {
             return
         }
         resolve(url: incomingURL)
-    }
-}
-
-extension LinkResolver: EmptyLinkResolvable {
-
-    func resolveEmptyLink() {
-
-        let requestHandler = requestHandlerAdapter()
-        requestHandler.resolveEmptyLink { (result) in
-            self.handle(link: "", result: result)
-        }
     }
 }

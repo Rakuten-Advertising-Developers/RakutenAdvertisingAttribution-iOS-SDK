@@ -21,22 +21,16 @@ class FingerprintFetcher: NSObject {
     private(set) var fingerprintValue: String?
     private(set) var timeoutWorkItem: DispatchWorkItem?
 
-    private(set) var queue = DispatchQueue.main
-
     override init() {
         super.init()
     }
 
-    var webViewConfiguration: WKWebViewConfiguration {
+    func configureWebView() {
 
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.add(self, name: jsPostMessageName)
-        return configuration
-    }
-
-    func configureWebView() {
-
-        webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
+        
+        webView = WKWebView(frame: .zero, configuration: configuration)
     }
 
     func executeRequest() {
@@ -44,7 +38,6 @@ class FingerprintFetcher: NSObject {
         guard let url = URL(string: urlString) else {
             return
         }
-
         var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringCacheData
         webView?.load(request)
@@ -53,18 +46,21 @@ class FingerprintFetcher: NSObject {
 
     func scheduleTimeout() {
 
-        let item = DispatchWorkItem(block: { [weak self] in
-            self?.apply(fingerprint: nil)
+        let item = DispatchWorkItem(block: {
+            self.apply(fingerprint: nil)
         })
         timeoutWorkItem?.cancel()
         timeoutWorkItem = item
-        queue.asyncAfter(deadline: .now() + timeout, execute: item)
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeout, execute: item)
     }
 
     func apply(fingerprint: String?) {
 
         fingerprintValue = fingerprint
+        
         innerCompletion?(fingerprintValue)
+        innerCompletion = nil
+        
         webView = nil
 
         timeoutWorkItem?.cancel()
@@ -77,7 +73,9 @@ extension FingerprintFetcher: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
 
         guard let fingerprint = message.body as? String else { return }
-        apply(fingerprint: fingerprint)
+        DispatchQueue.main.async {
+            self.apply(fingerprint: fingerprint)
+        }
     }
 }
 
@@ -85,14 +83,14 @@ extension FingerprintFetcher: FingerprintFetchable {
 
     func fetchFingerprint(completion: @escaping FingerprintCompletion) {
 
-        queue.async { [weak self] in
+        DispatchQueue.main.async {
 
-            if let fingerprint = self?.fingerprintValue {
+            if let fingerprint = self.fingerprintValue {
                 completion(fingerprint)
             } else {
-                self?.innerCompletion = completion
-                self?.configureWebView()
-                self?.executeRequest()
+                self.innerCompletion = completion
+                self.configureWebView()
+                self.executeRequest()
             }
         }
     }

@@ -38,4 +38,38 @@ class AdSupportableTests: XCTestCase {
         sut.advertisingIdentifier = "00000000-0000-0000-0000-000000000000"
         XCTAssertFalse(sut.isValid)
     }
+    
+    func testNotificationFiring() {
+        
+        let notificationCenter = NotificationCenter()
+        
+        let sut = AdSupportInfoProvider()
+        sut.notificationCenter = notificationCenter
+        
+        let exp = expectation(description: "notification exp")
+        exp.expectedFulfillmentCount = 3
+        
+        notificationCenter.addObserver(forName: .adSupportableStateChangedNotification,
+                                       object: nil,
+                                       queue: nil,
+                                       using: { notification in
+                                            if notification.name == .adSupportableStateChangedNotification {
+                                                exp.fulfill()
+                                            }
+                                       })
+        
+        DispatchQueue.global().async {
+            
+            sut.isTrackingEnabled = true
+            sut.advertisingIdentifier = "test" // 1
+            
+            sut.isTrackingEnabled = false // 2
+            sut.advertisingIdentifier = nil
+            
+            sut.isTrackingEnabled = true
+            sut.advertisingIdentifier = "test" // 3
+        }
+        
+        wait(for: [exp], timeout: longTimeoutInterval)
+    }
 }

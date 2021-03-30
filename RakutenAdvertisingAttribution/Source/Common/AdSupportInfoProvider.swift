@@ -10,10 +10,29 @@ import Foundation
 class AdSupportInfoProvider: AdSupportable {
 
     // MARK: Properties
+    
+    var notificationCenter: NotificationCenter = .default
 
-    var isTrackingEnabled: Bool = false
-    var advertisingIdentifier: String?
+    var isTrackingEnabled: Bool = false {
+        didSet {
+            _state = isValid
+        }
+    }
+    var advertisingIdentifier: String? {
+        didSet {
+            _state = isValid
+        }
+    }
 
+    private var _state: Bool = false {
+        didSet {
+            if oldValue != self._state {
+                notificationCenter.post(name: .adSupportableStateChangedNotification,
+                                        object: nil)
+            }
+        }
+    }
+    
     // MARK: Init
 
     init() {}

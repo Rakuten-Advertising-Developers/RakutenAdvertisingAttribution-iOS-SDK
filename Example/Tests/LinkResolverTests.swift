@@ -94,70 +94,6 @@ class LinkResolverTests: XCTestCase {
         }
     }
 
-    func testEmptyLinkResolveRequestSuccess() {
-
-        loadedExp = expectation(description: "Resolve success exp")
-
-        sut.requestHandlerAdapter = {
-            let handler = ResolveLinkRequestHandler()
-            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
-            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
-            handler.adSupportable = MockAdSupportable()
-            return handler
-        }
-        sut.resolveEmptyLink()
-
-        wait(for: [loadedExp!], timeout: shortTimeoutInterval)
-    }
-
-    func testEmptyLinkResolveRequestFail() {
-
-        failExp = expectation(description: "Resolve fail exp")
-
-        sut.requestHandlerAdapter = {
-            let handler = ResolveLinkRequestHandler()
-            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
-            handler.session = MockURLSession(dataType: .error)
-            handler.adSupportable = MockAdSupportable()
-            return handler
-        }
-        sut.resolveEmptyLink()
-
-        wait(for: [failExp!], timeout: shortTimeoutInterval)
-
-        XCTAssertNotNil(lastError as? AttributionError)
-        switch (lastError as! AttributionError) {
-        case .unableFetchData:
-            break
-        default:
-            XCTFail("Wrong error type")
-        }
-    }
-    
-    func testEmptyLinkResolveRequestFailNoConsent() {
-
-        failExp = expectation(description: "Resolve fail exp")
-
-        sut.requestHandlerAdapter = {
-            let handler = ResolveLinkRequestHandler()
-            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
-            handler.session = MockURLSession(dataType: .error)
-            handler.adSupportable = MockAdSupportable(isTrackingEnabled: false, advertisingIdentifier: nil)
-            return handler
-        }
-        sut.resolveEmptyLink()
-
-        wait(for: [failExp!], timeout: shortTimeoutInterval)
-
-        XCTAssertNotNil(lastError as? AttributionError)
-        switch (lastError as! AttributionError) {
-        case .noUserConsent:
-            break
-        default:
-            XCTFail("Wrong error type")
-        }
-    }
-
     func testUserActivityWithWebpageURL() {
 
         let userActivity = NSUserActivity(activityType: NSUserActivityTypeBrowsingWeb)
@@ -242,6 +178,49 @@ class LinkResolverTests: XCTestCase {
         default:
             XCTFail("Wrong error type")
         }
+    }
+    
+    func testURLLinkResolveRequestSuccessDelayedConsent() {
+
+        failExp = expectation(description: "Resolve fail exp")
+        
+        let notificationCenter = NotificationCenter()
+        
+        let adSupport = AdSupportInfoProvider()
+        adSupport.notificationCenter = notificationCenter
+        adSupport.isTrackingEnabled = false
+        adSupport.advertisingIdentifier = "test"
+        
+        sut.requestHandlerAdapter = {
+            let handler = ResolveLinkRequestHandler()
+            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
+            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
+            handler.adSupportable = adSupport
+            return handler
+        }
+        
+        sut.configure(observerHelper: NotificationWrapper(notificationCenter, .adSupportableStateChangedNotification))
+        
+        sut.resolve(url: testWebURL)
+        
+        wait(for: [failExp!], timeout: shortTimeoutInterval)
+
+        XCTAssertNotNil(lastError as? AttributionError)
+        switch (lastError as! AttributionError) {
+        case .noUserConsent:
+            break
+        default:
+            XCTFail("Wrong error type")
+        }
+
+        loadedExp = expectation(description: "Resolve success exp")
+        
+        DispatchQueue.global().async {
+            
+            adSupport.isTrackingEnabled = true
+        }
+        
+        wait(for: [loadedExp!], timeout: longTimeoutInterval)
     }
 }
 
