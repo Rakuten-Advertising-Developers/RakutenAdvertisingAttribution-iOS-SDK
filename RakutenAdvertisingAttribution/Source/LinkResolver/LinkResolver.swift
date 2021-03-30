@@ -95,7 +95,4 @@ extension LinkResolver: LinkResolvable {
         }
         resolve(url: incomingURL)
     }
-    
-//    #warning("TEMP usage")
-//    func resolveEmptyLink() {}
 }

@@ -183,18 +183,17 @@ class LinkResolverTests: XCTestCase {
     func testURLLinkResolveRequestSuccessDelayedConsent() {
 
         failExp = expectation(description: "Resolve fail exp")
-
+        
+        let adSupport = AdSupportInfoProvider()
+        adSupport.isTrackingEnabled = false
+        
         sut.requestHandlerAdapter = {
             let handler = ResolveLinkRequestHandler()
             handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
             handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
-            handler.adSupportable = MockAdSupportable(isTrackingEnabled: false, advertisingIdentifier: nil)
+            handler.adSupportable = adSupport
             return handler
         }
-        
-        let notificationCenter = NotificationCenter()
-        let wrapper = NotificationWrapper(notificationCenter, .adSupportableStateChangedNotification)
-        sut.configure(observerHelper: wrapper)
         
         sut.resolve(url: testWebURL)
         
@@ -210,20 +209,13 @@ class LinkResolverTests: XCTestCase {
 
         loadedExp = expectation(description: "Resolve success exp")
         
-        sut.requestHandlerAdapter = {
-            let handler = ResolveLinkRequestHandler()
-            handler.requestBuilder.deviceDataBuilder.fingerprintFetchable = MockFingerprintFetcher(fingerprint: "123")
-            handler.session = MockURLSession(dataType: .resolveLink(response: .mock))
-            handler.adSupportable = MockAdSupportable()
-            return handler
-        }
-        
         DispatchQueue.global().async {
             
-            notificationCenter.post(.init(name: .adSupportableStateChangedNotification))
+            adSupport.advertisingIdentifier = "test"
+            adSupport.isTrackingEnabled = true
         }
         
-        wait(for: [loadedExp!], timeout: shortTimeoutInterval)
+        wait(for: [loadedExp!], timeout: longTimeoutInterval)
     }
 }
 
