@@ -184,8 +184,12 @@ class LinkResolverTests: XCTestCase {
 
         failExp = expectation(description: "Resolve fail exp")
         
+        let notificationCenter = NotificationCenter()
+        
         let adSupport = AdSupportInfoProvider()
+        adSupport.notificationCenter = notificationCenter
         adSupport.isTrackingEnabled = false
+        adSupport.advertisingIdentifier = "test"
         
         sut.requestHandlerAdapter = {
             let handler = ResolveLinkRequestHandler()
@@ -194,6 +198,8 @@ class LinkResolverTests: XCTestCase {
             handler.adSupportable = adSupport
             return handler
         }
+        
+        sut.configure(observerHelper: NotificationWrapper(notificationCenter, .adSupportableStateChangedNotification))
         
         sut.resolve(url: testWebURL)
         
@@ -211,7 +217,6 @@ class LinkResolverTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            adSupport.advertisingIdentifier = "test"
             adSupport.isTrackingEnabled = true
         }
         
