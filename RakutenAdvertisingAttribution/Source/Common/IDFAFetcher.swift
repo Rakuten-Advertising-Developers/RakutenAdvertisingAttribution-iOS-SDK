@@ -12,12 +12,16 @@ import AdSupport
     import AppTrackingTransparency
 #endif
 
+/// IDFA Fetcher Completion Type
 public typealias IDFAFetcherCompletion = ((Bool, UUID) -> Void)
 
+/// Helper class, which provides a convenient way to request or retrieve IDFA value.
 public class IDFAFetcher {
     
-    // MARK: Internal
+    // MARK: Public
     
+    /// Checks current user's consent state and fetch values
+    /// - Parameter completion: closure with results
     public static func fetchIfAuthorized(completion: IDFAFetcherCompletion) {
         
         let enabled: Bool
@@ -37,6 +41,10 @@ public class IDFAFetcher {
         completion(enabled, identifier)
     }
     
+    /// Asks user's consent for tracking
+    /// - Parameters:
+    ///   - queue: queue to dispatch results
+    ///   - completion: closure with results
     public static func requestTracking(receiveOn queue: DispatchQueue = DispatchQueue.main,
                                        completion: @escaping IDFAFetcherCompletion) {
         
