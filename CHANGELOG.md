@@ -6,7 +6,7 @@ Released on .
 
 #### Added
 
-- TBA
+- Add `launchType` enum field in `ResolveLinkResponse` struct [#41](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/pull/41)
 #### Changed
 - SDK behavior [#38](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/pull/38)
 
