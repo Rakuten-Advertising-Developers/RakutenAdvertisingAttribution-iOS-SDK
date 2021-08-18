@@ -15,7 +15,7 @@ struct Environment: Codable {
 
     static var `default`: Environment {
 
-        return Environment(sdkVersion: "1.0.2",
+        return Environment(sdkVersion: "2.0.0",
                            backendInfo: BackendInfo.defaultConfiguration,
                            claims: EnvironmentClaims(iss: "attribution-sdk",
                                                      sub: "attribution-sdk",
