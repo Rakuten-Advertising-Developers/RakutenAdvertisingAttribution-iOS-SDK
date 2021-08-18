@@ -25,7 +25,8 @@ extension ResolveLinkResponse {
                                    link: testURL.absoluteString,
                                    deviceFingerprintId: "mock",
                                    clickTimestamp: 0,
-                                   data: nil)
+                                   data: nil,
+                                   launchType: .organic)
     }
 }
 

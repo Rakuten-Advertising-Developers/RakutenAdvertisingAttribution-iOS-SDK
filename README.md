@@ -103,7 +103,7 @@ IDFAFetcher.fetchIfAuthorized {
 }
 ```
 
-In case you haven't ask user's consent previously, call `requestTracking` function to do this, at an appropriate time in your app (SDK will ignore all event until receive consent from user)
+In case you haven't ask user's consent previously, call `requestTracking` function to do this, at an appropriate time in your app (SDK will ignore all events until receive consent from user)
 
 ```swift
 IDFAFetcher.requestTracking {
@@ -137,33 +137,44 @@ func application(_ application: UIApplication,
     return true
 }
 ```
-Optionally you can use `delegate` property of `linkResolver`, to handle deeplink data from the response
-```swift
-let vc = ViewController()
-RakutenAdvertisingAttribution.shared.linkResolver.delegate = viewController
-navigationController?.pushViewController(vc, animated: true)
-```
+Optionally you can use `delegate` property of `linkResolver`, to handle data from the [response](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/Structs/ResolveLinkResponse.html)
 
-In that case, you must confirm `LinkResolvableDelegate` in the place where you would like to handle response. Check [ResolveLinkResponse](https://rakuten-advertising-developers.github.io/RakutenAdvertisingAttribution-iOS-SDK-API-References/Structs/ResolveLinkResponse.html) struct documentation for details
 ```swift
-extension ViewController: LinkResolvableDelegate {
+class LinkResolveHandler {
+    ...
+}
+
+extension LinkResolveHandler: LinkResolvableDelegate {
     
     func didResolveLink(response: ResolveLinkResponse) {
-        DispatchQueue.main.async { [weak self] in
-            //success handle deeplink data response
+        
+        DispatchQueue.main.async {
+            // handle response
         }
     }
     
     func didFailedResolve(link: String, with error: Error) {
-        DispatchQueue.main.async { [weak self] in
-            //error case handling
+        
+        DispatchQueue.main.async {
+            // error case handling
         }
     }
 }
+
+...
+
+var handler = LinkResolveHandler()
+
+...
+
+RakutenAdvertisingAttribution.shared.linkResolver.delegate = handler
+
 ```
+
 When the app launches for the first time after installation, the resolve() method flags the session as the first session and our attribution server records the event as an INSTALL.
 
 > **Important:** When `resolve()` is called, our attribution server will attempt to attribute the event to an affiliate link referral. Please follow your business requirement on when to call `resolve()`.  Any excluding logic is the individual developer’s responsibility; however, we have included the following sample code to illustrate how to call `resolve()` for specific traffic.
+
 ```swift
 func shouldIgnoreLinkResolver(userActivity: NSUserActivity) -> Bool {
     guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
@@ -172,6 +183,7 @@ func shouldIgnoreLinkResolver(userActivity: NSUserActivity) -> Bool {
     let excludedDomains: Set<String> = ["example.com", "excluded.com"]
     return excludedDomains.contains(host)
 }
+
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
     if !shouldIgnoreLinkResolver(userActivity: userActivity) {
             RakutenAdvertisingAttribution.shared.linkResolver.resolve(userActivity: userActivity)
@@ -210,27 +222,37 @@ RakutenAdvertisingAttribution.shared.eventSender.send(event: event)
 ```
 
 Similarly, you can use `delegate` property of `eventSender`, to track status of sending events
+
 ```swift
-let vc = ViewController()
-RakutenAdvertisingAttribution.shared.eventSender.delegate = viewController
-navigationController?.pushViewController(vc, animated: true)
-```
-Confirm to `EventSenderableDelegate` in a place where you would like to receive status
-```swift
-extension ViewController: EventSenderableDelegate {
+class EventSenderHandler {
+    ...
+}
+
+extension EventSenderHandler: EventSenderableDelegate {
     
     func didSend(eventName: String, resultMessage: String) {
-        DispatchQueue.main.async { [weak self] in
-            //success case handling
+        
+        DispatchQueue.main.async {
+            // handle result
         }
     }
     
     func didFailedSend(eventName: String, with error: Error) {
-        DispatchQueue.main.async { [weak self] in
-            //error case handling
+        
+        DispatchQueue.main.async {
+            // error case handling
         }
     }
 }
+
+...
+
+var handler = EventSenderHandler()
+
+...
+
+RakutenAdvertisingAttribution.shared.eventSender.delegate = handler
+
 ```
 #### Debugging
 For debugging enable the logger as below:

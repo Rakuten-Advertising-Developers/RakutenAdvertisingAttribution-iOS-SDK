@@ -65,9 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.attributionHandler = attributionHandler
         
-//        let adSupportable = MockAdSupportable()
-//        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = adSupportable.isTrackingEnabled
-//        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = adSupportable.advertisingIdentifier
+        let adSupportable = MockAdSupportable()
+        RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = adSupportable.isTrackingEnabled
+        RakutenAdvertisingAttribution.shared.adSupport.advertisingIdentifier = adSupportable.advertisingIdentifier
         
         IDFAFetcher.fetchIfAuthorized {
             RakutenAdvertisingAttribution.shared.adSupport.isTrackingEnabled = $0
