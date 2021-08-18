@@ -1,6 +1,18 @@
 # Changelog
 
 ---
+## [2.0.0](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/releases/tag/2.0.0)
+Released on .
+
+#### Added
+
+- TBA
+#### Changed
+- SDK behavior [#38](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/pull/38)
+
+#### Fixed
+
+- Duplicate install events [#39](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/pull/39)
 
 ## [1.0.2](https://github.com/Rakuten-Advertising-Developers/RakutenAdvertisingAttribution-iOS-SDK/releases/tag/1.0.2)
 Released on 2020-11-05.

@@ -174,6 +174,7 @@ RakutenAdvertisingAttribution.shared.linkResolver.delegate = handler
 When the app launches for the first time after installation, the resolve() method flags the session as the first session and our attribution server records the event as an INSTALL.
 
 > **Important:** When `resolve()` is called, our attribution server will attempt to attribute the event to an affiliate link referral. Please follow your business requirement on when to call `resolve()`.  Any excluding logic is the individual developer’s responsibility; however, we have included the following sample code to illustrate how to call `resolve()` for specific traffic.
+
 ```swift
 func shouldIgnoreLinkResolver(userActivity: NSUserActivity) -> Bool {
     guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
